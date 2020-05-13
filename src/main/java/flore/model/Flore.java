@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -41,6 +42,9 @@ public class Flore {
 	private List<Favoris>favoris = new ArrayList<Favoris>();
 	@ManyToMany (mappedBy = "flores")
 	private List<Jardin>jardins = new ArrayList<Jardin>();
+	
+	@Autowired
+	private IReferentielCaracteristiqueRepository referentielCaracteristiqueDao;
 	
 	
 	public Flore() {
@@ -127,8 +131,7 @@ public class Flore {
 	}
 	
 	
-	public ReferentielCaracteristique addCaracteristiqueAvecRef (Caracteristique carac, ClassPathXmlApplicationContext context) {
-		IReferentielCaracteristiqueRepository referentielCaracteristiqueDao = context.getBean(IReferentielCaracteristiqueRepository.class);
+	public ReferentielCaracteristique addCaracteristiqueAvecRef (Caracteristique carac) {
 		ReferentielCaracteristique refcarac = new ReferentielCaracteristique();
 		refcarac.setFlore(this);
 		refcarac.setCaracteristique(carac);
