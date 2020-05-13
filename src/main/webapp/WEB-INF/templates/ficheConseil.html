@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/accueil.css}" />
+<title>Fiche Conseil</title>
+</head>
+<body>
+	<section layout:fragment="monContenu">
+		<div class="w3-sidebar w3-light-grey w3-bar-block w3-center" style="width:5%;height: 6%;border:2px solid black">
+		<span style="font-size: 36px">
+			<i class="fas fa-search"></i></span>
+		</div>
+		<div style="margin-left:5%;border:2px solid black" class = "w3-container mt-3 text-center">
+			<div class="w3-row m-3" style="height: 10%">
+				<div class="w3-col l4" style="height: 10%;border:2px solid black">
+				 <h1 class="font-weight-bold w3-left ml-3">Connaitre son terrain</h1>
+				 <h2 class ="font-italic w3-right mr-3">S'occuper de son terrain</h2>
+				</div>
+				<div class="w3-col l6" style="height: 10%">
+				<a style="visibility: hidden"> bonjour</a>
+				</div>
+				<div class="w3-col l2" style="height: 10%;border:2px solid black">
+					<h5 style="font-weight: bold; text-decoration: underline;">Connectez
+							vous à votre espace client pour accéder :</h5>
+					<span><i class="fas fa-tag mr-2"></i><span style="font-size: 20px;">Revenir plus tard</span></span>
+				</div>
+			</div>
+			<div class="w3-row mx-3" style="height:500px">
+				<div class="w3-col l6">
+				<img th:src="@{/images/conseilConnaitreTerrain.png}"
+							style="height:450px"/>
+				</div>
+				<div class="w3-col l6" style="height:450px;border:2px solid black">
+					<span>
+					Afin de bien vous occuper ...
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

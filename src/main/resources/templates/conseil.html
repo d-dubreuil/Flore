@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/accueil.css}" />
+
+<title>Conseil</title>
+</head>
+<body>
+	<section layout:fragment="monContenu">
+		<!-- BLOC sidebar  -->
+		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+			<h3 class="w3-bar-item">Thèmes</h3>
+			<a href="#" class="w3-bar-item w3-button">Arbre et arbustes</a> 
+			<a href="#"	class="w3-bar-item w3-button">Fleurs</a>
+			<a href="#"	class="w3-bar-item w3-button">Légumes et potager</a>
+			<a href="#"	class="w3-bar-item w3-button">S'occuper de son terrain</a>
+			<a href="#" class="w3-bar-item w3-button">Réaliser ses produits</a>
+			<a href="#" class="w3-bar-item w3-button">Utiliser NKP</a>
+		</div>
+
+		<!-- BLOC résultats  -->
+		<div style="margin-left:15%" class = "w3-container mt-3 text-center">
+				<div class="w3-row w3-container border text-center">
+					<div class="w3-col w3-container l3">
+						<img th:src="@{/images/conseilConnaitreTerrain.png}"
+							style="height:100px" class ="m-2" />
+					</div>
+					<div class="w3-col w3-container l4">
+						<div class="my-2 w3-cell w3-cell-middle" style="height: 100px">
+							<h2 class="font-italic">S'occuper de son
+							terrain</h2>
+						</div>
+					</div>
+					<div class="w3-col w3-container l5"> 
+						<div class="my-2 w3-cell w3-cell-middle" style="height: 100px">
+						<h2 class="font-weight-bold">Connaitre son terrain</h2>
+						</div>
+					</div>
+				</div>
+				<div class="w3-row w3-container border text-center">
+					<div class="w3-col w3-container l3">
+						<img th:src="@{/images/conseilBouillieBordelaise.png}"
+							style="height:100px" class ="m-2" />
+					</div>
+					<div class="w3-col w3-container l4">
+						<div class="my-2 w3-cell w3-cell-middle" style="height: 100px">
+							<h2 class="font-italic">Réaliser ses produits</h2>
+						</div>
+					</div>
+					<div class="w3-col w3-container l5"> 
+						<div class="my-2 w3-cell w3-cell-middle" style="height: 100px">
+						<h2 class="font-weight-bold">Réaliser sa bouillie bordelaise</h2>
+						</div>
+					</div>
+				</div>
+		</div>
+	</section>
+</body>
+</html>

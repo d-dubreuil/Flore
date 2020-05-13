@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta charset="UTF-8">
+<title layout:title-pattern="$CONTENT_TITLE">Trouver des amis
+	par affinités</title>
+<link rel="stylesheet" th:href="@{/css/accueil.css}" />
+</head>
+
+<body>
+
+	<section layout:fragment="monContenu" class="column justify-content-center mt-5 ">
+	
+	 <!-- Nav tabs -->
+ <ul class="row nav nav-tabs">
+ <li class="nav-item">
+  <a class="nav-link " href="#p1" data-toggle="tab">Sont-elles amies?</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link active" href="#p2" data-toggle="tab">Trouver des amies par affinités.</a>
+  </li>
+</ul>
+
+  <!-- Tab panes -->
+<div class="row tab-content">
+  <div class="tab-pane" id="p1">
+    Panneau 1
+  </div>
+  <div class="tab-pane active" id="p2">
+  <div class="row m-2  border justify-content-center" style="width: 1500px;">
+  <div class="column mr-3 border" style="width: 250px;">
+  <h5>Sol</h5>
+  <form>
+  <div class="form-group">
+						<label for="pH">pH :</label> <input placeholder="Sélectionnez la plage de pH du sol."
+							type="number" class="form-control" id="pH"
+							name="pH" >
+							
+					</div>
+					 <div class="form-group">
+						<label for="humidite">Humidité :</label> <input placeholder="Sélectionnez l'humidité du sol."
+							type="text" class="form-control" id="humidite"
+							name="humidite" >
+							
+					</div> <div class="form-group">
+						<label for="texture">Texture :</label> <input placeholder="Sélectionnez la (les) texture(s) du sol."
+							type="text" class="form-control" id="texture"
+							name="texture" >
+							
+					</div>
+  </form>
+  </div>
+   <div class="column mr-3 border" style="width: 250px;">
+   <h5>Environnement</h5>
+   <form>
+   <div class="form-group">
+						<label for="temperature">Température :</label> <input placeholder="Sélectionnez la plage de température."
+							type="number" class="form-control" id="temperature"
+							name="temperature" >
+							
+					</div>
+					 <div class="form-group">
+						<label for="ensoleillement">Ensoleillement :</label> <input placeholder="Sélectionnez l'ensoleillement du jardin."
+							type="text" class="form-control" id="ensoleillement"
+							name="ensoleillement" >
+							
+					</div> <div class="form-group">
+						<label for="vent">Résistance au vent :</label> <input placeholder="Sélectionnez la résistance au vent de la plante."
+							type="text" class="form-control" id="vent"
+							name="vent" >
+							
+					</div>
+  </form>
+  </div>
+   <div class="column mr-3 border" style="width: 250px;">
+   <h5>MonPetitJardin</h5>
+   <form>
+  </form>
+  </div>
+  
+  </div>
+</div>
+</div>
+	
+	
+	
+	
+	</section>
+</body>
+</html>
