@@ -2,6 +2,8 @@ package Test;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import flore.model.Caracteristique;
@@ -39,29 +41,58 @@ import flore.persistence.IReferentielUtilisateurRepository;
 import flore.persistence.ISelectionRepository;
 import flore.persistence.IUtilisateurRepository;
 
+@SpringBootTest
 public class Test_vide {
 
-	public static void main(String[] args) {
-		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+	@Autowired
+	private ICaracteristiqueRepository caracteristiqueDao;
 
-		ICaracteristiqueRepository caracteristiqueDao = context.getBean(ICaracteristiqueRepository.class);
-		ICommandeRepository commandeDao = context.getBean(ICommandeRepository.class);
-		ICompteUtilisateurRepository compteUtilisateurDao = context.getBean(ICompteUtilisateurRepository.class);
-		IConseilRepository conseilDao = context.getBean(IConseilRepository.class);
-		IFauneRepository fauneDao = context.getBean(IFauneRepository.class);
-		IFloreRepository floreDao = context.getBean(IFloreRepository.class);
-		IHistoriqueRepository historiqueDao = context.getBean(IHistoriqueRepository.class);
-		IPaiementRepository paiementDao = context.getBean(IPaiementRepository.class);
-		IProduitRepository produitDao = context.getBean(IProduitRepository.class);
-		IReferentielFauneRepository referentielFauneDao = context.getBean(IReferentielFauneRepository.class);
-		IReferentielUtilisateurRepository referentielUtilisateurDao = context
-				.getBean(IReferentielUtilisateurRepository.class);
-		ISelectionRepository selectionDao = context.getBean(ISelectionRepository.class);
-		IUtilisateurRepository utilisateurDao = context.getBean(IUtilisateurRepository.class);
-		IPanierRepository panierDao = context.getBean(IPanierRepository.class);
-		IFavorisRepository favorisDao = context.getBean(IFavorisRepository.class);
-		IJardinRepository jardinDao = context.getBean(IJardinRepository.class);
+	@Autowired
+	private ICommandeRepository commandeDao;
+
+	@Autowired
+	private ICompteUtilisateurRepository compteUtilisateurDao;
+
+	@Autowired
+	private IConseilRepository conseilDao;
+
+	@Autowired
+	private IFauneRepository fauneDao;
+
+	@Autowired
+	private IFloreRepository floreDao;
+
+	@Autowired
+	private IHistoriqueRepository historiqueDao;
+
+	@Autowired
+	private IPaiementRepository paiementDao;
+
+	@Autowired
+	private IProduitRepository produitDao;
+
+	@Autowired
+	private IReferentielFauneRepository referentielFauneDao;
+
+	@Autowired
+	private IReferentielUtilisateurRepository referentielUtilisateurDao;
+
+	@Autowired
+	private ISelectionRepository selectionDao;
+
+	@Autowired
+	private IUtilisateurRepository utilisateurDao;
+
+	@Autowired
+	private IPanierRepository panierDao;
+
+	@Autowired
+	private IFavorisRepository favorisDao;
+
+	@Autowired
+	private IJardinRepository jardinDao;
+
+	public void load() {
 
 		Historique historique1 = new Historique("faune", "fraises");
 
