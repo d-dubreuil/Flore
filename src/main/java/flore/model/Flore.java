@@ -43,10 +43,6 @@ public class Flore {
 	@ManyToMany (mappedBy = "flores")
 	private List<Jardin>jardins = new ArrayList<Jardin>();
 	
-	@Autowired
-	private IReferentielCaracteristiqueRepository referentielCaracteristiqueDao;
-	
-	
 	public Flore() {
 		super();
 	}
@@ -130,15 +126,6 @@ public class Flore {
 		this.jardins.add(jardin);
 	}
 	
-	
-	public ReferentielCaracteristique addCaracteristiqueAvecRef (Caracteristique carac) {
-		ReferentielCaracteristique refcarac = new ReferentielCaracteristique();
-		refcarac.setFlore(this);
-		refcarac.setCaracteristique(carac);
-		refcarac = referentielCaracteristiqueDao.save(refcarac);
-		return refcarac;
-	}
-
 	
 	@Override
 	public String toString() {
