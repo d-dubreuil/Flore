@@ -3,20 +3,18 @@ package flore.web.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import flore.model.Caracteristique;
-
 public class FloreForm {
-	private List<Caracteristique> caracteristiques = new ArrayList<Caracteristique>();
+	private List<String> caracteristiques = new ArrayList<String>();
 
 	public FloreForm() {
 		super();
 	}
 
-	public List<Caracteristique> getCaracteristiques() {
+	public List<String> getCaracteristiques() {
 		return caracteristiques;
 	}
 
-	public void setCaracteristiques(List<Caracteristique> caracteristiques) {
+	public void setCaracteristiques(List<String> caracteristiques) {
 		this.caracteristiques = caracteristiques;
 	}
 	
