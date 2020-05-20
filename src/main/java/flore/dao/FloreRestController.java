@@ -25,7 +25,7 @@ import flore.persistence.custom.FloreRepositoryImpl;
 import flore.web.dto.FloreForm;
 
 @RestController
-@RequestMapping("/flore")
+@RequestMapping("/api/flore")
 public class FloreRestController {
 	@Autowired
 	private IFloreRepository floreRepo;

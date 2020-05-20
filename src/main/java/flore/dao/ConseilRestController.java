@@ -22,7 +22,7 @@ import flore.model.Views;
 import flore.persistence.IConseilRepository;
 
 @RestController
-@RequestMapping("/conseil")
+@RequestMapping("/api/conseil")
 public class ConseilRestController {
 
 	@Autowired
