@@ -26,6 +26,7 @@ public class ReferentielCaracteristique {
 	@JoinColumn (name = "flore_id")
 	@JsonView(Views.ViewCaracteristiqueFlore.class)
 	private Flore flore;
+	
 	public Caracteristique getCaracteristique() {
 		return caracteristique;
 	}
