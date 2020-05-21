@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import flore.model.Caracteristique;
+import flore.model.Flore;
 import flore.model.TypeCarac;
 
 
@@ -20,6 +21,8 @@ public interface ICaracteristiqueRepository extends JpaRepository<Caracteristiqu
 
 	@Query("select c from Caracteristique c where c.typeCarac = :type")
 	List<Caracteristique> findByType(@Param("type") TypeCarac typeCarac);
+	
+	List <Caracteristique> findByNom(String nom);
 
 	//alternative à Intercept
 	@Query("select c from Caracteristique c join c.referentielCaracteristiques rc join rc.flore fl where fl.nom = :nomFlore1 AND c.bonusMalus='true' AND c in (select c2 from Caracteristique c2 join c2.referentielCaracteristiques rc2 join rc2.flore fl2 where fl2.nom = :nomFlore2)")

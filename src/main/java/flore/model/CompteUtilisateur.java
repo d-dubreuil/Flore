@@ -30,6 +30,8 @@ public class CompteUtilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
+	private String prenom;
+	@JsonView(Views.ViewCommon.class)
 	private String rue;
 	@JsonView(Views.ViewCommon.class)
 	private String complement;
@@ -57,13 +59,14 @@ public class CompteUtilisateur {
 	public CompteUtilisateur() {
 		super();
 	}
-	public CompteUtilisateur(String identifiant, String motDePasse, String mail, String nom, String rue,
+	public CompteUtilisateur(String identifiant, String motDePasse, String mail, String prenom,String nom, String rue,
 			String complement, String codePostal, String ville, String telephone) {
 		super();
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
 		this.mail = mail;
 		this.nom = nom;
+		this.prenom = prenom;
 		this.rue = rue;
 		this.complement = complement;
 		this.codePostal = codePostal;
@@ -99,6 +102,12 @@ public class CompteUtilisateur {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 	public String getRue() {
 		return rue;
@@ -198,7 +207,7 @@ public class CompteUtilisateur {
 	@Override
 	public String toString() {
 		return "CompteUtilisateur [id=" + id + ", identifiant=" + identifiant + ", motDePasse=" + motDePasse + ", mail="
-				+ mail + ", nom=" + nom + ", rue=" + rue + ", complement=" + complement + ", codePostal=" + codePostal
+				+ mail + ", nom=" + nom + ", prenom=" + prenom + ", rue=" + rue + ", complement=" + complement + ", codePostal=" + codePostal
 				+ ", ville=" + ville + ", telephone=" + telephone + "]";
 	}
 	

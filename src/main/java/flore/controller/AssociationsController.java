@@ -5,14 +5,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ConseilController {
-
-	@GetMapping("/conseil")
-	public String flore(Model model) {
-		model.addAttribute("page", "conseil");
-
-		return "/conseil";
+public class AssociationsController {
+	
+	
+	
+	public AssociationsController() {
+		super();
 	}
 
+	@GetMapping("/associations")
+	public String flore(Model model) {
+		model.addAttribute("page", "associations");
+
+		return "/associations";
+	}
 
 }

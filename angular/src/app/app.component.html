@@ -1,0 +1,40 @@
+<body>
+<header>
+  <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5" >
+
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/logosansfondblanc.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <span id="logo">Notre Prédicteur de Kompagnonnage</span>
+    </a>
+    <div class="collapse navbar-collapse " >
+      <ul class="navbar-nav ml-auto">
+        <li id="li" class="nav-item active"><a class="nav-link" href="/home">Accueil<span class="sr-only">(current)</span></a></li>
+        <li id="li" class="nav-item active"><a class="nav-link" href="/flore">Flore</a></li>
+        <li id="li" class="nav-item active"><a class="nav-link" href="#">Faune</a></li>
+        <li id="li" class="nav-item active"><a class="nav-link" href="/associations">Associations</a></li>
+        <li id="li" class="nav-item active"><a class="nav-link" href="/conseil">Conseils</a></li>
+        <li id="li" class="nav-item active"><a class="nav-link" href="#">Contact</a></li>
+        <li id="li" class="nav-item active"><a class="nav-link" href="#">Qui sommes-nous ?</a></li>
+      </ul>
+    </div>
+    <div id="navbarButtons" class="collapse navbar-collapse" >
+      <ul class="navbar-nav ml-auto ">
+        <li id="liButton" class="nav-item active mr-4 ml-4"><a class="nav-link" href="#">Panier  <i class="fas fa-shopping-basket"></i></a></li>
+        <li id="liButton" class="nav-item active ml-4"><a class="nav-link" href="#"  style="color: #8bc34a;">Connexion  <i class="fas fa-bug"></i></a></li>
+      </ul>
+    </div>
+
+  </nav>
+</header>
+<br><br><br>
+
+<div id="container" class="container-fluid border-success justify-content-center align-items-center mt-5 mb-2" >
+  <div id="card" class="container-fluid bg mx-auto my-5 py-4 justify-content-center align-items-center" style="background-color: rgb(255,255,255,0.5); width:68%; height: 85%; border:solid; border-width:1px; border-color: #8bc34a;" >
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<footer>
+  <h6 class="footer-copyright text-center py-3 bg-dark" style="color:white">© Copyright 2020 </h6>
+</footer>
+</body>

@@ -35,13 +35,19 @@ public class FloreRepositoryImpl implements IFloreRepositoryCustom{
 		
 		Join<Flore,ReferentielCaracteristique> rc = floreFrom.join("referentielCaracteristiques",JoinType.LEFT);
 		
-//		Join<ReferentielCaracteristique,Caracteristique> c = rc.join("caracteristique", JoinType.LEFT);
+		Join<ReferentielCaracteristique,Caracteristique> c = rc.join("caracteristique", JoinType.LEFT);
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		for (Caracteristique carac : floreformulaire.getCaracteristiques()) 
+		for (String carac : floreformulaire.getCaracteristiques()) 
 		{ 
-			predicates.add(criteriaBuilder.equal(rc.get("caracteristique"),carac));
+			String [] caracs = carac.split("|");
+			String typeCarac = caracs[0];
+			String nomCarac = caracs[1];
+			String valeurCarac = caracs[2];
+			predicates.add(criteriaBuilder.equal(c.get("typeCarac"),typeCarac));
+			predicates.add(criteriaBuilder.equal(c.get("nom"),nomCarac));
+			predicates.add(criteriaBuilder.equal(c.get("valeur"),valeurCarac));
 		}
 		
 		if (predicates.size() > 0) {
