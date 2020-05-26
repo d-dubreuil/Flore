@@ -46,8 +46,6 @@ public class CompteUtilisateur {
 	private String ville;
 	@JsonView(Views.ViewCommon.class)
 	private String telephone;
-	@JsonView(Views.ViewCommon.class)
-	private String informationsBancaires;
 	
 	@OneToMany (mappedBy = "compte")
 	private List<Historique> historiques = new ArrayList<Historique>();
@@ -123,12 +121,6 @@ public class CompteUtilisateur {
 	}
 	public String getRue() {
 		return rue;
-	}
-	public String getInformationsBancaires() {
-		return informationsBancaires;
-	}
-	public void setInformationsBancaires(String informationsBancaires) {
-		this.informationsBancaires = informationsBancaires;
 	}
 	public List<Historique> getHistoriques() {
 		return historiques;
@@ -221,7 +213,7 @@ public class CompteUtilisateur {
 		return "CompteUtilisateur [id=" + id + ", version=" + version + ", identifiant=" + identifiant + ", motDePasse="
 				+ motDePasse + ", mail=" + mail + ", civilite=" + civilite + ", nom=" + nom + ", prenom=" + prenom
 				+ ", rue=" + rue + ", complement=" + complement + ", codePostal=" + codePostal + ", ville=" + ville
-				+ ", telephone=" + telephone + ", informationsBancaires=" + informationsBancaires + ", jardin=" + jardin
+				+ ", telephone=" + telephone + ", jardin=" + jardin
 				+ "]";
 	}
 	
