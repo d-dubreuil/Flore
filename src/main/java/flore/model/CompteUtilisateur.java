@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -27,6 +29,9 @@ public class CompteUtilisateur {
 	private String motDePasse;
 	@JsonView(Views.ViewCommon.class)
 	private String mail;
+	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
+	private Civilite civilite;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
@@ -59,12 +64,13 @@ public class CompteUtilisateur {
 	public CompteUtilisateur() {
 		super();
 	}
-	public CompteUtilisateur(String identifiant, String motDePasse, String mail, String prenom,String nom, String rue,
+	public CompteUtilisateur(String identifiant, String motDePasse, String mail, Civilite civilite, String prenom,String nom, String rue,
 			String complement, String codePostal, String ville, String telephone) {
 		super();
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
 		this.mail = mail;
+		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.rue = rue;
@@ -96,6 +102,12 @@ public class CompteUtilisateur {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	public Civilite getCivilite() {
+		return civilite;
+	}
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
 	}
 	public String getNom() {
 		return nom;
@@ -206,12 +218,11 @@ public class CompteUtilisateur {
 	}
 	@Override
 	public String toString() {
-		return "CompteUtilisateur [id=" + id + ", identifiant=" + identifiant + ", motDePasse=" + motDePasse + ", mail="
-				+ mail + ", nom=" + nom + ", prenom=" + prenom + ", rue=" + rue + ", complement=" + complement + ", codePostal=" + codePostal
-				+ ", ville=" + ville + ", telephone=" + telephone + "]";
+		return "CompteUtilisateur [id=" + id + ", version=" + version + ", identifiant=" + identifiant + ", motDePasse="
+				+ motDePasse + ", mail=" + mail + ", civilite=" + civilite + ", nom=" + nom + ", prenom=" + prenom
+				+ ", rue=" + rue + ", complement=" + complement + ", codePostal=" + codePostal + ", ville=" + ville
+				+ ", telephone=" + telephone + ", informationsBancaires=" + informationsBancaires + ", jardin=" + jardin
+				+ "]";
 	}
-	
-	
-	
 	
 }

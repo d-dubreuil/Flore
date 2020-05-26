@@ -1,5 +1,5 @@
 package flore.model;
 
 public enum TypeCarac {
-	Sol, Meteo, Flore, Faune, Utilisation;
+	Sol, Condition_Climatique, Flore, Faune, Utilisation;
 }
