@@ -4,8 +4,7 @@
 body, html  {
   margin: 0;
   /* Image */
-  background: url(C:/java/workspace/Flore/flore-angular/src/assets/images/testBG.png);
-  //background: url(/src/assets/images/testBG.png);
+  background: url(/src/assets/images/testBG.png);
 
   /*  Hauteur  */
   height: 100%;
@@ -52,13 +51,13 @@ li:hover, li:active {
 
 .nav-link {
   font-size: 18px;
-  font-weight: bold;
+  font-style: bold;
   color: #8bc34a;
 }
 
 #liButton {
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 5;
+  margin-left: 5;
   color: #8bc34a;
 }
 
@@ -120,4 +119,3 @@ h6 {
 #buttonContact:hover, #buttonContact:active, #buttonContact:focus {
   background-color: #fce4ec;
 }
-
