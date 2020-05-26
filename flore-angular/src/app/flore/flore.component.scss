@@ -1,0 +1,23 @@
+/* Logo / Titre / Traits horizontaux à côté du titre */
+h1 {
+  font-family:Cambria;
+}
+
+h2 {
+  font-family:Cambria;
+  font-style:italic;
+  color: #8bc34a;
+}
+
+.hr {
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+.hr:before, .hr:after {
+  border-top: .0625em solid;
+  content: "";
+  flex: 1;
+  margin: 1em;
+}

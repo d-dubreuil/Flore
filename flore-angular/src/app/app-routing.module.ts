@@ -8,10 +8,12 @@ import {ContactComponent} from "./contact/contact.component";
 import {QuiSommesNousComponent} from "./qui-sommes-nous/qui-sommes-nous.component";
 import {PanierComponent} from "./panier/panier.component";
 import {ConnexionComponent} from "./connexion/connexion.component";
+import {FloreComponent} from './flore/flore.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'flore', component: FloreComponent},
   {path: 'faune', component: FauneComponent},
   {path: 'synergie', component: SynergieComponent},
   {path: 'conseils', component: ConseilComponent},

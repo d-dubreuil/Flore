@@ -1,1 +1,412 @@
-<p>flore works!</p>
+<section
+  class="row justify-content-center align-items-center my-4">
+
+  <!-- BLOC Texte centre  -->
+  <div class="column ">
+    <div class="row mb-4 justify-content-center align-items-center ">
+      <div class="column" style="width: 15%;">
+        <img src="assets/images/logosansfondblanc.png"
+             class="rounded-circle img-fluid " alt="Responsive image"
+             style="width: 100%;"/>
+      </div>
+      <div class="column "
+           style="width: 83%; text-align: center; align: middle;">
+        <h1 class="mb-4 mt-2 ">Rechercher une Flore</h1>
+        <!-- <h1 th:text="#{home.logo}></h1> -->
+        <h2 class="hr ">Et trouver sa fiche détaillée</h2>
+        <!-- <h2 th:text="#{home.slogan}></h2> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="column ">
+    <div class="row mb-4 justify-content-center align-items-center" style="width:100%">
+
+      <!-- BLOC filtres  -->
+      <!-- BLOC formulaire  -->
+      <div class="row mt-5  justify-content-center ">
+        <div class="column border  mr-5" style="width: 30%">
+
+          <div id="accordion">
+            <!--ESPECES-->
+            <div>
+              <div id="sideBar" style="background-color:#8bc34a">
+                <h5 class="mb-0">
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                          data-toggle="collapse" data-target="#detailEspeces"
+                          aria-expanded="true" aria-controls="detailEspeces">Espèces
+                  </button>
+                </h5>
+              </div>
+              <div id="detailEspeces" class="collapse" style="background-color: #f1f8e9"
+                   aria-labelledby="sideBar" data-parent="#accordion">
+                <div class="card-body">
+                  <!-- checkbox -->
+                  <input type="checkbox" id="fruits" name="fruits" value="fruits">
+                  <label for="fruits">Fruits</label>
+                  <input type="checkbox" id="legumes" name="legumes" value="legumes" class="ml-5">
+                  <label for="legumes">Légumes</label><br>
+                  <input type="checkbox" id="fleurs" name="fleurs" value="fleurs">
+                  <label for="fleurs">Fleurs</label>
+                  <input type="checkbox" id="aromatiques" name="aromatiques" value="aromatiques" class="ml-5">
+                  <label for="aromatiques">Aromatiques</label><br>
+                  <input type="checkbox" id="cereales" name="cereales" value="cereales">
+                  <label for="cereales">Céréales</label>
+                  <input type="checkbox" id="arbreFruitier" name="arbreFruitier" value="arbreFruitier" class="ml-4">
+                  <label for="arbreFruitier">Arbre Fruitier</label><br>
+                </div>
+              </div>
+            </div>
+
+            <!--SAISON-->
+            <div>
+              <div id="sideBar">
+                <h5 class="mb-0">
+                  <button class="btn shadow-none collapsed"
+                          data-toggle="collapse" data-target="#detailSaison"
+                          aria-expanded="false" aria-controls="detailSaison">Saison
+                  </button>
+                </h5>
+              </div>
+              <div id="detailSaison" class="collapse"
+                   aria-labelledby="sideBar" data-parent="#accordion">
+                <div class="card-body">
+                  <!-- checkbox -->
+                  <div id="accordionSaisonRecolte">
+                    <div>
+                      <div id="sideBar">
+                        <h5 class="mb-0">
+                          <button class="btn shadow-none collapsed"
+                                  data-toggle="collapse" data-target="#detailRecolte"
+                                  aria-expanded="true" aria-controls="detailRecolte">Récolter
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="detailRecolte" class="collapse"
+                           aria-labelledby="sideBar" data-parent="#accordionSaisonRecolte">
+                        <div class="card-body">
+                          <!-- checkbox -->
+                          <input type="checkbox" id="printemps" name="printemps" value="printemps">
+                          <label for="printemps">Printemps</label>
+                          <input type="checkbox" id="ete" name="ete" value="ete" class="ml-5">
+                          <label for="ete">Eté</label><br>
+                          <input type="checkbox" id="automne" name="automne" value="automne">
+                          <label for="automne">Automne</label>
+                          <input type="checkbox" id="hiver" name="hiver" value="hiver" class="ml-5">
+                          <label for="hiver">Hiver</label><br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="accordionSaisonPlantation">
+                    <div>
+                      <div id="sideBar">
+                        <h5 class="mb-0">
+                          <button class="btn shadow-none collapsed"
+                                  data-toggle="collapse" data-target="#detailPlantation"
+                                  aria-expanded="true" aria-controls="detailPlantation">Planter
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="detailPlantation" class="collapse"
+                           aria-labelledby="sideBar" data-parent="#accordionSaisonPlantation">
+                        <div class="card-body">
+                          <!-- checkbox -->
+                          <input type="checkbox" id="printemps" name="printemps" value="printemps">
+                          <label for="printemps">Printemps</label>
+                          <input type="checkbox" id="ete" name="ete" value="ete" class="ml-5">
+                          <label for="ete">Eté</label><br>
+                          <input type="checkbox" id="automne" name="automne" value="automne">
+                          <label for="automne">Automne</label>
+                          <input type="checkbox" id="hiver" name="hiver" value="hiver" class="ml-5">
+                          <label for="hiver">Hiver</label><br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input class="ml-3" type="checkbox" id="remontant" name="remontant" value="remontant">
+                  <label class="ml-2" for="remontant">Remontant</label><br>
+                </div>
+              </div>
+            </div>
+
+            <!--SOL-->
+            <div>
+              <div id="sideBar" style="background-color:#8bc34a">
+                <h5 class="mb-0">
+                  <button class="btn shadow-none collapsed"
+                          data-toggle="collapse" data-target="#detailSol"
+                          aria-expanded="true" aria-controls="detailSol">Sol
+                  </button>
+                </h5>
+              </div>
+              <div id="detailSol" class="collapse " style="background-color: #f1f8e9" aria-labelledby="sideBar"
+                   data-parent="#accordion">
+                <div class="card-body">
+                  <!-- checkbox -->
+                  <div id="accordionSolPh">
+                    <div>
+                      <div id="sideBar">
+                        <h5 class="mb-0">
+                          <button class="btn shadow-none collapsed"
+                                  data-toggle="collapse" data-target="#detailPh"
+                                  aria-expanded="true" aria-controls="detailPh">pH
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="detailPh" class="collapse"
+                           aria-labelledby="sideBar" data-parent="#accordionSolPh">
+                        <div class="card-body">
+                          <!-- checkbox -->
+                          <input type="checkbox" id="printemps" name="printemps" value="printemps">
+                          <label for="printemps">Très acide</label>
+                          <input type="checkbox" id="ete" name="ete" value="ete" class="ml-5">
+                          <label for="ete">Acide</label><br>
+                          <input type="checkbox" id="automne" name="automne" value="automne">
+                          <label for="automne">Neutre</label>
+                          <input type="checkbox" id="hiver" name="hiver" value="hiver" class="ml-5">
+                          <label for="hiver">Basique</label><br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="accordionSolTexture">
+                    <div>
+                      <div id="sideBar">
+                        <h5 class="mb-0">
+                          <button class="btn shadow-none collapsed"
+                                  data-toggle="collapse" data-target="#detailPlantation"
+                                  aria-expanded="true" aria-controls="detailPlantation">Texture
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="detailPlantation" class="collapse"
+                           aria-labelledby="sideBar" data-parent="#accordionSaisonPlantation">
+                        <div class="card-body">
+                          <!-- checkbox -->
+                          <input type="checkbox" id="printemps" name="printemps" value="printemps">
+                          <label for="printemps">Printemps</label>
+                          <input type="checkbox" id="ete" name="ete" value="ete" class="ml-5">
+                          <label for="ete">Eté</label><br>
+                          <input type="checkbox" id="automne" name="automne" value="automne">
+                          <label for="automne">Automne</label>
+                          <input type="checkbox" id="hiver" name="hiver" value="hiver" class="ml-5">
+                          <label for="hiver">Hiver</label><br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="accordionSolArrosage">
+                    <div>
+                      <div id="sideBar">
+                        <h5 class="mb-0">
+                          <button class="btn shadow-none collapsed"
+                                  data-toggle="collapse" data-target="#detailPlantation"
+                                  aria-expanded="true" aria-controls="detailPlantation">Arrosage
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="detailPlantation" class="collapse"
+                           aria-labelledby="sideBar" data-parent="#accordionSaisonPlantation">
+                        <div class="card-body">
+                          <!-- checkbox -->
+                          <input type="checkbox" id="printemps" name="printemps" value="printemps">
+                          <label for="printemps">Printemps</label>
+                          <input type="checkbox" id="ete" name="ete" value="ete" class="ml-5">
+                          <label for="ete">Eté</label><br>
+                          <input type="checkbox" id="automne" name="automne" value="automne">
+                          <label for="automne">Automne</label>
+                          <input type="checkbox" id="hiver" name="hiver" value="hiver" class="ml-5">
+                          <label for="hiver">Hiver</label><br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--CONDITIONS METEROLOGIQUES-->
+            <div>
+              <div id="sideBar">
+                <h5 class="mb-0">
+                  <button class="btn shadow-none collapsed"
+                          data-toggle="collapse" data-target="#detailCC"
+                          aria-expanded="true" aria-controls="detailCC">Conditions
+                    climatiques
+                  </button>
+                </h5>
+              </div>
+              <div id="detailCC" class="collapse " aria-labelledby="sideBar"
+                   data-parent="#accordion">
+                <div class="card-body">
+                  climat, résistance au froid, ensoleillement
+                  <!-- checkbox -->
+                </div>
+              </div>
+            </div>
+
+            <!--FLORAISON-->
+            <div>
+              <div id="sideBar" style="background-color:#8bc34a">
+                <h5 class="mb-0">
+                  <button class="btn shadow-none collapsed"
+                          data-toggle="collapse" data-target="#detailFloraison"
+                          aria-expanded="false" aria-controls="detailFloraison">Floraison
+                  </button>
+                </h5>
+              </div>
+              <div id="detailFloraison" class="collapse " style="background-color: #f1f8e9"
+                   aria-labelledby="sideBar" data-parent="#accordion">
+                <div class="card-body">
+                  vivace, annuelle, bi-annuelle
+                  <!-- checkbox -->
+                </div>
+              </div>
+            </div>
+
+            <!--HAUTEUR A MATURITE-->
+            <div>
+              <div id="sideBar">
+                <h5 class="mb-0">
+                  <button class="btn shadow-none collapsed"
+                          data-toggle="collapse" data-target="#detailHauteur"
+                          aria-expanded="false" aria-controls="detailHauteur">Hauteur
+                    à maturité
+                  </button>
+                </h5>
+              </div>
+              <div id="detailHauteur" class="collapse"
+                   aria-labelledby="sideBar" data-parent="#accordion">
+                <div class="card-body">
+                  -60, 60-150, +150
+                  <!-- checkbox -->
+                </div>
+              </div>
+            </div>
+
+            <!--RACINES-->
+            <div>
+              <div id="sideBar" style="background-color:#8bc34a">
+                <h5 class="mb-0">
+                  <button class="btn shadow-none collapsed"
+                          data-toggle="collapse" data-target="#detailRacines"
+                          aria-expanded="false" aria-controls="detailRacines">Racines
+                  </button>
+                </h5>
+              </div>
+              <div id="detailRacines" class="collapse " style="background-color: #f1f8e9"
+                   aria-labelledby="sideBar" data-parent="#accordion">
+                <div class="card-body">
+                  profonde, superficielle, rhizome
+                  <!-- checkbox -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- BLOC résultats  -->
+        <div id="result" class="column justify-content-center border" style="width:55%">
+          <div id="searchFlore" class="row m-2 justify-content-center">
+            <div class="column" style="width: 10%;">
+              <button class="btn float-right"
+                      style="background-color: #8bc34a">
+                <i class="fas fa-leaf" style="color: white"></i>
+              </button>
+            </div>
+            <div class="column" style="width: 80%;">
+              <input class="form-control" id="myInput" type="text"
+                     placeholder="Search..">
+            </div>
+          </div>
+          <div id="myDIV" class="mt-3">
+
+            <!-- BLOC résultat fraise  -->
+            <div class=" m-3">
+              <div class="row m-2 align-items-center">
+                <button style="width: 95%;height: 10%">
+                  <!-- BLOC Images  -->
+                  <div class="row m-2 align-items-center">
+                    <div class="column mr-5 " style="width: 15%;">
+                      <img src="assets/images/fraises.png"
+                           style="width: 85%; height: 80%"/>
+                    </div>
+                    <!-- BLOC Texte  -->
+                    <div class="column" style="width: 80%;">
+                      <h5>Fraises</h5>
+                      <h6 style="font-style: italic">Fragaria Vesca</h6>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- BLOC résultat haricots verts   -->
+            <div class=" m-3">
+              <div class="row m-2 align-items-center">
+                <button style="width: 95%;height: 10%">
+                  <!-- BLOC Images  -->
+                  <div class="row m-2 align-items-center">
+                    <div class="column mr-5 " style="width: 15%;">
+                      <img src="assets/images/haricots.png"
+                           style="width: 85%; height: 80%"/>
+                    </div>
+                    <!-- BLOC Texte  -->
+                    <div class="column" style="width: 80%;">
+                      <h5>Haricots verts</h5>
+                      <h6 style="font-style: italic">Phaseolus vulgaris</h6>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- BLOC résultat oeillets d'Inde  -->
+            <div class=" m-3">
+              <div class="row m-2 align-items-center">
+                <button style="width: 95%;height: 10%">
+                  <!-- BLOC Images  -->
+                  <div class="row m-2 align-items-center">
+                    <div class="column mr-5 " style="width: 15%;">
+                      <img src="assets/images/oeilletsInde.png"
+                           style="width: 85%; height: 80%"/>
+                    </div>
+                    <!-- BLOC Texte  -->
+                    <div class="column" style="width: 80%;">
+                      <h5>Oeillets d'Inde</h5>
+                      <h6 style="font-style: italic">Tagetes patula</h6>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- BLOC résultat tomates grappe   -->
+            <div class=" m-3">
+              <div class="row m-2 align-items-center">
+                <button style="width: 95%;height: 10%">
+                  <!-- BLOC Images  -->
+                  <div class="row m-2 align-items-center">
+                    <div class="column mr-5 " style="width: 15%;">
+                      <img src="assets/images/tomate.png"
+                           style="width: 85%; height: 80%"/>
+                    </div>
+                    <!-- BLOC Texte  -->
+                    <div class="column" style="width: 80%;">
+                      <h5>Tomates grappe</h5>
+                      <h6 style="font-style: italic">Lycopersicon esculentum</h6>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

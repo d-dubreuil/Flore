@@ -24,6 +24,8 @@ import { QuiSommesNousComponent } from './qui-sommes-nous/qui-sommes-nous.compon
 import { ConnexionComponent } from './connexion/connexion.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { FicheFloreComponent } from './fiche-flore/fiche-flore.component';
+import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +44,13 @@ import {FormsModule} from '@angular/forms';
     ProduitComponent,
     SelectionComponent,
     UtilisateurComponent,
-    HomeComponent,
     SynergieComponent,
     ContactComponent,
     QuiSommesNousComponent,
     ConnexionComponent
+    HomeComponent,
+    FicheFloreComponent,
+    FicheFauneComponent
   ],
   imports: [
     BrowserModule,
