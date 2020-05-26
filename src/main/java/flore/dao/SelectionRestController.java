@@ -24,7 +24,7 @@ import flore.model.Views;
 import flore.persistence.ISelectionRepository;
 
 @RestController
-@RequestMapping("/selection")
+@RequestMapping("/api/selection")
 @CrossOrigin("*")
 public class SelectionRestController {
 

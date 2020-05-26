@@ -18,6 +18,8 @@ import { PanierComponent } from './panier/panier.component';
 import { ProduitComponent } from './produit/produit.component';
 import { SelectionComponent } from './selection/selection.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

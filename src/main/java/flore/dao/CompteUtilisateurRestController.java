@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.ICompteUtilisateurRepository;
 
 @RestController
-@RequestMapping("/compteUtilisateur")
+@RequestMapping("/api/compteUtilisateur")
 @CrossOrigin("*")
 public class CompteUtilisateurRestController {
 

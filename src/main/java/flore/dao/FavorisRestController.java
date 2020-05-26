@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IFavorisRepository;
 
 @RestController
-@RequestMapping("/favoris")
+@RequestMapping("/api/favoris")
 @CrossOrigin("*")
 public class FavorisRestController {
 

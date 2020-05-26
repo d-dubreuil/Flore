@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IPaiementRepository;
 
 @RestController
-@RequestMapping("/paiement")
+@RequestMapping("/api/paiement")
 @CrossOrigin("*")
 public class PaiementRestController {
 

@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.ICommandeRepository;
 
 @RestController
-@RequestMapping("/commande")
+@RequestMapping("/api/commande")
 @CrossOrigin("*")
 public class CommandeRestController {
 

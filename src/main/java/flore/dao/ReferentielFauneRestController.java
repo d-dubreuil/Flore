@@ -24,7 +24,7 @@ import flore.persistence.IReferentielFauneRepository;
 
 
 @RestController
-@RequestMapping("/referentielFaune")
+@RequestMapping("/api/referentielFaune")
 @CrossOrigin("*")
 public class ReferentielFauneRestController {
 

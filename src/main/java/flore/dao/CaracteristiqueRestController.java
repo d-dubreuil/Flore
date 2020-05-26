@@ -24,7 +24,7 @@ import flore.model.Views;
 import flore.persistence.ICaracteristiqueRepository;
 
 @RestController
-@RequestMapping("/caracteristique")
+@RequestMapping("/api/caracteristique")
 @CrossOrigin("*")
 public class CaracteristiqueRestController {
 
