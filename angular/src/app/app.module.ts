@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ConseilComponent } from './conseil/conseil.component';
+import { CaracteristiqueComponent } from './caracteristique/caracteristique.component';
 
 
 
@@ -12,7 +13,8 @@ import { ConseilComponent } from './conseil/conseil.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    ConseilComponent
+    ConseilComponent,
+    CaracteristiqueComponent
   ],
   imports: [
     BrowserModule,

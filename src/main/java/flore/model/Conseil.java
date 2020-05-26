@@ -33,7 +33,7 @@ public class Conseil {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonView(Views.ViewCommon.class)
-	private Date dtpublication;
+	private Date dtPublication;
 	@ManyToOne
 	@JoinColumn(name = "utilisateur_id")
 	private Utilisateur utilisateur;
@@ -95,12 +95,12 @@ public class Conseil {
 		this.utilisateur = utilisateur;
 	}
 
-	public Date getDtpublication() {
-		return dtpublication;
+	public Date getDtPublication() {
+		return dtPublication;
 	}
 
-	public void setDtpublication(Date dtpublication) {
-		this.dtpublication = dtpublication;
+	public void setDtPublication(Date dtPublication) {
+		this.dtPublication = dtPublication;
 	}
 
 	@Override
