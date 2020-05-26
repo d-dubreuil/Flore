@@ -18,6 +18,8 @@ import { PanierComponent } from './panier/panier.component';
 import { ProduitComponent } from './produit/produit.component';
 import { SelectionComponent } from './selection/selection.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { FicheFloreComponent } from './fiche-flore/fiche-flore.component';
+import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     ProduitComponent,
     SelectionComponent,
     UtilisateurComponent,
-    HomeComponent
+    HomeComponent,
+    FicheFloreComponent,
+    FicheFauneComponent
   ],
   imports: [
     BrowserModule,
