@@ -47,7 +47,7 @@ import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
     SynergieComponent,
     ContactComponent,
     QuiSommesNousComponent,
-    ConnexionComponent
+    ConnexionComponent,
     HomeComponent,
     FicheFloreComponent,
     FicheFauneComponent
