@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { CaracteristiqueComponent } from './caracteristique/caracteristique.component';
 import { CommandeComponent } from './commande/commande.component';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
@@ -35,6 +36,7 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     ProduitComponent,
     SelectionComponent,
     UtilisateurComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
