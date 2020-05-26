@@ -18,6 +18,10 @@ import { PanierComponent } from './panier/panier.component';
 import { ProduitComponent } from './produit/produit.component';
 import { SelectionComponent } from './selection/selection.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { SynergieComponent } from './synergie/synergie.component';
+import { ContactComponent } from './contact/contact.component';
+import { QuiSommesNousComponent } from './qui-sommes-nous/qui-sommes-nous.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     ProduitComponent,
     SelectionComponent,
     UtilisateurComponent,
-    HomeComponent
+    HomeComponent,
+    SynergieComponent,
+    ContactComponent,
+    QuiSommesNousComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
