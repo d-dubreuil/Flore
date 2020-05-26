@@ -35,7 +35,7 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     PanierComponent,
     ProduitComponent,
     SelectionComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
     HomeComponent
   ],
   imports: [
