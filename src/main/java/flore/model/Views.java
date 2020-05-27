@@ -19,6 +19,8 @@ public class Views {
 	
 	public static class ViewFlore extends ViewCommon {}
 	
+	public static class ViewFloreWithRefCarac extends ViewFlore {}
+	
 	public static class ViewHistorique extends ViewCommon {}
 	
 	public static class ViewJardin extends ViewCommon {}

@@ -32,4 +32,13 @@ export class Flore {
     this.favoris = favoris;
     this.jardins = jardins;
   }
+
+  filterCarac(nomCarac:string):string{
+    for (let refCarac of this.referentielCaracteristiques){
+      if(refCarac.caracteristique.nom == nomCarac){
+        return refCarac.caracteristique.valeur;
+      }
+    }
+    return 'non renseigné'
+  }
 }
