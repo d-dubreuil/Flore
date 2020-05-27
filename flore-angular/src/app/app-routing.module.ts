@@ -9,12 +9,16 @@ import {QuiSommesNousComponent} from "./qui-sommes-nous/qui-sommes-nous.componen
 import {PanierComponent} from "./panier/panier.component";
 import {ConnexionComponent} from "./connexion/connexion.component";
 import {FloreComponent} from './flore/flore.component';
+import {FicheFauneComponent} from "./fiche-faune/fiche-faune.component";
+import {FicheFloreComponent} from "./fiche-flore/fiche-flore.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'flore', component: FloreComponent},
+  {path: 'fiche-flore', component: FicheFloreComponent},
   {path: 'faune', component: FauneComponent},
+  {path: 'fiche-faune', component: FicheFauneComponent},
   {path: 'synergie', component: SynergieComponent},
   {path: 'conseils', component: ConseilComponent},
   {path: 'contact', component: ContactComponent},
