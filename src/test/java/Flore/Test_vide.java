@@ -102,7 +102,7 @@ public class Test_vide {
 
 		historique1 = historiqueDao.save(historique1);
 
-		CompteUtilisateur compte1 = new CompteUtilisateur("manoncharles", "mdp", "charles.manon@yahoo.com", "Charles",
+		CompteUtilisateur compte1 = new CompteUtilisateur("charles", "manon","mdp", "charles.manon@yahoo.com", "Charles",
 				"21 avenue Colonel Pierre Bourgoin", "Maison D10", "33127", "Martignas sur Jalle", "06.35.24.43.32");
 
 		compte1 = compteUtilisateurDao.save(compte1);
