@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IFauneRepository;
 
 @RestController
-@RequestMapping("/faune")
+@RequestMapping("/api/faune")
 @CrossOrigin("*")
 public class FauneRestController {
 	

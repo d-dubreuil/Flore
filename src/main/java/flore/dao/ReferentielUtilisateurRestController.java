@@ -25,7 +25,7 @@ import flore.model.Views;
 import flore.persistence.IReferentielUtilisateurRepository;
 
 @RestController
-@RequestMapping("/referentielUtilisateur")
+@RequestMapping("/api/referentielUtilisateur")
 @CrossOrigin("*")
 public class ReferentielUtilisateurRestController {
 

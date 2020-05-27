@@ -53,7 +53,7 @@ public class FloreRestController {
 		return floreRepo.findAllByCaracteristique(typeCarac,nom,valeur);
 	}
 	
-	@GetMapping("/by-formulaire")
+	@PostMapping("/by-formulaire")
 	@JsonView(Views.ViewFlore.class)
 	public List<Flore> search(@RequestBody FloreForm floreFormulaire) {
 		return floreRepoImpl.search(floreFormulaire);

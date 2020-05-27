@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IHistoriqueRepository;
 
 @RestController
-@RequestMapping("/historique")
+@RequestMapping("/api/historique")
 @CrossOrigin("*")
 public class HistoriqueRestController {
 

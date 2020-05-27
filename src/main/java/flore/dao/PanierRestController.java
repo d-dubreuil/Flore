@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IPanierRepository;
 
 @RestController
-@RequestMapping("/panier")
+@RequestMapping("/api/panier")
 @CrossOrigin("*")
 public class PanierRestController {
 
