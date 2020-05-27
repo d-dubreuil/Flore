@@ -61,6 +61,12 @@ public class CaracteristiqueRestController {
 		return caracteristiqueRepo.findByType(typeCarac);
 	}
 	
+	@GetMapping("/by-flore-carac/{nomFlore}|{nomCarac}")
+	@JsonView(Views.ViewCaracteristique.class)
+	public List<Caracteristique> findByFloreCarac(@PathVariable String nomFlore, @PathVariable String nomCarac) {
+		return caracteristiqueRepo.findByFloreCarac(nomFlore,nomCarac);
+	}
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewCaracteristique.class)
 	public Caracteristique find(@PathVariable Long id) {

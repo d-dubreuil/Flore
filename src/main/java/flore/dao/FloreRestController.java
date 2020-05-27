@@ -36,7 +36,7 @@ public class FloreRestController {
 	private FloreRepositoryImpl floreRepoImpl;
 	
 	@GetMapping("")
-	@JsonView(Views.ViewFlore.class)
+	@JsonView(Views.ViewFloreWithRefCarac.class)
 	public List<Flore> findAll() {
 		return floreRepo.findAll();
 	}
