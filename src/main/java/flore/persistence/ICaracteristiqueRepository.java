@@ -22,6 +22,9 @@ public interface ICaracteristiqueRepository extends JpaRepository<Caracteristiqu
 	@Query("select c from Caracteristique c where c.typeCarac = :type")
 	List<Caracteristique> findByType(@Param("type") TypeCarac typeCarac);
 	
+	@Query("select c from Caracteristique c join c.referentielCaracteristiques rc join rc.flore fl where fl.nom = :nomFlore and c.nom= :nomCarac")
+	List<Caracteristique> findByFloreCarac(@Param("nomFlore") String nomFlore, @Param("nomCarac") String nomCarac);
+	
 	List <Caracteristique> findByNom(String nom);
 
 	//alternative à Intercept

@@ -45,15 +45,15 @@
                 <div class="card-body row">
                   <div class="column ml-2 mr-5">
                     <!-- checkbox -->
-                    <input type="checkbox" id="fruits" name="fruits" value="fruits">
+                    <input type="checkbox" id="fruits" name="fruits" value="Comestible:Fruits(Arbustes)">
                     <label class="ml-2" for="fruits">Fruits</label><br>
-                    <input type="checkbox" id="legumes" name="legumes" value="legumes">
+                    <input type="checkbox" id="legumes" name="legumes" value="Comestible:Légumes">
                     <label class="ml-2" for="legumes">Légumes</label><br>
-                    <input type="checkbox" id="fleurs" name="fleurs" value="fleurs">
+                    <input type="checkbox" id="fleurs" name="fleurs" value="Comestible:Fleurs">
                     <label class="ml-2" for="fleurs">Fleurs</label><br>
                   </div>
                   <div class="column ml-5">
-                    <input type="checkbox" id="aromatiques" name="aromatiques" value="aromatiques">
+                    <input type="checkbox" id="aromatiques" name="aromatiques" value="Comestible:Aromatiques">
                     <label class="ml-2" for="aromatiques">Aromatiques</label><br>
                     <input type="checkbox" id="cereales" name="cereales" value="cereales">
                     <label class="ml-2" for="cereales">Céréales</label><br>
@@ -682,84 +682,26 @@
           <div id="myDIV" class="mt-3">
 
             <!-- BLOC résultat fraise  -->
-            <div class=" m-3 ">
-              <div class="row m-2 align-items-center">
-                <button id="resultat" style="height: 10%">
-                  <!-- BLOC Images  -->
-                  <div class="row m-2 align-items-center">
-                    <div class="column" style="width: 15%;">
-                      <img src="assets/images/fraises.png"
-                           style="width: 85%; height: 80%"/>
+            <tr *ngFor="let flore of list()" >
+              <div class=" m-3 " *ngIf="filterCarac(flore,'NomLatin')!= 'non renseigné'">
+                <div class="m-2 align-items-center">
+                  <button id="resultat" style="width: 95%;height: 10%">
+                    <!-- BLOC Images  -->
+                    <div class="row m-2 align-items-center">
+                      <div class="column" style="width: 15%;">
+                        <img src="{{filterCarac( flore, 'Image')}}"
+                             style="width: 85%; height: 80%"/>
+                      </div>
+                      <!-- BLOC Texte  -->
+                      <div class="column align-middle" style="width: 80%;">
+                        <h5>{{flore.nom}}</h5>
+                        <h6 style="font-style: italic">{{filterCarac( flore, 'NomLatin')}}</h6>
+                      </div>
                     </div>
-                    <!-- BLOC Texte  -->
-                    <div class="column" style="width: 80%;">
-                      <h5>Fraises</h5>
-                      <h6 style="font-style: italic">Fragaria Vesca</h6>
-                    </div>
-                  </div>
-                </button>
+                  </button>
+                </div>
               </div>
-            </div>
-
-            <!-- BLOC résultat haricots verts   -->
-            <div class=" m-3">
-              <div class="row m-2 align-items-center">
-                <button style="height: 10%">
-                  <!-- BLOC Images  -->
-                  <div class="row m-2 align-items-center">
-                    <div class="column" style="width: 15%;">
-                      <img src="assets/images/haricots.png"
-                           style="width: 85%; height: 80%"/>
-                    </div>
-                    <!-- BLOC Texte  -->
-                    <div class="column" style="width: 80%;">
-                      <h5>Haricots verts</h5>
-                      <h6 style="font-style: italic">Phaseolus vulgaris</h6>
-                    </div>
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            <!-- BLOC résultat oeillets d'Inde  -->
-            <div class=" m-3">
-              <div class="row m-2 align-items-center">
-                <button style="height: 10%">
-                  <!-- BLOC Images  -->
-                  <div class="row m-2 align-items-center">
-                    <div class="column" style="width: 15%;">
-                      <img src="assets/images/oeilletsInde.png"
-                           style="width: 85%; height: 80%"/>
-                    </div>
-                    <!-- BLOC Texte  -->
-                    <div class="column" style="width: 80%;">
-                      <h5>Oeillets d'Inde</h5>
-                      <h6 style="font-style: italic">Tagetes patula</h6>
-                    </div>
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            <!-- BLOC résultat tomates grappe   -->
-            <div class=" m-3">
-              <div class="row m-2 align-items-center">
-                <button style="height: 10%">
-                  <!-- BLOC Images  -->
-                  <div class="row m-2 align-items-center">
-                    <div class="column" style="width: 15%;">
-                      <img src="assets/images/tomate.png"
-                           style="width: 85%; height: 80%"/>
-                    </div>
-                    <!-- BLOC Texte  -->
-                    <div class="column" style="width: 80%;">
-                      <h5>Tomates grappe</h5>
-                      <h6 style="font-style: italic">Lycopersicon esculentum</h6>
-                    </div>
-                  </div>
-                </button>
-              </div>
-            </div>
+            </tr>
           </div>
         </div>
       </div>
