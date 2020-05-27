@@ -67,7 +67,7 @@
             <div>
               <div id="sideBar">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed"  style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailSaison"
                           aria-expanded="false" aria-controls="detailSaison">Saison
                   </button>
@@ -170,7 +170,7 @@
             <div>
               <div id="sideBar" style="background-color:#8bc34a">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailSol"
                           aria-expanded="true" aria-controls="detailSol">Sol
                   </button>
@@ -315,7 +315,7 @@
             <div>
               <div id="sideBar">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailCM"
                           aria-expanded="true" aria-controls="detailCM">Conditions
                     climatiques
@@ -428,7 +428,7 @@
             <div>
               <div id="sideBar" style="background-color:#8bc34a">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailFloraison"
                           aria-expanded="false" aria-controls="detailFloraison">Floraison
                   </button>
@@ -452,7 +452,7 @@
             <div>
               <div id="sideBar">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailHauteur"
                           aria-expanded="false" aria-controls="detailHauteur">Hauteur
                     à maturité
@@ -483,7 +483,7 @@
             <div>
               <div id="sideBar" style="background-color:#8bc34a">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailRacines"
                           aria-expanded="false" aria-controls="detailRacines">Racines
                   </button>
@@ -513,7 +513,7 @@
             <div>
               <div id="sideBar">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailCroissance"
                           aria-expanded="false" aria-controls="detailCroissance">Croissance
                   </button>
@@ -537,7 +537,7 @@
             <div>
               <div id="sideBar" style="background-color:#8bc34a">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailNutriment"
                           aria-expanded="false" aria-controls="detailNutriment">Nutriment
                   </button>
@@ -610,7 +610,7 @@
             <div>
               <div id="sideBar">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"
+                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
                           data-toggle="collapse" data-target="#detailStrate"
                           aria-expanded="false" aria-controls="detailStrate">Strate
                   </button>
@@ -645,6 +645,14 @@
             </div>
 
           </div>
+
+          <div>
+            <button id="btnsubmit" class="btn float-right"
+                    style="background-color: #8bc34a">
+              <i class="fas fa-check" style="color: white"></i>
+            </button>
+          </div>
+
         </div>
 
 
@@ -665,17 +673,17 @@
           <div id="myDIV" class="mt-3">
 
             <!-- BLOC résultat fraise  -->
-            <div class=" m-3">
-              <div class="row m-2 align-items-center">
-                <button style="width: 95%;height: 10%">
+            <div class=" m-3 ">
+              <div class="m-2 align-items-center">
+                <button id="resultat" style="width: 95%;height: 10%">
                   <!-- BLOC Images  -->
-                  <div class="row m-2 align-items-center">
-                    <div class="column mr-5 " style="width: 15%;">
+                  <div class="row m-2 align-items-center border">
+                    <div class="column" style="width: 15%;">
                       <img src="assets/images/fraises.png"
                            style="width: 85%; height: 80%"/>
                     </div>
                     <!-- BLOC Texte  -->
-                    <div class="column" style="width: 80%;">
+                    <div class="column align-middle border" style="width: 80%;">
                       <h5>Fraises</h5>
                       <h6 style="font-style: italic">Fragaria Vesca</h6>
                     </div>
@@ -687,7 +695,7 @@
             <!-- BLOC résultat haricots verts   -->
             <div class=" m-3">
               <div class="row m-2 align-items-center">
-                <button style="width: 95%;height: 10%">
+                <button id="resultat" style="width: 95%;height: 10%">
                   <!-- BLOC Images  -->
                   <div class="row m-2 align-items-center">
                     <div class="column mr-5 " style="width: 15%;">
@@ -707,7 +715,7 @@
             <!-- BLOC résultat oeillets d'Inde  -->
             <div class=" m-3">
               <div class="row m-2 align-items-center">
-                <button style="width: 95%;height: 10%">
+                <button id="resultat" style="width: 95%;height: 10%">
                   <!-- BLOC Images  -->
                   <div class="row m-2 align-items-center">
                     <div class="column mr-5 " style="width: 15%;">
@@ -727,7 +735,7 @@
             <!-- BLOC résultat tomates grappe   -->
             <div class=" m-3">
               <div class="row m-2 align-items-center">
-                <button style="width: 95%;height: 10%">
+                <button id="resultat" style="width: 95%;height: 10%">
                   <!-- BLOC Images  -->
                   <div class="row m-2 align-items-center">
                     <div class="column mr-5 " style="width: 15%;">
