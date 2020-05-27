@@ -39,6 +39,22 @@ h2 {
   outline: none;
 }
 
-#myInput:active, #myInput:focus{
+#myInput:active, #myInput:focus {
   border-color: #8bc34a;
+}
+
+#resultat {
+  border-color: #8bc34a;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#resultat:hover, #resultat:active, #resultat:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#btnsubmit {
+  box-shadow: none;
+  outline: none;
 }
