@@ -1,11 +1,11 @@
 /* Logo / Titre / Traits horizontaux à côté du titre */
 h1 {
-  font-family:Cambria;
+  font-family: Cambria;
 }
 
 h2 {
-  font-family:Cambria;
-  font-style:italic;
+  font-family: Cambria;
+  font-style: italic;
   color: #8bc34a;
 }
 
@@ -20,4 +20,25 @@ h2 {
   content: "";
   flex: 1;
   margin: 1em;
+}
+
+#btnAccordion:hover {
+  border-radius: 0;
+  border-bottom-style: solid;
+  border-bottom-color: #8bc34a;
+  border-bottom-width: 2px;
+}
+
+#btnSearch:hover, #btnSearch:active, #btnSearch:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#myInput:hover, #myInput:active, #myInput:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#myInput:active, #myInput:focus{
+  border-color: #8bc34a;
 }
