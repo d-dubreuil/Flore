@@ -22,6 +22,10 @@ import { SynergieComponent } from './synergie/synergie.component';
 import { ContactComponent } from './contact/contact.component';
 import { QuiSommesNousComponent } from './qui-sommes-nous/qui-sommes-nous.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { FicheFloreComponent } from './fiche-flore/fiche-flore.component';
+import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
 
 @NgModule({
   declarations: [
@@ -40,15 +44,19 @@ import { ConnexionComponent } from './connexion/connexion.component';
     ProduitComponent,
     SelectionComponent,
     UtilisateurComponent,
-    HomeComponent,
     SynergieComponent,
     ContactComponent,
     QuiSommesNousComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    HomeComponent,
+    FicheFloreComponent,
+    FicheFauneComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

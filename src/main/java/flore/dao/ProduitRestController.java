@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IProduitRepository;
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/api/produit")
 @CrossOrigin("*")
 public class ProduitRestController {
 

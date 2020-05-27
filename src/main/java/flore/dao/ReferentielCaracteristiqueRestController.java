@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IReferentielCaracteristiqueRepository;
 
 @RestController
-@RequestMapping("/referentiel-caracteristique")
+@RequestMapping("/api/referentiel-caracteristique")
 @CrossOrigin("*")
 public class ReferentielCaracteristiqueRestController {
 	@Autowired

@@ -23,7 +23,7 @@ import flore.model.Views;
 import flore.persistence.IJardinRepository;
 
 @RestController
-@RequestMapping("/jardin")
+@RequestMapping("/api/jardin")
 @CrossOrigin("*")
 public class JardinRestController {
 
