@@ -31,15 +31,16 @@
           <div id="accordion">
             <!--ESPECES-->
             <div>
-              <div id="sideBar" style="background-color:#8bc34a">
-                <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+              <div id="sideBar" style="background-color:#1b5e20">
+                <h5 class="mb-0" style="font-size: large; font-weight: bold">
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailEspeces"
                           aria-expanded="true" aria-controls="detailEspeces">Espèces
                   </button>
                 </h5>
               </div>
-              <div id="detailEspeces" class="collapse" style="background-color: #f1f8e9"
+              <div id="detailEspeces" class="collapse" style="background-color:rgb(27, 94, 32,0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body row">
                   <div class="column ml-2 mr-5">
@@ -65,15 +66,16 @@
 
             <!--SAISON-->
             <div>
-              <div id="sideBar">
+              <div id="sideBar" style="background-color:#33691e">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed"  style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailSaison"
                           aria-expanded="false" aria-controls="detailSaison">Saison
                   </button>
                 </h5>
               </div>
-              <div id="detailSaison" class="collapse"
+              <div id="detailSaison" class="collapse" style="background-color:rgb(51, 105, 30,0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body">
                   <!-- checkbox -->
@@ -83,25 +85,25 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailRecolte"
-                                  aria-expanded="true" aria-controls="detailRecolte">Récolter
+                                  aria-expanded="true">Récolter
                           </button>
                         </h5>
                       </div>
-                      <div id="detailRecolte" class="collapse"
+                      <div id="detailRecolte"
                            aria-labelledby="sideBar" data-parent="#accordionSaisonRecolte">
                         <div class="card-body row">
-                          <div class="column ml-2 mr-5">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="printemps" name="printemps" value="printemps">
-                            <label class="ml-2" for="printemps">Printemps</label><br>
+                            <label class="ml-3" for="printemps">Printemps</label><br>
                             <input type="checkbox" id="ete" name="ete" value="ete">
-                            <label class="ml-2" for="ete">Eté</label><br>
+                            <label class="ml-3" for="ete">Eté</label><br>
                           </div>
-                          <div class="column ml-5">
+                          <div class="column ml-5" >
                             <input type="checkbox" id="automne" name="automne" value="automne">
-                            <label class="ml-2" for="automne">Automne</label><br>
+                            <label class="ml-3" for="automne">Automne</label><br>
                             <input type="checkbox" id="hiver" name="hiver" value="hiver">
-                            <label class="ml-2" for="hiver">Hiver</label><br>
+                            <label class="ml-3" for="hiver">Hiver</label><br>
                           </div>
                         </div>
                       </div>
@@ -114,25 +116,25 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailPlantation"
-                                  aria-expanded="true" aria-controls="detailPlantation">Planter
+                                  aria-expanded="true">Planter
                           </button>
                         </h5>
                       </div>
-                      <div id="detailPlantation" class="collapse"
+                      <div id="detailPlantation"
                            aria-labelledby="sideBar" data-parent="#accordionSaisonPlantation">
                         <div class="card-body row">
-                          <div class="column ml-2 mr-5">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="printemps" name="printemps" value="printemps">
-                            <label class="ml-2" for="printemps">Printemps</label><br>
+                            <label class="ml-3" for="printemps">Printemps</label><br>
                             <input type="checkbox" id="ete" name="ete" value="ete">
-                            <label class="ml-2" for="ete">Eté</label><br>
+                            <label class="ml-3" for="ete">Eté</label><br>
                           </div>
-                          <div class="column ml-5">
+                          <div class="column ml-5" >
                             <input type="checkbox" id="automne" name="automne" value="automne">
-                            <label class="ml-2" for="automne">Automne</label><br>
+                            <label class="ml-3" for="automne">Automne</label><br>
                             <input type="checkbox" id="hiver" name="hiver" value="hiver">
-                            <label class="ml-2" for="hiver">Hiver</label><br>
+                            <label class="ml-3" for="hiver">Hiver</label><br>
                           </div>
                         </div>
                       </div>
@@ -144,19 +146,21 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailRemontant"
-                                  aria-expanded="true" aria-controls="detailRemontant">Remontant
+                                  aria-expanded="true">Remontant
                           </button>
                         </h5>
                       </div>
-                      <div id="detailRemontant" class="collapse"
+                      <div id="detailRemontant"
                            aria-labelledby="sideBar" data-parent="#accordionSaisonRemontant">
                         <div class="card-body row">
-                          <div class="column ml-2 mr-5">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="oui" name="oui" value="oui">
-                            <label class="ml-2" for="oui">Oui</label><br>
+                            <label class="ml-3" for="oui">Oui</label><br>
+                          </div>
+                          <div class="column ml-5">
                             <input type="checkbox" id="non" name="non" value="non">
-                            <label class="ml-2" for="non">Non</label><br>
+                            <label class="ml-3" for="non">Non</label><br>
                           </div>
                         </div>
                       </div>
@@ -168,15 +172,17 @@
 
             <!--SOL-->
             <div>
-              <div id="sideBar" style="background-color:#8bc34a">
+              <div id="sideBar" style="background-color:#558b2f">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailSol"
                           aria-expanded="true" aria-controls="detailSol">Sol
                   </button>
                 </h5>
               </div>
-              <div id="detailSol" class="collapse " style="background-color: #f1f8e9" aria-labelledby="sideBar"
+              <div id="detailSol" class="collapse " style="background-color: rgb(85, 139, 47, 0.2)"
+                   aria-labelledby="sideBar"
                    data-parent="#accordion">
                 <div class="card-body">
                   <!-- checkbox -->
@@ -186,25 +192,25 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailPh"
-                                  aria-expanded="true" aria-controls="detailPh">pH
+                                  aria-expanded="true">pH
                           </button>
                         </h5>
                       </div>
-                      <div id="detailPh" class="collapse"
+                      <div id="detailPh"
                            aria-labelledby="sideBar" data-parent="#accordionSolPh">
                         <div class="card-body row">
-                          <div class="column ml-2 mr-5">
+                          <div class="column ml-3 " style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="tresAcide" name="tresAcide" value="tresAcide">
-                            <label class="ml-2" for="tresAcide">Très acide</label><br>
+                            <label class="ml-3" for="tresAcide">Très acide</label><br>
                             <input type="checkbox" id="acide" name="acide" value="acide">
-                            <label class="ml-2" for="acide">Acide</label><br>
+                            <label class="ml-3" for="acide">Acide</label><br>
                           </div>
-                          <div class="column ml-5">
+                          <div class="column ml-5" >
                             <input type="checkbox" id="neutre" name="neutre" value="neutre">
-                            <label class="ml-2" for="neutre">Neutre</label><br>
+                            <label class="ml-3" for="neutre">Neutre</label><br>
                             <input type="checkbox" id="basique" name="basique" value="basique">
-                            <label class="ml-2" for="basique">Basique</label><br>
+                            <label class="ml-3" for="basique">Basique</label><br>
                           </div>
                         </div>
                       </div>
@@ -214,29 +220,29 @@
                     <div>
                       <div id="sideBar">
                         <h5 class="mb-0">
-                          <button class="btn shadow-none collapsed"
+                          <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailHumidite"
-                                  aria-expanded="false" aria-controls="detailHumidite">Humidité
+                                  aria-expanded="false">Humidité
                           </button>
                         </h5>
                       </div>
-                      <div id="detailHumidite" class="collapse "
+                      <div id="detailHumidite"
                            aria-labelledby="sideBar" data-parent="#accordionSolHumidite">
                         <div class="card-body row">
-                          <div class="column ml-2">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="sec" name="sec" value="sec">
-                            <label class="ml-2" for="sec">Sec</label><br>
+                            <label class="ml-3" for="sec">Sec</label><br>
                             <input type="checkbox" id="draine" name="draine" value="draine">
-                            <label class="ml-2" for="draine">Drainé</label><br>
+                            <label class="ml-3" for="draine">Drainé</label><br>
                             <input type="checkbox" id="humide" name="humide" value="humide">
-                            <label class="ml-2" for="humide">Humide</label><br>
+                            <label class="ml-3" for="humide">Humide</label><br>
                           </div>
                           <div class="column ml-5">
                             <input type="checkbox" id="tresHumide" name="tresHumide" value="tresHumide">
-                            <label class="ml-2" for="tresHumide">Très humide</label><br>
+                            <label class="ml-3" for="tresHumide">Très humide</label><br>
                             <input type="checkbox" id="aquatique" name="aquatique" value="aquatique">
-                            <label class="ml-2" for="aquatique">Aquatique</label><br>
+                            <label class="ml-3" for="aquatique">Aquatique</label><br>
                           </div>
                         </div>
                       </div>
@@ -248,36 +254,35 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailTexture"
-                                  aria-expanded="true" aria-controls="detailTexture">Texture
+                                  aria-expanded="true">Texture
                           </button>
                         </h5>
                       </div>
-                      <div id="detailTexture" class="collapse"
+                      <div id="detailTexture"
                            aria-labelledby="sideBar" data-parent="#accordionSolTexture">
                         <div class="card-body row ">
-                          <div class="column ml-2">
+                          <div class="column ml-3" style="width:50% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="limoneux" name="limoneux" value="limoneux">
-                            <label class="ml-2" for="limoneux">Limoneux</label><br>
+                            <label class="ml-3" for="limoneux">Limoneux</label><br>
                             <input type="checkbox" id="sableux" name="sableux" value="sableux">
-                            <label class="ml-2" for="sableux">Sableux</label><br>
+                            <label class="ml-3" for="sableux">Sableux</label><br>
                             <input type="checkbox" id="argileux" name="argileux" value="argileux">
-                            <label class="ml-2" for="argileux">Argileux</label><br>
+                            <label class="ml-3" for="argileux">Argileux</label><br>
                             <input type="checkbox" id="agiloSableux" name="agiloSableux" value="agiloSableux">
-                            <label class="ml-2" for="agiloSableux">Agilo-sableux</label><br>
+                            <label class="ml-3" for="agiloSableux">Agilo-sableux</label><br>
                             <input type="checkbox" id="limonoSableux" name="limonoSableux" value="limonoSableux">
-                            <label class="ml-2" for="limonoSableux">Limono-sableux</label><br>
-                          </div>
-                          <div class="column ml-5">
+                            <label class="ml-3" for="limonoSableux">Limono-sableux</label><br>
+
                             <input type="checkbox" id="argiloLimoneux" name="argiloLimoneux" value="argiloLimoneux">
-                            <label class="ml-2" for="argiloLimoneux">Argilo-limoneux</label><br>
+                            <label class="ml-3" for="argiloLimoneux">Argilo-limoneux</label><br>
                             <input type="checkbox" id="textureEquilibree" name="textureEquilibree"
                                    value="textureEquilibree">
-                            <label class="ml-2" for="textureEquilibree">Texture équilibrée</label><br>
+                            <label class="ml-3" for="textureEquilibree">Texture équilibrée</label><br>
                             <input type="checkbox" id="humifere" name="humifere" value="humifere">
-                            <label class="ml-2" for="humifere">Humifère</label><br>
+                            <label class="ml-3" for="humifere">Humifère</label><br>
                             <input type="checkbox" id="calcaire" name="calcaire" value="calcaire">
-                            <label class="ml-2" for="calcaire">Calcaire</label><br>
+                            <label class="ml-3" for="calcaire">Calcaire</label><br>
                           </div>
                         </div>
                       </div>
@@ -289,20 +294,20 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailArrosage"
-                                  aria-expanded="true" aria-controls="detailArrosage">Arrosage
+                                  aria-expanded="true">Arrosage
                           </button>
                         </h5>
                       </div>
-                      <div id="detailArrosage" class="collapse"
+                      <div id="detailArrosage"
                            aria-labelledby="sideBar" data-parent="#accordionSolArrosage">
-                        <div class="card-body ml-2">
+                        <div class="card-body ml-3" style="width:45% ">
                           <!-- checkbox -->
                           <input type="checkbox" id="faible" name="faible" value="faible">
-                          <label class="ml-2" for="faible">Faible</label><br>
+                          <label class="ml-3" for="faible">Faible</label><br>
                           <input type="checkbox" id="modere" name="modere" value="modere">
-                          <label class="ml-2" for="modere">Modéré</label><br>
+                          <label class="ml-3" for="modere">Modéré</label><br>
                           <input type="checkbox" id="important" name="important" value="important">
-                          <label class="ml-2" for="important">Important</label><br>
+                          <label class="ml-3" for="important">Important</label><br>
                         </div>
                       </div>
                     </div>
@@ -313,16 +318,18 @@
 
             <!--CONDITIONS METEROLOGIQUES-->
             <div>
-              <div id="sideBar">
+              <div id="sideBar" style="background-color:#689f38">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailCM"
                           aria-expanded="true" aria-controls="detailCM">Conditions
-                    climatiques
+                    météorologiques
                   </button>
                 </h5>
               </div>
-              <div id="detailCM" class="collapse " aria-labelledby="sideBar"
+              <div id="detailCM" class="collapse " style="background-color:rgb(104, 159, 56, 0.2)"
+                   aria-labelledby="sideBar"
                    data-parent="#accordion">
                 <div class="card-body">
                   <!-- checkbox -->
@@ -332,27 +339,27 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailClimat"
-                                  aria-expanded="true" aria-controls="detailClimat">Climat
+                                  aria-expanded="true">Climat
                           </button>
                         </h5>
                       </div>
-                      <div id="detailClimat" class="collapse"
+                      <div id="detailClimat"
                            aria-labelledby="sideBar" data-parent="#accordionMeteoClimat">
                         <div class="card-body row">
-                          <div class="column ml-2">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="oceanique" name="oceanique" value="oceanique">
-                            <label class="ml-2" for="oceanique">Océanique</label><br>
+                            <label class="ml-3" for="oceanique">Océanique</label><br>
                             <input type="checkbox" id="semiOceanique" name="semiOceanique" value="semiOceanique">
-                            <label class="ml-2" for="semiOceanique">Semi-océanique</label><br>
+                            <label class="ml-3" for="semiOceanique">Semi-océanique</label><br>
                             <input type="checkbox" id="mediterraneen" name="mediterraneen" value="mediterraneen">
-                            <label class="ml-2" for="mediterraneen">Méditerranéen</label><br>
+                            <label class="ml-3" for="mediterraneen">Méditerranéen</label><br>
                           </div>
                           <div class="column ml-5">
                             <input type="checkbox" id="montagniard" name="montagniard" value="montagniard">
-                            <label class="ml-2" for="montagniard">Montagniard</label><br>
+                            <label class="ml-3" for="montagniard">Montagniard</label><br>
                             <input type="checkbox" id="continental" name="continental" value="continental">
-                            <label class="ml-2" for="continental">Continental</label><br>
+                            <label class="ml-3" for="continental">Continental</label><br>
                           </div>
                         </div>
                       </div>
@@ -364,25 +371,23 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailResistance"
-                                  aria-expanded="true" aria-controls="detailResistance">Résistance au froid
+                                  aria-expanded="true">Résistance au froid
                           </button>
                         </h5>
                       </div>
-                      <div id="detailResistance" class="collapse"
+                      <div id="detailResistance"
                            aria-labelledby="sideBar" data-parent="#accordionMeteoResistance">
                         <div class="card-body row">
-                          <div class="column ml-2">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="peuResistant" name="peuResistant" value="peuResistant">
-                            <label class="ml-2" for="peuResistant">Peu résistant</label><br>
+                            <label class="ml-3" for="peuResistant">Peu résistant</label><br>
                             <input type="checkbox" id="assezResistant" name="assezResistant" value="assezResistant">
-                            <label class="ml-2" for="assezResistant">Assez résistant</label><br>
-                          </div>
-                          <div class="column ml-5">
+                            <label class="ml-3" for="assezResistant">Assez résistant</label><br>
                             <input type="checkbox" id="briseVent" name="briseVent" value="briseVent">
-                            <label class="ml-2" for="briseVent">Haie brise-vent</label><br>
+                            <label class="ml-3" for="briseVent">Haie brise-vent</label><br>
                             <input type="checkbox" id="resistant" name="resistant" value="resistant">
-                            <label class="ml-2" for="resistant">Résistant</label><br>
+                            <label class="ml-3" for="resistant">Résistant</label><br>
                           </div>
                         </div>
                       </div>
@@ -394,27 +399,25 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailEnsoleillement"
-                                  aria-expanded="true" aria-controls="detailEnsoleillement">Ensoleillement
+                                  aria-expanded="true">Ensoleillement
                           </button>
                         </h5>
                       </div>
-                      <div id="detailEnsoleillement" class="collapse"
+                      <div id="detailEnsoleillement"
                            aria-labelledby="sideBar" data-parent="#accordionMeteoEnsoleillement">
                         <div class="card-body row">
-                          <div class="column ml-2">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="pleinSoleil" name="pleinSoleil" value="pleinSoleil">
-                            <label class="ml-2" for="pleinSoleil">Plein soleil</label><br>
+                            <label class="ml-3" for="pleinSoleil">Plein soleil</label><br>
                             <input type="checkbox" id="soleil" name="soleil" value="soleil">
-                            <label class="ml-2" for="soleil">Soleil</label><br>
+                            <label class="ml-3" for="soleil">Soleil</label><br>
                             <input type="checkbox" id="miOmbre" name="miOmbre" value="miOmbre">
-                            <label class="ml-2" for="miOmbre">Mi-ombre</label><br>
-                          </div>
-                          <div class="column ml-5">
+                            <label class="ml-3" for="miOmbre">Mi-ombre</label><br>
                             <input type="checkbox" id="ombre" name="ombre" value="ombre">
-                            <label class="ml-2" for="ombre">Ombre</label><br>
+                            <label class="ml-3" for="ombre">Ombre</label><br>
                             <input type="checkbox" id="pleineOmbre" name="pleineOmbre" value="pleineOmbre">
-                            <label class="ml-2" for="pleineOmbre">Pleine ombre</label><br>
+                            <label class="ml-3" for="pleineOmbre">Pleine ombre</label><br>
                           </div>
                         </div>
                       </div>
@@ -426,54 +429,56 @@
 
             <!--FLORAISON-->
             <div>
-              <div id="sideBar" style="background-color:#8bc34a">
+              <div id="sideBar" style="background-color:#7cb342">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailFloraison"
                           aria-expanded="false" aria-controls="detailFloraison">Floraison
                   </button>
                 </h5>
               </div>
-              <div id="detailFloraison" class="collapse " style="background-color: #f1f8e9"
+              <div id="detailFloraison" class="collapse " style="background-color: rgb(124, 179, 66, 0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
-                <div class="card-body ml-2">
+                <div class="card-body ml-3" style="width:45% ">
                   <!-- checkbox -->
                   <input type="checkbox" id="vivace" name="vivace" value="vivace">
-                  <label class="ml-2" for="vivace">Vivace</label><br>
+                  <label class="ml-3" for="vivace">Vivace</label><br>
                   <input type="checkbox" id="annuelle" name="annuelle" value="annuelle">
-                  <label class="ml-2" for="annuelle">Annuelle</label><br>
+                  <label class="ml-3" for="annuelle">Annuelle</label><br>
                   <input type="checkbox" id="biAnnuelle" name="biAnnuelle" value="biAnnuelle">
-                  <label class="ml-2" for="biAnnuelle">Bi-annuelle</label><br>
+                  <label class="ml-3" for="biAnnuelle">Bi-annuelle</label><br>
                 </div>
               </div>
             </div>
 
             <!--HAUTEUR A MATURITE-->
             <div>
-              <div id="sideBar">
+              <div id="sideBar" style="background-color: #8bc34a">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailHauteur"
-                          aria-expanded="false" aria-controls="detailHauteur">Hauteur
+                          aria-expanded="false" aria-controls="detailhauteur">Hauteur
                     à maturité
                   </button>
                 </h5>
               </div>
-              <div id="detailHauteur" class="collapse"
+              <div id="detailHauteur" class="collapse" style="background-color: rgb(139, 195, 74, 0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body row">
-                  <div class="column ml-2">
+                  <div class="column ml-3" style="width:45% ">
                     <!-- checkbox -->
                     <input type="checkbox" id="inf20" name="inf20" value="inf20">
-                    <label class="ml-2" for="inf20"><20 cm</label><br>
+                    <label class="ml-3" for="inf20"><20 cm</label><br>
                     <input type="checkbox" id="inf60" name="inf60" value="inf60">
-                    <label class="ml-2" for="inf60">20-60 cm</label><br>
+                    <label class="ml-3" for="inf60">20-60 cm</label><br>
                   </div>
                   <div class="column ml-5">
                     <input type="checkbox" id="inf150" name="inf150" value="inf150">
-                    <label class="ml-2" for="inf150">60-150 cm</label><br>
+                    <label class="ml-3" for="inf150">60-150 cm</label><br>
                     <input type="checkbox" id="sup150" name="sup150" value="sup150">
-                    <label class="ml-2" for="sup150">>150 cm</label><br>
+                    <label class="ml-3" for="sup150">>150 cm</label><br>
                   </div>
                 </div>
               </div>
@@ -481,29 +486,28 @@
 
             <!--RACINES-->
             <div>
-              <div id="sideBar" style="background-color:#8bc34a">
+              <div id="sideBar" style="background-color:#9ccc65">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailRacines"
                           aria-expanded="false" aria-controls="detailRacines">Racines
                   </button>
                 </h5>
               </div>
-              <div id="detailRacines" class="collapse " style="background-color: #f1f8e9"
+              <div id="detailRacines" class="collapse " style="background-color: rgb(156, 204, 101, 0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body row">
-                  <div class="column ml-2">
+                  <div class="column ml-3" style="width:50% ">
                     <!-- checkbox -->
                     <input type="checkbox" id="rhizome" name="rhizome" value="rhizome">
-                    <label class="ml-2" for="rhizome">Rhizome</label><br>
+                    <label class="ml-3" for="rhizome">Rhizome</label><br>
                     <input type="checkbox" id="superficielle" name="superficielle" value="superficielle">
-                    <label class="ml-2" for="superficielle">Superficielle</label><br>
-                  </div>
-                  <div class="column ml-5">
+                    <label class="ml-3" for="superficielle">Superficielle</label><br>
                     <input type="checkbox" id="moyenne" name="moyenne" value="moyenne">
-                    <label class="ml-2" for="moyenne">Profondeur moyenne</label><br>
+                    <label class="ml-3" for="moyenne">Profondeur moyenne</label><br>
                     <input type="checkbox" id="profonde" name="profonde" value="profonde">
-                    <label class="ml-2" for="profonde">Profonde</label><br>
+                    <label class="ml-3" for="profonde">Profonde</label><br>
                   </div>
                 </div>
               </div>
@@ -511,39 +515,41 @@
 
             <!--CROISSANCE-->
             <div>
-              <div id="sideBar">
+              <div id="sideBar" style="background-color:#aed581">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailCroissance"
                           aria-expanded="false" aria-controls="detailCroissance">Croissance
                   </button>
                 </h5>
               </div>
-              <div id="detailCroissance" class="collapse "
+              <div id="detailCroissance" class="collapse " style="background-color:rgb(174, 213, 129, 0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
-                <div class="card-body  ml-2">
+                <div class="card-body  ml-3" style="width:45% ">
                   <!-- checkbox -->
                   <input type="checkbox" id="lente" name="lente" value="lente">
-                  <label class="ml-2" for="lente">Lente</label><br>
+                  <label class="ml-3" for="lente">Lente</label><br>
                   <input type="checkbox" id="normale" name="normale" value="normale">
-                  <label class="ml-2" for="normale">Normale</label><br>
+                  <label class="ml-3" for="normale">Normale</label><br>
                   <input type="checkbox" id="rapide" name="rapide" value="rapide">
-                  <label class="ml-2" for="rapide">Rapide</label><br>
+                  <label class="ml-3" for="rapide">Rapide</label><br>
                 </div>
               </div>
             </div>
 
             <!--NUTRIMENTS-->
             <div>
-              <div id="sideBar" style="background-color:#8bc34a">
+              <div id="sideBar" style="background-color:#c5e1a5">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailNutriment"
                           aria-expanded="false" aria-controls="detailNutriment">Nutriment
                   </button>
                 </h5>
               </div>
-              <div id="detailNutriment" class="collapse " style="background-color: #f1f8e9"
+              <div id="detailNutriment" class="collapse " style="background-color: rgb(197, 225, 165, 0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body">
                   <!-- checkbox -->
@@ -553,25 +559,25 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailAzote"
-                                  aria-expanded="false" aria-controls="detailAzote">Azote
+                                  aria-expanded="false">Azote
                           </button>
                         </h5>
                       </div>
-                      <div id="detailAzote" class="collapse "
+                      <div id="detailAzote"
                            aria-labelledby="sideBar" data-parent="#accordionNutrimentAzote">
                         <div class="card-body row">
-                          <div class="column ml-2">
+                          <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
                             <input type="checkbox" id="inhibiteur" name="inhibiteur" value="inhibiteur">
-                            <label class="ml-2" for="inhibiteur">Inhibiteur</label><br>
+                            <label class="ml-3" for="inhibiteur">Inhibiteur</label><br>
                             <input type="checkbox" id="fixateur" name="fixateur" value="fixateur">
-                            <label class="ml-2" for="fixateur">Fixateur</label><br>
+                            <label class="ml-3" for="fixateur">Fixateur</label><br>
                           </div>
                           <div class="column ml-5">
                             <input type="checkbox" id="neutre" name="neutre" value="neutre">
-                            <label class="ml-2" for="neutre">Neutre</label><br>
+                            <label class="ml-3" for="neutre">Neutre</label><br>
                             <input type="checkbox" id="devoreur" name="devoreur" value="devoreur">
-                            <label class="ml-2" for="devoreur">Dévoreur</label><br>
+                            <label class="ml-3" for="devoreur">Dévoreur</label><br>
                           </div>
                         </div>
                       </div>
@@ -583,20 +589,20 @@
                         <h5 class="mb-0">
                           <button id="btnAccordion" class="btn shadow-none collapsed"
                                   data-toggle="collapse" data-target="#detailAutres"
-                                  aria-expanded="false" aria-controls="detailAutres">Autres
+                                  aria-expanded="false">Autres
                           </button>
                         </h5>
                       </div>
-                      <div id="detailAutres" class="collapse"
+                      <div id="detailAutres"
                            aria-labelledby="sideBar" data-parent="#accordionNutrimentAutres">
-                        <div class="card-body ml-2">
+                        <div class="card-body ml-3" style="width:45% ">
                           <!-- checkbox -->
                           <input type="checkbox" id="fixateur" name="fixateur" value="fixateur">
-                          <label class="ml-2" for="fixateur">Fixateur</label><br>
+                          <label class="ml-3" for="fixateur">Fixateur</label><br>
                           <input type="checkbox" id="neutre" name="neutre" value="neutre">
-                          <label class="ml-2" for="neutre">Neutre</label><br>
+                          <label class="ml-3" for="neutre">Neutre</label><br>
                           <input type="checkbox" id="devoreur" name="devoreur" value="devoreur">
-                          <label class="ml-2" for="devoreur">Dévoreur</label><br>
+                          <label class="ml-3" for="devoreur">Dévoreur</label><br>
                         </div>
                       </div>
                     </div>
@@ -608,37 +614,38 @@
 
             <!--STRATE-->
             <div>
-              <div id="sideBar">
+              <div id="sideBar" style="background-color:#dcedc8 ">
                 <h5 class="mb-0">
-                  <button class="btn shadow-none collapsed" style="width: 100%; text-align: left"
+                  <button class="btn shadow-none collapsed"
+                          style="width: 100%; text-align: left ; font-size: 20px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailStrate"
                           aria-expanded="false" aria-controls="detailStrate">Strate
                   </button>
                 </h5>
               </div>
-              <div id="detailStrate" class="collapse "
+              <div id="detailStrate" class="collapse " style="background-color:rgb(220, 237, 200, 0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body row">
-                  <div class="column ml-2">
+                  <div class="column ml-3" style="width:45% ">
                     <!-- checkbox -->
                     <input type="checkbox" id="canopee" name="canopee" value="canopee">
-                    <label class="ml-2" for="canopee">Canopée</label><br>
+                    <label class="ml-3" for="canopee">Canopée</label><br>
                     <input type="checkbox" id="petitsArbres" name="petitsArbres" value="petitsArbres">
-                    <label class="ml-2" for="petitsArbres">Petits arbres</label><br>
+                    <label class="ml-3" for="petitsArbres">Petits arbres</label><br>
                     <input type="checkbox" id="arbustive" name="arbustive" value="arbustive">
-                    <label class="ml-2" for="arbustive">Arbustive</label><br>
+                    <label class="ml-3" for="arbustive">Arbustive</label><br>
                     <input type="checkbox" id="herbaceeHaute" name="herbaceeHaute" value="herbaceeHaute">
-                    <label class="ml-2" for="herbaceeHaute">Herbacée haute</label><br>
+                    <label class="ml-3" for="herbaceeHaute">Herbacée haute</label><br>
                   </div>
                   <div class="column ml-5">
                     <input type="checkbox" id="herbaceeBasse" name="herbaceeBasse" value="herbaceeBasse">
-                    <label class="ml-2" for="herbaceeBasse">Herbacée basse</label><br>
+                    <label class="ml-3" for="herbaceeBasse">Herbacée basse</label><br>
                     <input type="checkbox" id="couvreSol" name="couvreSol" value="couvreSol">
-                    <label class="ml-2" for="rhizome">Couvre sol</label><br>
+                    <label class="ml-3" for="rhizome">Couvre sol</label><br>
                     <input type="checkbox" id="rhizosphere" name="rhizosphere" value="rhizosphere">
-                    <label class="ml-2" for="rhizosphere">Rhizosphère</label><br>
+                    <label class="ml-3" for="rhizosphere">Rhizosphère</label><br>
                     <input type="checkbox" id="grimpante" name="grimpante" value="grimpante">
-                    <label class="ml-2" for="grimpante">Grimpante</label><br>
+                    <label class="ml-3" for="grimpante">Grimpante</label><br>
                   </div>
                 </div>
               </div>
@@ -646,8 +653,9 @@
 
           </div>
 
+          <!--BOUTON SUBMIT-->
           <div>
-            <button id="btnsubmit" class="btn float-right"
+            <button id="btnsubmit" class="btn float-right mt-2"
                     style="background-color: #8bc34a">
               <i class="fas fa-check" style="color: white"></i>
             </button>
@@ -658,32 +666,33 @@
 
         <!-- BLOC résultats  -->
         <div id="result" class="column justify-content-center border" style="width:55%">
-          <div id="searchFlore" class="row mt-3 justify-content-center">
-            <div class="column" style="width: 10%;">
+          <div id="searchFlore" class="row mt-3 justify-content-center " style="width:auto">
+            <div class="column" style="width: 4%;">
               <button id="btnSearch" class="btn float-right"
                       style="background-color: #8bc34a">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
-            <div class="column mr-5" style="width: 80%;">
+            <div class="column mr-3" style="width: 80%;">
               <input class="form-control" id="myInput" type="text"
                      placeholder="Search..">
             </div>
           </div>
+
           <div id="myDIV" class="mt-3">
 
             <!-- BLOC résultat fraise  -->
             <div class=" m-3 ">
-              <div class="m-2 align-items-center">
-                <button id="resultat" style="width: 95%;height: 10%">
+              <div class="row m-2 align-items-center">
+                <button id="resultat" style="height: 10%">
                   <!-- BLOC Images  -->
-                  <div class="row m-2 align-items-center border">
+                  <div class="row m-2 align-items-center">
                     <div class="column" style="width: 15%;">
                       <img src="assets/images/fraises.png"
                            style="width: 85%; height: 80%"/>
                     </div>
                     <!-- BLOC Texte  -->
-                    <div class="column align-middle border" style="width: 80%;">
+                    <div class="column" style="width: 80%;">
                       <h5>Fraises</h5>
                       <h6 style="font-style: italic">Fragaria Vesca</h6>
                     </div>
@@ -695,10 +704,10 @@
             <!-- BLOC résultat haricots verts   -->
             <div class=" m-3">
               <div class="row m-2 align-items-center">
-                <button id="resultat" style="width: 95%;height: 10%">
+                <button style="height: 10%">
                   <!-- BLOC Images  -->
                   <div class="row m-2 align-items-center">
-                    <div class="column mr-5 " style="width: 15%;">
+                    <div class="column" style="width: 15%;">
                       <img src="assets/images/haricots.png"
                            style="width: 85%; height: 80%"/>
                     </div>
@@ -715,10 +724,10 @@
             <!-- BLOC résultat oeillets d'Inde  -->
             <div class=" m-3">
               <div class="row m-2 align-items-center">
-                <button id="resultat" style="width: 95%;height: 10%">
+                <button style="height: 10%">
                   <!-- BLOC Images  -->
                   <div class="row m-2 align-items-center">
-                    <div class="column mr-5 " style="width: 15%;">
+                    <div class="column" style="width: 15%;">
                       <img src="assets/images/oeilletsInde.png"
                            style="width: 85%; height: 80%"/>
                     </div>
@@ -735,10 +744,10 @@
             <!-- BLOC résultat tomates grappe   -->
             <div class=" m-3">
               <div class="row m-2 align-items-center">
-                <button id="resultat" style="width: 95%;height: 10%">
+                <button style="height: 10%">
                   <!-- BLOC Images  -->
                   <div class="row m-2 align-items-center">
-                    <div class="column mr-5 " style="width: 15%;">
+                    <div class="column" style="width: 15%;">
                       <img src="assets/images/tomate.png"
                            style="width: 85%; height: 80%"/>
                     </div>
