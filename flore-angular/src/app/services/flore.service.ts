@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Flore} from '../model/Flore';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {FloreForm} from '../model/FloreForm';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class FloreService {
     return this.flores;
   }
 
+  findByFormulaire(floreForm:FloreForm):Observable<Array<Flore>>{
+    return this.http.post<Array<Flore>>("http://localhost:8080/api/flore/by-formulaire",floreForm);
+  }
+
   findByNom(nom:string):Observable<Flore>{
     return this.http.get<Flore>("http://localhost:8080/api/flore/by-nom/"+nom)
   }
@@ -37,7 +42,7 @@ export class FloreService {
   }
 
   create(flore: Flore) {
-    return this.http.post<Flore>("http://localhost:8080/api/flore", flore);
+    return this.http.post<Flore>("http://localhost:8080/api/flore",flore);
   }
 
   modify(flore: Flore) {
