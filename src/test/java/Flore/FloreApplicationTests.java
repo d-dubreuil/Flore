@@ -21,8 +21,8 @@ class FloreApplicationTests {
 
 	@Test
 	void sontEllesAmies() {
-		List<Caracteristique> caracFlore1 = caracRepo.findByFlore("courge");
-		List<Caracteristique> caracFlore2 = caracRepo.findByFlore("mais");
+		List<Caracteristique> caracFlore1 = caracRepo.findByFlore("Courge");
+		List<Caracteristique> caracFlore2 = caracRepo.findByFlore("Maïs");
 		List<Caracteristique> caracBonusPositif = new ArrayList<Caracteristique>();
 		List<Caracteristique> caracBonusNegatif = new ArrayList<Caracteristique>();
 		List<Caracteristique> caracMalusPositif = new ArrayList<Caracteristique>();
@@ -30,6 +30,7 @@ class FloreApplicationTests {
 
 		for (Caracteristique carac : caracFlore1) {
 			for (Caracteristique carac2 : caracFlore2) {
+				System.out.println("########");
 				if (carac.getBonusMalus() == null) {
 					break;
 				} else if (carac.getBonusMalus()) {
