@@ -50,6 +50,6 @@ export class FloreService {
   }
 
   deleteById(id: number) {
-    this.http.delete("http://localhost:8080/api/flore/" + id).subscribe(resp => this.load(), error => console.log(error))
+    this.http.delete("http://localhost:8080/api/flore/" + id).subscribe(resp => this.load(), error => console.log(error));
   }
 }
