@@ -1,277 +1,322 @@
 <div class="column ">
   <div class="row justify-content-center align-items-center mt-4">
-    <div class="column" style="width: 23%;">
-      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid " alt="Responsive image" style="width: 100%;" />
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
     </div>
-    <div class="column " style="width: 72%; text-align: center; align: middle;">
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
       <h1 class="mb-4 mt-2 ">Fiche +nom</h1>
       <h2 class="hr ">Nom latin</h2>
     </div>
   </div>
 
-  <div class="row border justify-content-center align-items-center mt-5 mr-2">
-    <div class="column pr-2" style="width: 20%;">
-      <div class="row border justify-content-center align-items-center">
-        Connectez-cous à votre espace client pour accèder à:
-      </div>
-      <div class="row border justify-content-center align-items-center">
-        <button id="buttonFavoris" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 40%; width: 90%;" disabled>
-          <div class="row justify-content-center align-items-center">
-            <div class="column mr-5 pr-2" style="width:15%;">
-              <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
-                <i class="fas fa-tag fa-stack-1x" style="color: #ffeb3b"></i>
+  <!--BLOC CONNEXION ET FOURNISSEUR-->
+  <div class="row justify-content-center  m-5">
+    <div class="column border ">
+      <!--BLOC CONNEXION-->
+      <div id="connexion" class="row p-4" style="width: 29%; height: 100%">
+        <div class="row ml-2">
+          <h6 style="font-size: 18px">
+            Connectez-vous à votre espace client pour accèder à:
+          </h6>
+        </div>
+        <div class="row justify-content-center align-items-center mt-3 p-1">
+          <button id="buttonFavoris" type="button"
+                  class="btn border shadow-none justify-content-center align-items-center"
+                  style="height: 40%; width: 70%;" disabled>
+            <div class="row justify-content-center align-items-center">
+              <div class="column align-middle" style="width:15%;">
+                <i class="fas fa-tag fa-2x" style="color: #8bc34a"></i>
+              </div>
+              <div class="column" style="width: 65%;">
+                <h6>Revenir plus tard</h6>
               </div>
             </div>
-            <div class="column pr-2" style="width: 65%;">
-              <h5>Revenir plus tard</h5>
-            </div>
-          </div>
-        </button>
-        <button id="buttonMonPetitJardin" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 40%; width: 90%;" disabled>
-          <div class="row justify-content-center align-items-center">
-            <div class="column mr-5" style="width:15%;">
-              <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
-                <i class="fas fa-heart fa-stack-1x" style="color: #ffeb3b"></i>
+          </button>
+          <button id="buttonMonPetitJardin" type="button"
+                  class="btn border mb-4 mt-4 shadow-none justify-content-center align-items-center"
+                  style="height: 40%; width: 70%;"
+                  disabled>
+            <div class="row justify-content-center ">
+              <div class="column" style="width:15%;">
+                <div class="column align-middle" style="width:15%;">
+                  <i class="fas fa-heart fa-2x" style="color: #8bc34a"></i>
+                </div>
+              </div>
+              <div class="column" style="width: 65%;">
+                <h6>Ajouter à MonPetitJardin</h6>
               </div>
             </div>
-            <div class="column pr-2" style="width: 65%;">
-              <h5>Ajouter à MonPetitJardin</h5>
-            </div>
-          </div>
-        </button>
-      </div>
-    </div>
-    <div class="column mr-2" style="width: 70%;">
-      <div class="row justify-content-center align-items-center border ml-5" style="height: 45%">
-        Le basilic est une plante aromatique facile à cultiver en extérieur ou en intérieur, en pot ou en pleine terre.
-        Très apprécié pour sa fraîcheur et sa saveur, il relève les plats de l'été. C'est un réel plaisir de le cueillir selon ses besoins.
-      </div>
-      <div class="row justify-content-center align-items-center border ml-5"  style="height: 45%">
-         <div class="border m-3" style="width: 28%; height: 150px">
-           <img src="assets/images/basilic_1.jpg" style="width: 100%; height: 100%">
-         </div>
-         <div class="border m-3" style="width: 28%; height: 150px">
-          <img src="assets/images/basilic_2.jpg" style="width: 100%; height: 100%">
-         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row border justify-content-center align-items-center mt-5 mr-2 ml-1">
-    <div class="column pr-2 " style="width: 20%;">
-      <div class="row border justify-content-center align-items-center">
-        Achetez vos plants chez nos partenaires :
-      </div>
-      <div class="row border justify-content-center align-items-center">
-        <button id="buttonAjoutPanier" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 40%; width: 90%;" disabled>
-          <div class="row justify-content-center align-items-center">
-            <div class="column mr-5" style="width:15%;">
-              <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
-                <i class="fas fa-shopping-basket fa-stack-1x" style="color: #ffeb3b"></i>
-              </div>
-            </div>
-            <div class="column pr-2" style="width: 65%;">
-              <h5>Fournisseur 1</h5>
-              <h6>Produit Variété Stock</h6>
-            </div>
-          </div>
-        </button>
-        <button id="buttonAjoutPanier" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 40%; width: 90%;" disabled>
-          <div class="row justify-content-center align-items-center">
-            <div class="column mr-5" style="width:15%;">
-              <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
-                <i class="fas fa-shopping-basket fa-stack-1x" style="color: #ffeb3b"></i>
-              </div>
-            </div>
-            <div class="column pr-2" style="width: 65%;">
-              <h5>Fournisseur 2</h5>
-              <h6>Produit Variété Stock</h6>
-            </div>
-          </div>
-        </button>
-        <button id="buttonAjoutPanier" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 40%; width: 90%;" disabled>
-          <div class="row justify-content-center align-items-center">
-            <div class="column mr-5" style="width:15%;">
-              <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
-                <i class="fas fa-shopping-basket fa-stack-1x" style="color: #ffeb3b"></i>
-              </div>
-            </div>
-            <div class="column pr-2" style="width: 65%;">
-              <h5>Fournisseur 3</h5>
-              <h6>Produit Variété Stock</h6>
-            </div>
-          </div>
-        </button>
-      </div>
-    </div>
-    <div class="column mr-2" style="width: 72%; text-align: center; align: middle;">
-      <div class="row justify-content-center align-items-center border ml-5" style="height: 45%">Caractéristiques
-
-
-          <div class="row m-2 justify-content-center">
-            <div class="column mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Longueur"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #03a9f4; opacity: 0.2"></i> <i id="longueur"
-                                                               class="fas fa-arrows-alt-h fa-stack-1x" style="color: #03a9f4"></i>
-                </a>
-              </div>
-              <div id="resultLongueur" class="column ml-3 mt-2 "
-                   style="vertical-align: middle; font-size: xx-small;">0.8</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Hauteur"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #00bcd4; opacity: 0.2"></i> <i id="hauteur"
-                                                               class="fas fa-arrows-alt-v fa-stack-1x" style="color: #00bcd4"></i>
-                </a>
-              </div>
-              <div id="resultLargeur" class="column ml-3 mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">0.5</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Ensoleillement"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #ffeb3b; opacity: 0.2"></i> <i
-                  id="ensoleillement" class="fas fa-cloud-sun fa-stack-1x"
-                  style="color: #ffeb3b"></i>
-                </a>
-              </div>
-              <div id="resultEnsoleillement" class="column ml-2 mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">soleil</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Sol"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #33691e; opacity: 0.2"></i> <i id="sol"
-                                                               class="fas fa-globe-europe fa-stack-1x" style="color: #33691e"></i>
-                </a>
-              </div>
-              <div id="resultSol" class="column mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">argileux</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Arrosage"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #0d47a1; opacity: 0.2"></i> <i id="arrosage"
-                                                               class="fas fa-tint fa-stack-1x" style="color: #0d47a1"></i>
-                </a>
-              </div>
-              <div id="resultArrosage" class="column mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">quotidien</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Calendrier semis"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #8bc34a; opacity: 0.2"></i> <i id="semis"
-                                                               class="far fa-calendar-alt fa-stack-1x" style="color: #8bc34a"></i>
-                </a>
-              </div>
-              <div id="resultSemis" class="column mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">automne</div>
-            </div>
-          </div>
-
-
-          <div class="row m-4 justify-content-center">
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Calendrier récolte">
-                  <i class="fas fa-circle fa-stack-2x"
-                     style="color: #e91e63; opacity: 0.2"></i> <i id="recolte"
-                                                                  class="fas fa-seedling fa-stack-1x" style="color: #e91e63"></i>
-                </a>
-              </div>
-              <div id="resultEnsoleillement" class="column mt-2 "
-                   style="vertical-align: middle; font-size: xx-small;">mi-juin
-                à mi-juillet</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Température"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #9e9e9e; opacity: 0.2"></i> <i id="temperature"
-                                                               class="fas fa-thermometer-half fa-stack-1x"
-                                                               style="color: #9e9e9e"></i>
-                </a>
-              </div>
-              <div id="resultEnsoleillement" class="column ml-2 mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">10-25°</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Vent"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #ff9800; opacity: 0.2"></i> <i id="vent"
-                                                               class="fas fa-wind fa-stack-1x" style="color: #ff9800"></i>
-                </a>
-              </div>
-              <div id="resultEnsoleillement" class="column ml-2 mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">vent</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="pH"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #fff59d; opacity: 0.2"></i> <i id="ph"
-                                                               class="fa-stack-1x" style="color: #fff59d">pH</i>
-                </a>
-              </div>
-              <div id="resultEnsoleillement" class="column ml-2 mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">acide
-                à neutre</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Remontant"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #9c27b0; opacity: 0.2"></i> <i id="remontant"
-                                                               class="far fa-calendar-plus fa-stack-1x" style="color: #9c27b0"></i>
-                </a>
-              </div>
-              <div id="resultEnsoleillement" class="column ml-2 mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">remontant</div>
-            </div>
-
-            <div class="column  mr-4 ">
-              <div class="fa-stack fa-1x">
-                <a data-toggle="tooltip" title="Vivace"> <i
-                  class="fas fa-circle fa-stack-2x"
-                  style="color: #f44336; opacity: 0.2"></i> <i id="vivace"
-                                                               class="fas fa-infinity fa-stack-1x" style="color: #f44336"></i>
-                </a>
-              </div>
-              <div id="resultEnsoleillement" class="column ml-2 mt-2"
-                   style="vertical-align: middle; font-size: xx-small;">vivace</div>
-            </div>
-
+          </button>
         </div>
       </div>
-      <div class="row justify-content-center align-items-center border ml-5" style="height: 45%">Relation flore
-
+      <!--BLOC FOURNISSEUR-->
+      <div id="fournisseur" class="row p-4" style="width: 29%; height: 100%">
+        <div class="row ml-2">
+          <h6 style="font-size: 18px">
+            Achetez vos plants chez nos partenaires :
+          </h6>
+        </div>
+        <div class="row justify-content-center align-items-center mt-3 p-1">
+          <button id="buttonAjoutPanier" type="button"
+                  class="btn border shadow-none justify-content-center align-items-center"
+                  style="height: 40%; width: 70%;" disabled>
+            <div class="row justify-content-center align-items-center">
+              <div class="column mr-2" style="width:15%;">
+                <div class="column align-middle" style="width:15%;">
+                  <i class="fas fa-shopping-basket fa-2x" style="color: #8bc34a"></i>
+                </div>
+              </div>
+              <div class="column" style="width: 65%;">
+                <h5>Fournisseur 1</h5>
+                <h6>Produit Variété Stock</h6>
+              </div>
+            </div>
+          </button>
+          <button id="buttonAjoutPanier" type="button"
+                  class="btn border mb-4 mt-4 shadow-none justify-content-center align-items-center"
+                  style="height: 40%; width: 70%;"
+                  disabled>
+            <div class="row justify-content-center align-items-center">
+              <div class="column mr-2" style="width:15%;">
+                <div class="column align-middle" style="width:15%;">
+                  <i class="fas fa-shopping-basket fa-2x" style="color: #8bc34a"></i>
+                </div>
+              </div>
+              <div class="column" style="width: 65%;">
+                <h5>Fournisseur 2</h5>
+                <h6>Produit Variété Stock</h6>
+              </div>
+            </div>
+          </button>
+          <button id="buttonAjoutPanier" type="button"
+                  class="btn border mb-4 mt-4 shadow-none justify-content-center align-items-center"
+                  style="height: 40%; width: 70%;"
+                  disabled>
+            <div class="row justify-content-center align-items-center">
+              <div class="column mr-2" style="width:15%;">
+                <div class="column align-middle" style="width:15%;">
+                  <i class="fas fa-shopping-basket fa-2x" style="color: #8bc34a"></i>
+                </div>
+              </div>
+              <div class="column" style="width: 65%;">
+                <h5>Fournisseur 3</h5>
+                <h6>Produit Variété Stock</h6>
+              </div>
+            </div>
+          </button>
+        </div>
       </div>
-      <div class="row justify-content-center align-items-center border ml-5" style="height: 45%">Relation faune</div>
     </div>
+
+<!--    &lt;!&ndash;BLOC TEXTE/PHOTOS ET CARACTERISTIQUES&ndash;&gt;-->
+<!--    <div class=" column mr-2 justify-content-center align-items-center" style="width: 70%; height: 100%">-->
+<!--      &lt;!&ndash;BLOC TEXTE&ndash;&gt;-->
+<!--      <div id="textePhoto" class="row justify-content-center align-items-center ml-5 p-3" style="height: 45%">-->
+<!--        Le basilic est une plante aromatique facile à cultiver en extérieur ou en intérieur, en pot ou en pleine-->
+<!--        terre.-->
+<!--        Très apprécié pour sa fraîcheur et sa saveur, il relève les plats de l'été. C'est un réel plaisir de le-->
+<!--        cueillir-->
+<!--        selon ses besoins.-->
+<!--      </div>-->
+<!--      &lt;!&ndash;BLOC PHOTOS&ndash;&gt;-->
+<!--      <div id="textePhoto" class="row justify-content-center align-items-center ml-5" style="height: 45%">-->
+<!--        <div class="border m-3" style="width: 28%; height: 150px">-->
+<!--          <img src="assets/images/basilic_1.jpg" style="width: 100%; height: 100%">-->
+<!--        </div>-->
+<!--        <div class="border m-3" style="width: 28%; height: 150px">-->
+<!--          <img src="assets/images/basilic_2.jpg" style="width: 100%; height: 100%">-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--      &lt;!&ndash;BLOC CARAC+LIENS&ndash;&gt;-->
+<!--      <div class="column mr-2" style="width: 70%; height: 100%; text-align: center; align: middle;">-->
+<!--        &lt;!&ndash;BLOC CARACTERISTIQUES&ndash;&gt;-->
+<!--        <div id="caract" class="row  ml-5 p-3 " style="height: 45%">Caractéristiques:-->
+<!--          <div class="row m-2 justify-content-center">-->
+<!--            <div class="column mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Longueur">-->
+<!--                  <i id="longueur" class="fas fa-arrows-alt-h fa-stack-1x" style="color: #03a9f4"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultLongueur" class="column ml-3 mt-2 "-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">0.8-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Hauteur"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #00bcd4; opacity: 0.2"></i> <i id="hauteur"-->
+<!--                                                               class="fas fa-arrows-alt-v fa-stack-1x"-->
+<!--                                                               style="color: #00bcd4"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultLargeur" class="column ml-3 mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">0.5-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Ensoleillement"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #ffeb3b; opacity: 0.2"></i> <i-->
+<!--                  id="ensoleillement" class="fas fa-cloud-sun fa-stack-1x"-->
+<!--                  style="color: #ffeb3b"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">soleil-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Sol"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #33691e; opacity: 0.2"></i> <i id="sol"-->
+<!--                                                               class="fas fa-globe-europe fa-stack-1x"-->
+<!--                                                               style="color: #33691e"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultSol" class="column mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">argileux-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Arrosage"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #0d47a1; opacity: 0.2"></i> <i id="arrosage"-->
+<!--                                                               class="fas fa-tint fa-stack-1x"-->
+<!--                                                               style="color: #0d47a1"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultArrosage" class="column mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">quotidien-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Calendrier semis"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #8bc34a; opacity: 0.2"></i> <i id="semis"-->
+<!--                                                               class="far fa-calendar-alt fa-stack-1x"-->
+<!--                                                               style="color: #8bc34a"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultSemis" class="column mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">automne-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+
+<!--          <div class="row m-4 justify-content-center">-->
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Calendrier récolte">-->
+<!--                  <i class="fas fa-circle fa-stack-2x"-->
+<!--                     style="color: #e91e63; opacity: 0.2"></i> <i id="recolte"-->
+<!--                                                                  class="fas fa-seedling fa-stack-1x"-->
+<!--                                                                  style="color: #e91e63"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultEnsoleillement" class="column mt-2 "-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">mi-juin-->
+<!--                à mi-juillet-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Température"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #9e9e9e; opacity: 0.2"></i> <i id="temperature"-->
+<!--                                                               class="fas fa-thermometer-half fa-stack-1x"-->
+<!--                                                               style="color: #9e9e9e"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">10-25°-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Vent"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #ff9800; opacity: 0.2"></i> <i id="vent"-->
+<!--                                                               class="fas fa-wind fa-stack-1x"-->
+<!--                                                               style="color: #ff9800"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">vent-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="pH"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #fff59d; opacity: 0.2"></i> <i id="ph"-->
+<!--                                                               class="fa-stack-1x" style="color: #fff59d">pH</i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">acide-->
+<!--                à neutre-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Remontant"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #9c27b0; opacity: 0.2"></i> <i id="remontant"-->
+<!--                                                               class="far fa-calendar-plus fa-stack-1x"-->
+<!--                                                               style="color: #9c27b0"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">remontant-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="column  mr-4 ">-->
+<!--              <div class="fa-stack fa-1x">-->
+<!--                <a data-toggle="tooltip" title="Vivace"> <i-->
+<!--                  class="fas fa-circle fa-stack-2x"-->
+<!--                  style="color: #f44336; opacity: 0.2"></i> <i id="vivace"-->
+<!--                                                               class="fas fa-infinity fa-stack-1x"-->
+<!--                                                               style="color: #f44336"></i>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
+<!--                   style="vertical-align: middle; font-size: xx-small;">vivace-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash;BLOC LIEN FLORE&ndash;&gt;-->
+<!--        <div id="lienFlore" class="row justify-content-center align-items-center ml-5" style="height: 45%">Relation-->
+<!--          flore-->
+<!--        </div>-->
+<!--        &lt;!&ndash;BLOC LIEN FAUNE&ndash;&gt;-->
+<!--        <div id="lienFaune" class="row justify-content-center align-items-center ml-5" style="height: 45%">Relation-->
+<!--          faune-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </div>
 
