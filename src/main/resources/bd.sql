@@ -536,7 +536,7 @@ ALTER TABLE conseil
 
 -- 4. Ajout données
 
--- Caractéristique avec booléen (max 244)
+-- Caractéristique avec booléen (max 264)
 INSERT INTO caracteristique (id, version, nom, type_carac, valeur, bonus_malus)
     VALUES 
 	(1, 0, 'pH', 'Sol', 'Très Acide', 'TRUE'),
@@ -763,8 +763,28 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 	(241, 0, 'Image', 'Web', 'assets/images/basilic_1.jpg'),
 	(242, 0, 'Image', 'Web', 'assets/images/basilic_2.jpg'),
 	(243, 0, 'Image', 'Web', 'assets/images/menthe_1.jpg'),
-	(244, 0, 'Image', 'Web', 'assets/images/menthe_2.PNG');
-	
+	(244, 0, 'Image', 'Web', 'assets/images/menthe_2.PNG'), 
+	(245, 0, 'Image', 'Web', 'assets/images/coccinelle.jpg'),
+	(246, 0, 'NomLatin', 'Faune', 'Coccinellidae'),
+	(247, 0, 'Image', 'Web', 'assets/images/abeille.jpg'),
+	(248, 0, 'NomLatin', 'Faune', 'Apis mellifera'), 
+	(249, 0, 'Image', 'Web', 'assets/images/etourneau.jpg'),
+	(250, 0, 'NomLatin', 'Faune', 'Sturnus vulgaris'),
+	(251, 0, 'Image', 'Web', 'assets/images/mesange.jpg'),
+	(252, 0, 'NomLatin', 'Faune', 'Cyanistes caeruleus'),
+	(253, 0, 'Image', 'Web', 'assets/images/papillon.jpg'),
+	(254, 0, 'NomLatin', 'Faune', 'Lepidoptera'),
+	(255, 0, 'Image', 'Web', 'assets/images/puceron.PNG'),
+	(256, 0, 'NomLatin', 'Faune', 'Aphidoidea'),
+	(257, 0, 'Image', 'Web', 'assets/images/souris.jpg'),
+	(258, 0, 'NomLatin', 'Faune', 'Mus musculus'),
+	(259, 0, 'Image', 'Web', 'assets/images/cetoine-doree.jpg'),
+	(260, 0, 'NomLatin', 'Faune', 'Cetonia aurata'),
+	(261, 0, 'Image', 'Web', 'assets/images/syrphe.jpg'),
+	(262, 0, 'NomLatin', 'Faune', 'Syrphidae'),
+	(263, 0, 'Image', 'Web', 'assets/images/carabe.jpg'),
+	(264, 0, 'NomLatin', 'Faune', 'Carabus auratus');
+
 
 
 INSERT INTO compte_utilisateur (id, version, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville) 
@@ -786,7 +806,7 @@ INSERT INTO conseil (id, version, publication, nom, texte, theme)
 	VALUES
 	(1, 0, '2020-05-20','', '', '');
 	
-
+--max 95
 INSERT INTO faune (id, version, nom_faune)
 	VALUES 
 	(1, 0, 'Abeille'), 
@@ -871,7 +891,6 @@ INSERT INTO faune (id, version, nom_faune)
 	(80,0,'Marmotte'),
 	(81,0,'Papillon de nuit'),
 	(82,0,'Cicadelle'),
-	(83,0,'Rongeur'),
 	(84,0,'Chrysomèle du concombre'),
 	(85,0,'Vers gris'),
 	(86,0,'Taupin'),
@@ -882,7 +901,8 @@ INSERT INTO faune (id, version, nom_faune)
 	(91,0,'Blaireau'),
 	(92,0,'Fouine'),
 	(93,0,'Cécidomyie'),
-	(94,0,'Mineuse du basilic');
+	(94,0,'Mineuse du basilic'), 
+	(95, 0, 'Carabe');
 	
 INSERT INTO favoris (id, version, nom)
 		VALUES 
@@ -1492,26 +1512,68 @@ INSERT INTO flore (id, version, nom)
 	(385, 0, 244, 52), 
 	(395, 0, 65, 52);
 	
-	--liens faune-faune----max206--
+	--liens faune-faune----(max 226)--
 	INSERT INTO referentiel_faune (id, version, caracteristique_id,faune_id)
 	VALUES
 	--coccinelle--predateur
 	(197, 0,188,10),
 	(198, 0,190,10),
+	(207, 0, 245, 10),
+	(208, 0, 246, 10),
+	
 	--Puceron--chassé
 	(199, 0, 189, 30),
+	(217, 0, 255, 30),
+	(218, 0, 256, 30),
+	
 	--Tetranychus urticae--chassé
 	(200, 0, 189, 45),
 	(201, 0, 191, 45),
 	(202, 0, 192, 45),
+	
 	--Coléoptère--prédateur
 	(203, 0, 190, 11),
+	
 	--Trichogramme--prédateur
 	(204, 0, 190, 41),
+	
 	--Encarsia formosa--prédateur
 	(205, 0, 194, 53),
+	
 	--Aleurodes--chassé
-	(206, 0, 193, 50);
+	(206, 0, 193, 50), 
+	
+	--Abeille
+	(209, 0, 247, 1),
+	(210, 0, 248, 1),
+	
+	--Etourneau
+	(211, 0, 249, 14),
+	(212, 0, 250, 14),
+	
+	--Mesange
+	(213, 0, 251, 23),
+	(214, 0, 252, 23),
+	
+	--Papillon
+	(215, 0, 253, 29),
+	(216, 0, 254, 29),
+	
+	--Souris
+	(219, 0, 257, 68),
+	(220, 0, 258, 68),
+	
+	--Cétoine dorée
+	(221, 0, 259, 7),
+	(222, 0, 260, 7),
+	
+	--Syrphe
+	(223, 0, 261, 35),
+	(224, 0, 262, 35),
+	
+	--Carabe
+	(225, 0, 263, 95),
+	(226, 0, 264, 95);
 	
 	
 	--lien faune-flore--
