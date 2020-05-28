@@ -1,6 +1,8 @@
 package flore.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -18,6 +20,9 @@ public class Paiement {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
+	private TypeCarte typeCarte;
 	@JsonView(Views.ViewCommon.class)
 	private String numeroCarte;
 	@JsonView(Views.ViewCommon.class)
@@ -33,8 +38,9 @@ public class Paiement {
 		super();
 	}
 
-	public Paiement(String numeroCarte, String dtValidite, String cryptogramme, Float montant) {
+	public Paiement(TypeCarte typeCarte, String numeroCarte, String dtValidite, String cryptogramme, Float montant) {
 		super();
+		this.typeCarte = typeCarte;
 		this.numeroCarte = numeroCarte;
 		this.dtValidite = dtValidite;
 		this.cryptogramme = cryptogramme;
@@ -55,6 +61,14 @@ public class Paiement {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	public TypeCarte getTypeCarte() {
+		return typeCarte;
+	}
+
+	public void setTypeCarte(TypeCarte typeCarte) {
+		this.typeCarte = typeCarte;
 	}
 
 	public String getNumeroCarte() {
@@ -99,8 +113,9 @@ public class Paiement {
 
 	@Override
 	public String toString() {
-		return "Paiement [id=" + id + ", version=" + version + ", numeroCarte=" + numeroCarte + ", dtValidite="
-				+ dtValidite + ", cryptogramme=" + cryptogramme + ", montant=" + montant + "]";
+		return "Paiement [id=" + id + ", version=" + version + ", typeCarte=" + typeCarte + ", numeroCarte="
+				+ numeroCarte + ", dtValidite=" + dtValidite + ", cryptogramme=" + cryptogramme + ", montant=" + montant
+				+ "]";
 	}
 
 }

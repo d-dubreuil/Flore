@@ -1,0 +1,68 @@
+/* Logo / Titre / Traits horizontaux à côté du titre */
+h1 {
+  font-family: Cambria;
+}
+
+h2 {
+  font-family: Cambria;
+  font-style: italic;
+  color: #8bc34a;
+}
+
+.hr {
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+.hr:before, .hr:after {
+  border-top: .0625em solid;
+  content: "";
+  flex: 1;
+  margin: 1em;
+}
+
+#btnAccordion {
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-bottom-color: grey;
+  border-top-color: grey;
+  border-radius: 0px;
+  width: 340px;
+}
+
+#btnSearch:hover, #btnSearch:active, #btnSearch:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#myInput:hover, #myInput:active, #myInput:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#myInput:active, #myInput:focus {
+  border-color: #8bc34a;
+}
+
+#btnSubmit:hover, #btnSubmit:active, #btnSubmit:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+#detailEspeces {
+  font-weight: normal;
+}
+
+#btnResultat{
+  border-color: #8bc34a;
+  border-style: solid;
+  background-color: rgb(197, 225, 165,0.2);
+  border-radius: 3px;
+}
+
+#result, #formulaire{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8bc34a;
+}

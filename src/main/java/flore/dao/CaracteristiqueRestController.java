@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,8 @@ import flore.model.Views;
 import flore.persistence.ICaracteristiqueRepository;
 
 @RestController
-@RequestMapping("/caracteristique")
+@RequestMapping("/api/caracteristique")
+@CrossOrigin("*")
 public class CaracteristiqueRestController {
 
 	@Autowired
@@ -57,6 +59,12 @@ public class CaracteristiqueRestController {
 	@JsonView(Views.ViewCaracteristique.class)
 	public List<Caracteristique> findByType(@PathVariable TypeCarac typeCarac) {
 		return caracteristiqueRepo.findByType(typeCarac);
+	}
+	
+	@GetMapping("/by-flore-carac/{nomFlore}|{nomCarac}")
+	@JsonView(Views.ViewCaracteristique.class)
+	public List<Caracteristique> findByFloreCarac(@PathVariable String nomFlore, @PathVariable String nomCarac) {
+		return caracteristiqueRepo.findByFloreCarac(nomFlore,nomCarac);
 	}
 	
 	@GetMapping("/{id}")

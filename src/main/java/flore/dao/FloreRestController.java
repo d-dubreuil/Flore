@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ import flore.web.dto.FloreForm;
 
 @RestController
 @RequestMapping("/api/flore")
+@CrossOrigin("*")
 public class FloreRestController {
 	@Autowired
 	private IFloreRepository floreRepo;
@@ -34,7 +36,7 @@ public class FloreRestController {
 	private FloreRepositoryImpl floreRepoImpl;
 	
 	@GetMapping("")
-	@JsonView(Views.ViewFlore.class)
+	@JsonView(Views.ViewFloreWithRefCarac.class)
 	public List<Flore> findAll() {
 		return floreRepo.findAll();
 	}
@@ -51,8 +53,8 @@ public class FloreRestController {
 		return floreRepo.findAllByCaracteristique(typeCarac,nom,valeur);
 	}
 	
-	@GetMapping("/by-formulaire")
-	@JsonView(Views.ViewFlore.class)
+	@PostMapping("/by-formulaire")
+	@JsonView(Views.ViewFloreWithRefCarac.class)
 	public List<Flore> search(@RequestBody FloreForm floreFormulaire) {
 		return floreRepoImpl.search(floreFormulaire);
 	}

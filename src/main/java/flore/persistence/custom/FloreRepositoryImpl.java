@@ -33,26 +33,38 @@ public class FloreRepositoryImpl implements IFloreRepositoryCustom{
 		
 		Root<Flore> floreFrom = criteriaQuery.from(Flore.class);
 		
-		Join<Flore,ReferentielCaracteristique> rc = floreFrom.join("referentielCaracteristiques",JoinType.LEFT);
-		
-		Join<ReferentielCaracteristique,Caracteristique> c = rc.join("caracteristique", JoinType.LEFT);
+		List<Predicate> predicatesQueries = new ArrayList<Predicate>();
 
-		List<Predicate> predicates = new ArrayList<Predicate>();
 
-		for (String carac : floreformulaire.getCaracteristiques()) 
-		{ 
-			String [] caracs = carac.split("|");
-			String typeCarac = caracs[0];
-			String nomCarac = caracs[1];
-			String valeurCarac = caracs[2];
-			predicates.add(criteriaBuilder.equal(c.get("typeCarac"),typeCarac));
-			predicates.add(criteriaBuilder.equal(c.get("nom"),nomCarac));
-			predicates.add(criteriaBuilder.equal(c.get("valeur"),valeurCarac));
+		for (String carac : floreformulaire.getCaracteristiques()) {
+			CriteriaQuery<Flore> criteriaQuery2 = criteriaBuilder.createQuery(Flore.class);
+
+			Root<Flore> floreFrom2 = criteriaQuery2.from(Flore.class);
+			Predicate predicate = criteriaBuilder.disjunction();
+
+			
+			Join<Flore,ReferentielCaracteristique> rc = floreFrom2.join("referentielCaracteristiques",JoinType.LEFT);
+			Join<ReferentielCaracteristique,Caracteristique> c = rc.join("caracteristique", JoinType.LEFT);
+			String [] caracs = carac.split(":");
+
+			for (int i = 1; i<caracs.length;i++) {
+				Predicate predicateEquivalents;
+				String nomCarac = caracs[0];
+				String valeurCarac = caracs[i];
+				predicateEquivalents = criteriaBuilder.and(criteriaBuilder.equal(c.get("valeur"),valeurCarac),criteriaBuilder.equal(c.get("nom"),nomCarac));
+				predicate=criteriaBuilder.or(predicate, predicateEquivalents);
+				
+			}
+			criteriaQuery2.where(predicate);
+			Predicate predicateGlobal = floreFrom.in(em.createQuery(criteriaQuery2).getResultList());
+
+			predicatesQueries.add(predicateGlobal);
 		}
 		
-		if (predicates.size() > 0) {
-			criteriaQuery.where(predicates.toArray(new Predicate[0]));
+		if (predicatesQueries.size() > 0) {
+			criteriaQuery.where(predicatesQueries.toArray(new Predicate[0]));
 		}
+		
 		
 		return em.createQuery(criteriaQuery).getResultList();
 	}
