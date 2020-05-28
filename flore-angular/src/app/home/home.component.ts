@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
 
   }
 
-  constructor() {
+  constructor(private titleService: Title) {
+    this.titleService.setTitle("Accueil")
   }
 
   ngOnInit(): void {

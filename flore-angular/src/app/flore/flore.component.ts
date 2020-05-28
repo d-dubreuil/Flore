@@ -3,6 +3,7 @@ import {Flore} from '../model/Flore';
 import {FloreForm} from '../model/FloreForm';
 import {FloreService} from '../services/flore.service';
 import {CaracteristiqueService} from '../services/caracteristique.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-flore',
@@ -121,7 +122,8 @@ export class FloreComponent implements OnInit {
   strateBoolean:boolean=false;
 
 
-  constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService) {
+  constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService, private titleService: Title) {
+    this.titleService.setTitle("Flore")
     this.caracs.push(this.caracEspece);
     this.caracs.push(this.caracRecolte);
     this.caracs.push(this.caracPlanter);

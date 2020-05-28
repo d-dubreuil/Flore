@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, Title} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -23,8 +23,8 @@ import {QuiSommesNousComponent} from './qui-sommes-nous/qui-sommes-nous.componen
 import {ConnexionComponent} from './connexion/connexion.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FicheFloreComponent } from './fiche-flore/fiche-flore.component';
-import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
+import {FicheFloreComponent} from './fiche-flore/fiche-flore.component';
+import {FicheFauneComponent} from './fiche-faune/fiche-faune.component';
 
 @NgModule({
   declarations: [
@@ -50,14 +50,15 @@ import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
     FicheFloreComponent,
     FicheFauneComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
