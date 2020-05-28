@@ -54,7 +54,7 @@ public class FloreRestController {
 	}
 	
 	@PostMapping("/by-formulaire")
-	@JsonView(Views.ViewFlore.class)
+	@JsonView(Views.ViewFloreWithRefCarac.class)
 	public List<Flore> search(@RequestBody FloreForm floreFormulaire) {
 		return floreRepoImpl.search(floreFormulaire);
 	}

@@ -35,26 +35,28 @@
                 </h5>
               </div>
               <div id="detailEspeces" class="collapse" style="background-color:rgb(139, 195, 74, 0.2)"
-                   aria-labelledby="sideBar" data-parent="#accordion">
+                   aria-labelledby="sideBar" data-parent="#accordion" >
+                <form  name="espece">
                 <div class="card-body row">
                   <div class="column ml-2 mr-5">
                     <!-- checkbox -->
-                    <input type="checkbox" id="fruits" name="fruits" value="Comestible:Fruits(Arbustes)">
+                    <input type="checkbox" id="fruits" name="espece" value="Espece:Fruits" ng-model="caracEspece">
                     <label class="ml-2" for="fruits">Fruits</label><br>
-                    <input type="checkbox" id="legumes" name="legumes" value="Comestible:Légumes">
+                    <input type="checkbox" id="legumes" name="espece" value="Espece:Légumes">
                     <label class="ml-2" for="legumes">Légumes</label><br>
-                    <input type="checkbox" id="fleurs" name="fleurs" value="Comestible:Fleurs">
+                    <input type="checkbox" id="fleurs" name="espece" value="Espece:Fleurs">
                     <label class="ml-2" for="fleurs">Fleurs</label><br>
                   </div>
                   <div class="column ml-5">
-                    <input type="checkbox" id="aromatiques" name="aromatiques" value="Comestible:Aromatiques">
+                    <input type="checkbox" id="aromatiques" name="espece" value="Espece:Aromatiques">
                     <label class="ml-2" for="aromatiques">Aromatiques</label><br>
-                    <input type="checkbox" id="cereales" name="cereales" value="cereales">
+                    <input type="checkbox" id="cereales" name="espece" value="Espece:Céréales">
                     <label class="ml-2" for="cereales">Céréales</label><br>
-                    <input type="checkbox" id="arbreFruitier" name="arbreFruitier" value="arbreFruitier">
+                    <input type="checkbox" id="arbreFruitier" name="espece" value="Espece:Arbre">
                     <label class="ml-2" for="arbreFruitier">Arbre Fruitier</label><br>
                   </div>
                 </div>
+                </form>
               </div>
             </div>
 
@@ -197,7 +199,7 @@
                             <!-- checkbox -->
                             <input type="checkbox" id="tresAcide" name="tresAcide" value="tresAcide">
                             <label class="ml-3" for="tresAcide">Très acide</label><br>
-                            <input type="checkbox" id="acide" name="acide" value="acide">
+                            <input type="checkbox" id="acide" name="acide" value="pH:Acide" [(ngModel)]="caracPH">
                             <label class="ml-3" for="acide">Acide</label><br>
                           </div>
                           <div class="column ml-4">
