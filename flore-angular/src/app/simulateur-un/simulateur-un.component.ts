@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimulateurUnComponent implements OnInit {
 
+
+  simu1Accueil: boolean = true;
+  kompagnonnage: boolean = false;
+  details:boolean=false;
   constructor() { }
 
   ngOnInit(): void {

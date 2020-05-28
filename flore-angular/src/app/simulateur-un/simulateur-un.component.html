@@ -1,14 +1,80 @@
 <div class="column ">
   <div class="row justify-content-center align-items-center mt-4">
-    <div class="column" style="width: 23%;">
-      <img src="assets/images/logosansfondblanc.png"
-           class="rounded-circle img-fluid " alt="Responsive image"
-           style="width: 100%;" />
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
     </div>
-    <div class="column "
-         style="width: 72%; text-align: center; align: middle;">
-      <h1 class="mb-4 mt-2 ">Tester des synergies - Simulateur 1</h1>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Tester des synergies</h1>
       <h2 class="hr ">Pour vérifier l'affinité entre deux plantes</h2>
     </div>
   </div>
+</div>
+<!-- bloc général-->
+<div class="row justify-content-center mt-5 border">
+
+  <!-- Colonne 1-->
+  <div class="column border mr-5" style="width:40%; text-align: center;" >
+    <!-- page 1-->
+  <div *ngIf="simu1Accueil">
+    <h1 class="mt-2">Simultateur 1</h1>
+    <p class="mt-4"> Ces deux plantes peuvent-elles s'associer?</p>
+  </div>
+
+    <div *ngIf="kompagnonnage">
+      <div class="row mt-3 justify-content-center border">
+      <h1 class="mt-2">Simultateur 1</h1>
+      <p class="mt-4"> Ces deux plantes peuvent-elles s'associer?</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Colonne 2-->
+  <div class="column  ml-5 border" style="width:40%;">
+    <!-- page 1-->
+    <div *ngIf="simu1Accueil">
+      <!-- search plante 1-->
+    <div  class="row mt-3 justify-content-center border">
+        <div class="column border">
+          <button  class="btn"
+                  style="background-color: #8bc34a">
+            <i class="fas fa-leaf" style="color: white"></i>
+          </button>
+        </div>
+        <div class="column border" style="width: 82%;">
+          <input class="form-control" id="myInput" type="text"
+                 placeholder="Entrer le nom de la plante 1">
+        </div>
+
+    </div>
+      <!-- search plante 2-->
+    <div  class="row mt-3 justify-content-center border">
+      <div class="column border">
+        <button  class="btn"
+                 style="background-color: #8bc34a">
+          <i class="fas fa-leaf" style="color: white"></i>
+        </button>
+      </div>
+      <div class="column border" style="width: 82%;">
+        <input class="form-control" id="myInput" type="text"
+               placeholder="Entrer le nom de la plante 2">
+      </div>
+
+    </div>
+      <!-- bouton kampagnonnage-->
+    <div class="row mt-3 justify-content-center border">
+    <button class="btn" style="width: 91%;background-color: #8bc34a" >
+
+        Démarrer notre prédicteur de Kompagnonnage
+
+    </button>
+    </div>
+    </div>
+
+  </div>
+
+
+
 </div>
