@@ -1,40 +1,40 @@
- <div class="column ">
-    <div class="row justify-content-center align-items-center mt-4">
-      <div class="column" style="width: 23%;">
-        <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid " alt="Responsive image"style="width: 100%;" />
-      </div>
-      <div class="column " style="width: 72%; text-align: center; align: middle;">
-        <h1 class="mb-4 mt-2 ">Notre Prédicteur de Kompagnonnage</h1>
-        <h2 class="hr ">Vers un jardin au naturel en Permaculture</h2>
-      </div>
+<div class="column ">
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 23%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid " alt="Responsive image"
+           style="width: 100%;"/>
     </div>
+    <div class="column " style="width: 72%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Notre Prédicteur de Kompagnonnage</h1>
+      <h2 class="hr ">Vers un jardin au naturel en Permaculture</h2>
+    </div>
+  </div>
 
-    <div class="row justify-content-center mt-5">
-      <div class="column m-3 box" style="width: 378px;">
-        <a href="/flore">
-        <button id="buttonFlore" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 140px; width: 376px;">
-          <div class="row justify-content-center align-items-center">
-            <div class="column mr-5" style="width:15%;">
-              <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
-                <i class="fab fa-envira fa-stack-1x" style="color: #ffeb3b"></i>
-              </div>
-            </div>
-            <div class="column" style="width: 230px;">
-              <h5>Rechercher une Flore</h5>
-              <h6>Accéder à ses caractéristiques, Découvrir ses plantes amies, Acheter ses plants, ...</h6>
+  <div class="row justify-content-center mt-5">
+    <div class="column m-3 box" style="width: 378px;">
+      <button [routerLink]="'/flore'" id="buttonFlore" type="button"
+              class="btn shadow-none justify-content-center align-items-center" style="height: 140px; width: 376px;">
+        <div class="row justify-content-center align-items-center">
+          <div class="column mr-5" style="width:15%;">
+            <div class="fa-stack fa-2x mr-5">
+              <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
+              <i class="fab fa-envira fa-stack-1x" style="color: #ffeb3b"></i>
             </div>
           </div>
-        </button>
-        </a>
-      </div>
+          <div class="column" style="width: 230px;">
+            <h5>Rechercher une Flore</h5>
+            <h6>Accéder à ses caractéristiques, Découvrir ses plantes amies, Acheter ses plants, ...</h6>
+          </div>
+        </div>
+      </button>
+    </div>
 
       <div class="column m-3 box" style="width: 378px;">
         <button [routerLink]="'/synergie'" id="buttonLien" type="button" class="btn shadow-none justify-content-center align-items-center"style="height: 140px; width: 376px;" >
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 15%;">
               <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x"style="color: #ffab00; opacity: 0.2"></i>
+                <i class="fas fa-circle fa-stack-2x" style="color: #ffab00; opacity: 0.2"></i>
                 <i class="fas fa-link fa-stack-1x" style="color: #ffab00"></i>
               </div>
             </div>
@@ -46,9 +46,10 @@
         </button>
       </div>
 
-      <div class="column m-3 box" style="width: 378px;">
-        <a href="/conseils">
-        <button id="buttonConseil" type="button" class="btn shadow-none justify-content-center align-items-center"style="height: 140px; width: 376px;">
+    <div class="column m-3 box" style="width: 378px;">
+      <a href="/conseils">
+        <button id="buttonConseil" type="button" class="btn shadow-none justify-content-center align-items-center"
+                style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 15%;">
               <div class="fa-stack fa-2x mr-5">
@@ -62,14 +63,15 @@
             </div>
           </div>
         </button>
-        </a>
-      </div>
+      </a>
     </div>
+  </div>
 
-    <div class="row justify-content-center align-items-center  mt-2">
-      <div class="column m-3 box" style="width: 378px;">
-        <a href="/faune">
-        <button id="buttonFaune" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 140px; width: 376px;">
+  <div class="row justify-content-center align-items-center  mt-2">
+    <div class="column m-3 box" style="width: 378px;">
+      <a href="/faune">
+        <button id="buttonFaune" type="button" class="btn shadow-none justify-content-center align-items-center"
+                style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
               <div class="fa-stack fa-2x mr-5">
@@ -83,12 +85,13 @@
             </div>
           </div>
         </button>
-        </a>
-      </div>
+      </a>
+    </div>
 
-      <div class="column m-3 box" style="width: 378px;">
-        <a href="/connexion">
-        <button id="buttonCompte" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 140px; width: 376px;">
+    <div class="column m-3 box" style="width: 378px;">
+      <a href="/connexion">
+        <button id="buttonCompte" type="button" class="btn shadow-none justify-content-center align-items-center"
+                style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
               <div class="fa-stack fa-2x mr-5">
@@ -102,12 +105,13 @@
             </div>
           </div>
         </button>
-        </a>
-      </div>
+      </a>
+    </div>
 
-      <div class="column m-3 box" style="width: 378px;">
-        <a href="/contact">
-        <button id="buttonContact" type="button" class="btn shadow-none justify-content-center align-items-center" style="height: 140px; width: 376px;">
+    <div class="column m-3 box" style="width: 378px;">
+      <a href="/contact">
+        <button id="buttonContact" type="button" class="btn shadow-none justify-content-center align-items-center"
+                style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
               <div class="fa-stack fa-2x mr-5">
@@ -121,8 +125,8 @@
             </div>
           </div>
         </button>
-        </a>
-      </div>
+      </a>
     </div>
   </div>
+</div>
 
