@@ -21,57 +21,56 @@ class FloreSynergiesTests {
 
 	@Test
 	void sontEllesAmies() {
-		
-		String nomFlore1="Courge";
-		String nomFlore2="Maïs";
-		
+
+		String nomFlore1 = "Menthe Poivrée";
+		String nomFlore2 = "Haricot";
+
 		/////////////////////////
-		//On appelle les caractéristiques des plantes 1 et 2 qui vont être comparées afin de définir les synergies si elles existent
+		// On appelle les caractéristiques des plantes 1 et 2 qui vont être comparées
+		///////////////////////// afin de définir les synergies si elles existent
 		/////////////////////////
-		
-		List<Caracteristique> stratFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Strate");
-		List<Caracteristique> stratFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Strate");
-		
-		List<Caracteristique> tempFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Température");
-		List<Caracteristique> tempFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Température");
-		
-		List<Caracteristique> ensolFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Ensoleillement");
-		List<Caracteristique> ensolFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Ensoleillement");
-		
-		List<Caracteristique> ventFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Vent");
-		List<Caracteristique> ventFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Vent");
-		
-		List<Caracteristique> pHFlore1 = caracRepo.findByFloreCarac(nomFlore1,"pH");
-		List<Caracteristique> pHFlore2 = caracRepo.findByFloreCarac(nomFlore2,"pH");
-		
-		List<Caracteristique> textFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Texture");
-		List<Caracteristique> textFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Texture");
-		
-		List<Caracteristique> humFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Humidité");
-		List<Caracteristique> humFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Humidité");
-		
-		List<Caracteristique> aroFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Arrosage");
-		List<Caracteristique> aroFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Arrosage");
-		
-		List<Caracteristique> racFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Racines");
-		List<Caracteristique> racFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Racines");
-		
-		List<Caracteristique> croiFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Croissance");
-		List<Caracteristique> croiFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Croissance");
-		
-		List<Caracteristique> azoFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Azote");
-		List<Caracteristique> azoFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Azote");
-		
-		List<Caracteristique> nutriFlore1 = caracRepo.findByFloreCarac(nomFlore1,"Nutriment");
-		List<Caracteristique> nutriFlore2 = caracRepo.findByFloreCarac(nomFlore2,"Nutriment");
-		
-		System.out.println(ventFlore1);
-		System.out.println(ventFlore2);
-		
+
+		List<Caracteristique> stratFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Strate");
+		List<Caracteristique> stratFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Strate");
+
+		List<Caracteristique> tempFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Température");
+		List<Caracteristique> tempFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Température");
+
+		List<Caracteristique> ensolFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Ensoleillement");
+		List<Caracteristique> ensolFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Ensoleillement");
+
+		List<Caracteristique> ventFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Vent");
+		List<Caracteristique> ventFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Vent");
+
+		List<Caracteristique> pHFlore1 = caracRepo.findByFloreCarac(nomFlore1, "pH");
+		List<Caracteristique> pHFlore2 = caracRepo.findByFloreCarac(nomFlore2, "pH");
+
+		List<Caracteristique> textFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Texture");
+		List<Caracteristique> textFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Texture");
+
+		List<Caracteristique> humFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Humidité");
+		List<Caracteristique> humFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Humidité");
+
+		List<Caracteristique> arroFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Arrosage");
+		List<Caracteristique> arroFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Arrosage");
+
+		List<Caracteristique> racFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Racines");
+		List<Caracteristique> racFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Racines");
+
+		List<Caracteristique> croiFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Croissance");
+		List<Caracteristique> croiFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Croissance");
+
+		List<Caracteristique> azoFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Azote");
+		List<Caracteristique> azoFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Azote");
+
+		List<Caracteristique> nutriFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Nutriment");
+		List<Caracteristique> nutriFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Nutriment");
+
 		/////////////////////////
-		//On affecte une valeur pour chacune des strat récupérée pour pouvoir les comparer plus facilement par la suite
+		// On affecte une valeur pour chacune des strat récupérée pour pouvoir les
+		///////////////////////// comparer plus facilement par la suite
 		/////////////////////////
-		
+
 		ArrayList<Integer> nbrstrat1 = new ArrayList<>();
 
 		for (Caracteristique stratnb : stratFlore1) {
