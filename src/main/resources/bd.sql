@@ -755,7 +755,7 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 	(233, 0, 'Image', 'Web', 'assets/images/fraise_1.png'),
 	(234, 0, 'Image', 'Web', 'assets/images/fraise_2.PNG'),
 	(235, 0, 'Image', 'Web', 'assets/images/fraise_3.PNG'),
-	(236, 0, 'Image', 'Web', 'assets/images/chouFleur_1.PNG'),
+	(236, 0, 'Image', 'Web', 'assets/images/chouFleur_1.jpg'),
 	(237, 0, 'Image', 'Web', 'assets/images/chouFleur_2.PNG'),
 	(238, 0, 'Image', 'Web', 'assets/images/chouFleur_3.PNG'),
 	(239, 0, 'Image', 'Web', 'assets/images/basilic_1.jpg'),
@@ -891,6 +891,7 @@ INSERT INTO faune (id, version, nom_faune)
 	(80,0,'Marmotte'),
 	(81,0,'Papillon de nuit'),
 	(82,0,'Cicadelle'),
+	(83,0,'Rongeur'),
 	(84,0,'Chrysomèle du concombre'),
 	(85,0,'Vers gris'),
 	(86,0,'Taupin'),
@@ -1515,7 +1516,7 @@ INSERT INTO flore (id, version, nom)
 	--liens faune-faune----(max 226)--
 	INSERT INTO referentiel_faune (id, version, caracteristique_id,faune_id)
 	VALUES
-	--coccinelle--predateur
+	--Coccinelle--predateur
 	(197, 0,188,10),
 	(198, 0,190,10),
 	(207, 0, 245, 10),
