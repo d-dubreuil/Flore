@@ -34,23 +34,23 @@
               </div>
               <div id="detailEspeces" class="collapse" style="background-color:rgb(139, 195, 74, 0.2)"
                    aria-labelledby="sideBar" data-parent="#accordion" >
-                <form  name="espece">
+                <form  name="espece" >
                 <div class="card-body row">
                   <div class="column ml-2 mr-5">
                     <!-- checkbox -->
-                    <input type="checkbox" id="fruits" name="espece" value="Espece:Fruits" ng-model="caracEspece">
+                    <input type="checkbox" id="fruits" name="espece" value="Espece:Fruits" [(ngModel)]="fruitsBoolean">
                     <label class="ml-2" for="fruits">Fruits</label><br>
-                    <input type="checkbox" id="legumes" name="espece" value="Espece:Légumes">
+                    <input type="checkbox" id="legumes" name="espece" value="Espece:Légumes"  [(ngModel)]="legumesBoolean">
                     <label class="ml-2" for="legumes">Légumes</label><br>
-                    <input type="checkbox" id="fleurs" name="espece" value="Espece:Fleurs">
+                    <input type="checkbox" id="fleurs" name="espece" value="Espece:Fleurs"  [(ngModel)]="fleursBoolean">
                     <label class="ml-2" for="fleurs">Fleurs</label><br>
                   </div>
                   <div class="column ml-5">
-                    <input type="checkbox" id="aromatiques" name="espece" value="Espece:Aromatiques">
+                    <input type="checkbox" id="aromatiques" name="espece" value="Espece:Aromatiques" [(ngModel)]="aromatiquesBoolean">
                     <label class="ml-2" for="aromatiques">Aromatiques</label><br>
-                    <input type="checkbox" id="cereales" name="espece" value="Espece:Céréales">
+                    <input type="checkbox" id="cereales" name="espece" value="Espece:Céréales" [(ngModel)]="cerealesBoolean">
                     <label class="ml-2" for="cereales">Céréales</label><br>
-                    <input type="checkbox" id="arbreFruitier" name="espece" value="Espece:Arbre">
+                    <input type="checkbox" id="arbreFruitier" name="espece" value="Espece:Arbre" [(ngModel)]="arbresBoolean">
                     <label class="ml-2" for="arbreFruitier">Arbre Fruitier</label><br>
                   </div>
                 </div>
@@ -149,11 +149,11 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="oui" name="oui" value="oui">
+                            <input type="checkbox" id="oui" name="oui" value="oui" [(ngModel)]="remontantOuiBoolean">
                             <label class="ml-3" for="oui">Oui</label><br>
                           </div>
                           <div class="column ml-5">
-                            <input type="checkbox" id="non" name="non" value="non">
+                            <input type="checkbox" id="non" name="non" value="non" [(ngModel)]="remontantNonBoolean">
                             <label class="ml-3" for="non">Non</label><br>
                           </div>
                         </div>
@@ -195,15 +195,15 @@
                         <div class="card-body row">
                           <div class="column ml-3 " style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="tresAcide" name="tresAcide" value="tresAcide">
+                            <input type="checkbox" id="tresAcide" name="tresAcide" value="tresAcide" [(ngModel)]="tresAcideBoolean">
                             <label class="ml-3" for="tresAcide">Très acide</label><br>
-                            <input type="checkbox" id="acide" name="acide" value="pH:Acide" [(ngModel)]="caracPH">
+                            <input type="checkbox" id="acide" name="acide" value="pH:Acide" [(ngModel)]="acideBoolean">
                             <label class="ml-3" for="acide">Acide</label><br>
                           </div>
                           <div class="column ml-4">
-                            <input type="checkbox" id="neutre" name="neutre" value="neutre">
+                            <input type="checkbox" id="neutre" name="neutre" value="neutre" [(ngModel)]="neutreBoolean">
                             <label class="ml-3" for="neutre">Neutre</label><br>
-                            <input type="checkbox" id="basique" name="basique" value="basique">
+                            <input type="checkbox" id="basique" name="basique" value="basique" [(ngModel)]="basiqueBoolean">
                             <label class="ml-3" for="basique">Basique</label><br>
                           </div>
                         </div>
@@ -225,17 +225,17 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="sec" name="sec" value="sec">
+                            <input type="checkbox" id="sec" name="sec" value="sec" [(ngModel)]="secBoolean">
                             <label class="ml-3" for="sec">Sec</label><br>
-                            <input type="checkbox" id="draine" name="draine" value="draine">
+                            <input type="checkbox" id="draine" name="draine" value="draine" [(ngModel)]="draineBoolean">
                             <label class="ml-3" for="draine">Drainé</label><br>
-                            <input type="checkbox" id="humide" name="humide" value="humide">
+                            <input type="checkbox" id="humide" name="humide" value="humide" [(ngModel)]="humideBoolean">
                             <label class="ml-3" for="humide">Humide</label><br>
                           </div>
                           <div class="column ml-4">
-                            <input type="checkbox" id="tresHumide" name="tresHumide" value="tresHumide">
+                            <input type="checkbox" id="tresHumide" name="tresHumide" value="tresHumide" [(ngModel)]="tresHumideBoolean">
                             <label class="ml-3" for="tresHumide">Très humide</label><br>
-                            <input type="checkbox" id="aquatique" name="aquatique" value="aquatique">
+                            <input type="checkbox" id="aquatique" name="aquatique" value="aquatique" [(ngModel)]="aquatiqueBoolean">
                             <label class="ml-3" for="aquatique">Aquatique</label><br>
                           </div>
                         </div>
@@ -257,25 +257,25 @@
                         <div class="card-body row ">
                           <div class="column ml-3" style="width:50% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="limoneux" name="limoneux" value="limoneux">
+                            <input type="checkbox" id="limoneux" name="limoneux" value="limoneux" [(ngModel)]="limoneuxBoolean">
                             <label class="ml-3" for="limoneux">Limoneux</label><br>
-                            <input type="checkbox" id="sableux" name="sableux" value="sableux">
+                            <input type="checkbox" id="sableux" name="sableux" value="sableux" [(ngModel)]="sableuxBoolean">
                             <label class="ml-3" for="sableux">Sableux</label><br>
-                            <input type="checkbox" id="argileux" name="argileux" value="argileux">
+                            <input type="checkbox" id="argileux" name="argileux" value="argileux" [(ngModel)]="argileuxBoolean">
                             <label class="ml-3" for="argileux">Argileux</label><br>
-                            <input type="checkbox" id="agiloSableux" name="agiloSableux" value="agiloSableux">
-                            <label class="ml-3" for="agiloSableux">Agilo-sableux</label><br>
-                            <input type="checkbox" id="limonoSableux" name="limonoSableux" value="limonoSableux">
+                            <input type="checkbox" id="argiloSableux" name="argiloSableux" value="argiloSableux" [(ngModel)]="argiloSableuxBoolean">
+                            <label class="ml-3" for="argiloSableux">Argilo-sableux</label><br>
+                            <input type="checkbox" id="limonoSableux" name="limonoSableux" value="limonoSableux" [(ngModel)]="limonoSableuxBoolean">
                             <label class="ml-3" for="limonoSableux">Limono-sableux</label><br>
 
-                            <input type="checkbox" id="argiloLimoneux" name="argiloLimoneux" value="argiloLimoneux">
+                            <input type="checkbox" id="argiloLimoneux" name="argiloLimoneux" value="argiloLimoneux" [(ngModel)]="argiloLimoneuxBoolean">
                             <label class="ml-3" for="argiloLimoneux">Argilo-limoneux</label><br>
                             <input type="checkbox" id="textureEquilibree" name="textureEquilibree"
-                                   value="textureEquilibree">
+                                   value="textureEquilibree" [(ngModel)]="equilibreBoolean">
                             <label class="ml-3" for="textureEquilibree">Texture équilibrée</label><br>
-                            <input type="checkbox" id="humifere" name="humifere" value="humifere">
+                            <input type="checkbox" id="humifere" name="humifere" value="humifere" [(ngModel)]="humifereBoolean">
                             <label class="ml-3" for="humifere">Humifère</label><br>
-                            <input type="checkbox" id="calcaire" name="calcaire" value="calcaire">
+                            <input type="checkbox" id="calcaire" name="calcaire" value="calcaire" [(ngModel)]="calcaireBoolean">
                             <label class="ml-3" for="calcaire">Calcaire</label><br>
                           </div>
                         </div>
@@ -296,11 +296,11 @@
                            aria-labelledby="sideBar" data-parent="#accordionSolArrosage">
                         <div class="card-body ml-1" style="width:45% ">
                           <!-- checkbox -->
-                          <input type="checkbox" id="faible" name="faible" value="faible">
+                          <input type="checkbox" id="faible" name="faible" value="faible" [(ngModel)]="faibleBoolean">
                           <label class="ml-3" for="faible">Faible</label><br>
-                          <input type="checkbox" id="modere" name="modere" value="modere">
+                          <input type="checkbox" id="modere" name="modere" value="modere" [(ngModel)]="modereBoolean">
                           <label class="ml-3" for="modere">Modéré</label><br>
-                          <input type="checkbox" id="important" name="important" value="important">
+                          <input type="checkbox" id="important" name="important" value="important" [(ngModel)]="importantBoolean">
                           <label class="ml-3" for="important">Important</label><br>
                         </div>
                       </div>
@@ -342,15 +342,15 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="oceanique" name="oceanique" value="oceanique">
+                            <input type="checkbox" id="oceanique" name="oceanique" value="oceanique" [(ngModel)]="oceaniqueBoolean">
                             <label class="ml-3" for="oceanique">Océanique</label><br>
-                            <input type="checkbox" id="semiOceanique" name="semiOceanique" value="semiOceanique">
+                            <input type="checkbox" id="semiOceanique" name="semiOceanique" value="semiOceanique" [(ngModel)]="semiOceaniqueBoolean">
                             <label class="ml-3" for="semiOceanique">Semi-océanique</label><br>
-                            <input type="checkbox" id="mediterraneen" name="mediterraneen" value="mediterraneen">
+                            <input type="checkbox" id="mediterraneen" name="mediterraneen" value="mediterraneen" [(ngModel)]="mediterraneenBoolean">
                             <label class="ml-3" for="mediterraneen">Méditerranéen</label><br>
-                            <input type="checkbox" id="montagniard" name="montagniard" value="montagniard">
-                            <label class="ml-3" for="montagniard">Montagniard</label><br>
-                            <input type="checkbox" id="continental" name="continental" value="continental">
+                            <input type="checkbox" id="montagniard" name="montagniard" value="montagniard" [(ngModel)]="montagnardBoolean">
+                            <label class="ml-3" for="montagniard">Montagnard</label><br>
+                            <input type="checkbox" id="continental" name="continental" value="continental" [(ngModel)]="continentalBoolean">
                             <label class="ml-3" for="continental">Continental</label><br>
                           </div>
                         </div>
@@ -372,13 +372,13 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="peuResistant" name="peuResistant" value="peuResistant">
+                            <input type="checkbox" id="peuResistant" name="peuResistant" value="peuResistant" [(ngModel)]="faibleresistanceBoolean">
                             <label class="ml-3" for="peuResistant">Peu résistant</label><br>
-                            <input type="checkbox" id="assezResistant" name="assezResistant" value="assezResistant">
+                            <input type="checkbox" id="assezResistant" name="assezResistant" value="assezResistant" [(ngModel)]="modereresistanceBoolean">
                             <label class="ml-3" for="assezResistant">Assez résistant</label><br>
                             <input type="checkbox" id="briseVent" name="briseVent" value="briseVent">
                             <label class="ml-3" for="briseVent">Haie brise-vent</label><br>
-                            <input type="checkbox" id="resistant" name="resistant" value="resistant">
+                            <input type="checkbox" id="resistant" name="resistant" value="resistant" [(ngModel)]="hauteresistanceBoolean">
                             <label class="ml-3" for="resistant">Résistant</label><br>
                           </div>
                         </div>
@@ -400,15 +400,15 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="pleinSoleil" name="pleinSoleil" value="pleinSoleil">
+                            <input type="checkbox" id="pleinSoleil" name="pleinSoleil" value="pleinSoleil" [(ngModel)]="pleinSoleilBoolean">
                             <label class="ml-3" for="pleinSoleil">Plein soleil</label><br>
-                            <input type="checkbox" id="soleil" name="soleil" value="soleil">
+                            <input type="checkbox" id="soleil" name="soleil" value="soleil" [(ngModel)]="soleilBoolean">
                             <label class="ml-3" for="soleil">Soleil</label><br>
-                            <input type="checkbox" id="miOmbre" name="miOmbre" value="miOmbre">
+                            <input type="checkbox" id="miOmbre" name="miOmbre" value="miOmbre" [(ngModel)]="miOmbreBoolean">
                             <label class="ml-3" for="miOmbre">Mi-ombre</label><br>
-                            <input type="checkbox" id="ombre" name="ombre" value="ombre">
+                            <input type="checkbox" id="ombre" name="ombre" value="ombre" [(ngModel)]="ombreBoolean">
                             <label class="ml-3" for="ombre">Ombre</label><br>
-                            <input type="checkbox" id="pleineOmbre" name="pleineOmbre" value="pleineOmbre">
+                            <input type="checkbox" id="pleineOmbre" name="pleineOmbre" value="pleineOmbre" [(ngModel)]="pleineOmbreBoolean">
                             <label class="ml-3" for="pleineOmbre">Pleine ombre</label><br>
                           </div>
                         </div>
@@ -434,11 +434,11 @@
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body ml-3" style="width:45% ">
                   <!-- checkbox -->
-                  <input type="checkbox" id="vivace" name="vivace" value="vivace">
+                  <input type="checkbox" id="vivace" name="vivace" value="vivace" [(ngModel)]="vivaceBoolean">
                   <label class="ml-3" for="vivace">Vivace</label><br>
-                  <input type="checkbox" id="annuelle" name="annuelle" value="annuelle">
+                  <input type="checkbox" id="annuelle" name="annuelle" value="annuelle" [(ngModel)]="annuelleBoolean">
                   <label class="ml-3" for="annuelle">Annuelle</label><br>
-                  <input type="checkbox" id="biAnnuelle" name="biAnnuelle" value="biAnnuelle">
+                  <input type="checkbox" id="biAnnuelle" name="biAnnuelle" value="biAnnuelle" [(ngModel)]="biannuelleBoolean">
                   <label class="ml-3" for="biAnnuelle">Bi-annuelle</label><br>
                 </div>
               </div>
@@ -461,15 +461,15 @@
                 <div class="card-body row">
                   <div class="column ml-3" style="width:45% ">
                     <!-- checkbox -->
-                    <input type="checkbox" id="inf20" name="inf20" value="inf20">
+                    <input type="checkbox" id="inf20" name="inf20" value="inf20" [(ngModel)]="trespetitBoolean">
                     <label class="ml-3" for="inf20"><20 cm</label><br>
-                    <input type="checkbox" id="inf60" name="inf60" value="inf60">
+                    <input type="checkbox" id="inf60" name="inf60" value="inf60" [(ngModel)]="petitBoolean">
                     <label class="ml-3" for="inf60">20-60 cm</label><br>
                   </div>
                   <div class="column ml-4">
-                    <input type="checkbox" id="inf150" name="inf150" value="inf150">
+                    <input type="checkbox" id="inf150" name="inf150" value="inf150" [(ngModel)]="moyenBoolean">
                     <label class="ml-3" for="inf150">60-150 cm</label><br>
-                    <input type="checkbox" id="sup150" name="sup150" value="sup150">
+                    <input type="checkbox" id="sup150" name="sup150" value="sup150" [(ngModel)]="grandBoolean">
                     <label class="ml-3" for="sup150">>150 cm</label><br>
                   </div>
                 </div>
@@ -492,13 +492,13 @@
                 <div class="card-body row">
                   <div class="column ml-3" style="width:50% ">
                     <!-- checkbox -->
-                    <input type="checkbox" id="rhizome" name="rhizome" value="rhizome">
+                    <input type="checkbox" id="rhizome" name="rhizome" value="rhizome" [(ngModel)]="rhizomesBoolean">
                     <label class="ml-3" for="rhizome">Rhizome</label><br>
-                    <input type="checkbox" id="superficielle" name="superficielle" value="superficielle">
+                    <input type="checkbox" id="superficielle" name="superficielle" value="superficielle" [(ngModel)]="superfilciellesBoolean">
                     <label class="ml-3" for="superficielle">Superficielle</label><br>
-                    <input type="checkbox" id="moyenne" name="moyenne" value="moyenne">
+                    <input type="checkbox" id="moyenne" name="moyenne" value="moyenne" [(ngModel)]="profondeurMoyenneBoolean">
                     <label class="ml-3" for="moyenne">Profondeur moyenne</label><br>
-                    <input type="checkbox" id="profonde" name="profonde" value="profonde">
+                    <input type="checkbox" id="profonde" name="profonde" value="profonde" [(ngModel)]="profondesBoolean">
                     <label class="ml-3" for="profonde">Profonde</label><br>
                   </div>
                 </div>
@@ -520,11 +520,11 @@
                    aria-labelledby="sideBar" data-parent="#accordion">
                 <div class="card-body  ml-3" style="width:45% ">
                   <!-- checkbox -->
-                  <input type="checkbox" id="lente" name="lente" value="lente">
+                  <input type="checkbox" id="lente" name="lente" value="lente" [(ngModel)]="lenteBoolean">
                   <label class="ml-3" for="lente">Lente</label><br>
-                  <input type="checkbox" id="normale" name="normale" value="normale">
+                  <input type="checkbox" id="normale" name="normale" value="normale" [(ngModel)]="normaleBoolean">
                   <label class="ml-3" for="normale">Normale</label><br>
-                  <input type="checkbox" id="rapide" name="rapide" value="rapide">
+                  <input type="checkbox" id="rapide" name="rapide" value="rapide" [(ngModel)]="rapideBoolean">
                   <label class="ml-3" for="rapide">Rapide</label><br>
                 </div>
               </div>
@@ -560,15 +560,15 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="inhibiteur" name="inhibiteur" value="inhibiteur">
+                            <input type="checkbox" id="inhibiteur" name="inhibiteur" value="inhibiteur" [(ngModel)]="inhibiteurAzoteBoolean">
                             <label class="ml-3" for="inhibiteur">Inhibiteur</label><br>
-                            <input type="checkbox" id="fixateur" name="fixateur" value="fixateur">
+                            <input type="checkbox" id="fixateur" name="fixateur" value="fixateur" [(ngModel)]="fixateurAzoteBoolean">
                             <label class="ml-3" for="fixateur">Fixateur</label><br>
                           </div>
                           <div class="column ml-4">
-                            <input type="checkbox" id="neutre" name="neutre" value="neutre">
+                            <input type="checkbox" id="neutre" name="neutre" value="neutre" [(ngModel)]="neutreAzoteBoolean">
                             <label class="ml-3" for="neutre">Neutre</label><br>
-                            <input type="checkbox" id="devoreur" name="devoreur" value="devoreur">
+                            <input type="checkbox" id="devoreur" name="devoreur" value="devoreur" [(ngModel)]="devoreurAzoteBoolean">
                             <label class="ml-3" for="devoreur">Dévoreur</label><br>
                           </div>
                         </div>
@@ -589,11 +589,11 @@
                            aria-labelledby="sideBar" data-parent="#accordionNutrimentAutres">
                         <div class="card-body ml-1" style="width:45% ">
                           <!-- checkbox -->
-                          <input type="checkbox" id="fixateur" name="fixateur" value="fixateur">
+                          <input type="checkbox" name="fixateur" value="fixateur" [(ngModel)]="fixateurBoolean">
                           <label class="ml-3" for="fixateur">Fixateur</label><br>
-                          <input type="checkbox" id="neutre" name="neutre" value="neutre">
+                          <input type="checkbox" name="neutre" value="neutre" [(ngModel)]="neutreNutrimentBoolean">
                           <label class="ml-3" for="neutre">Neutre</label><br>
-                          <input type="checkbox" id="devoreur" name="devoreur" value="devoreur">
+                          <input type="checkbox" name="devoreur" value="devoreur" [(ngModel)]="devoreurBoolean">
                           <label class="ml-3" for="devoreur">Dévoreur</label><br>
                         </div>
                       </div>
@@ -620,23 +620,23 @@
                 <div class="card-body row">
                   <div class="column ml-3" style="width:45% ">
                     <!-- checkbox -->
-                    <input type="checkbox" id="canopee" name="canopee" value="canopee">
+                    <input type="checkbox" id="canopee" name="canopee" value="canopee" [(ngModel)]="canopeeBoolean">
                     <label class="ml-3" for="canopee">Canopée</label><br>
-                    <input type="checkbox" id="petitsArbres" name="petitsArbres" value="petitsArbres">
+                    <input type="checkbox" id="petitsArbres" name="petitsArbres" value="petitsArbres" [(ngModel)]="petitsArbresBoolean">
                     <label class="ml-3" for="petitsArbres">Petits arbres</label><br>
-                    <input type="checkbox" id="arbustive" name="arbustive" value="arbustive">
+                    <input type="checkbox" id="arbustive" name="arbustive" value="arbustive" [(ngModel)]="arbustiveBoolean">
                     <label class="ml-3" for="arbustive">Arbustive</label><br>
-                    <input type="checkbox" id="herbaceeHaute" name="herbaceeHaute" value="herbaceeHaute">
+                    <input type="checkbox" id="herbaceeHaute" name="herbaceeHaute" value="herbaceeHaute" [(ngModel)]="herbaceeHauteBoolean">
                     <label class="ml-3" for="herbaceeHaute">Herbacée haute</label><br>
                   </div>
                   <div class="column ml-4">
-                    <input type="checkbox" id="herbaceeBasse" name="herbaceeBasse" value="herbaceeBasse">
+                    <input type="checkbox" id="herbaceeBasse" name="herbaceeBasse" value="herbaceeBasse" [(ngModel)]="herbaceeBasseBoolean">
                     <label class="ml-3" for="herbaceeBasse">Herbacée basse</label><br>
-                    <input type="checkbox" id="couvreSol" name="couvreSol" value="couvreSol">
+                    <input type="checkbox" id="couvreSol" name="couvreSol" value="couvreSol" [(ngModel)]="couvreSolBoolean">
                     <label class="ml-3" for="rhizome">Couvre sol</label><br>
-                    <input type="checkbox" id="rhizosphere" name="rhizosphere" value="rhizosphere">
+                    <input type="checkbox" id="rhizosphere" name="rhizosphere" value="rhizosphere" [(ngModel)]="rhizosphereBoolean">
                     <label class="ml-3" for="rhizosphere">Rhizosphère</label><br>
-                    <input type="checkbox" id="grimpante" name="grimpante" value="grimpante">
+                    <input type="checkbox" id="grimpante" name="grimpante" value="grimpante" [(ngModel)]="grimpanteBoolean">
                     <label class="ml-3" for="grimpante">Grimpante</label><br>
                   </div>
                 </div>
@@ -677,7 +677,7 @@
           <div id="myDIV" class="mt-3">
 
             <!-- BLOC résultat  -->
-            <tr *ngFor="let flore of list()">
+            <div *ngFor="let flore of list()">
               <div class=" m-3 " *ngIf="filterCarac(flore,'NomLatin')!= 'non renseigné'">
                 <div class="m-2 align-items-center">
                   <button id="btnResultat" style="width: 100%;height: 10%">
@@ -696,7 +696,7 @@
                   </button>
                 </div>
               </div>
-            </tr>
+            </div>
           </div>
         </div>
       </div>
