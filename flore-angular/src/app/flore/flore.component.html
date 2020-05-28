@@ -1,23 +1,26 @@
 <div class="column ">
   <div class="row justify-content-center align-items-center mt-4">
-    <div class="column" style="width: 23%;">
-      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid " alt="Responsive image"
-           style="width: 100%;"/>
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
     </div>
-    <div class="column " style="width: 72%; text-align: center; align: middle;">
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
       <h1 class="mb-4 mt-2 ">Rechercher une flore</h1>
       <h2 class="hr ">Et trouver sa fiche détaillée</h2>
     </div>
   </div>
 
   <div class="column ">
-    <div class="row mb-4 justify-content-center align-items-center" style="width:100%">
+    <div class="row align-items-center" style="width:100%">
 
       <!-- BLOC filtres  -->
       <!-- BLOC formulaire  -->
       <div class="row mt-5  justify-content-center ">
         <div id="formulaire" class="column mr-5" style="width: 30%">
-
+          <div id="btnSubmit" class="btn bg-white"
+               style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; font-style: italic">Sélectionnez vos filtres
+          </div>
           <div id="accordion">
             <!--ESPECES-->
             <div>
@@ -27,7 +30,6 @@
                           style="width: 100%; text-align: center; font-size: 18px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailEspeces"
                           aria-expanded="true" aria-controls="detailEspeces">Espèces
-                    <i class="fas fa-chevron-down"></i>
                   </button>
 
                 </h5>
@@ -651,8 +653,8 @@
             <!--                    style="background-color: #8bc34a">-->
             <!--              <i class="fas fa-check" style="color: white"></i>-->
             <!--            </button>-->
-            <button id="btnSubmit" class="btn mt-4 bg-white"
-                    style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold" (click)="search()">A vos potagers!
+            <button id="btnSubmit" class="btn mt-2 bg-white"
+                    style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; ">Validez et à vos potagers !
             </button>
           </div>
 
