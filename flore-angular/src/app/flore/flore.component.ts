@@ -12,12 +12,47 @@ import {Caracteristique} from '../model/Caracteristique';
 })
 export class FloreComponent implements OnInit {
 
-  floreformulaire: FloreForm;
-  caracteristiques: Array<string>;
-  flores: Array<Flore>;
-  caracs: Array<Caracteristique>;
+  floreformulaire: FloreForm = new FloreForm();
+  caracteristiques: Array<string> = new Array<string>();
+  caracs: Array<string> = new Array<string>();
+  caracEspece: string = '';
+  caracRecolte: string = '';
+  caracPlanter: string = '';
+  caracRemontant: string = '';
+  caracPH: string = '';
+  caracHumidite: string = '';
+  caracTexture: string = '';
+  caracArrosage: string = '';
+  caracClimat: string = '';
+  caracResistanceFroid: string = '';
+  caracEnsoleillement: string = '';
+  caracFloraison: string = '';
+  caracHauteur: string = '';
+  caracRacine: string = '';
+  caracCroissance: string = '';
+  caracAzote: string = '';
+  caracNutriment: string = '';
+  caracStrate: string = '';
 
   constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService) {
+    this.caracs.push(this.caracEspece);
+    this.caracs.push(this.caracRecolte);
+    this.caracs.push(this.caracPlanter);
+    this.caracs.push(this.caracRemontant);
+    this.caracs.push(this.caracPH);
+    this.caracs.push(this.caracHumidite);
+    this.caracs.push(this.caracTexture);
+    this.caracs.push(this.caracArrosage);
+    this.caracs.push(this.caracClimat);
+    this.caracs.push(this.caracResistanceFroid);
+    this.caracs.push(this.caracEnsoleillement);
+    this.caracs.push(this.caracFloraison);
+    this.caracs.push(this.caracHauteur);
+    this.caracs.push(this.caracRacine);
+    this.caracs.push(this.caracCroissance);
+    this.caracs.push(this.caracAzote);
+    this.caracs.push(this.caracNutriment);
+    this.caracs.push(this.caracStrate);
   }
 
   ngOnInit(): void {
@@ -28,7 +63,21 @@ export class FloreComponent implements OnInit {
   }
 
   search() {
-    this.floreService.findByFormulaire(this.floreformulaire).subscribe(resp => this.flores = resp, error => console.log(error));
+    console.log('go');
+    for (let car of this.caracs) {
+      console.log(car);
+      if (car.length != 0) {
+        this.caracteristiques.push(car);
+        console.log(car);
+      }
+    }
+    console.log(this.caracteristiques);
+    this.floreformulaire.caracteristiques = this.caracteristiques;
+    console.log(this.floreformulaire);
+    this.floreService.findByFormulaire(this.floreformulaire).subscribe(resp => {
+      this.floreService.flores = resp;
+      console.log(this.list());
+    }, error => console.log(error));
   }
 
   filterCarac(flore: Flore, nomCarac: string): string {
