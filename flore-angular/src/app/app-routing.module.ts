@@ -11,6 +11,7 @@ import {ConnexionComponent} from "./connexion/connexion.component";
 import {FloreComponent} from './flore/flore.component';
 import {FicheFauneComponent} from "./fiche-faune/fiche-faune.component";
 import {FicheFloreComponent} from "./fiche-flore/fiche-flore.component";
+import {SimulateurUnComponent} from "./simulateur-un/simulateur-un.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'qui-sommes-nous', component: QuiSommesNousComponent},
   {path: 'panier', component: PanierComponent},
-  {path: 'connexion', component: ConnexionComponent}
+  {path: 'connexion', component: ConnexionComponent},
+  {path: 'synergie/simulateur-un', component: SimulateurUnComponent}
 ];
 
 @NgModule({

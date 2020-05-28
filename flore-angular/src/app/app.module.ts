@@ -26,6 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FicheFloreComponent } from './fiche-flore/fiche-flore.component';
 import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
+import { SimulateurUnComponent } from './simulateur-un/simulateur-un.component';
+import { SimulateurDeuxComponent } from './simulateur-deux/simulateur-deux.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
     ConnexionComponent,
     HomeComponent,
     FicheFloreComponent,
-    FicheFauneComponent
+    FicheFauneComponent,
+    SimulateurUnComponent,
+    SimulateurDeuxComponent
   ],
     imports: [
         BrowserModule,
