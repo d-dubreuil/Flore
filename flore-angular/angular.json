@@ -32,7 +32,7 @@
               "node_modules/@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss",
               "node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss",
               "node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss",
-              "node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss",
+              "node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css",
               "src/styles.scss"
             ],
             "scripts": [
