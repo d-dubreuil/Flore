@@ -1,1 +1,164 @@
-<p>compte-utilisateur works!</p>
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Prenom</h1>
+      <h2 class="hr ">Bienvenue dans votre espace <br> (administrateur)</h2>
+    </div>
+  </div>
+</div>
+
+<!-- ADMINISTRATEUR -->
+<br><br>
+<div class="colum mt-5">
+  <div id="accordion">
+
+    <!--FLORE-->
+    <div>
+      <div class="mx-5 " id="sideBar" style="background-color:#8bc34a">
+        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
+          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
+                  data-toggle="collapse" data-target="#detailFlore" aria-expanded="true" aria-controls="detailFlore">1. ACCÈDER AUX FICHES FLORES
+          </button>
+
+        </h5>
+      </div>
+      <div id="detailFlore" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >
+        <div>
+          <h2 class="my-3" style="text-align: center">Base de données - Flore</h2>
+        </div>
+        <div>
+          <table class="table table-striped ml-5 pl-3" style="width: 92%">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Version</th>
+              <th>Nom</th>
+              <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let flore of listFlore()">
+              <td>{{flore.id}}</td>
+              <td>{{flore.version}}</td>
+              <td>{{flore.nom}}</td>
+              <td><div class="btn-group btn-group-sm">
+                <a id="btnGroup" class="btn btn-warning" (click)="editFlore(flore.id)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a id="btnGroup" class="btn btn-warning" (click)="deleteFlore(flore.id)"><i class="fa fa-trash"></i></a>
+              </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-success btn-lg" (click)="addFlore()"><i class="fa fa-plus"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+    <!--FAUNE-->
+    <div>
+      <div class="mx-5 mt-5" id="sideBar" style="background-color:#8bc34a">
+        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
+          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
+                  data-toggle="collapse" data-target="#detailFaune" aria-expanded="true" aria-controls="detailFaune">2. ACCÈDER AUX FICHES FAUNES
+          </button>
+
+        </h5>
+      </div>
+      <div id="detailFaune" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >
+        <div>
+          <h2 class="my-3" style="text-align: center">Base de données - Faune</h2>
+        </div>
+        <div>
+          <table class="table table-striped ml-5 pl-3" style="width: 92%">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Version</th>
+              <th>Nom</th>
+              <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let faune of listFaune()">
+              <td>{{faune.id}}</td>
+              <td>{{faune.version}}</td>
+              <td>{{faune.nomFaune}}</td>
+              <td><div class="btn-group btn-group-sm">
+                <a id="btnGroup" class="btn btn-warning" (click)="editFaune(faune.id)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a id="btnGroup" class="btn btn-warning" (click)="deleteFaune(faune.id)"><i class="fa fa-trash"></i></a>
+              </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-success btn-lg" (click)="addFaune()"><i class="fa fa-plus"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!--CONSEIL-->
+    <div>
+      <div class="mx-5 mt-5" id="sideBar" style="background-color:#8bc34a">
+        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
+          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
+                  data-toggle="collapse" data-target="#detailFaune" aria-expanded="true" aria-controls="detailFaune">3. ACCÈDER AUX FICHES CONSEILS
+          </button>
+
+        </h5>
+      </div>
+      <div id="detailFaune" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >
+        <div>
+          <h2 class="my-3" style="text-align: center">Base de données - Conseils</h2>
+        </div>
+        <div>
+          <table class="table table-striped ml-5 pl-3" style="width: 92%">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Version</th>
+              <th>Nom</th>
+              <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--
+            <tr *ngFor="let faune of listFaune()">
+              <td>{{faune.id}}</td>
+              <td>{{faune.version}}</td>
+              <td>{{faune.nomFaune}}</td>
+              <td><div class="btn-group btn-group-sm">
+                <a id="btnGroup" class="btn btn-warning" (click)="editFaune(faune.id)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a id="btnGroup" class="btn btn-warning" (click)="deleteFaune(faune.id)"><i class="fa fa-trash"></i></a>
+              </div>
+              </td>
+            </tr>
+            </tbody>
+            -->
+          </table>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-success btn-lg" (click)="addFaune()"><i class="fa fa-plus"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>

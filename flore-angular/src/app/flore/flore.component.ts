@@ -742,4 +742,6 @@ export class FloreComponent implements OnInit {
     this.floreService.flore = flore;
   }
 
+
+
 }
