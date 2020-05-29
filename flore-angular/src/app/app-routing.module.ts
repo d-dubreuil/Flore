@@ -11,20 +11,24 @@ import {ConnexionComponent} from "./connexion/connexion.component";
 import {FloreComponent} from './flore/flore.component';
 import {FicheFauneComponent} from "./fiche-faune/fiche-faune.component";
 import {FicheFloreComponent} from "./fiche-flore/fiche-flore.component";
+import {SimulateurUnComponent} from "./simulateur-un/simulateur-un.component";
+import {SimulateurDeuxComponent} from "./simulateur-deux/simulateur-deux.component";
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'flore', component: FloreComponent},
-  {path: 'fiche-flore', component: FicheFloreComponent},
-  {path: 'faune', component: FauneComponent},
-  {path: 'fiche-faune', component: FicheFauneComponent},
-  {path: 'synergie', component: SynergieComponent},
-  {path: 'conseils', component: ConseilComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'qui-sommes-nous', component: QuiSommesNousComponent},
-  {path: 'panier', component: PanierComponent},
-  {path: 'connexion', component: ConnexionComponent}
+  {path: 'NPK/accueil', component: HomeComponent},
+  {path: '', redirectTo: 'NPK/accueil', pathMatch: 'full'},
+  {path: 'NPK/flore', component: FloreComponent},
+  {path: 'NPK/flore/fiche-flore', component: FicheFloreComponent},
+  {path: 'NPK/faune', component: FauneComponent},
+  {path: 'NPK/faune/fiche-faune', component: FicheFauneComponent},
+  {path: 'NPK/synergie', component: SynergieComponent},
+  {path: 'NPK/conseils', component: ConseilComponent},
+  {path: 'NPK/contact', component: ContactComponent},
+  {path: 'NPK/qui-sommes-nous', component: QuiSommesNousComponent},
+  {path: 'NPK/panier', component: PanierComponent},
+  {path: 'NPK/connexion', component: ConnexionComponent},
+  {path: 'NPK/synergie/simulateur-un', component: SimulateurUnComponent},
+  {path: 'NPK/synergie/simulateur-deux', component: SimulateurDeuxComponent}
 ];
 
 @NgModule({

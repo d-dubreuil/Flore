@@ -1,4 +1,4 @@
-<div class="column">
+<div>
   <div class="row justify-content-center align-items-center mt-4">
     <div class="column" style="width: 5%;"></div>
     <div class="column" style="width: 25%;">
@@ -9,5 +9,171 @@
       <h1 class="mb-4 mt-2">Rechercher une Faune</h1>
       <h2 class="hr">Et trouver sa fiche détaillée</h2>
     </div>
+  </div>
+</div>
+
+<div>
+  <div class="row" style="width:100%">
+    <div class="column" style="width: 5%"></div>
+    <!-- BLOC filtres  -->
+    <!-- BLOC formulaire  -->
+    <div class="column mt-5 ml-5 justify-content-center" style="width: 25%">
+      <div id="formulaire" class="column mr-5" >
+        <div id="btnSubmit" class="btn bg-white" style=" width: 100%; height: 70px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; font-style: italic">Triez par ordre alphabétique
+        </div>
+        <div id="accordion">
+          <!--AB-->
+          <div>
+            <div id="sideBar" style="background-color:#8bc34a">
+              <h5 class="mb-0" style="font-size: large; font-weight: bold">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">A, B
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--CD-->
+          <div>
+            <div id="sideBar" style="background-color:#9ccc65">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">C, D
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--EF-->
+          <div>
+            <div id="sideBar" style="background-color:#aed581">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">E, F
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--GH-->
+          <div>
+            <div id="sideBar" style="background-color:#c5e1a5">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">G, H
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--IJK-->
+          <div>
+            <div id="sideBar" style="background-color:#dcedc8">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">I, J, K
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--LMN-->
+          <div>
+            <div id="sideBar" style="background-color:#f1f8e9">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">L, M, N
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--OPQ-->
+          <div>
+            <div id="sideBar" style="background-color:#dcedc8">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">O, P, Q
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--RST-->
+          <div>
+            <div id="sideBar" style="background-color:#c5e1a5">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">R, S, T
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--UVW-->
+          <div>
+            <div id="sideBar" style="background-color:#aed581">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">U, V, W
+                </button>
+              </h5>
+            </div>
+          </div>
+
+          <!--XYZ-->
+          <div>
+            <div id="sideBar" style="background-color:#9ccc65">
+              <h5 class="mb-0">
+                <button type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">X, Y, Z
+                </button>
+              </h5>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    <div class="column" style="width: 3%"></div>
+
+    <!-- BLOC résultats + search  -->
+    <div id="result" class="column justify-content-center align-items-center mt-5" style="width:60%; ">
+      <div id="searchFlore" class="row ml-1 justify-content-center" style="width:100%; height: 70px;">
+        <div class="column mt-3" style="width: 12%;">
+          <button id="btnSearch" class="btn float-right" style="background-color: #8bc34a; width: 100%">
+            <i class="fas fa-leaf" style="color: white"></i>
+          </button>
+        </div>
+        <div class="column mt-3" style="width: 77%;">
+          <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une faune" style="text-align: center; font-style: italic">
+        </div>
+      </div>
+
+
+        <!-- BLOC résultat  -->
+      <div id="result" class="column" style="width: 100%; border: none">
+        <tr *ngFor="let faune of list()">
+          <div class=" m-3 " *ngIf="filterCarac(faune,'NomLatin')!= 'non renseigné'">
+            <div class="m-2 align-items-center">
+              <button id="btnResultat" style="width: 100%;height: 10%">
+                <!-- BLOC Images  -->
+                <div class="row m-2 align-items-center">
+                  <div class="column" style="width: 15%;">
+                    <img src="{{filterCarac(faune, 'Image')}}"
+                         style="width: 85%; height: 80%"/>
+                  </div>
+                  <!-- BLOC Texte  -->
+                  <div class="column align-middle" style="width: 80%;">
+                    <h5>{{faune.nomFaune}}</h5>
+                    <h6 style="font-style: italic">{{filterCarac(faune, 'NomLatin')}}</h6>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </tr>
+      </div>
+
   </div>
 </div>

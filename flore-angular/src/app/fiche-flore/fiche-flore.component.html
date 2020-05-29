@@ -6,8 +6,8 @@
            style="width: 70%;"/>
     </div>
     <div class="column " style="width: 60%; text-align: center; align: middle;">
-      <h1 class="mb-4 mt-2 ">Fiche +nom</h1>
-      <h2 class="hr ">Nom latin</h2>
+      <h1 class="mb-4 mt-2 ">{{floreService.flore.nom}}</h1>
+      <h2 class="hr ">{{filterCarac(floreService.flore, 'NomLatin')}}</h2>
     </div>
   </div>
 
@@ -93,6 +93,20 @@
           </button>
         </div>
       </div>
+
+      <!-- BLOC LIEN FLORE -->
+      <div class="row justify-content-center align-items-center border">
+        <div id="lienFlore" class="row justify-content-center align-items-center ml-5" style="height: 45%">
+          Relation flore
+        </div>
+      </div>
+
+      <!-- BLOC LIEN FAUNE -->
+      <div class="row justify-content-center align-items-center border">
+        <div id="lienFaune" class="row justify-content-center align-items-center ml-5" style="height: 45%">
+          Relation faune
+        </div>
+      </div>
     </div>
 
     <!-- BLOC TEXTE/PHOTOS ET CARACTERISTIQUES -->
@@ -100,9 +114,7 @@
       <!-- BLOC TEXTE -->
       <div class="row justify-content-center align-items-center ">
         <div id="textePhoto" class="row justify-content-center align-items-center ml-3 p-3" style="height: 45%">
-          Le basilic est une plante aromatique facile à cultiver en extérieur ou en intérieur, en pot ou en pleine
-          terre. Très apprécié pour sa fraîcheur et sa saveur, il relève les plats de l'été. C'est un réel plaisir de le
-          cueillir selon ses besoins.
+          {{filterCarac(floreService.flore, 'Descriptif')}}
         </div>
       </div>
 
@@ -110,10 +122,13 @@
       <div class="row justify-content-center align-items-center ">
         <div id="textePhoto" class="row justify-content-center align-items-center ml-5" style="height: 45%">
           <div class="border m-3" style="width: 28%; height: 150px">
-            <img src="assets/images/basilic_1.jpg" style="width: 100%; height: 100%">
+            <img src="{{filterCarac(floreService.flore, 'Image')}}" style="width: 100%; height: 100%">
           </div>
-          <div class="border m-3" style="width: 28%; height: 150px">
-            <img src="assets/images/basilic_2.jpg" style="width: 100%; height: 100%">
+          <div class="border m-3" style="width: 28%; height: 150px" *ngIf="filterCarac(floreService.flore, 'Image2')!= 'non renseigné'">
+            <img src="{{filterCarac(floreService.flore, 'Image2')}}" style="width: 100%; height: 100%">
+          </div>
+          <div class="border m-3" style="width: 28%; height: 150px" *ngIf="filterCarac(floreService.flore, 'Image3')!= 'non renseigné'">
+            <img src="{{filterCarac(floreService.flore, 'Image3')}}" style="width: 100%; height: 100%">
           </div>
         </div>
       </div>

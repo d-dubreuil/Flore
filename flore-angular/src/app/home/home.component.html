@@ -12,7 +12,7 @@
 
   <div class="row justify-content-center mt-5">
     <div class="column m-3 box" style="width: 378px;">
-      <button [routerLink]="'/flore'" id="buttonFlore" type="button"
+      <button [routerLink]="'/NPK/flore'" id="buttonFlore" type="button"
               class="btn shadow-none justify-content-center align-items-center" style="height: 140px; width: 376px;">
         <div class="row justify-content-center align-items-center">
           <div class="column mr-5" style="width:15%;">
@@ -29,10 +29,8 @@
       </button>
     </div>
 
-    <div class="column m-3 box" style="width: 378px;">
-      <a href="/synergie">
-        <button id="buttonLien" type="button" class="btn shadow-none justify-content-center align-items-center"
-                style="height: 140px; width: 376px;">
+      <div class="column m-3 box" style="width: 378px;">
+        <button [routerLink]="'/NPK/synergie'" id="buttonLien" type="button" class="btn shadow-none justify-content-center align-items-center"style="height: 140px; width: 376px;" >
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 15%;">
               <div class="fa-stack fa-2x mr-5">
@@ -46,12 +44,10 @@
             </div>
           </div>
         </button>
-      </a>
-    </div>
+      </div>
 
     <div class="column m-3 box" style="width: 378px;">
-      <a href="/conseils">
-        <button id="buttonConseil" type="button" class="btn shadow-none justify-content-center align-items-center"
+        <button [routerLink]="'/NPK/conseils'" id="buttonConseil" type="button" class="btn shadow-none justify-content-center align-items-center"
                 style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 15%;">
@@ -66,14 +62,12 @@
             </div>
           </div>
         </button>
-      </a>
     </div>
   </div>
 
   <div class="row justify-content-center align-items-center  mt-2">
     <div class="column m-3 box" style="width: 378px;">
-      <a href="/faune">
-        <button id="buttonFaune" type="button" class="btn shadow-none justify-content-center align-items-center"
+        <button [routerLink]="'/NPK/faune'" id="buttonFaune" type="button" class="btn shadow-none justify-content-center align-items-center"
                 style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
@@ -88,12 +82,10 @@
             </div>
           </div>
         </button>
-      </a>
     </div>
 
     <div class="column m-3 box" style="width: 378px;">
-      <a href="/connexion">
-        <button id="buttonCompte" type="button" class="btn shadow-none justify-content-center align-items-center"
+        <button [routerLink]="'/NPK/connexion'" id="buttonCompte" type="button" class="btn shadow-none justify-content-center align-items-center"
                 style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
@@ -108,12 +100,10 @@
             </div>
           </div>
         </button>
-      </a>
     </div>
 
     <div class="column m-3 box" style="width: 378px;">
-      <a href="/contact">
-        <button id="buttonContact" type="button" class="btn shadow-none justify-content-center align-items-center"
+        <button [routerLink]="'/NPK/contact'" id="buttonContact" type="button" class="btn shadow-none justify-content-center align-items-center"
                 style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
@@ -128,7 +118,6 @@
             </div>
           </div>
         </button>
-      </a>
     </div>
   </div>
 </div>

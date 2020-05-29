@@ -1,22 +1,28 @@
-<div class="column ">
+<div>
   <div class="row justify-content-center align-items-center mt-4">
-    <div class="column" style="width: 23%;">
-      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid " alt="Responsive image"
-           style="width: 100%;"/>
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
     </div>
-    <div class="column " style="width: 72%; text-align: center; align: middle;">
-      <h1 class="mb-4 mt-2 ">Rechercher une flore</h1>
-      <h2 class="hr ">Et trouver sa fiche détaillée</h2>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2">Rechercher une flore</h1>
+      <h2 class="hr">Et trouver sa fiche détaillée</h2>
     </div>
   </div>
+</div>
+<div>
 
   <div class="column ">
     <div class="row mb-4 justify-content-center align-items-center" style="width:100%">
 
+
+
       <!-- BLOC filtres  -->
       <!-- BLOC formulaire  -->
       <div class="row mt-5  justify-content-center ">
-        <div id="formulaire" class="column mr-5" style="width: 30%">
+        <div class="column" style="width: 2%"></div>
+        <div id="formulaire" class="column mr-5" style="width: 28%">
           <div id="btnSubmit" class="btn bg-white"
                style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; font-style: italic">
             Sélectionnez vos filtres
@@ -31,7 +37,7 @@
                           style="width: 100%; text-align: center; font-size: 18px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailEspeces"
                           aria-expanded="true" aria-controls="detailEspeces">Espèces
-                    <i class="fas fa-chevron-down"></i>
+
                   </button>
 
                 </h5>
@@ -92,16 +98,32 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="printemps" name="printemps" value="printemps">
-                            <label class="ml-3" for="printemps">Printemps</label><br>
-                            <input type="checkbox" id="ete" name="ete" value="ete">
-                            <label class="ml-3" for="ete">Eté</label><br>
+                            <input type="checkbox" id="janvier" name="janvier" value="janvier" [(ngModel)]="janvierRecolteBoolean">
+                            <label class="ml-3" for="janvier">Janvier</label><br>
+                            <input type="checkbox" id="mars" name="mars" value="mars" [(ngModel)]="marsRecolteBoolean">
+                            <label class="ml-3" for="mars">Mars</label><br>
+                            <input type="checkbox" id="mai" name="mai" value="mai" [(ngModel)]="maiRecolteBoolean">
+                            <label class="ml-3" for="mai">Mai</label><br>
+                            <input type="checkbox" id="juillet" name="juillet" value="juillet" [(ngModel)]="juilletRecolteBoolean">
+                            <label class="ml-3" for="juillet">Juillet</label><br>
+                            <input type="checkbox" id="septembre" name="septembre" value="septembre" [(ngModel)]="septembreRecolteBoolean">
+                            <label class="ml-3" for="septembre">Septembre</label><br>
+                            <input type="checkbox" id="novembre" name="novembre" value="novembre" [(ngModel)]="novembreRecolteBoolean">
+                            <label class="ml-3" for="novembre">Novembre</label><br>
                           </div>
                           <div class="column ml-5">
-                            <input type="checkbox" id="automne" name="automne" value="automne">
-                            <label class="ml-3" for="automne">Automne</label><br>
-                            <input type="checkbox" id="hiver" name="hiver" value="hiver">
-                            <label class="ml-3" for="hiver">Hiver</label><br>
+                            <input type="checkbox" id="fevrier" name="fevrier" value="fevrier" [(ngModel)]="fevrierRecolteBoolean">
+                            <label class="ml-3" for="fevrier">Février</label><br>
+                            <input type="checkbox" id="avril" name="avril" value="avril" [(ngModel)]="avrilRecolteBoolean">
+                            <label class="ml-3" for="avril">Avril</label><br>
+                            <input type="checkbox" id="juin" name="juin" value="juin" [(ngModel)]="juinRecolteBoolean">
+                            <label class="ml-3" for="juin">Juin</label><br>
+                            <input type="checkbox" id="aout" name="aout" value="aout" [(ngModel)]="aoutRecolteBoolean">
+                            <label class="ml-3" for="aout">Aout</label><br>
+                            <input type="checkbox" id="octobre" name="octobre" value="octobre" [(ngModel)]="octobreRecolteBoolean">
+                            <label class="ml-3" for="octobre">Octobre</label><br>
+                            <input type="checkbox" id="decembre" name="decembre" value="decembre" [(ngModel)]="decembreRecolteBoolean">
+                            <label class="ml-3" for="decembre">Décembre</label><br>
                           </div>
                         </div>
                       </div>
@@ -123,16 +145,32 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="printemps" name="printemps" value="printemps">
-                            <label class="ml-3" for="printemps">Printemps</label><br>
-                            <input type="checkbox" id="ete" name="ete" value="ete">
-                            <label class="ml-3" for="ete">Eté</label><br>
+                            <input type="checkbox" id="janvier" name="janvier" value="janvier" [(ngModel)]="janvierPlantationBoolean">
+                            <label class="ml-3" for="janvier">Janvier</label><br>
+                            <input type="checkbox" id="mars" name="mars" value="mars" [(ngModel)]="marsPlantationBoolean">
+                            <label class="ml-3" for="mars">Mars</label><br>
+                            <input type="checkbox" id="mai" name="mai" value="mai" [(ngModel)]="maiPlantationBoolean">
+                            <label class="ml-3" for="mai">Mai</label><br>
+                            <input type="checkbox" id="juillet" name="juillet" value="juillet" [(ngModel)]="juilletPlantationBoolean">
+                            <label class="ml-3" for="juillet">Juillet</label><br>
+                            <input type="checkbox" id="septembre" name="septembre" value="septembre" [(ngModel)]="septembrePlantationBoolean">
+                            <label class="ml-3" for="septembre">Septembre</label><br>
+                            <input type="checkbox" id="novembre" name="novembre" value="novembre" [(ngModel)]="novembrePlantationBoolean">
+                            <label class="ml-3" for="novembre">Novembre</label><br>
                           </div>
                           <div class="column ml-5">
-                            <input type="checkbox" id="automne" name="automne" value="automne">
-                            <label class="ml-3" for="automne">Automne</label><br>
-                            <input type="checkbox" id="hiver" name="hiver" value="hiver">
-                            <label class="ml-3" for="hiver">Hiver</label><br>
+                            <input type="checkbox" id="fevrier" name="fevrier" value="fevrier" [(ngModel)]="fevrierPlantationBoolean">
+                            <label class="ml-3" for="fevrier">Février</label><br>
+                            <input type="checkbox" id="avril" name="avril" value="avril" [(ngModel)]="avrilPlantationBoolean">
+                            <label class="ml-3" for="avril">Avril</label><br>
+                            <input type="checkbox" id="juin" name="juin" value="juin" [(ngModel)]="juinPlantationBoolean">
+                            <label class="ml-3" for="juin">Juin</label><br>
+                            <input type="checkbox" id="aout" name="aout" value="aout" [(ngModel)]="aoutPlantationBoolean">
+                            <label class="ml-3" for="aout">Aout</label><br>
+                            <input type="checkbox" id="octobre" name="octobre" value="octobre" [(ngModel)]="octobrePlantationBoolean">
+                            <label class="ml-3" for="octobre">Octobre</label><br>
+                            <input type="checkbox" id="decembre" name="decembre" value="decembre" [(ngModel)]="decembrePlantationBoolean">
+                            <label class="ml-3" for="decembre">Décembre</label><br>
                           </div>
                         </div>
                       </div>
@@ -380,10 +418,36 @@
                             <label class="ml-3" for="peuResistant">Peu résistant</label><br>
                             <input type="checkbox" id="assezResistant" name="assezResistant" value="assezResistant" [(ngModel)]="modereresistanceBoolean">
                             <label class="ml-3" for="assezResistant">Assez résistant</label><br>
-                            <input type="checkbox" id="briseVent" name="briseVent" value="briseVent">
-                            <label class="ml-3" for="briseVent">Haie brise-vent</label><br>
                             <input type="checkbox" id="resistant" name="resistant" value="resistant" [(ngModel)]="hauteresistanceBoolean">
                             <label class="ml-3" for="resistant">Résistant</label><br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="accordionVentResistance">
+                    <div>
+                      <div id="sideBar">
+                        <h5 class="mb-0">
+                          <button id="btnAccordion" class="btn shadow-none collapsed" style="text-align: left; font-weight: bold"
+                                  data-toggle="collapse" data-target="#detailResistance"
+                                  aria-expanded="true">Résistance au vent
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="detailResistanceVent"
+                           aria-labelledby="sideBar" data-parent="#accordionMeteoResistance">
+                        <div class="card-body row">
+                          <div class="column ml-3" style="width:45% ">
+                            <!-- checkbox -->
+                            <input type="checkbox" id="peuResistantVent" name="peuResistantVent" value="peuResistantVent" [(ngModel)]="peuReistantVentBoolean">
+                            <label class="ml-3" for="peuResistantVent">Peu résistant</label><br>
+                            <input type="checkbox" id="assezResistantVent" name="assezResistantVent" value="assezResistantVent" [(ngModel)]="assezResistantVentBoolean">
+                            <label class="ml-3" for="assezResistantVent">Assez résistant</label><br>
+                            <input type="checkbox" id="resistantVent" name="resistantVent" value="resistantVent" [(ngModel)]="tresResistantVentBoolean">
+                            <label class="ml-3" for="resistantVent">Résistant</label><br>
+                            <input type="checkbox" id="briseVent" name="briseVent" value="briseVent" [(ngModel)]="briseVentBoolean">
+                            <label class="ml-3" for="briseVent">Haie brise-vent</label><br>
                           </div>
                         </div>
                       </div>
@@ -655,8 +719,8 @@
             <!--                    style="background-color: #8bc34a">-->
             <!--              <i class="fas fa-check" style="color: white"></i>-->
             <!--            </button>-->
-            <button id="btnSubmit" class="btn mt-4 bg-white"
-                    style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold" (click)="search()">A vos potagers!
+            <button type="submit" id="btnSubmit" class="btn mt-2 bg-white"
+                    style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; " (click)="search()">Validez et à vos potagers !
             </button>
           </div>
 
@@ -664,27 +728,25 @@
 
 
         <!-- BLOC résultats + search  -->
-        <div id="result" class="column justify-content-center" style="width:55%">
-          <div id="searchFlore" class="row mt-3 justify-content-center " style="width:auto">
-            <div class="column" style="width: 6%;">
-              <button id="btnSearch" class="btn float-right"
-                      style="background-color: #8bc34a">
+        <div id="result" class="column justify-content-center align-items-center" style="width:60%; ">
+          <div id="searchFlore" class="row ml-1 justify-content-center" style="width:100%; height: 70px;">
+            <div class="column mt-3" style="width: 12%;">
+              <button id="btnSearch" class="btn float-right" style="background-color: #8bc34a; width: 100%">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
-            <div class="column " style="width: 82%;">
-              <input class="form-control" id="myInput" type="text"
-                     placeholder="Search..">
+            <div class="column mt-3" style="width: 77%;">
+              <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une flore" style="text-align: center; font-style: italic" [(ngModel)]="nomFlore">
             </div>
           </div>
 
-          <div id="myDIV" class="mt-3">
 
             <!-- BLOC résultat  -->
+          <div id="result" class="column" style="width: 100%; border: none">
             <div *ngFor="let flore of list()">
-              <div class=" m-3 " *ngIf="filterCarac(flore,'NomLatin')!= 'non renseigné'">
+              <div class=" m-3 " *ngIf="(filterCarac(flore,'NomLatin')!= 'non renseigné' && flore.nom.toUpperCase().includes(nomFlore.toUpperCase()))" >
                 <div class="m-2 align-items-center">
-                  <button id="btnResultat" style="width: 100%;height: 10%">
+                  <button [routerLink]="'/NPK/flore/fiche-flore'" id="btnResultat" style="width: 100%;height: 10%" (click)="redirectToFicheFlore(flore)">
                     <!-- BLOC Images  -->
                     <div class="row m-2 align-items-center">
                       <div class="column" style="width: 15%;">
