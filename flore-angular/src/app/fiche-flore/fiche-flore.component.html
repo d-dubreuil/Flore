@@ -93,20 +93,6 @@
           </button>
         </div>
       </div>
-
-      <!-- BLOC LIEN FLORE -->
-      <div class="row justify-content-center align-items-center border">
-        <div id="lienFlore" class="row justify-content-center align-items-center ml-5" style="height: 45%">
-          Relation flore
-        </div>
-      </div>
-
-      <!-- BLOC LIEN FAUNE -->
-      <div class="row justify-content-center align-items-center border">
-        <div id="lienFaune" class="row justify-content-center align-items-center ml-5" style="height: 45%">
-          Relation faune
-        </div>
-      </div>
     </div>
 
     <!-- BLOC TEXTE/PHOTOS ET CARACTERISTIQUES -->
@@ -124,10 +110,12 @@
           <div class="border m-3" style="width: 28%; height: 150px">
             <img src="{{filterCarac(floreService.flore, 'Image')}}" style="width: 100%; height: 100%">
           </div>
-          <div class="border m-3" style="width: 28%; height: 150px" *ngIf="filterCarac(floreService.flore, 'Image2')!= 'non renseigné'">
+          <div class="border m-3" style="width: 28%; height: 150px"
+               *ngIf="filterCarac(floreService.flore, 'Image2')!= 'non renseigné'">
             <img src="{{filterCarac(floreService.flore, 'Image2')}}" style="width: 100%; height: 100%">
           </div>
-          <div class="border m-3" style="width: 28%; height: 150px" *ngIf="filterCarac(floreService.flore, 'Image3')!= 'non renseigné'">
+          <div class="border m-3" style="width: 28%; height: 150px"
+               *ngIf="filterCarac(floreService.flore, 'Image3')!= 'non renseigné'">
             <img src="{{filterCarac(floreService.flore, 'Image3')}}" style="width: 100%; height: 100%">
           </div>
         </div>
