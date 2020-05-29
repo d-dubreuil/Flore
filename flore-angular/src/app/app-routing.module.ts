@@ -16,7 +16,7 @@ import {SimulateurDeuxComponent} from "./simulateur-deux/simulateur-deux.compone
 
 const routes: Routes = [
   {path: 'NPK/accueil', component: HomeComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'NPK/accueil', pathMatch: 'full'},
   {path: 'NPK/flore', component: FloreComponent},
   {path: 'NPK/flore/fiche-flore', component: FicheFloreComponent},
   {path: 'NPK/faune', component: FauneComponent},
