@@ -11,11 +11,11 @@
     </div>
   </div>
 
-  <div class="row border m-5">
-    <div class="column border" style="width: 30%; height: 100%">
+  <div class="row m-5">
+    <div id="connexionFournisseur" class="column " style="width: 30%; height: 100%">
       <!--BLOC CONNEXION-->
-      <div id="connexion" class="row p-4 border">
-        <div class="row ml-4 justify-content-center align-items-center border" style="width:90%">
+      <div class="row p-4 ">
+        <div class="row ml-4 justify-content-center align-items-center" style="width:90%">
           <h6 class="text-center" style="font-size: 18px">
             Connectez-vous à votre <br> espace client pour accèder à :
           </h6>
@@ -51,8 +51,8 @@
         </div>
       </div>
       <!--BLOC FOURNISSEUR-->
-      <div id="fournisseur" class="row p-4 border">
-        <div class="row ml-4 justify-content-center align-items-center border" style="width:90%">
+      <div id="fournisseur" class="row p-4 ">
+        <div class="row ml-4 justify-content-center align-items-center " style="width:90%">
           <h6 style="font-size: 18px">
             Achetez vos plants <br> chez nos partenaires :
           </h6>
@@ -96,9 +96,9 @@
     </div>
 
     <!-- BLOC TEXTE/PHOTOS ET CARACTERISTIQUES -->
-    <div class="column ml-5 pl-2 border " style="width: 65% ; height: 100%">
+    <div id="fiche" class="column ml-5  " style="width: 65% ; height: 100%">
       <!-- BLOC TEXTE -->
-      <div class="row justify-content-center align-items-center border">
+      <div class="row justify-content-center align-items-center ">
         <div id="textePhoto" class="row justify-content-center align-items-center ml-3 p-3" style="height: 45%">
           Le basilic est une plante aromatique facile à cultiver en extérieur ou en intérieur, en pot ou en pleine
           terre. Très apprécié pour sa fraîcheur et sa saveur, il relève les plats de l'été. C'est un réel plaisir de le
@@ -107,7 +107,7 @@
       </div>
 
       <!-- BLOC PHOTOS -->
-      <div class="row justify-content-center align-items-center border">
+      <div class="row justify-content-center align-items-center ">
         <div id="textePhoto" class="row justify-content-center align-items-center ml-5" style="height: 45%">
           <div class="border m-3" style="width: 28%; height: 150px">
             <img src="assets/images/basilic_1.jpg" style="width: 100%; height: 100%">
@@ -117,17 +117,18 @@
           </div>
         </div>
       </div>
+      <div id="borderBottom"></div>
 
       <!-- BLOC CARACT + LIENS -->
-      <div class="justify-content-center align-items-center border">
+      <div class="justify-content-center align-items-center ">
         <!--Nom-->
-        <div id="caract" class="row p-2 mt-2 justify-content-center" style="height: 45%">
+        <div id="caract" class="row mt-2 justify-content-center p-2" style="height: 45%">
           <h6 class="text-center" style="font-size: 18px">Caractéristiques :</h6>
         </div>
         <!--Ligne 1 carac-->
         <div class="row justify-content-center">
           <!--Longueur-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Longueur">
                 <i class="fas fa-circle fa-stack-2x" style="color: #03a9f4; opacity: 0.2"></i>
@@ -139,7 +140,7 @@
             </div>
           </div>
           <!--Hauteur-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Hauteur">
                 <i class="fas fa-circle fa-stack-2x" style="color: #00bcd4; opacity: 0.2"></i>
@@ -151,11 +152,11 @@
             </div>
           </div>
           <!--Ensoleillement-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Ensoleillement">
                 <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
-                <i id="ensoleillement" class="fas fa-cloud-sun fa-stack-1x" style="color: black"></i>
+                <i id="ensoleillement" class="fas fa-sun fa-stack-1x" style="color: #ffeb3b"></i>
               </a>
             </div>
             <div id="resultEnsoleillement" class="column ml-2 mt-2"
@@ -164,11 +165,11 @@
             </div>
           </div>
           <!--Sol-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Sol">
                 <i class="fas fa-circle fa-stack-2x" style="color: #33691e; opacity: 0.2"></i>
-                <i id="sol" class="fas fa-globe-europe fa-stack-1x" style="color: #33691e"></i>
+                <i id="sol" class="fas fa-globe fa-stack-1x" style="color: #33691e"></i>
               </a>
             </div>
             <div id="resultSol" class="column mt-2" style="vertical-align: middle; font-size: xx-small;">
@@ -176,7 +177,7 @@
             </div>
           </div>
           <!--Arrosage-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Arrosage">
                 <i class="fas fa-circle fa-stack-2x" style="color: #0d47a1; opacity: 0.2"></i>
@@ -187,36 +188,25 @@
               quotidien
             </div>
           </div>
-          <!--Semis-->
-          <div class="column mr-4 ">
+          <!--Résistance au froid-->
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
-              <a data-toggle="tooltip" title="Calendrier semis">
-                <i class="fas fa-circle fa-stack-2x" style="color: #8bc34a; opacity: 0.2"></i>
-                <i id="semis" class="far fa-calendar-alt fa-stack-1x" style="color: #8bc34a"></i>
+              <a data-toggle="tooltip" title="Résistance au froid">
+                <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
+                <i id="froid" class="far fa-snowflake fa-stack-1x" style="color: #f44336"></i>
               </a>
             </div>
-            <div id="resultSemis" class="column mt-2" style="vertical-align: middle; font-size: xx-small;">
-              automne
+            <div id="resultFroid" class="column ml-2 mt-2"
+                 style="vertical-align: middle; font-size: xx-small;">
+              froid
             </div>
           </div>
         </div>
 
         <!--Ligne 2 carac-->
-        <div class="row justify-content-center mt-2">
-          <!--Récolte-->
-          <div class="column mr-4 ">
-            <div class="ml-3 fa-stack fa-1x">
-              <a data-toggle="tooltip" title="Calendrier récolte">
-                <i class="fas fa-circle fa-stack-2x" style="color: #e91e63; opacity: 0.2"></i>
-                <i id="recolte" class="fas fa-seedling fa-stack-1x" style="color: #e91e63"></i>
-              </a>
-            </div>
-            <div id="resultRecolte" class="column mt-2 " style="vertical-align: middle; font-size: xx-small;">
-              mi-juin à mi-juillet
-            </div>
-          </div>
+        <div class="row justify-content-center mt-3 mb-3">
           <!--Température-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Température">
                 <i class="fas fa-circle fa-stack-2x" style="color: #9e9e9e; opacity: 0.2"></i>
@@ -229,11 +219,11 @@
             </div>
           </div>
           <!--Vent-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Vent">
                 <i class="fas fa-circle fa-stack-2x" style="color: #ff9800; opacity: 0.2"></i>
-                <i id="vent" class="fas fa-wind fa-stack-1x" style="color: #ff9800"></i>
+                <i id="vent" class="fab fa-mixcloud fa-stack-1x" style="color: #ff9800"></i>
               </a>
             </div>
             <div id="resultVent" class="column ml-2 mt-2"
@@ -242,7 +232,7 @@
             </div>
           </div>
           <!--pH-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack ml-3 fa-1x">
               <a data-toggle="tooltip" title="pH">
                 <i class="fas fa-circle fa-stack-2x" style="color: #fff59d; opacity: 0.2"></i>
@@ -255,7 +245,7 @@
             </div>
           </div>
           <!--Remontant-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack ml-2 fa-1x">
               <a data-toggle="tooltip" title="Remontant">
                 <i class="fas fa-circle fa-stack-2x" style="color: #9c27b0; opacity: 0.2"></i>
@@ -268,7 +258,7 @@
             </div>
           </div>
           <!--Floraison-->
-          <div class="column mr-4 ">
+          <div class="column mr-5 ">
             <div class="fa-stack fa-1x">
               <a data-toggle="tooltip" title="Vivace">
                 <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
@@ -281,111 +271,128 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- BLOC LIEN FLORE -->
-      <div class="justify-content-center align-items-center border">
+      </div>
+      <div id="borderBottom"></div>
+
+      <!-- BLOC CALENDRIER -->
+      <div class="justify-content-center align-items-center ">
         <!--Nom-->
-        <div id="lienFlore" class="row justify-content-center p-2 mt-1" style="height: 45%">
-          <h6 class="text-center" style="font-size: 18px">Relation flore :</h6>
-          <div class="column align-items-align-right ml-2">
-            <button id="buttonPlus" class="ml-5" style="background-color: transparent; color:#8bc34a; border-style: none" disabled><i
-              class="fas fa-plus fa-2x"></i>
-            </button>
+        <div id="caract" class="row mt-2 justify-content-center p-2" style="height: 45%">
+          <h6 class="text-center" style="font-size: 18px">Calendrier Semis et récolte :</h6>
+        </div>
+        <div class="row justify-content-center mb-3">
+          <!--Calendrier semis-->
+          <div class="column mr-5 justify-content-center">
+            <div>
+              <a data-toggle="tooltip" title="semis">
+                Calendrier semis
+              </a>
+            </div>
+          </div>
+          <!--Calendrier récolte-->
+          <div class="column ml-5 justify-content-center">
+            <div>
+              <a data-toggle="tooltip" title="récole">
+                Calendrier récolte
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <div id="borderBottom"></div>
+
+        <!-- BLOC LIEN FLORE -->
+        <div class="justify-content-center align-items-center mt-3">
+          <!--Nom-->
+          <div id="lienFlore" class="row justify-content-center p-2 mt-1" style="height: 45%">
+            <h6 class="text-center" style="font-size: 18px">Relation flore :</h6>
+            <div class="column align-items-align-right ml-2">
+              <button id="buttonPlus" class="ml-5"
+                      style="background-color: transparent; color:#8bc34a; border-style: none" disabled><i
+                class="fas fa-plus fa-2x"></i>
+              </button>
+            </div>
+          </div>
+          <!--Type de lien-->
+          <div class="row justify-content-center mb-3">
+            <div id="lienFloreCompagnes" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+              <div class="row ">
+                <h6 class="text-center" style="font-size: 15px">Compagnes :</h6>
+              </div>
+              <div class="row justify-content-center">
+                comp1
+              </div>
+              <div class="row justify-content-center">
+                comp2
+              </div>
+              <div class="row justify-content-center">
+                comp3
+              </div>
+            </div>
+            <div id="lienFloreEnnemies" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+              <div class="row ">
+                <h6 class="text-center" style="font-size: 15px">Ennemies :</h6>
+              </div>
+              <div class="row justify-content-center">
+                enne1
+              </div>
+              <div class="row justify-content-center">
+                enne2
+              </div>
+              <div class="row justify-content-center">
+                enne3
+              </div>
+            </div>
           </div>
         </div>
-        <!--Type de lien-->
-        <div class="row justify-content-center ">
-          <div id="lienFloreAmie" class="column justify-content-center mr-5 ml-5" style="height: 45%">
-            <div class="row ">
-              <h6 class="text-center" style="font-size: 15px">Amies :</h6>
-            </div>
-            <div class="row">
-              amie1
-            </div>
-            <div class="row">
-              amie2
-            </div>
-            <div class="row">
-              amie3
+        <div id="borderBottom"></div>
+
+        <!-- BLOC LIEN FAUNE -->
+        <div class="justify-content-center align-items-center mt-3">
+          <!--Nom-->
+          <div id="lienFaune " class="row justify-content-center p-2 mt-1" style="height: 45%">
+            <h6 class="text-center" style="font-size: 18px">Relation faune :</h6>
+            <div class="column align-items-align-right ml-2">
+              <button id="buttonPlus" class="ml-5"
+                      style="background-color: transparent; color:#8bc34a; border-style: none" disabled><i
+                class="fas fa-plus fa-2x"></i>
+              </button>
             </div>
           </div>
-          <div id="lienFloreCompagnes" class="column justify-content-center mr-5 ml-5" style="height: 45%">
-            <div class="row ">
-              <h6 class="text-center" style="font-size: 15px">Compagnes :</h6>
+          <!--Type de lien-->
+          <div class="row justify-content-center align-items-center mb-3">
+            <div id="lienFaunePred" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+              <div class="row justify-content-center">
+                <h6 class="text-center" style="font-size: 15px">Prédacteurs/Répulsifs :</h6>
+              </div>
+              <div class="row justify-content-center">
+                pred/rep1
+              </div>
+              <div class="row justify-content-center">
+                pred/rep2
+              </div>
+              <div class="row justify-content-center">
+                pred/rep3
+              </div>
             </div>
-            <div class="row">
-              comp1
-            </div>
-            <div class="row">
-              comp2
-            </div>
-            <div class="row">
-              comp3
-            </div>
-          </div>
-          <div id="lienFloreEnnemies" class="column justify-content-center mr-5 ml-5" style="height: 45%">
-            <div class="row ">
-              <h6 class="text-center" style="font-size: 15px">Ennemies :</h6>
-            </div>
-            <div class="row">
-              enne1
-            </div>
-            <div class="row">
-              enne2
-            </div>
-            <div class="row">
-              enne3
+            <div id="lienFaunePoll" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+              <div class="row justify-content-center">
+                <h6 class="text-center" style="font-size: 15px">Pollinisateurs/Attractifs :</h6>
+              </div>
+              <div class="row justify-content-center">
+                poll/att1
+              </div>
+              <div class="row justify-content-center">
+                poll/att2
+              </div>
+              <div class="row justify-content-center">
+                poll/att3
+              </div>
             </div>
           </div>
         </div>
+
       </div>
-
-      <!-- BLOC LIEN FAUNE -->
-      <div class="justify-content-center align-items-center border">
-        <!--Nom-->
-        <div id="lienFaune " class="row justify-content-center p-2 mt-1" style="height: 45%">
-          <h6 class="text-center" style="font-size: 18px">Relation faune :</h6>
-          <div class="column align-items-align-right ml-2">
-            <button id="buttonPlus" class="ml-5" style="background-color: transparent; color:#8bc34a; border-style: none" disabled><i
-              class="fas fa-plus fa-2x"></i>
-            </button>
-          </div>
-        </div>
-
-        <!--Type de lien-->
-        <div class="row justify-content-center align-items-center ">
-          <div id="lienFaunePred" class="column justify-content-center mr-5 ml-5" style="height: 45%">
-            <div class="row justify-content-center">
-              <h6 class="text-center" style="font-size: 15px">Prédacteurs/Répulsifs :</h6>
-            </div>
-            <div class="row">
-              pred/rep1
-            </div>
-            <div class="row">
-              pred/rep2
-            </div>
-            <div class="row">
-              ppred/rep3
-            </div>
-          </div>
-          <div id="lienFaunePoll" class="column justify-content-center mr-5 ml-5" style="height: 45%">
-            <div class="row justify-content-center">
-              <h6 class="text-center" style="font-size: 15px">Pollinisateurs/Attractifs :</h6>
-            </div>
-            <div class="row">
-              poll/att1
-            </div>
-            <div class="row">
-              poll/att2
-            </div>
-            <div class="row">
-              poll/att3
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
-</div>
