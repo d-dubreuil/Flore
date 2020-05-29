@@ -22,7 +22,7 @@ public class ReferentielFaune {
 	private int version;
 	@ManyToOne
 	@JoinColumn(name = "caracteristique_id")
-	@JsonView(Views.ViewReferentielFaune.class)
+	@JsonView({Views.ViewReferentielFaune.class, Views.ViewFaune.class})
 	private Caracteristique caracteristique;
 	@ManyToOne
 	@JoinColumn(name = "flore_id")
