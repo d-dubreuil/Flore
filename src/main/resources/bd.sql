@@ -536,7 +536,7 @@ ALTER TABLE conseil
 
 -- 4. Ajout données
 
--- Caractéristique avec booléen (max 264)
+-- Caractéristique avec booléen (max 301)
 INSERT INTO caracteristique (id, version, nom, type_carac, valeur, bonus_malus)
     VALUES 
 	(1, 0, 'pH', 'Sol', 'Très Acide', 'TRUE'),
@@ -781,7 +781,44 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 	(261, 0, 'Image', 'Web', 'assets/images/syrphe.jpg'),
 	(262, 0, 'NomLatin', 'Faune', 'Syrphidae'),
 	(263, 0, 'Image', 'Web', 'assets/images/carabe.jpg'),
-	(264, 0, 'NomLatin', 'Faune', 'Carabus auratus');
+	(264, 0, 'NomLatin', 'Faune', 'Carabus auratus'),
+	(265, 0, 'Kompagne', 'Flore', 'Basilic'),
+	(266, 0, 'Kompagne', 'Flore', 'Carotte'),
+	(267, 0, 'Kompagne', 'Flore', 'Courge'),
+	(268, 0, 'Kompagne', 'Flore', 'Chou-Fleur'),
+	(269, 0, 'Kompagne', 'Flore', 'Fraise'),
+	(270, 0, 'Kompagne', 'Flore', 'Haricot'),
+	(271, 0, 'Kompagne', 'Flore', 'Maïs'),
+	(272, 0, 'Kompagne', 'Flore', 'Menthe Poivrée'),
+	(273, 0, 'Kompagne', 'Flore', 'Oignon'),
+	(274, 0, 'Kompagne', 'Flore', 'Tomate'),
+	(275, 0, 'Kompagne', 'Flore', 'Radis'),
+	(276, 0, 'Kompagne', 'Flore', 'Laitue'),
+	(277, 0, 'Kompagne', 'Flore', 'Bourrache'),
+	(278, 0, 'Kompagne', 'Flore', 'Pomme de terre'),
+	(279, 0, 'Kompagne', 'Flore', 'Betterave'),
+	(280, 0, 'Kompagne', 'Flore', 'Framboise'),
+	(281, 0, 'Ennemie', 'Flore', 'Basilic'),
+	(282, 0, 'Ennemie', 'Flore', 'Carotte'),
+	(283, 0, 'Ennemie', 'Flore', 'Courge'),
+	(284, 0, 'Ennemie', 'Flore', 'Chou-Fleur'),
+	(285, 0, 'Ennemie', 'Flore', 'Fraise'),
+	(286, 0, 'Ennemie', 'Flore', 'Haricot'),
+	(287, 0, 'Ennemie', 'Flore', 'Maïs'),
+	(288, 0, 'Ennemie', 'Flore', 'Menthe Poivrée'),
+	(289, 0, 'Ennemie', 'Flore', 'Oignon'),
+	(290, 0, 'Ennemie', 'Flore', 'Tomate'),
+	(291, 0, 'Ennemie', 'Flore', 'Radis'),
+	(292, 0, 'Ennemie', 'Flore', 'Laitue'),
+	(293, 0, 'Ennemie', 'Flore', 'Bourrache'),
+	(294, 0, 'Ennemie', 'Flore', 'Pomme de terre'),
+	(295, 0, 'Ennemie', 'Flore', 'Betterave'),
+	(296, 0, 'Ennemie', 'Flore', 'Framboise'),
+	(297, 0, 'Ennemie', 'Flore', 'Fenouil'),
+	(298, 0, 'Ennemie', 'Flore', 'Poireau'),
+	(299, 0, 'Ennemie', 'Flore', 'Ciboulette'),
+	(300, 0, 'Ennemie', 'Flore', 'Asperge'),
+	(301, 0, 'Ennemie', 'Flore', 'Concombre');
 
 
 
@@ -1021,7 +1058,7 @@ INSERT INTO flore (id, version, nom)
 	(109,0,'Thym citron'),
 	(110,0,'Trèfle');	
 	
-	-- max 489
+	-- max 539
 	INSERT INTO referentiel_caracteristique (id, version, caracteristique_id,flore_id)
 	VALUES
 	-- Maïs--
@@ -1067,7 +1104,11 @@ INSERT INTO flore (id, version, nom)
 	(359, 0, 216, 50), 
 	(360, 0, 217, 50), 
 	(361, 0, 218, 50), 
-	(386, 0, 195, 50),  
+	(386, 0, 195, 50),
+	(490, 0, 270, 50),
+	(491, 0, 267, 50),
+	(492, 0, 278, 50), 
+	(493, 0, 290, 50),  	
 	
 	-- Haricot--
 	(32, 0, 2,43),
@@ -1108,6 +1149,12 @@ INSERT INTO flore (id, version, nom)
 	(363, 0, 220, 43), 
 	(364, 0, 221, 43),
 	(387, 0, 64, 43), 
+	(494, 0, 266, 43),
+	(495, 0, 267, 43),
+	(496, 0, 271, 43),
+	(497, 0, 289, 43),
+	(498, 0, 299, 43),
+	(499, 0, 295, 43),
 	
 	-- Courge--
 	(61, 0, 2,29),
@@ -1121,7 +1168,6 @@ INSERT INTO flore (id, version, nom)
 	(69, 0, 39,29),
 	(70, 0, 41,29),
 	(71, 0, 43,29),
-	(72, 0, 65,29),
 	(73, 0, 67,29),
 	(74, 0, 68,29),
 	(75, 0, 69,29),
@@ -1151,6 +1197,12 @@ INSERT INTO flore (id, version, nom)
 	(366, 0, 223, 29),
 	(367, 0, 224, 29),	
 	(388, 0, 64, 29), 
+	(500, 0, 270, 29),
+	(501, 0, 271, 29),
+	(502, 0, 276, 29),
+	(503, 0, 291, 29),
+	(504, 0, 294, 29),
+	(505, 0, 297, 29),
 	
 	-- Tomate--
 	(94, 0, 2,88),
@@ -1200,6 +1252,12 @@ INSERT INTO flore (id, version, nom)
 	(369, 0, 226, 88),
 	(370, 0, 227, 88),
 	(389, 0, 63, 88),
+	(506, 0, 265, 88),
+	(507, 0, 266, 88),
+	(508, 0, 273, 88),
+	(509, 0, 294, 88),
+	(510, 0, 295, 88),
+	(511, 0, 301, 88),
 	
 	--Carotte--
 	(129, 0, 2,16),
@@ -1247,6 +1305,11 @@ INSERT INTO flore (id, version, nom)
 	(372, 0, 229, 16), 
 	(373, 0, 230, 16), 
 	(390, 0, 64, 16),
+	(512, 0, 273, 16),
+	(513, 0, 274, 16),
+	(514, 0, 275, 16),
+	(515, 0, 288, 16),
+	(516, 0, 295, 16),
 	
 	--Oignon--
 	(161, 0, 3,61),
@@ -1298,6 +1361,12 @@ INSERT INTO flore (id, version, nom)
 	(374, 0, 231, 61),
 	(375, 0, 232, 61),
 	(391, 0, 64, 61), 
+	(517, 0, 266, 61),
+	(518, 0, 276, 61),
+	(519, 0, 279, 61),
+	(520, 0, 286, 61),
+	(521, 0, 294, 61),
+	(522, 0, 300, 61),
 	
 	--Fraisier--
 	(197, 0, 1,38),
@@ -1344,6 +1413,12 @@ INSERT INTO flore (id, version, nom)
 	(377, 0, 234, 38), 
 	(378, 0, 235, 38), 
 	(392, 0, 63, 38),
+	(523, 0, 270, 38),
+	(524, 0, 274, 38),
+	(525, 0, 277, 38),
+	(526, 0, 289, 38),
+	(527, 0, 295, 38),
+	(528, 0, 298, 38),
 	
 	--Chou-Fleur-
 	(230, 0, 3,21),
@@ -1407,6 +1482,11 @@ INSERT INTO flore (id, version, nom)
 	(380, 0, 237, 21), 
 	(381, 0, 238, 21),
 	(393, 0, 64, 21), 
+	(529, 0, 270, 21), 
+	(530, 0, 272, 21), 
+	(531, 0, 285, 21), 
+	(532, 0, 289, 21), 
+	(533, 0, 290, 21), 
 	
 	--Basilic-
 	(268, 0, 2,10),
@@ -1455,7 +1535,10 @@ INSERT INTO flore (id, version, nom)
 	(357, 0, 214, 10), 
 	(382, 0, 239, 10), 
 	(383, 0, 240, 10),
-	(394, 0, 65, 10), 
+	(394, 0, 65, 10),
+	(534, 0, 267, 10),	
+	(535, 0, 268, 10),
+	(536, 0, 274, 10),
 	
 	--Menthe Poivrée-
 	(302, 0, 1,52),
@@ -1509,7 +1592,10 @@ INSERT INTO flore (id, version, nom)
 	(358, 0, 215, 52),
 	(384, 0, 243, 52), 
 	(385, 0, 244, 52), 
-	(395, 0, 65, 52);
+	(395, 0, 65, 52),
+	(537, 0, 268, 52),
+	(538, 0, 280, 52),
+	(539, 0, 282, 52);
 	
 	--liens faune-faune----(max 226)--
 	INSERT INTO referentiel_faune (id, version, caracteristique_id,faune_id)
