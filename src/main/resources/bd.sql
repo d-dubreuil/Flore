@@ -536,7 +536,7 @@ ALTER TABLE conseil
 
 -- 4. Ajout données
 
--- Caractéristique avec booléen (max 244)
+-- Caractéristique avec booléen (max 264)
 INSERT INTO caracteristique (id, version, nom, type_carac, valeur, bonus_malus)
     VALUES 
 	(1, 0, 'pH', 'Sol', 'Très Acide', 'TRUE'),
@@ -552,15 +552,15 @@ INSERT INTO caracteristique (id, version, nom, type_carac, valeur, bonus_malus)
     (11, 0, 'Texture', 'Sol', 'Argileux Limoneux Sableux', 'TRUE'),
 	(159, 0, 'Texture', 'Sol', 'Humifère', 'TRUE'),
 	(175, 0, 'Texture', 'Sol', 'Calcaire', 'TRUE'),
-	(12, 0, 'Ensoleillement', 'ConditionsClimatiques', 'Plein Soleil', 'TRUE'),
-	(13, 0, 'Ensoleillement', 'ConditionsClimatiques', 'Soleil', 'TRUE'),
-	(14, 0, 'Ensoleillement', 'ConditionsClimatiques', 'Mi Ombre', 'TRUE'),
-	(15, 0, 'Ensoleillement', 'ConditionsClimatiques', 'Ombre', 'TRUE'),
-	(16, 0, 'Ensoleillement', 'ConditionsClimatiques', 'Pleine Ombre', 'TRUE'),
-	(17, 0, 'Vent', 'ConditionsClimatiques', 'Peu Résistant', 'TRUE'),
-	(18, 0, 'Vent', 'ConditionsClimatiques', 'Assez Résistant', 'TRUE'),
-	(147, 0, 'Vent', 'ConditionsClimatiques', 'Haie Brise-Vent', 'TRUE'),
-	(19, 0, 'Vent', 'ConditionsClimatiques', 'Très Résistant', 'TRUE'),
+	(12, 0, 'Ensoleillement', 'Condition_Climatique', 'Plein Soleil', 'TRUE'),
+	(13, 0, 'Ensoleillement', 'Condition_Climatique', 'Soleil', 'TRUE'),
+	(14, 0, 'Ensoleillement', 'Condition_Climatique', 'Mi Ombre', 'TRUE'),
+	(15, 0, 'Ensoleillement', 'Condition_Climatique', 'Ombre', 'TRUE'),
+	(16, 0, 'Ensoleillement', 'Condition_Climatique', 'Pleine Ombre', 'TRUE'),
+	(17, 0, 'Vent', 'Condition_Climatique', 'Peu Résistant', 'TRUE'),
+	(18, 0, 'Vent', 'Condition_Climatique', 'Assez Résistant', 'TRUE'),
+	(147, 0, 'Vent', 'Condition_Climatique', 'Haie Brise-Vent', 'TRUE'),
+	(19, 0, 'Vent', 'Condition_Climatique', 'Très Résistant', 'TRUE'),
 	(20, 0, 'Strate', 'Flore', 'Canopée', 'FALSE'),
 	(21, 0, 'Strate', 'Flore', 'Petits Arbres', 'FALSE'),
 	(22, 0, 'Strate', 'Flore', 'Arbustive', 'FALSE'),
@@ -583,11 +583,11 @@ INSERT INTO caracteristique (id, version, nom, type_carac, valeur, bonus_malus)
 	(37, 0, 'Nutriment', 'Flore', 'Fixateur', 'FALSE'),
 	(38, 0, 'Nutriment', 'Flore', 'Neutre', 'FALSE'),
 	(39, 0, 'Nutriment', 'Flore', 'Dévoreur', 'FALSE'),
-	(67, 0, 'Climat', 'ConditionsClimatiques', 'Océanique', 'TRUE'),
-    (68, 0, 'Climat', 'ConditionsClimatiques', 'Semi-Océanique', 'TRUE'),
-    (69, 0, 'Climat', 'ConditionsClimatiques', 'Montagnard', 'TRUE'),
-    (70, 0, 'Climat', 'ConditionsClimatiques', 'Méditerranéen', 'TRUE'),
-    (71, 0, 'Climat', 'ConditionsClimatiques', 'Continental', 'TRUE'),
+	(67, 0, 'Climat', 'Condition_Climatique', 'Océanique', 'TRUE'),
+    (68, 0, 'Climat', 'Condition_Climatique', 'Semi-Océanique', 'TRUE'),
+    (69, 0, 'Climat', 'Condition_Climatique', 'Montagnard', 'TRUE'),
+    (70, 0, 'Climat', 'Condition_Climatique', 'Méditerranéen', 'TRUE'),
+    (71, 0, 'Climat', 'Condition_Climatique', 'Continental', 'TRUE'),
 	(125, 0, 'Humidité', 'Sol', 'Sec', 'TRUE'), 
 	(126, 0, 'Humidité', 'Sol', 'Drainé', 'TRUE'),
 	(127, 0, 'Humidité', 'Sol', 'Humide', 'TRUE'),
@@ -596,16 +596,16 @@ INSERT INTO caracteristique (id, version, nom, type_carac, valeur, bonus_malus)
 	(135, 0, 'Arrosage', 'Utilisation', 'Faible','TRUE'),
     (136, 0, 'Arrosage', 'Utilisation', 'Modéré','TRUE'),
     (137, 0, 'Arrosage', 'Utilisation', 'Important','TRUE'),
-	(151, 0, 'Température', 'ConditionsClimatiques', '15/32', 'TRUE'),
-	(152, 0, 'Température', 'ConditionsClimatiques', '10/40', 'TRUE'),
-	(158, 0, 'Température', 'ConditionsClimatiques', '10/30', 'TRUE'),
-	(163, 0, 'Température', 'ConditionsClimatiques', '5/35', 'TRUE'),
-	(167, 0, 'Température', 'ConditionsClimatiques', '7/30', 'TRUE'),
-	(172, 0, 'Température', 'ConditionsClimatiques', '-6/30', 'TRUE'),
-	(176, 0, 'Température', 'ConditionsClimatiques', '5/25', 'TRUE'),
-	(179, 0, 'Température', 'ConditionsClimatiques', '3/30', 'TRUE'),
-	(183, 0, 'Température', 'ConditionsClimatiques', '10/', 'TRUE'),
-	(186, 0, 'Température', 'ConditionsClimatiques', '-15/30', 'TRUE');  
+	(151, 0, 'Température', 'Condition_Climatique', '15/32', 'TRUE'),
+	(152, 0, 'Température', 'Condition_Climatique', '10/40', 'TRUE'),
+	(158, 0, 'Température', 'Condition_Climatique', '10/30', 'TRUE'),
+	(163, 0, 'Température', 'Condition_Climatique', '5/35', 'TRUE'),
+	(167, 0, 'Température', 'Condition_Climatique', '7/30', 'TRUE'),
+	(172, 0, 'Température', 'Condition_Climatique', '-6/30', 'TRUE'),
+	(176, 0, 'Température', 'Condition_Climatique', '5/25', 'TRUE'),
+	(179, 0, 'Température', 'Condition_Climatique', '3/30', 'TRUE'),
+	(183, 0, 'Température', 'Condition_Climatique', '10/', 'TRUE'),
+	(186, 0, 'Température', 'Condition_Climatique', '-15/30', 'TRUE');  
 	
 -- Caractéristique sans booléen
 INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
@@ -679,9 +679,9 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
     (132, 0, 'HauteurAMaturite', 'Flore', '20/60'),
     (133, 0, 'HauteurAMaturite', 'Flore', '60/150'),
     (134, 0, 'HauteurAMaturite', 'Flore', '150'),
-    (138, 0, 'RésistanceAuFroid', 'ConditionsClimatiques', 'Faible'),
-    (139, 0, 'RésistanceAuFroid', 'ConditionsClimatiques', 'Modéré'),
-    (140, 0, 'RésistanceAuFroid', 'ConditionsClimatiques', 'Important'),
+    (138, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Faible'),
+    (139, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Modéré'),
+    (140, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Important'),
 	(141, 0, 'Commentaires', 'Utilisation', ''),
 	(142, 0, 'Famille', 'Flore', 'Poacées'),
 	(148, 0, 'Famille', 'Flore', 'Fabacées'),--éloignés du 150--fixateur d'azote
@@ -736,35 +736,53 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 	(214, 0, 'Descriptif', 'Web', 'Le basilic est une plante aromatique facile à cultiver en extérieur ou en intérieur, en pot ou en pleine terre. Très apprécié pour sa fraîcheur et sa saveur, il relève les plats de l''été. C''est un réel plaisir de le cueillir selon ses besoins.'), 
 	(215, 0, 'Descriptif', 'Web', 'La menthe est une plante aromatique très odorante qui parfume délicatement nos différents plats, mais aussi le thé, les infusions et les desserts. Au potager, elle éloigne de nombreux insectes. De culture facile, elle demande peu d''entretien.'), 
 	(216, 0, 'Image', 'Web', 'assets/images/mais_1.PNG'), 
-	(217, 0, 'Image', 'Web', 'assets/images/mais_2.PNG'),
-	(218, 0, 'Image', 'Web', 'assets/images/mais_3.jpg'),
+	(217, 0, 'Image2', 'Web', 'assets/images/mais_2.PNG'),
+	(218, 0, 'Image3', 'Web', 'assets/images/mais_3.jpg'),
 	(219, 0, 'Image', 'Web', 'assets/images/haricot_1.PNG'), 
-	(220, 0, 'Image', 'Web', 'assets/images/haricot_2.PNG'),
-	(221, 0, 'Image', 'Web', 'assets/images/haricot_3.PNG'),
+	(220, 0, 'Image2', 'Web', 'assets/images/haricot_2.PNG'),
+	(221, 0, 'Image3', 'Web', 'assets/images/haricot_3.PNG'),
 	(222, 0, 'Image', 'Web', 'assets/images/courge_1.jpg'), 
-	(223, 0, 'Image', 'Web', 'assets/images/courge_2.jpg'),
-	(224, 0, 'Image', 'Web', 'assets/images/courge_3.jpg'),
+	(223, 0, 'Image2', 'Web', 'assets/images/courge_2.jpg'),
+	(224, 0, 'Image3', 'Web', 'assets/images/courge_3.jpg'),
 	(225, 0, 'Image', 'Web', 'assets/images/tomate_1.jpg'), 
-	(226, 0, 'Image', 'Web', 'assets/images/tomate_2.PNG'),
-	(227, 0, 'Image', 'Web', 'assets/images/tomate_3.PNG'),
+	(226, 0, 'Image2', 'Web', 'assets/images/tomate_2.PNG'),
+	(227, 0, 'Image3', 'Web', 'assets/images/tomate_3.PNG'),
 	(228, 0, 'Image', 'Web', 'assets/images/carotte_1.PNG'), 
-	(229, 0, 'Image', 'Web', 'assets/images/carotte_2.jpg'),
-	(230, 0, 'Image', 'Web', 'assets/images/carotte_3.jpg'),
+	(229, 0, 'Image2', 'Web', 'assets/images/carotte_2.jpg'),
+	(230, 0, 'Image3', 'Web', 'assets/images/carotte_3.jpg'),
 	(231, 0, 'Image', 'Web', 'assets/images/oignon_1.PNG'),
-	(232, 0, 'Image', 'Web', 'assets/images/oignon_2.PNG'),
+	(232, 0, 'Image2', 'Web', 'assets/images/oignon_2.PNG'),
 	(233, 0, 'Image', 'Web', 'assets/images/fraise_1.png'),
-	(234, 0, 'Image', 'Web', 'assets/images/fraise_2.PNG'),
-	(235, 0, 'Image', 'Web', 'assets/images/fraise_3.PNG'),
-	(236, 0, 'Image', 'Web', 'assets/images/chouFleur_1.PNG'),
-	(237, 0, 'Image', 'Web', 'assets/images/chouFleur_2.PNG'),
-	(238, 0, 'Image', 'Web', 'assets/images/chouFleur_3.PNG'),
+	(234, 0, 'Image2', 'Web', 'assets/images/fraise_2.PNG'),
+	(235, 0, 'Image3', 'Web', 'assets/images/fraise_3.PNG'),
+	(236, 0, 'Image', 'Web', 'assets/images/chouFleur_1.jpg'),
+	(237, 0, 'Image2', 'Web', 'assets/images/chouFleur_2.PNG'),
+	(238, 0, 'Image3', 'Web', 'assets/images/chouFleur_3.PNG'),
 	(239, 0, 'Image', 'Web', 'assets/images/basilic_1.jpg'),
-	(240, 0, 'Image', 'Web', 'assets/images/basilic_2.jpg'),
-	(241, 0, 'Image', 'Web', 'assets/images/basilic_1.jpg'),
-	(242, 0, 'Image', 'Web', 'assets/images/basilic_2.jpg'),
+	(240, 0, 'Image2', 'Web', 'assets/images/basilic_2.jpg'),
 	(243, 0, 'Image', 'Web', 'assets/images/menthe_1.jpg'),
-	(244, 0, 'Image', 'Web', 'assets/images/menthe_2.PNG');
-	
+	(244, 0, 'Image2', 'Web', 'assets/images/menthe_2.PNG'), 
+	(245, 0, 'Image', 'Web', 'assets/images/coccinelle.jpg'),
+	(246, 0, 'NomLatin', 'Faune', 'Coccinellidae'),
+	(247, 0, 'Image', 'Web', 'assets/images/abeille.jpg'),
+	(248, 0, 'NomLatin', 'Faune', 'Apis mellifera'), 
+	(249, 0, 'Image', 'Web', 'assets/images/etourneau.jpg'),
+	(250, 0, 'NomLatin', 'Faune', 'Sturnus vulgaris'),
+	(251, 0, 'Image', 'Web', 'assets/images/mesange.jpg'),
+	(252, 0, 'NomLatin', 'Faune', 'Cyanistes caeruleus'),
+	(253, 0, 'Image', 'Web', 'assets/images/papillon.jpg'),
+	(254, 0, 'NomLatin', 'Faune', 'Lepidoptera'),
+	(255, 0, 'Image', 'Web', 'assets/images/puceron.PNG'),
+	(256, 0, 'NomLatin', 'Faune', 'Aphidoidea'),
+	(257, 0, 'Image', 'Web', 'assets/images/souris.jpg'),
+	(258, 0, 'NomLatin', 'Faune', 'Mus musculus'),
+	(259, 0, 'Image', 'Web', 'assets/images/cetoine-doree.jpg'),
+	(260, 0, 'NomLatin', 'Faune', 'Cetonia aurata'),
+	(261, 0, 'Image', 'Web', 'assets/images/syrphe.jpg'),
+	(262, 0, 'NomLatin', 'Faune', 'Syrphidae'),
+	(263, 0, 'Image', 'Web', 'assets/images/carabe.jpg'),
+	(264, 0, 'NomLatin', 'Faune', 'Carabus auratus');
+
 
 
 INSERT INTO compte_utilisateur (id, version, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville) 
@@ -786,7 +804,7 @@ INSERT INTO conseil (id, version, publication, nom, texte, theme)
 	VALUES
 	(1, 0, '2020-05-20','', '', '');
 	
-
+--max 95
 INSERT INTO faune (id, version, nom_faune)
 	VALUES 
 	(1, 0, 'Abeille'), 
@@ -882,7 +900,8 @@ INSERT INTO faune (id, version, nom_faune)
 	(91,0,'Blaireau'),
 	(92,0,'Fouine'),
 	(93,0,'Cécidomyie'),
-	(94,0,'Mineuse du basilic');
+	(94,0,'Mineuse du basilic'), 
+	(95, 0, 'Carabe');
 	
 INSERT INTO favoris (id, version, nom)
 		VALUES 
@@ -1002,7 +1021,7 @@ INSERT INTO flore (id, version, nom)
 	(109,0,'Thym citron'),
 	(110,0,'Trèfle');	
 	
-	-- max 487
+	-- max 489
 	INSERT INTO referentiel_caracteristique (id, version, caracteristique_id,flore_id)
 	VALUES
 	-- Maïs--
@@ -1301,7 +1320,7 @@ INSERT INTO flore (id, version, nom)
 	(214, 0, 71,38),
 	(215, 0, 72,38),
 	(216, 0, 79,38),
-	(442, 0, 80,38),
+	(488, 0, 80,38),
 	(442, 0, 84,38),
 	(443, 0, 85,38),
 	(444, 0, 86,38),
@@ -1365,7 +1384,7 @@ INSERT INTO flore (id, version, nom)
 	(463, 0, 107,21),
 	(464, 0, 108,21),
 	(465, 0, 109,21),
-	(465, 0, 110,21),
+	(489, 0, 110,21),
 	(466, 0, 111,21),
 	(467, 0, 112,21),
 	(254, 0, 126,21),
@@ -1492,26 +1511,68 @@ INSERT INTO flore (id, version, nom)
 	(385, 0, 244, 52), 
 	(395, 0, 65, 52);
 	
-	--liens faune-faune----max206--
+	--liens faune-faune----(max 226)--
 	INSERT INTO referentiel_faune (id, version, caracteristique_id,faune_id)
 	VALUES
-	--coccinelle--predateur
+	--Coccinelle--predateur
 	(197, 0,188,10),
 	(198, 0,190,10),
+	(207, 0, 245, 10),
+	(208, 0, 246, 10),
+	
 	--Puceron--chassé
 	(199, 0, 189, 30),
+	(217, 0, 255, 30),
+	(218, 0, 256, 30),
+	
 	--Tetranychus urticae--chassé
 	(200, 0, 189, 45),
 	(201, 0, 191, 45),
 	(202, 0, 192, 45),
+	
 	--Coléoptère--prédateur
 	(203, 0, 190, 11),
+	
 	--Trichogramme--prédateur
 	(204, 0, 190, 41),
+	
 	--Encarsia formosa--prédateur
 	(205, 0, 194, 53),
+	
 	--Aleurodes--chassé
-	(206, 0, 193, 50);
+	(206, 0, 193, 50), 
+	
+	--Abeille
+	(209, 0, 247, 1),
+	(210, 0, 248, 1),
+	
+	--Etourneau
+	(211, 0, 249, 14),
+	(212, 0, 250, 14),
+	
+	--Mesange
+	(213, 0, 251, 23),
+	(214, 0, 252, 23),
+	
+	--Papillon
+	(215, 0, 253, 29),
+	(216, 0, 254, 29),
+	
+	--Souris
+	(219, 0, 257, 68),
+	(220, 0, 258, 68),
+	
+	--Cétoine dorée
+	(221, 0, 259, 7),
+	(222, 0, 260, 7),
+	
+	--Syrphe
+	(223, 0, 261, 35),
+	(224, 0, 262, 35),
+	
+	--Carabe
+	(225, 0, 263, 95),
+	(226, 0, 264, 95);
 	
 	
 	--lien faune-flore--

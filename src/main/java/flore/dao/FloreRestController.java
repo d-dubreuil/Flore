@@ -42,7 +42,7 @@ public class FloreRestController {
 	}
 	
 	@GetMapping("/by-nom/{nom}")
-	@JsonView(Views.ViewFlore.class)
+	@JsonView(Views.ViewFloreWithRefCarac.class)
 	public List<Flore> findByNom(@PathVariable String nom) {
 		return floreRepo.findByNom(nom);
 	}
