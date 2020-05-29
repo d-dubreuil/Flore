@@ -10,7 +10,9 @@ export class FauneService {
 
   private faunes: Array<Faune> = new Array<Faune>();
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.load();
+  }
 
   load() {
     this.http.get<Array<Faune>>("http://localhost:8080/api/faune").subscribe(resp => {
