@@ -1,4 +1,5 @@
 import {ReferentielFaune} from './ReferentielFaune';
+import {ReferentielCaracteristique} from "./ReferentielCaracteristique";
 
 export class Faune {
   id: number;
@@ -14,4 +15,15 @@ export class Faune {
     this.nomFaune = nomFaune;
     this.referentielFaunes = referentielFaunes;
   }
+
+  filterCarac(nomCarac:string):string{
+    for (let refCarac of this.referentielFaunes){
+      if(refCarac.caracteristique.nom == nomCarac){
+        return refCarac.caracteristique.valeur;
+      }
+    }
+    return 'non renseigné'
+  }
+
+
 }

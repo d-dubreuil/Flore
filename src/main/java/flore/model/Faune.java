@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -25,7 +26,8 @@ public class Faune {
 	@Column(unique = true)
 	@JsonView(Views.ViewCommon.class)
 	private String nomFaune;
-	@OneToMany(mappedBy = "faune")
+	@OneToMany(mappedBy = "faune", fetch = FetchType.EAGER)
+	@JsonView(Views.ViewFaune.class)
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
 	
 	public Faune() {
