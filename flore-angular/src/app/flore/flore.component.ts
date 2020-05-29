@@ -737,4 +737,8 @@ export class FloreComponent implements OnInit {
     return 'non renseigné';
   }
 
+  redirectToFicheFlore(flore:Flore){
+    this.floreService.flore = flore;
+  }
+
 }
