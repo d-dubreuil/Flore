@@ -31,7 +31,6 @@
                           style="width: 100%; text-align: center; font-size: 18px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailEspeces"
                           aria-expanded="true" aria-controls="detailEspeces">Espèces
-                    <i class="fas fa-chevron-down"></i>
                   </button>
 
                 </h5>
@@ -92,16 +91,32 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="printemps" name="printemps" value="printemps">
-                            <label class="ml-3" for="printemps">Printemps</label><br>
-                            <input type="checkbox" id="ete" name="ete" value="ete">
-                            <label class="ml-3" for="ete">Eté</label><br>
+                            <input type="checkbox" id="janvier" name="janvier" value="janvier" [(ngModel)]="janvierRecolteBoolean">
+                            <label class="ml-3" for="janvier">Janvier</label><br>
+                            <input type="checkbox" id="mars" name="mars" value="mars" [(ngModel)]="marsRecolteBoolean">
+                            <label class="ml-3" for="mars">Mars</label><br>
+                            <input type="checkbox" id="mai" name="mai" value="mai" [(ngModel)]="maiRecolteBoolean">
+                            <label class="ml-3" for="mai">Mai</label><br>
+                            <input type="checkbox" id="juillet" name="juillet" value="juillet" [(ngModel)]="juilletRecolteBoolean">
+                            <label class="ml-3" for="juillet">Juillet</label><br>
+                            <input type="checkbox" id="septembre" name="septembre" value="septembre" [(ngModel)]="septembreRecolteBoolean">
+                            <label class="ml-3" for="septembre">Septembre</label><br>
+                            <input type="checkbox" id="novembre" name="novembre" value="novembre" [(ngModel)]="novembreRecolteBoolean">
+                            <label class="ml-3" for="novembre">Novembre</label><br>
                           </div>
                           <div class="column ml-5">
-                            <input type="checkbox" id="automne" name="automne" value="automne">
-                            <label class="ml-3" for="automne">Automne</label><br>
-                            <input type="checkbox" id="hiver" name="hiver" value="hiver">
-                            <label class="ml-3" for="hiver">Hiver</label><br>
+                            <input type="checkbox" id="fevrier" name="fevrier" value="fevrier" [(ngModel)]="fevrierRecolteBoolean">
+                            <label class="ml-3" for="fevrier">Février</label><br>
+                            <input type="checkbox" id="avril" name="avril" value="avril" [(ngModel)]="avrilRecolteBoolean">
+                            <label class="ml-3" for="avril">Avril</label><br>
+                            <input type="checkbox" id="juin" name="juin" value="juin" [(ngModel)]="juinRecolteBoolean">
+                            <label class="ml-3" for="juin">Juin</label><br>
+                            <input type="checkbox" id="aout" name="aout" value="aout" [(ngModel)]="aoutRecolteBoolean">
+                            <label class="ml-3" for="aout">Aout</label><br>
+                            <input type="checkbox" id="octobre" name="octobre" value="octobre" [(ngModel)]="octobreRecolteBoolean">
+                            <label class="ml-3" for="octobre">Octobre</label><br>
+                            <input type="checkbox" id="decembre" name="decembre" value="decembre" [(ngModel)]="decembreRecolteBoolean">
+                            <label class="ml-3" for="decembre">Décembre</label><br>
                           </div>
                         </div>
                       </div>
@@ -123,16 +138,32 @@
                         <div class="card-body row">
                           <div class="column ml-3" style="width:45% ">
                             <!-- checkbox -->
-                            <input type="checkbox" id="printemps" name="printemps" value="printemps">
-                            <label class="ml-3" for="printemps">Printemps</label><br>
-                            <input type="checkbox" id="ete" name="ete" value="ete">
-                            <label class="ml-3" for="ete">Eté</label><br>
+                            <input type="checkbox" id="janvier" name="janvier" value="janvier" [(ngModel)]="janvierPlantationBoolean">
+                            <label class="ml-3" for="janvier">Janvier</label><br>
+                            <input type="checkbox" id="mars" name="mars" value="mars" [(ngModel)]="marsPlantationBoolean">
+                            <label class="ml-3" for="mars">Mars</label><br>
+                            <input type="checkbox" id="mai" name="mai" value="mai" [(ngModel)]="maiPlantationBoolean">
+                            <label class="ml-3" for="mai">Mai</label><br>
+                            <input type="checkbox" id="juillet" name="juillet" value="juillet" [(ngModel)]="juilletPlantationBoolean">
+                            <label class="ml-3" for="juillet">Juillet</label><br>
+                            <input type="checkbox" id="septembre" name="septembre" value="septembre" [(ngModel)]="septembrePlantationBoolean">
+                            <label class="ml-3" for="septembre">Septembre</label><br>
+                            <input type="checkbox" id="novembre" name="novembre" value="novembre" [(ngModel)]="novembrePlantationBoolean">
+                            <label class="ml-3" for="novembre">Novembre</label><br>
                           </div>
                           <div class="column ml-5">
-                            <input type="checkbox" id="automne" name="automne" value="automne">
-                            <label class="ml-3" for="automne">Automne</label><br>
-                            <input type="checkbox" id="hiver" name="hiver" value="hiver">
-                            <label class="ml-3" for="hiver">Hiver</label><br>
+                            <input type="checkbox" id="fevrier" name="fevrier" value="fevrier" [(ngModel)]="fevrierPlantationBoolean">
+                            <label class="ml-3" for="fevrier">Février</label><br>
+                            <input type="checkbox" id="avril" name="avril" value="avril" [(ngModel)]="avrilPlantationBoolean">
+                            <label class="ml-3" for="avril">Avril</label><br>
+                            <input type="checkbox" id="juin" name="juin" value="juin" [(ngModel)]="juinPlantationBoolean">
+                            <label class="ml-3" for="juin">Juin</label><br>
+                            <input type="checkbox" id="aout" name="aout" value="aout" [(ngModel)]="aoutPlantationBoolean">
+                            <label class="ml-3" for="aout">Aout</label><br>
+                            <input type="checkbox" id="octobre" name="octobre" value="octobre" [(ngModel)]="octobrePlantationBoolean">
+                            <label class="ml-3" for="octobre">Octobre</label><br>
+                            <input type="checkbox" id="decembre" name="decembre" value="decembre" [(ngModel)]="decembrePlantationBoolean">
+                            <label class="ml-3" for="decembre">Décembre</label><br>
                           </div>
                         </div>
                       </div>
@@ -322,7 +353,7 @@
                           style="width: 100%; text-align: center ; font-size: 18px; font-weight: bold"
                           data-toggle="collapse" data-target="#detailCM"
                           aria-expanded="true" aria-controls="detailCM">Conditions
-                    météorologiques
+                    climatiques
                   </button>
                 </h5>
               </div>
@@ -380,10 +411,36 @@
                             <label class="ml-3" for="peuResistant">Peu résistant</label><br>
                             <input type="checkbox" id="assezResistant" name="assezResistant" value="assezResistant" [(ngModel)]="modereresistanceBoolean">
                             <label class="ml-3" for="assezResistant">Assez résistant</label><br>
-                            <input type="checkbox" id="briseVent" name="briseVent" value="briseVent">
-                            <label class="ml-3" for="briseVent">Haie brise-vent</label><br>
                             <input type="checkbox" id="resistant" name="resistant" value="resistant" [(ngModel)]="hauteresistanceBoolean">
                             <label class="ml-3" for="resistant">Résistant</label><br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="accordionVentResistance">
+                    <div>
+                      <div id="sideBar">
+                        <h5 class="mb-0">
+                          <button id="btnAccordion" class="btn shadow-none collapsed" style="text-align: left; font-weight: bold"
+                                  data-toggle="collapse" data-target="#detailResistance"
+                                  aria-expanded="true">Résistance au vent
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="detailResistanceVent"
+                           aria-labelledby="sideBar" data-parent="#accordionMeteoResistance">
+                        <div class="card-body row">
+                          <div class="column ml-3" style="width:45% ">
+                            <!-- checkbox -->
+                            <input type="checkbox" id="peuResistantVent" name="peuResistantVent" value="peuResistantVent" [(ngModel)]="peuReistantVentBoolean">
+                            <label class="ml-3" for="peuResistantVent">Peu résistant</label><br>
+                            <input type="checkbox" id="assezResistantVent" name="assezResistantVent" value="assezResistantVent" [(ngModel)]="assezResistantVentBoolean">
+                            <label class="ml-3" for="assezResistantVent">Assez résistant</label><br>
+                            <input type="checkbox" id="resistantVent" name="resistantVent" value="resistantVent" [(ngModel)]="tresResistantVentBoolean">
+                            <label class="ml-3" for="resistantVent">Résistant</label><br>
+                            <input type="checkbox" id="briseVent" name="briseVent" value="briseVent" [(ngModel)]="briseVentBoolean">
+                            <label class="ml-3" for="briseVent">Haie brise-vent</label><br>
                           </div>
                         </div>
                       </div>
@@ -656,7 +713,7 @@
             <!--              <i class="fas fa-check" style="color: white"></i>-->
             <!--            </button>-->
             <button type="submit" id="btnSubmit" class="btn mt-2 bg-white"
-                    style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; ">Validez et à vos potagers !
+                    style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; " (click)="search()">Validez et à vos potagers !
             </button>
           </div>
 

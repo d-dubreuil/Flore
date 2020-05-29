@@ -16,8 +16,8 @@ export class FloreComponent implements OnInit {
   caracteristiques: Array<string> = new Array<string>();
   caracs: Array<string> = new Array<string>();
   caracEspece: string = 'Espece';
-  caracRecolte: string = '';
-  caracPlanter: string = '';
+  caracRecolte: string = 'Récolte';
+  caracPlanter: string = 'Plantation';
   caracRemontant: string = 'Remontant';
   caracPH: string = 'pH';
   caracHumidite: string = 'Humidité';
@@ -25,6 +25,7 @@ export class FloreComponent implements OnInit {
   caracArrosage: string = 'Arrosage';
   caracClimat: string = 'Climat';
   caracResistanceFroid: string = 'RésistanceAuFroid';
+  caracResistanceVent:string='Vent';
   caracEnsoleillement: string = 'Ensoleillement';
   caracFloraison: string = 'Végétation';
   caracHauteur: string = 'HauteurAMaturite';
@@ -120,6 +121,37 @@ export class FloreComponent implements OnInit {
   grimpanteBoolean:boolean=false;
   rhizosphereBoolean:boolean=false;
   strateBoolean:boolean=false;
+  janvierRecolteBoolean:boolean=false;
+  fevrierRecolteBoolean:boolean=false;
+  marsRecolteBoolean:boolean=false;
+  avrilRecolteBoolean:boolean=false;
+  maiRecolteBoolean:boolean=false;
+  juinRecolteBoolean:boolean=false;
+  juilletRecolteBoolean:boolean=false;
+  aoutRecolteBoolean:boolean=false;
+  septembreRecolteBoolean:boolean=false;
+  octobreRecolteBoolean:boolean=false;
+  novembreRecolteBoolean:boolean=false;
+  decembreRecolteBoolean:boolean=false;
+  recolteBoolean:boolean=false;
+  janvierPlantationBoolean:boolean=false;
+  fevrierPlantationBoolean:boolean=false;
+  marsPlantationBoolean:boolean=false;
+  avrilPlantationBoolean:boolean=false;
+  maiPlantationBoolean:boolean=false;
+  juinPlantationBoolean:boolean=false;
+  juilletPlantationBoolean:boolean=false;
+  aoutPlantationBoolean:boolean=false;
+  septembrePlantationBoolean:boolean=false;
+  octobrePlantationBoolean:boolean=false;
+  novembrePlantationBoolean:boolean=false;
+  decembrePlantationBoolean:boolean=false;
+  plantationBoolean:boolean=false;
+  tresResistantVentBoolean:boolean=false;
+  assezResistantVentBoolean:boolean=false;
+  peuReistantVentBoolean:boolean=false;
+  briseVentBoolean:boolean=false;
+  resistanceVentBoolean:boolean=false;
 
 
   constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService, private titleService: Title) {
@@ -155,8 +187,8 @@ export class FloreComponent implements OnInit {
     //Remise à zéro des carac, du tableau et des boolean.
     this.caracteristiques = new Array<string>();
     this.caracEspece = 'Espece';
-    this.caracRecolte = '';
-    this.caracPlanter = '';
+    this.caracRecolte = 'Récolte';
+    this.caracPlanter = 'Plantation';
     this.caracRemontant = 'Remontant';
     this.caracPH = 'pH';
     this.caracHumidite = 'Humidité';
@@ -164,6 +196,7 @@ export class FloreComponent implements OnInit {
     this.caracArrosage = 'Arrosage';
     this.caracClimat = 'Climat';
     this.caracResistanceFroid = 'RésistanceAuFroid';
+    this.caracResistanceVent='Vent';
     this.caracEnsoleillement = 'Ensoleillement';
     this.caracFloraison = 'Végétation';
     this.caracHauteur = 'HauteurAMaturite';
@@ -188,6 +221,9 @@ export class FloreComponent implements OnInit {
     this.azoteBoolean=false;
     this.nutrimentBoolean=false;
     this.strateBoolean=false;
+    this.recolteBoolean=false;
+    this.plantationBoolean=false;
+    this.resistanceVentBoolean=false;
 
 
     //Création de la string sur la carac espèce pour la future requete (si nécessaire)
@@ -552,6 +588,133 @@ export class FloreComponent implements OnInit {
     }
     if (this.strateBoolean){
       this.caracteristiques.push(this.caracStrate);
+    }
+
+    //Création de la string sur la carac recolte pour la future requete (si nécessaire)
+    if (this.janvierRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Janvier';
+      this.recolteBoolean = true;
+    }
+    if (this.fevrierRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Février';
+      this.recolteBoolean = true;
+    }
+    if (this.marsRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Mars';
+      this.recolteBoolean = true;
+    }
+    if (this.avrilRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Avril';
+      this.recolteBoolean = true;
+    }
+    if (this.maiRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Mai';
+      this.recolteBoolean = true;
+    }
+    if (this.juinRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Juin';
+      this.recolteBoolean = true;
+    }
+    if (this.juilletRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Juillet';
+      this.recolteBoolean = true;
+    }
+    if (this.aoutRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Août';
+      this.recolteBoolean = true;
+    }
+    if (this.septembreRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Septembre';
+      this.recolteBoolean = true;
+    }
+    if (this.octobreRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Octobre';
+      this.recolteBoolean = true;
+    }
+    if (this.novembreRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Novembre';
+      this.recolteBoolean = true;
+    }
+    if (this.decembreRecolteBoolean) {
+      this.caracRecolte = this.caracRecolte + ':Décembre';
+      this.recolteBoolean = true;
+    }
+    if (this.recolteBoolean){
+      this.caracteristiques.push(this.caracRecolte);
+    }
+
+    //Création de la string sur la carac plantation pour la future requete (si nécessaire)
+    if (this.janvierPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Janvier';
+      this.plantationBoolean = true;
+    }
+    if (this.fevrierPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Février';
+      this.plantationBoolean = true;
+    }
+    if (this.marsPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Mars';
+      this.plantationBoolean = true;
+    }
+    if (this.avrilPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Avril';
+      this.plantationBoolean = true;
+    }
+    if (this.maiPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Mai';
+      this.plantationBoolean = true;
+    }
+    if (this.juinPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Juin';
+      this.plantationBoolean = true;
+    }
+    if (this.juilletPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Juillet';
+      this.plantationBoolean = true;
+    }
+    if (this.aoutPlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Août';
+      this.plantationBoolean = true;
+    }
+    if (this.septembrePlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Septembre';
+      this.plantationBoolean = true;
+    }
+    if (this.octobrePlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Octobre';
+      this.plantationBoolean = true;
+    }
+    if (this.novembrePlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Novembre';
+      this.plantationBoolean = true;
+    }
+    if (this.decembrePlantationBoolean) {
+      this.caracPlanter = this.caracPlanter + ':Décembre';
+      this.plantationBoolean = true;
+    }
+    if (this.plantationBoolean){
+      this.caracteristiques.push(this.caracPlanter);
+    }
+
+    //Création de la string sur la carac arrosage pour la future requete (si nécessaire)
+    if (this.assezResistantVentBoolean) {
+      this.caracResistanceVent = this.caracResistanceVent + ':Assez Résistant';
+      this.resistanceVentBoolean = true;
+    }
+    if (this.peuReistantVentBoolean) {
+      this.caracResistanceVent = this.caracResistanceVent + ':Peu Résistant';
+      this.resistanceVentBoolean = true;
+    }
+    if (this.tresResistantVentBoolean) {
+      this.caracResistanceVent = this.caracResistanceVent + ':Très Résistant';
+      this.resistanceVentBoolean = true;
+    }
+    if (this.briseVentBoolean) {
+      this.caracResistanceVent = this.caracResistanceVent + ':Haie Brise-Vent';
+      this.resistanceVentBoolean = true;
+    }
+    if (this.resistanceVentBoolean){
+      this.caracteristiques.push(this.caracResistanceVent);
     }
 
     //Création de la query
