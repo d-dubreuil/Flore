@@ -1,4 +1,4 @@
-<div class="column ">
+<div>
   <div class="row justify-content-center align-items-center mt-4">
     <div class="column" style="width: 5%;"></div>
     <div class="column" style="width: 25%;">
@@ -12,12 +12,12 @@
   </div>
 
   <div class="row border m-5">
-    <div class="column" style="width: 30%; height: 100%">
+    <div class="column border" style="width: 30%; height: 100%">
       <!--BLOC CONNEXION-->
-      <div id="connexion" class="row p-4">
-        <div class="row ml-2">
-          <h6 style="font-size: 18px">
-            Connectez-vous à votre espace client pour accèder à:
+      <div id="connexion" class="row p-4 border">
+        <div class="row ml-4 justify-content-center align-items-center border" style="width:90%">
+          <h6 class="text-center" style="font-size: 18px">
+            Connectez-vous à votre <br> espace client pour accèder à :
           </h6>
         </div>
         <div class="row justify-content-center align-items-center mt-3 p-1">
@@ -51,10 +51,10 @@
         </div>
       </div>
       <!--BLOC FOURNISSEUR-->
-      <div id="fournisseur" class="row p-4" >
-        <div class="row ml-2">
+      <div id="fournisseur" class="row p-4 border">
+        <div class="row ml-4 justify-content-center align-items-center border" style="width:90%">
           <h6 style="font-size: 18px">
-            Achetez vos plants chez nos partenaires :
+            Achetez vos plants <br> chez nos partenaires :
           </h6>
         </div>
         <div class="row justify-content-center align-items-center mt-3 p-1">
@@ -69,7 +69,8 @@
               </div>
               <div class="column" style="width: 65%;">
                 <h5>Fournisseur 1</h5>
-                <h6>Produit Variété Stock</h6>
+                <h6>Produit - Variété</h6>
+                <h6 style="font-style: italic">(Nb +Stock)</h6>
               </div>
             </div>
           </button>
@@ -85,241 +86,306 @@
               </div>
               <div class="column" style="width: 65%;">
                 <h5>Fournisseur 2</h5>
-                <h6>Produit Variété Stock</h6>
-              </div>
-            </div>
-          </button>
-          <button id="buttonAjoutPanier" type="button"
-                  class="btn border mb-4 mt-4 shadow-none justify-content-center align-items-center"
-                  style="height: 40%; width: 70%;"
-                  disabled>
-            <div class="row justify-content-center align-items-center">
-              <div class="column mr-2" style="width:15%;">
-                <div class="column align-middle" style="width:15%;">
-                  <i class="fas fa-shopping-basket fa-2x" style="color: #8bc34a"></i>
-                </div>
-              </div>
-              <div class="column" style="width: 65%;">
-                <h5>Fournisseur 3</h5>
-                <h6>Produit Variété Stock</h6>
+                <h6>Produit - Variété</h6>
+                <h6 style="font-style: italic">(Nb +Stock)</h6>
               </div>
             </div>
           </button>
         </div>
       </div>
     </div>
-    <div class="column border " style="width: 70% ; height: 100%">qmDKfjqougrhsrlkjgtdmrlihfùp</div>
 
+    <!-- BLOC TEXTE/PHOTOS ET CARACTERISTIQUES -->
+    <div class="column ml-5 pl-2 border " style="width: 65% ; height: 100%">
+      <!-- BLOC TEXTE -->
+      <div class="row justify-content-center align-items-center border">
+        <div id="textePhoto" class="row justify-content-center align-items-center ml-3 p-3" style="height: 45%">
+          Le basilic est une plante aromatique facile à cultiver en extérieur ou en intérieur, en pot ou en pleine
+          terre. Très apprécié pour sa fraîcheur et sa saveur, il relève les plats de l'été. C'est un réel plaisir de le
+          cueillir selon ses besoins.
+        </div>
+      </div>
+
+      <!-- BLOC PHOTOS -->
+      <div class="row justify-content-center align-items-center border">
+        <div id="textePhoto" class="row justify-content-center align-items-center ml-5" style="height: 45%">
+          <div class="border m-3" style="width: 28%; height: 150px">
+            <img src="assets/images/basilic_1.jpg" style="width: 100%; height: 100%">
+          </div>
+          <div class="border m-3" style="width: 28%; height: 150px">
+            <img src="assets/images/basilic_2.jpg" style="width: 100%; height: 100%">
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOC CARACT + LIENS -->
+      <div class="justify-content-center align-items-center border">
+        <!--Nom-->
+        <div id="caract" class="row p-2 mt-2 justify-content-center" style="height: 45%">
+          <h6 class="text-center" style="font-size: 18px">Caractéristiques :</h6>
+        </div>
+        <!--Ligne 1 carac-->
+        <div class="row justify-content-center">
+          <!--Longueur-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Longueur">
+                <i class="fas fa-circle fa-stack-2x" style="color: #03a9f4; opacity: 0.2"></i>
+                <i id="longueur" class="fas fa-arrows-alt-h fa-stack-1x" style="color: #03a9f4"></i>
+              </a>
+            </div>
+            <div id="resultLongueur" class="column ml-3 mt-2 " style="vertical-align: middle; font-size: xx-small;">
+              0.8
+            </div>
+          </div>
+          <!--Hauteur-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Hauteur">
+                <i class="fas fa-circle fa-stack-2x" style="color: #00bcd4; opacity: 0.2"></i>
+                <i id="hauteur" class="fas fa-arrows-alt-v fa-stack-1x" style="color: #00bcd4"></i>
+              </a>
+            </div>
+            <div id="resultLargeur" class="column ml-3 mt-2" style="vertical-align: middle; font-size: xx-small;">
+              0.5
+            </div>
+          </div>
+          <!--Ensoleillement-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Ensoleillement">
+                <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
+                <i id="ensoleillement" class="fas fa-cloud-sun fa-stack-1x" style="color: black"></i>
+              </a>
+            </div>
+            <div id="resultEnsoleillement" class="column ml-2 mt-2"
+                 style="vertical-align: middle; font-size: xx-small;">
+              soleil
+            </div>
+          </div>
+          <!--Sol-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Sol">
+                <i class="fas fa-circle fa-stack-2x" style="color: #33691e; opacity: 0.2"></i>
+                <i id="sol" class="fas fa-globe-europe fa-stack-1x" style="color: #33691e"></i>
+              </a>
+            </div>
+            <div id="resultSol" class="column mt-2" style="vertical-align: middle; font-size: xx-small;">
+              argileux
+            </div>
+          </div>
+          <!--Arrosage-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Arrosage">
+                <i class="fas fa-circle fa-stack-2x" style="color: #0d47a1; opacity: 0.2"></i>
+                <i id="arrosage" class="fas fa-tint fa-stack-1x" style="color: #0d47a1"></i>
+              </a>
+            </div>
+            <div id="resultArrosage" class="column mt-2" style="vertical-align: middle; font-size: xx-small;">
+              quotidien
+            </div>
+          </div>
+          <!--Semis-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Calendrier semis">
+                <i class="fas fa-circle fa-stack-2x" style="color: #8bc34a; opacity: 0.2"></i>
+                <i id="semis" class="far fa-calendar-alt fa-stack-1x" style="color: #8bc34a"></i>
+              </a>
+            </div>
+            <div id="resultSemis" class="column mt-2" style="vertical-align: middle; font-size: xx-small;">
+              automne
+            </div>
+          </div>
+        </div>
+
+        <!--Ligne 2 carac-->
+        <div class="row justify-content-center mt-2">
+          <!--Récolte-->
+          <div class="column mr-4 ">
+            <div class="ml-3 fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Calendrier récolte">
+                <i class="fas fa-circle fa-stack-2x" style="color: #e91e63; opacity: 0.2"></i>
+                <i id="recolte" class="fas fa-seedling fa-stack-1x" style="color: #e91e63"></i>
+              </a>
+            </div>
+            <div id="resultRecolte" class="column mt-2 " style="vertical-align: middle; font-size: xx-small;">
+              mi-juin à mi-juillet
+            </div>
+          </div>
+          <!--Température-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Température">
+                <i class="fas fa-circle fa-stack-2x" style="color: #9e9e9e; opacity: 0.2"></i>
+                <i id="temperature" class="fas fa-thermometer-half fa-stack-1x" style="color: #9e9e9e"></i>
+              </a>
+            </div>
+            <div id="resultTemperature" class="column ml-2 mt-2"
+                 style="vertical-align: middle; font-size: xx-small;">
+              10-25°
+            </div>
+          </div>
+          <!--Vent-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Vent">
+                <i class="fas fa-circle fa-stack-2x" style="color: #ff9800; opacity: 0.2"></i>
+                <i id="vent" class="fas fa-wind fa-stack-1x" style="color: #ff9800"></i>
+              </a>
+            </div>
+            <div id="resultVent" class="column ml-2 mt-2"
+                 style="vertical-align: middle; font-size: xx-small;">
+              vent
+            </div>
+          </div>
+          <!--pH-->
+          <div class="column mr-4 ">
+            <div class="fa-stack ml-3 fa-1x">
+              <a data-toggle="tooltip" title="pH">
+                <i class="fas fa-circle fa-stack-2x" style="color: #fff59d; opacity: 0.2"></i>
+                <i id="ph" class="fa-stack-1x" style="color: #fff59d">pH</i>
+              </a>
+            </div>
+            <div id="resultPh" class="column ml-2 mt-2"
+                 style="vertical-align: middle; font-size: xx-small;">
+              acide à neutre
+            </div>
+          </div>
+          <!--Remontant-->
+          <div class="column mr-4 ">
+            <div class="fa-stack ml-2 fa-1x">
+              <a data-toggle="tooltip" title="Remontant">
+                <i class="fas fa-circle fa-stack-2x" style="color: #9c27b0; opacity: 0.2"></i>
+                <i id="remontant" class="far fa-calendar-plus fa-stack-1x" style="color: #9c27b0"></i>
+              </a>
+            </div>
+            <div id="resultRemontant" class="column ml-2 mt-2"
+                 style="vertical-align: middle; font-size: xx-small;">
+              remontant
+            </div>
+          </div>
+          <!--Floraison-->
+          <div class="column mr-4 ">
+            <div class="fa-stack fa-1x">
+              <a data-toggle="tooltip" title="Vivace">
+                <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
+                <i id="vivace" class="fas fa-infinity fa-stack-1x" style="color: #f44336"></i>
+              </a>
+            </div>
+            <div id="resultFloraison" class="column ml-2 mt-2"
+                 style="vertical-align: middle; font-size: xx-small;">
+              vivace
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOC LIEN FLORE -->
+      <div class="justify-content-center align-items-center border">
+        <!--Nom-->
+        <div id="lienFlore" class="row justify-content-center p-2 mt-1" style="height: 45%">
+          <h6 class="text-center" style="font-size: 18px">Relation flore :</h6>
+          <div class="column align-items-align-right ml-2">
+            <button id="buttonPlus" class="ml-5" style="background-color: transparent; color:#8bc34a; border-style: none" disabled><i
+              class="fas fa-plus fa-2x"></i>
+            </button>
+          </div>
+        </div>
+        <!--Type de lien-->
+        <div class="row justify-content-center ">
+          <div id="lienFloreAmie" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+            <div class="row ">
+              <h6 class="text-center" style="font-size: 15px">Amies :</h6>
+            </div>
+            <div class="row">
+              amie1
+            </div>
+            <div class="row">
+              amie2
+            </div>
+            <div class="row">
+              amie3
+            </div>
+          </div>
+          <div id="lienFloreCompagnes" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+            <div class="row ">
+              <h6 class="text-center" style="font-size: 15px">Compagnes :</h6>
+            </div>
+            <div class="row">
+              comp1
+            </div>
+            <div class="row">
+              comp2
+            </div>
+            <div class="row">
+              comp3
+            </div>
+          </div>
+          <div id="lienFloreEnnemies" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+            <div class="row ">
+              <h6 class="text-center" style="font-size: 15px">Ennemies :</h6>
+            </div>
+            <div class="row">
+              enne1
+            </div>
+            <div class="row">
+              enne2
+            </div>
+            <div class="row">
+              enne3
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOC LIEN FAUNE -->
+      <div class="justify-content-center align-items-center border">
+        <!--Nom-->
+        <div id="lienFaune " class="row justify-content-center p-2 mt-1" style="height: 45%">
+          <h6 class="text-center" style="font-size: 18px">Relation faune :</h6>
+          <div class="column align-items-align-right ml-2">
+            <button id="buttonPlus" class="ml-5" style="background-color: transparent; color:#8bc34a; border-style: none" disabled><i
+              class="fas fa-plus fa-2x"></i>
+            </button>
+          </div>
+        </div>
+
+        <!--Type de lien-->
+        <div class="row justify-content-center align-items-center ">
+          <div id="lienFaunePred" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+            <div class="row justify-content-center">
+              <h6 class="text-center" style="font-size: 15px">Prédacteurs/Répulsifs :</h6>
+            </div>
+            <div class="row">
+              pred/rep1
+            </div>
+            <div class="row">
+              pred/rep2
+            </div>
+            <div class="row">
+              ppred/rep3
+            </div>
+          </div>
+          <div id="lienFaunePoll" class="column justify-content-center mr-5 ml-5" style="height: 45%">
+            <div class="row justify-content-center">
+              <h6 class="text-center" style="font-size: 15px">Pollinisateurs/Attractifs :</h6>
+            </div>
+            <div class="row">
+              poll/att1
+            </div>
+            <div class="row">
+              poll/att2
+            </div>
+            <div class="row">
+              poll/att3
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-
-  <!--    &lt;!&ndash;BLOC TEXTE/PHOTOS ET CARACTERISTIQUES&ndash;&gt;-->
-  <!--    <div class=" column mr-2 justify-content-center align-items-center" style="width: 70%; height: 100%">-->
-  <!--      &lt;!&ndash;BLOC TEXTE&ndash;&gt;-->
-  <!--      <div id="textePhoto" class="row justify-content-center align-items-center ml-5 p-3" style="height: 45%">-->
-  <!--        Le basilic est une plante aromatique facile à cultiver en extérieur ou en intérieur, en pot ou en pleine-->
-  <!--        terre.-->
-  <!--        Très apprécié pour sa fraîcheur et sa saveur, il relève les plats de l'été. C'est un réel plaisir de le-->
-  <!--        cueillir-->
-  <!--        selon ses besoins.-->
-  <!--      </div>-->
-  <!--      &lt;!&ndash;BLOC PHOTOS&ndash;&gt;-->
-  <!--      <div id="textePhoto" class="row justify-content-center align-items-center ml-5" style="height: 45%">-->
-  <!--        <div class="border m-3" style="width: 28%; height: 150px">-->
-  <!--          <img src="assets/images/basilic_1.jpg" style="width: 100%; height: 100%">-->
-  <!--        </div>-->
-  <!--        <div class="border m-3" style="width: 28%; height: 150px">-->
-  <!--          <img src="assets/images/basilic_2.jpg" style="width: 100%; height: 100%">-->
-  <!--        </div>-->
-  <!--      </div>-->
-
-
-  <!--      &lt;!&ndash;BLOC CARAC+LIENS&ndash;&gt;-->
-  <!--      <div class="column mr-2" style="width: 70%; height: 100%; text-align: center; align: middle;">-->
-  <!--        &lt;!&ndash;BLOC CARACTERISTIQUES&ndash;&gt;-->
-  <!--        <div id="caract" class="row  ml-5 p-3 " style="height: 45%">Caractéristiques:-->
-  <!--          <div class="row m-2 justify-content-center">-->
-  <!--            <div class="column mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Longueur">-->
-  <!--                  <i id="longueur" class="fas fa-arrows-alt-h fa-stack-1x" style="color: #03a9f4"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultLongueur" class="column ml-3 mt-2 "-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">0.8-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Hauteur"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #00bcd4; opacity: 0.2"></i> <i id="hauteur"-->
-  <!--                                                               class="fas fa-arrows-alt-v fa-stack-1x"-->
-  <!--                                                               style="color: #00bcd4"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultLargeur" class="column ml-3 mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">0.5-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Ensoleillement"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #ffeb3b; opacity: 0.2"></i> <i-->
-  <!--                  id="ensoleillement" class="fas fa-cloud-sun fa-stack-1x"-->
-  <!--                  style="color: #ffeb3b"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">soleil-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Sol"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #33691e; opacity: 0.2"></i> <i id="sol"-->
-  <!--                                                               class="fas fa-globe-europe fa-stack-1x"-->
-  <!--                                                               style="color: #33691e"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultSol" class="column mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">argileux-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Arrosage"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #0d47a1; opacity: 0.2"></i> <i id="arrosage"-->
-  <!--                                                               class="fas fa-tint fa-stack-1x"-->
-  <!--                                                               style="color: #0d47a1"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultArrosage" class="column mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">quotidien-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Calendrier semis"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #8bc34a; opacity: 0.2"></i> <i id="semis"-->
-  <!--                                                               class="far fa-calendar-alt fa-stack-1x"-->
-  <!--                                                               style="color: #8bc34a"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultSemis" class="column mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">automne-->
-  <!--              </div>-->
-  <!--            </div>-->
-  <!--          </div>-->
-
-
-  <!--          <div class="row m-4 justify-content-center">-->
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Calendrier récolte">-->
-  <!--                  <i class="fas fa-circle fa-stack-2x"-->
-  <!--                     style="color: #e91e63; opacity: 0.2"></i> <i id="recolte"-->
-  <!--                                                                  class="fas fa-seedling fa-stack-1x"-->
-  <!--                                                                  style="color: #e91e63"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultEnsoleillement" class="column mt-2 "-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">mi-juin-->
-  <!--                à mi-juillet-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Température"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #9e9e9e; opacity: 0.2"></i> <i id="temperature"-->
-  <!--                                                               class="fas fa-thermometer-half fa-stack-1x"-->
-  <!--                                                               style="color: #9e9e9e"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">10-25°-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Vent"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #ff9800; opacity: 0.2"></i> <i id="vent"-->
-  <!--                                                               class="fas fa-wind fa-stack-1x"-->
-  <!--                                                               style="color: #ff9800"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">vent-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="pH"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #fff59d; opacity: 0.2"></i> <i id="ph"-->
-  <!--                                                               class="fa-stack-1x" style="color: #fff59d">pH</i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">acide-->
-  <!--                à neutre-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Remontant"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #9c27b0; opacity: 0.2"></i> <i id="remontant"-->
-  <!--                                                               class="far fa-calendar-plus fa-stack-1x"-->
-  <!--                                                               style="color: #9c27b0"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">remontant-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--            <div class="column  mr-4 ">-->
-  <!--              <div class="fa-stack fa-1x">-->
-  <!--                <a data-toggle="tooltip" title="Vivace"> <i-->
-  <!--                  class="fas fa-circle fa-stack-2x"-->
-  <!--                  style="color: #f44336; opacity: 0.2"></i> <i id="vivace"-->
-  <!--                                                               class="fas fa-infinity fa-stack-1x"-->
-  <!--                                                               style="color: #f44336"></i>-->
-  <!--                </a>-->
-  <!--              </div>-->
-  <!--              <div id="resultEnsoleillement" class="column ml-2 mt-2"-->
-  <!--                   style="vertical-align: middle; font-size: xx-small;">vivace-->
-  <!--              </div>-->
-  <!--            </div>-->
-
-  <!--          </div>-->
-  <!--        </div>-->
-  <!--        &lt;!&ndash;BLOC LIEN FLORE&ndash;&gt;-->
-  <!--        <div id="lienFlore" class="row justify-content-center align-items-center ml-5" style="height: 45%">Relation-->
-  <!--          flore-->
-  <!--        </div>-->
-  <!--        &lt;!&ndash;BLOC LIEN FAUNE&ndash;&gt;-->
-  <!--        <div id="lienFaune" class="row justify-content-center align-items-center ml-5" style="height: 45%">Relation-->
-  <!--          faune-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
 </div>
-

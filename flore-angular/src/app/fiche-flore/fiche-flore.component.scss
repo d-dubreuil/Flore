@@ -8,3 +8,8 @@
 //  border-width: 1px;
 //  border-color: #8bc34a;
 //}
+
+#buttonPlus:hover, #buttonPlus:active, #buttonPlus:focus{
+  box-shadow: none;
+  outline: none;
+}
