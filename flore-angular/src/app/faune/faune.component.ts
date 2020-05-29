@@ -26,9 +26,9 @@ export class FauneComponent implements OnInit {
 
   filterCarac(faune: Faune, nomCarac: string): string {
     if (faune.referentielFaunes) {
-      for (let refCarac of faune.referentielFaunes) {
-        if (refCarac.caracteristique.nom == nomCarac) {
-          return refCarac.caracteristique.valeur;
+      for (let refFaune of faune.referentielFaunes) {
+        if (refFaune.caracteristique.nom == nomCarac) {
+          return refFaune.caracteristique.valeur;
         }
       }
     }
