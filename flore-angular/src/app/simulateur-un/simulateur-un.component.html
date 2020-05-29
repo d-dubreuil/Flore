@@ -11,70 +11,175 @@
     </div>
   </div>
 </div>
+
 <!-- bloc général-->
 <div class="row justify-content-center mt-5 border">
 
   <!-- Colonne 1-->
-  <div class="column border mr-5" style="width:40%; text-align: center;" >
+  <div *ngIf="simu1Accueil" class="row border" style="width:100%;">
     <!-- page 1-->
-  <div *ngIf="simu1Accueil">
+  <div class="column border mr-5"  style="width:40%; text-align: center;">
     <h1 class="mt-2">Simultateur 1</h1>
     <p class="mt-4"> Ces deux plantes peuvent-elles s'associer?</p>
   </div>
+    <!-- Colonne 2-->
+    <div  class="column  ml-5 border" style="width:40%;">
+        <!-- search plante 1-->
+        <div  class="row mt-3 justify-content-center border">
+          <div class="column border">
+            <button  class="btn"
+                     style="background-color: #8bc34a">
+              <i class="fas fa-leaf" style="color: white"></i>
+            </button>
+          </div>
+          <div class="column border" style="width: 82%;">
+            <input class="form-control"  type="text"
+                   placeholder="Entrer le nom de la plante 1">
+          </div>
 
-    <div *ngIf="kompagnonnage">
-      <div class="row mt-3 justify-content-center border">
-      <h1 class="mt-2">Simultateur 1</h1>
-      <p class="mt-4"> Ces deux plantes peuvent-elles s'associer?</p>
-      </div>
-    </div>
+        </div>
+        <!-- search plante 2-->
+        <div  class="row mt-3 justify-content-center border">
+          <div class="column border">
+            <button  class="btn"
+                     style="background-color: #8bc34a">
+              <i class="fas fa-leaf" style="color: white"></i>
+            </button>
+          </div>
+          <div class="column border" style="width: 82%;">
+            <input class="form-control"  type="text"
+                   placeholder="Entrer le nom de la plante 2">
+          </div>
 
-  </div>
+        </div>
+        <!-- bouton kampagnonnage-->
+        <div class="row mt-3 justify-content-center border">
+          <button (click)="synergie()" class="btn" style="width: 91%;background-color: #8bc34a" >
 
-  <!-- Colonne 2-->
-  <div class="column  ml-5 border" style="width:40%;">
-    <!-- page 1-->
-    <div *ngIf="simu1Accueil">
-      <!-- search plante 1-->
-    <div  class="row mt-3 justify-content-center border">
-        <div class="column border">
-          <button  class="btn"
-                  style="background-color: #8bc34a">
-            <i class="fas fa-leaf" style="color: white"></i>
+            Démarrer notre prédicteur de Kompagnonnage
+
           </button>
         </div>
-        <div class="column border" style="width: 82%;">
-          <input class="form-control" id="myInput" type="text"
-                 placeholder="Entrer le nom de la plante 1">
-        </div>
-
-    </div>
-      <!-- search plante 2-->
-    <div  class="row mt-3 justify-content-center border">
-      <div class="column border">
-        <button  class="btn"
-                 style="background-color: #8bc34a">
-          <i class="fas fa-leaf" style="color: white"></i>
-        </button>
       </div>
-      <div class="column border" style="width: 82%;">
-        <input class="form-control" id="myInput" type="text"
-               placeholder="Entrer le nom de la plante 2">
-      </div>
-
-    </div>
-      <!-- bouton kampagnonnage-->
-    <div class="row mt-3 justify-content-center border">
-    <button class="btn" style="width: 91%;background-color: #8bc34a" >
-
-        Démarrer notre prédicteur de Kompagnonnage
-
-    </button>
-    </div>
-    </div>
 
   </div>
 
+    <!-- page 2 komagnonnage-->
+    <div *ngIf="kompagnonnage" class="column border" style="width:100%;">
+      <!-- 1ère ligne - K1-->
+      <div class="row mt-3 justify-content-center border">
+        <!-- 1ère colonne - K2-->
+        <div class="column mr-3 border" style="width:65%;">
+          <div class="row justify-content-center border">
+            <!-- 1ère colonne - K4-->
+          <div class="column mr-3 border" style="width:45%;">
+            <div class="row justify-content-center border">
+              <!-- 1ère colonne - K5-->
+              <div class="column mr-5 border">
+                image 1
+              </div>
+              <!-- 2ème colonne - K5-->
+              <div class="column ml-5 border">
+                Nom de la flore 1<br/> lien flore 1
+              </div>
+            </div>
+          </div>
+            <!-- 2ème colonne - K4-->
+          <div class="column ml-3 border" style="width:45%;">
+            <div class="row justify-content-center border">
+              <!-- 1ère colonne - K5-->
+              <div class="column mr-5 border">
+                image 2
+              </div>
+              <!-- 2ème colonne - K5-->
+              <div class="column ml-5 border">
+                Nom de la flore 2 <br/> lien flore 2
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- 2ème colonne - K2-->
+        <div class="column ml-3 border" style="width:25%;">
+          <button (click)="revenir()" class="btn" style="width: 91%;background-color: #8bc34a" >
+            Revenir à ma recherche
+          </button>
+        </div>
+      </div>
+      <!-- 2ème ligne - K1-->
+      <div class="row mt-3 justify-content-center border">
+        <!-- 1ère colonne - K2-->
+        <div class="column mr-3 border" style="width:65%;">
+          <!-- 1ère ligne - K3-->
+          <div class="row justify-content-center border">
+            <h3> Association potentiellement favorable</h3>
+          </div>
+          <!-- 2ème ligne - K3-->
+          <div class="row justify-content-center border">
+            <p> list messages</p>
+          </div>
+        </div>
+        <!-- 2ème colonne - K2-->
+        <div class="column ml-3 border" style="width:25%;">
+            <button (click)="plusDeDetail()" class="btn" style="width: 91%;background-color: #8bc34a" >
+              Plus de détails
+            </button>
+        </div>
+      </div>
+      <!-- 3ème ligne - K1-->
+      <div *ngIf="details" class="row justify-content-center mt-3 border" >
+        <div class="column justify-content-center border">
+          <div class="row justify-content-center border">
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-</div>
+
+
+<!--      </div>-->
+      <!-- page 3 + de détails-->
+
+
+
+        <!-- BLOC Images  -->
+<!--        <div class="row m-2 justify-content-center border">-->
+<!--          <div class="column" style="width: 15%;">-->
+<!--            <img src="{{filterCarac( flore, 'Image')}}"-->
+<!--                 style="width: 85%; height: 80%"/>-->
+<!--          </div>-->
+<!--          &lt;!&ndash; BLOC Texte  &ndash;&gt;-->
+<!--          <div class="column align-middle" style="width: 80%;">-->
+<!--            <h5>{{flore.nom}}</h5>-->
+<!--            <h6 style="font-style: italic">{{filterCarac(flore, 'NomLatin')}}</h6>-->
+<!--          </div>-->
+<!--        </div>-->
+    <!-- page 2 kompagnonnage-->
+<!--      <div class="row mt-3 border">-->
+<!--      <div class="column mt-2">-->
+<!--        <h1 class="mt-2">Association potentiellement favorable</h1>-->
+<!--      </div>-->
+<!--      <div class="column mt-2">-->
+<!--      </div>-->
+<!--      <div class="column mt-3 justify-content-center border">-->
+<!--        <button (click)="plusDeDetail()" class="btn" style="width: 91%;background-color: #8bc34a" >-->
+
+<!--          Revenir à ma recherche-->
+
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
