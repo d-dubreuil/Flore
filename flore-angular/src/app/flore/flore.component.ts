@@ -12,6 +12,7 @@ import {Title} from '@angular/platform-browser';
 })
 export class FloreComponent implements OnInit {
 
+  nomFlore:string='';
   floreformulaire: FloreForm = new FloreForm();
   caracteristiques: Array<string> = new Array<string>();
   caracs: Array<string> = new Array<string>();
