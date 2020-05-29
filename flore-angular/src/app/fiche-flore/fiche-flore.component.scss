@@ -1,10 +1,21 @@
-//#connexion, #fournisseur{
-//  border-style: solid;
-//  border-width: 1px;
-//  border-color: #8bc34a;
-//}
-//#textePhoto, #caract, #lienFlore, #lienFaune{
-//  border-style: solid;
-//  border-width: 1px;
-//  border-color: #8bc34a;
-//}
+#connexionFournisseur{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8bc34a;
+}
+
+#fiche{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8bc34a;
+}
+
+#borderBottom{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #8bc34a;
+}
+#buttonPlus:hover, #buttonPlus:active, #buttonPlus:focus{
+  box-shadow: none;
+  outline: none;
+}

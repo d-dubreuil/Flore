@@ -9,6 +9,7 @@ import {FloreForm} from '../model/FloreForm';
 })
 export class FloreService {
 
+  public flore:Flore;
   public flores: Array<Flore> = new Array<Flore>();
 
   constructor(private http:HttpClient) {
