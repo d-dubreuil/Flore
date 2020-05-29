@@ -742,7 +742,7 @@
             <div *ngFor="let flore of list()">
               <div class=" m-3 " *ngIf="filterCarac(flore,'NomLatin')!= 'non renseigné'">
                 <div class="m-2 align-items-center">
-                  <button id="btnResultat" style="width: 100%;height: 10%">
+                  <button [routerLink]="'/flore/fiche-flore'" id="btnResultat" style="width: 100%;height: 10%">
                     <!-- BLOC Images  -->
                     <div class="row m-2 align-items-center">
                       <div class="column" style="width: 15%;">
