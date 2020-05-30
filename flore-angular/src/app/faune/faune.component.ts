@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Faune} from "../model/Faune";
-import {FauneService} from "../services/faune.service";
-import {Caracteristique} from "../model/Caracteristique";
-import {CaracteristiqueService} from "../services/caracteristique.service";
+import {Component, OnInit} from '@angular/core';
+import {Faune} from '../model/Faune';
+import {FauneService} from '../services/faune.service';
+import {CaracteristiqueService} from '../services/caracteristique.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-faune',
@@ -12,10 +12,11 @@ import {CaracteristiqueService} from "../services/caracteristique.service";
 
 export class FauneComponent implements OnInit {
 
-  faunes: Array<Faune>;
-  caracs: Array<Caracteristique>;
+  nomFaune: string = '';
 
-  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService) { }
+  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title) {
+    this.titleService.setTitle('Faune');
+  }
 
   ngOnInit(): void {
   }
@@ -34,5 +35,10 @@ export class FauneComponent implements OnInit {
     }
     return 'non renseigné';
   }
+
+  filterAlpha(faune: Faune, nomCarac: string): string {
+
+  }
+
 
 }

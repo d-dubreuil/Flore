@@ -1,12 +1,10 @@
 import {ReferentielFaune} from './ReferentielFaune';
-import {ReferentielCaracteristique} from "./ReferentielCaracteristique";
 
 export class Faune {
   id: number;
   version: number;
   nomFaune: string;
   referentielFaunes: Array<ReferentielFaune>;
-
 
   constructor(id?: number, version?: number, nomFaune?: string,
               referentielFaunes?: Array<ReferentielFaune>) {

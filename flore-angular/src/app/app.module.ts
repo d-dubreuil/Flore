@@ -27,33 +27,35 @@ import { FicheFloreComponent } from './fiche-flore/fiche-flore.component';
 import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
 import { SimulateurUnComponent } from './simulateur-un/simulateur-un.component';
 import { SimulateurDeuxComponent } from './simulateur-deux/simulateur-deux.component';
+import {filterByFirstLetterPipe} from '../filter-by-first-letter.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CaracteristiqueComponent,
-    CommandeComponent,
-    CompteUtilisateurComponent,
-    ConseilComponent,
-    FauneComponent,
-    FavorisComponent,
-    FloreComponent,
-    JardinComponent,
-    PaiementComponent,
-    PanierComponent,
-    ProduitComponent,
-    SelectionComponent,
-    UtilisateurComponent,
-    SynergieComponent,
-    ContactComponent,
-    QuiSommesNousComponent,
-    ConnexionComponent,
-    HomeComponent,
-    FicheFloreComponent,
-    FicheFauneComponent,
-    SimulateurUnComponent,
-    SimulateurDeuxComponent
-  ],
+    declarations: [
+        AppComponent,
+        CaracteristiqueComponent,
+        CommandeComponent,
+        CompteUtilisateurComponent,
+        ConseilComponent,
+        FauneComponent,
+        FavorisComponent,
+        FloreComponent,
+        JardinComponent,
+        PaiementComponent,
+        PanierComponent,
+        ProduitComponent,
+        SelectionComponent,
+        UtilisateurComponent,
+        SynergieComponent,
+        ContactComponent,
+        QuiSommesNousComponent,
+        ConnexionComponent,
+        HomeComponent,
+        FicheFloreComponent,
+        FicheFauneComponent,
+        SimulateurUnComponent,
+        SimulateurDeuxComponent,
+        filterByFirstLetterPipe
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,

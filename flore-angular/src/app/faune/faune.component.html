@@ -26,7 +26,7 @@
           <div>
             <div id="sideBar" style="background-color:#8bc34a">
               <h5 class="mb-0" style="font-size: large; font-weight: bold">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filteralpha" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">A, B
                 </button>
               </h5>
@@ -146,7 +146,7 @@
           </button>
         </div>
         <div class="column mt-3" style="width: 77%;">
-          <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une faune" style="text-align: center; font-style: italic">
+          <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une faune" style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">
         </div>
       </div>
 
@@ -154,7 +154,7 @@
         <!-- BLOC résultat  -->
       <div id="result" class="column" style="width: 100%; border: none">
         <tr *ngFor="let faune of list()">
-          <div class=" m-3 " *ngIf="filterCarac(faune,'NomLatin')!= 'non renseigné'">
+          <div class=" m-3 " *ngIf="(filterCarac(faune,'NomLatin')!= 'non renseigné' && faune.nomFaune.toUpperCase().includes(nomFaune.toUpperCase()))" >
             <div class="m-2 align-items-center">
               <button id="btnResultat" style="width: 100%;height: 10%">
                 <!-- BLOC Images  -->
