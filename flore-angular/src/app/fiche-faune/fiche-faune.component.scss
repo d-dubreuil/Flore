@@ -1,0 +1,29 @@
+#connexionFournisseur{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8bc34a;
+}
+
+#fiche{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8bc34a;
+}
+
+#borderBottom{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #8bc34a;
+}
+#buttonPlus:hover, #buttonPlus:active, #buttonPlus:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+#tableauRecolteSemis>tr>td{
+  border:1px solid #8bc34a;
+}
+
+#liensFlore,#liensFaune {
+  border-top:1px solid #8bc34a;
+}

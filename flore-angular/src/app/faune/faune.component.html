@@ -18,17 +18,18 @@
     <!-- BLOC filtres  -->
     <!-- BLOC formulaire  -->
     <div class="column mt-5 ml-5 justify-content-center" style="width: 25%">
-      <div id="formulaire" class="column mr-5" >
-        <div id="btnSubmit" class="btn bg-white" style=" width: 100%; height: 70px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; font-style: italic">Triez par ordre alphabétique
+      <div id="formulaire" class="column mr-5">
+        <div id="btnSubmit" class="btn bg-white"
+             style=" width: 100%; height: 70px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; font-style: italic">
+          Triez par ordre alphabétique
         </div>
         <div id="accordion">
           <!--AB-->
           <div>
             <div id="sideBar" style="background-color:#8bc34a">
               <h5 class="mb-0" style="font-size: large; font-weight: bold">
-                <button type="submit" id="AB" value="AB" class="btn shadow-none collapsed"
-                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold"
-                        (click)="clickAB()">A, B
+                <button (click)="filterAB()" type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">A, B
                 </button>
               </h5>
             </div>
@@ -38,7 +39,7 @@
           <div>
             <div id="sideBar" style="background-color:#9ccc65">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterCD()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">C, D
                 </button>
               </h5>
@@ -49,7 +50,7 @@
           <div>
             <div id="sideBar" style="background-color:#aed581">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterEF()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">E, F
                 </button>
               </h5>
@@ -60,7 +61,7 @@
           <div>
             <div id="sideBar" style="background-color:#c5e1a5">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterGH()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">G, H
                 </button>
               </h5>
@@ -71,7 +72,7 @@
           <div>
             <div id="sideBar" style="background-color:#dcedc8">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterIJK()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">I, J, K
                 </button>
               </h5>
@@ -82,7 +83,7 @@
           <div>
             <div id="sideBar" style="background-color:#f1f8e9">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterLMN()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">L, M, N
                 </button>
               </h5>
@@ -93,7 +94,7 @@
           <div>
             <div id="sideBar" style="background-color:#dcedc8">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterOPQ()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">O, P, Q
                 </button>
               </h5>
@@ -104,7 +105,7 @@
           <div>
             <div id="sideBar" style="background-color:#c5e1a5">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterRST()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">R, S, T
                 </button>
               </h5>
@@ -115,7 +116,7 @@
           <div>
             <div id="sideBar" style="background-color:#aed581">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterUVW()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">U, V, W
                 </button>
               </h5>
@@ -126,15 +127,24 @@
           <div>
             <div id="sideBar" style="background-color:#9ccc65">
               <h5 class="mb-0">
-                <button type="submit" class="btn shadow-none collapsed"
+                <button (click)="filterXYZ()" type="submit" class="btn shadow-none collapsed"
                         style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">X, Y, Z
                 </button>
               </h5>
             </div>
           </div>
-        </div>
+          <div>
+            <div id="sideBar" style="background-color:#8bc34a">
+              <h5 class="mb-0">
+                <button (click)="filterNull()" type="submit" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">Liste complète
+                </button>
+              </h5>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
     <div class="column" style="width: 3%"></div>
 
@@ -147,17 +157,19 @@
           </button>
         </div>
         <div class="column mt-3" style="width: 77%;">
-          <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une faune" style="text-align: center; font-style: italic">
+          <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une faune"
+                 style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">
         </div>
       </div>
 
 
-        <!-- BLOC résultat  -->
+      <!-- BLOC résultat  -->
       <div id="result" class="column" style="width: 100%; border: none">
         <tr *ngFor="let faune of list()">
-          <div class=" m-3 " *ngIf="filterCarac(faune,'NomLatin')!= 'non renseigné' && (this.faune.nomFaune.toUpperCase().startsWith('A') || this.faune.nomFaune.toUpperCase().startsWith('C'))" >
+          <div class=" m-3 "
+               *ngIf="(filterCarac(faune,'NomLatin')!= 'non renseigné' && (faune.nomFaune.toUpperCase().includes(nomFaune.toUpperCase()))&&(faune.nomFaune.toUpperCase().startsWith(abc.charAt(0))||faune.nomFaune.toUpperCase().startsWith(abc.charAt(1))||faune.nomFaune.toUpperCase().startsWith(abc.charAt(2))))">
             <div class="m-2 align-items-center">
-              <button id="btnResultat" style="width: 100%;height: 10%">
+              <button id="btnResultat" style="width: 100%;height: 10%" (click)="redirectToFicheFaune(faune)">
                 <!-- BLOC Images  -->
                 <div class="row m-2 align-items-center">
                   <div class="column" style="width: 15%;">
@@ -176,5 +188,5 @@
         </tr>
       </div>
 
+    </div>
   </div>
-</div>

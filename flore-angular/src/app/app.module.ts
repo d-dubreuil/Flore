@@ -27,6 +27,7 @@ import { FicheFloreComponent } from './fiche-flore/fiche-flore.component';
 import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
 import { SimulateurUnComponent } from './simulateur-un/simulateur-un.component';
 import { SimulateurDeuxComponent } from './simulateur-deux/simulateur-deux.component';
+import {filterByFirstLetterPipe} from '../filter-by-first-letter.pipe';
 import { EspaceClientComponent } from './espace-client/espace-client.component';
 import { InformationsPersonnellesComponent } from './informations-personnelles/informations-personnelles.component';
 import { HistoriqueComponent } from './historique/historique.component';
@@ -38,8 +39,8 @@ import { ContributionComponent } from './contribution/contribution.component';
     AppComponent,
     CaracteristiqueComponent,
     CommandeComponent,
-    CompteUtilisateurComponent,
     ConseilComponent,
+    CompteUtilisateurComponent,
     FauneComponent,
     FavorisComponent,
     FloreComponent,
@@ -63,7 +64,8 @@ import { ContributionComponent } from './contribution/contribution.component';
     HistoriqueComponent,
     FicheComponent,
     ContributionComponent
-  ],
+        filterByFirstLetterPipe
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,
