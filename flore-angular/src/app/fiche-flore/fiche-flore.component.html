@@ -384,18 +384,34 @@
                 <div class="row ">
                   <h6 class="text-center" style="font-size: 15px">Compagnes :</h6>
                 </div>
-                <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Kompagne')" class="row">
+                <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Kompagne').slice(0,3)" class="row">
                   <button class="btn btn-outline-success"
                           (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+                </div>
+                <button class="btn btn-success" *ngIf="!plusFloreKompagne && tableauCarac(floreService.flore, 'Kompagne').length>3" (click)="plusFloreKompagne=true">Voir plus</button>
+                <div *ngIf="plusFloreKompagne"><div  *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Kompagne').slice(3)" class="row">
+                  <button class="btn btn-outline-success"
+                          (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+                </div>
+                  <button class="btn btn-success" (click)="plusFloreKompagne=false">Voir moins</button>
+
                 </div>
               </div>
               <div id="lienFloreEnnemies" class="column justify-content-center mr-5 ml-5 text-center">
                 <div class="row ">
                   <h6 class="text-center" style="font-size: 15px">Ennemies :</h6>
                 </div>
-                <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Ennemie')" class="row">
+                <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Ennemie').slice(0,3)" class="row">
                   <button class="btn btn-outline-success"
                           (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+                </div>
+                <button class="btn btn-success" *ngIf="!plusFloreEnnemie && tableauCarac(floreService.flore, 'Ennemie').length>3" (click)="plusFloreEnnemie=true">Voir plus</button>
+                <div *ngIf="plusFloreEnnemie"><div  *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Ennemie').slice(3)" class="row">
+                  <button class="btn btn-outline-success"
+                          (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+                </div>
+                  <button class="btn btn-success" (click)="plusFloreEnnemie=false">Voir moins</button>
+
                 </div>
               </div>
             </div>
@@ -414,20 +430,36 @@
                 <div class="row justify-content-center">
                   <h6 class="text-center" style="font-size: 15px">Répulsifs :</h6>
                 </div>
-                <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Répulsion')"
+                <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Répulsion').slice(0,3)"
                      class="row">
                   <button class="btn btn-outline-success"
                           (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+                </div>
+                <button class="btn btn-success" *ngIf="!plusFauneRepoussee && tableauCaracFauneFlore(floreService.flore, 'Répulsion').length>3" (click)="plusFauneRepoussee=true">Voir plus</button>
+                <div *ngIf="plusFauneRepoussee"><div  *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Répulsion').slice(3)" class="row">
+                  <button class="btn btn-outline-success"
+                          (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+                </div>
+                  <button class="btn btn-success" (click)="plusFauneRepoussee=false">Voir moins</button>
+
                 </div>
               </div>
               <div id="lienFaunePoll" class="column justify-content-center mr-5 ml-5">
                 <div class="row justify-content-center">
                   <h6 class="text-center" style="font-size: 15px">Pollinisateurs/Attractifs :</h6>
                 </div>
-                <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Attraction')"
+                <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Attraction').slice(0,3)"
                      class="row">
                   <button class="btn btn-outline-success"
                           (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+                </div>
+                <button class="btn btn-success" *ngIf="!plusFauneAttire && tableauCaracFauneFlore(floreService.flore, 'Attraction').length>3" (click)="plusFauneAttire=true">Voir plus</button>
+                <div *ngIf="plusFauneAttire"><div  *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Attraction').slice(3)" class="row">
+                  <button class="btn btn-outline-success"
+                          (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+                </div>
+                  <button class="btn btn-success" (click)="plusFauneAttire=false">Voir moins</button>
+
                 </div>
               </div>
             </div>

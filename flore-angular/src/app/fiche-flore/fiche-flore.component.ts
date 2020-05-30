@@ -14,6 +14,10 @@ import {Router} from '@angular/router';
 export class FicheFloreComponent implements OnInit {
   nomFlore: string;
   flore: Flore;
+  plusFauneAttire:boolean=false;
+  plusFauneRepoussee:boolean=false;
+  plusFloreKompagne:boolean=false;
+  plusFloreEnnemie:boolean=false;
 
   constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router) {
     this.titleService.setTitle('Fiche-Flore');
@@ -33,7 +37,7 @@ export class FicheFloreComponent implements OnInit {
     if (flore.referentielCaracteristiques) {
 
       for (let refCarac of flore.referentielCaracteristiques) {
-        if (refCarac.caracteristique.nom == nomCarac) {
+        if (refCarac.caracteristique && refCarac.caracteristique.nom == nomCarac) {
           return refCarac.caracteristique.valeur;
         }
       }
@@ -70,7 +74,6 @@ export class FicheFloreComponent implements OnInit {
 
   redirectToFicheFlore(nomFlore: string) {
     this.floreService.findByNom(nomFlore).subscribe(resp => {
-      console.log(this.floreService.flore);
       this.floreService.flore = resp[0];
     }, error => console.log(error));
   }
