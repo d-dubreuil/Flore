@@ -744,4 +744,6 @@ export class FloreComponent implements OnInit {
     this.router.navigateByUrl('NPK/flore/fiche-flore');
   }
 
+
+
 }

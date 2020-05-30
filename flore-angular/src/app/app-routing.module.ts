@@ -13,6 +13,7 @@ import {FicheFauneComponent} from "./fiche-faune/fiche-faune.component";
 import {FicheFloreComponent} from "./fiche-flore/fiche-flore.component";
 import {SimulateurUnComponent} from "./simulateur-un/simulateur-un.component";
 import {SimulateurDeuxComponent} from "./simulateur-deux/simulateur-deux.component";
+import {CompteUtilisateurComponent} from "./compte-utilisateur/compte-utilisateur.component";
 
 const routes: Routes = [
   {path: 'NPK/accueil', component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'NPK/panier', component: PanierComponent},
   {path: 'NPK/connexion', component: ConnexionComponent},
   {path: 'NPK/synergie/simulateur-un', component: SimulateurUnComponent},
-  {path: 'NPK/synergie/simulateur-deux', component: SimulateurDeuxComponent}
+  {path: 'NPK/synergie/simulateur-deux', component: SimulateurDeuxComponent},
+  {path: 'NPK/compte-utilisateur', component: CompteUtilisateurComponent},
 ];
 
 @NgModule({
