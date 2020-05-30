@@ -381,7 +381,7 @@
               <div class="row justify-content-center">
                 <h6 class="text-center" style="font-size: 15px">Répulsifs :</h6>
               </div>
-              <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Répulsion')" class="row">
+              <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Répulsion').slice(0,3)" class="row">
                 <button class="btn btn-outline-success" (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
               </div>
             </div>
@@ -389,7 +389,7 @@
               <div class="row justify-content-center">
                 <h6 class="text-center" style="font-size: 15px">Pollinisateurs/Attractifs :</h6>
               </div>
-              <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Attraction')" class="row">
+              <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Attraction').slice(0,3)" class="row">
                 <button class="btn btn-outline-success" (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
               </div>
             </div>
