@@ -13,6 +13,7 @@ import {Title} from '@angular/platform-browser';
 export class FauneComponent implements OnInit {
 
   nomFaune: string = '';
+  abc:string=''
 
   constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title) {
     this.titleService.setTitle('Faune');
@@ -22,7 +23,9 @@ export class FauneComponent implements OnInit {
   }
 
   list(): Array<Faune> {
-    return this.fauneService.findAll();
+    return this.fauneService.findAll().sort(function(a,b) {
+      return a.nomFaune.localeCompare(b.nomFaune);
+    });
   }
 
   filterCarac(faune: Faune, nomCarac: string): string {
@@ -36,9 +39,40 @@ export class FauneComponent implements OnInit {
     return 'non renseigné';
   }
 
-  filterAlpha(faune: Faune, nomCarac: string): string {
-
+  filterAB() {
+    this.abc='AAB';
   }
+  filterCD() {
+    this.abc='CCD';
+  }
+  filterEF() {
+    this.abc='EEF';
+  }
+  filterGH() {
+    this.abc='GGH';
+  }
+  filterIJK() {
+    this.abc='IJK';
+  }
+  filterLMN() {
+    this.abc='LMN';
+  }
+  filterOPQ() {
+    this.abc='OPQ';
+  }
+  filterRST() {
+    this.abc='RST';
+  }
+  filterUVW() {
+    this.abc='UVW';
+  }
+  filterXYZ() {
+    this.abc='XYZ';
+  }
+  filterNull(){
+    this.abc='';
+  }
+
 
 
 }
