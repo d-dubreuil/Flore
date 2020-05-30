@@ -14,7 +14,7 @@ export class FicheFloreComponent implements OnInit {
   flore:Flore;
 
   constructor(public floreService:FloreService, private titleService: Title) {
-    this.titleService.setTitle("Flore");
+    this.titleService.setTitle("Fiche Flore");
   }
 
   ngOnInit(): void {

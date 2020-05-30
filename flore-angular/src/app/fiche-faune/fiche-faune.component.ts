@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-fiche-faune',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FicheFauneComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

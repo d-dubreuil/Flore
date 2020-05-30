@@ -26,8 +26,9 @@
           <div>
             <div id="sideBar" style="background-color:#8bc34a">
               <h5 class="mb-0" style="font-size: large; font-weight: bold">
-                <button type="submit" class="btn shadow-none collapsed"
-                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold">A, B
+                <button type="submit" id="AB" value="AB" class="btn shadow-none collapsed"
+                        style="width: 100%; text-align: center; font-size: 18px; font-weight: bold"
+                        (click)="clickAB()">A, B
                 </button>
               </h5>
             </div>
@@ -154,7 +155,7 @@
         <!-- BLOC résultat  -->
       <div id="result" class="column" style="width: 100%; border: none">
         <tr *ngFor="let faune of list()">
-          <div class=" m-3 " *ngIf="filterCarac(faune,'NomLatin')!= 'non renseigné'">
+          <div class=" m-3 " *ngIf="filterCarac(faune,'NomLatin')!= 'non renseigné' && (this.faune.nomFaune.toUpperCase().startsWith('A') || this.faune.nomFaune.toUpperCase().startsWith('C'))" >
             <div class="m-2 align-items-center">
               <button id="btnResultat" style="width: 100%;height: 10%">
                 <!-- BLOC Images  -->

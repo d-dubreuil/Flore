@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CaracteristiqueService} from "../services/caracteristique.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-connexion',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) {
+    this.titleService.setTitle("Connexion");
+  }
 
   ngOnInit(): void {
   }
