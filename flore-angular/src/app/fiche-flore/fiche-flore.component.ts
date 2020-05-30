@@ -77,6 +77,19 @@ export class FicheFloreComponent implements OnInit {
 
   redirectToFicheFaune(nomFaune: string) {
     this.fauneService.findByNom(nomFaune).subscribe(resp => this.fauneService.faune = resp, error => console.log(error));
+    this.router.navigateByUrl('NPK/faune/fiche-faune');
+  }
+
+  tableauCaracFauneFlore(flore: Flore, valeurCarac: string): Array<string> {
+    let listeCarac: Array<string> = new Array<string>();
+    if (flore.referentielFaunes) {
+      for (let refCarac of flore.referentielFaunes) {
+        if (refCarac.caracteristique && refCarac.caracteristique.nom == 'FloreFaune' && refCarac.caracteristique.valeur == valeurCarac) {
+          listeCarac.push(refCarac.faune.nomFaune);
+        }
+      }
+    }
+    return listeCarac;
   }
 
 }
