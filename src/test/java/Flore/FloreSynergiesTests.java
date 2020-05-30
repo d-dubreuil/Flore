@@ -22,7 +22,7 @@ class FloreSynergiesTests {
 	@Test
 	void sontEllesAmies() {
 
-		String nomFlore1 = "Menthe Poivrée";
+		String nomFlore1 = "Tomate";
 		String nomFlore2 = "Haricot";
 
 		/////////////////////////
