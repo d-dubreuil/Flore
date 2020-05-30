@@ -169,7 +169,7 @@
           <div class=" m-3 "
                *ngIf="(filterCarac(faune,'NomLatin')!= 'non renseigné' && (faune.nomFaune.toUpperCase().includes(nomFaune.toUpperCase()))&&(faune.nomFaune.toUpperCase().startsWith(abc.charAt(0))||faune.nomFaune.toUpperCase().startsWith(abc.charAt(1))||faune.nomFaune.toUpperCase().startsWith(abc.charAt(2))))">
             <div class="m-2 align-items-center">
-              <button id="btnResultat" style="width: 100%;height: 10%">
+              <button id="btnResultat" style="width: 100%;height: 10%" (click)="redirectToFicheFaune(faune)">
                 <!-- BLOC Images  -->
                 <div class="row m-2 align-items-center">
                   <div class="column" style="width: 15%;">

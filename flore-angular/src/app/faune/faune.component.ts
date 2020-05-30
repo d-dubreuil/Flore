@@ -3,6 +3,8 @@ import {Faune} from '../model/Faune';
 import {FauneService} from '../services/faune.service';
 import {CaracteristiqueService} from '../services/caracteristique.service';
 import {Title} from '@angular/platform-browser';
+import {Flore} from '../model/Flore';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-faune',
@@ -15,7 +17,7 @@ export class FauneComponent implements OnInit {
   nomFaune: string = '';
   abc:string=''
 
-  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title) {
+  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
     this.titleService.setTitle('Faune');
   }
 
@@ -73,6 +75,10 @@ export class FauneComponent implements OnInit {
     this.abc='';
   }
 
+  redirectToFicheFaune(faune:Faune){
+    this.fauneService.faune = faune;
+    this.router.navigateByUrl('NPK/faune/fiche-faune');
+  }
 
 
 }
