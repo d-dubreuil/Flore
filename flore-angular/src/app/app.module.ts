@@ -63,8 +63,8 @@ import { ContributionComponent } from './contribution/contribution.component';
     InformationsPersonnellesComponent,
     HistoriqueComponent,
     FicheComponent,
-    ContributionComponent
-        filterByFirstLetterPipe
+    ContributionComponent,
+    filterByFirstLetterPipe
     ],
   imports: [
     BrowserModule,
