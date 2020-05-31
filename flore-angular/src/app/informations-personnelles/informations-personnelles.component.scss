@@ -1,0 +1,43 @@
+#disc:hover,
+#civilite:hover,
+#nom:hover,
+#prenom:hover,
+#rue:hover,
+#complement:hover,
+#codePostal:hover,
+#ville:hover,
+#identifiant:hover,
+#mdp:hover,
+#mail:hover,
+#telephone:hover,
+#btnRetour:hover,
+{
+  transition-duration: 0.4s;
+  box-shadow: 2px 2px #8bc34a ;
+  outline: none;
+}
+
+#disc:active, #disc:focus,
+#civilite:active, #civilite:focus,
+#nom:active, #nom:focus,
+#prenom:active, #prenom:focus,
+#rue:active, #rue:focus,
+#complement:active, #complement:focus,
+#codePostal:active, #codePostal:focus,
+#ville:active, #ville:focus,
+#identifiant:active, #identifiant:focus,
+#mdp:active, #mdp:focus,
+#mail:active, #mail:focus,
+#telephone:active, #telephone:focus,
+#btnRetour:active, #btnRetour:focus
+{
+  box-shadow: none;
+  outline: none;
+  border-color: #8bc34a;
+}
+
+#btnRetour:hover {
+  box-shadow: none;
+  outline: none;
+  font-weight: bold;
+}

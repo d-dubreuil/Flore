@@ -20,7 +20,7 @@ export class FauneComponent implements OnInit {
   constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
     this.titleService.setTitle('Faune');
   }
-
+  
   ngOnInit(): void {
   }
 
