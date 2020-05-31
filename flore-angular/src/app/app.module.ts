@@ -33,6 +33,8 @@ import { InformationsPersonnellesComponent } from './informations-personnelles/i
 import { HistoriqueComponent } from './historique/historique.component';
 import { FicheComponent } from './fiche/fiche.component';
 import { ContributionComponent } from './contribution/contribution.component';
+import { FormulairePropositionComponent } from './formulaire-proposition/formulaire-proposition.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { ContributionComponent } from './contribution/contribution.component';
     HistoriqueComponent,
     FicheComponent,
     ContributionComponent,
-    filterByFirstLetterPipe
+    filterByFirstLetterPipe,
+    FormulairePropositionComponent,
+    MessagerieComponent
     ],
   imports: [
     BrowserModule,
