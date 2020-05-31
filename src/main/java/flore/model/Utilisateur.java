@@ -31,7 +31,7 @@ public class Utilisateur {
 	private TypeUtilisateur disc;
 	@OneToOne
 	@JoinColumn(name = "compteUtilisateurId")
-	@JsonView(Views.ViewUtilisateur.class)
+	@JsonView({Views.ViewUtilisateur.class,Views.ViewPanier.class})
 	private CompteUtilisateur compteUtilisateur;
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Conseil> conseils = new ArrayList<Conseil>();

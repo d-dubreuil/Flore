@@ -34,7 +34,7 @@ public class Flore {
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@OneToMany (mappedBy = "flore")
-	@JsonView(Views.ViewFloreWithRefCarac.class)
+	@JsonView({Views.ViewFloreWithRefCarac.class,Views.ViewPanier.class})
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<ReferentielCaracteristique> referentielCaracteristiques = new ArrayList<ReferentielCaracteristique>();
 	@OneToMany (mappedBy = "flore")

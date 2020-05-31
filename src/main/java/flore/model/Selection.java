@@ -24,7 +24,7 @@ public class Selection {
 	private Integer total;
 	@ManyToOne
 	@JoinColumn(name = "produit_id")
-	@JsonView(Views.ViewSelection.class)
+	@JsonView({Views.ViewSelection.class,Views.ViewPanier.class})
 	private Produit produit;
 	@ManyToOne
 	@JoinColumn(name = "panier_id")

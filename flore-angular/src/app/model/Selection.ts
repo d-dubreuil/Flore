@@ -4,15 +4,15 @@ import {Panier} from "./Panier";
 export class Selection {
   id:number;
   version:number;
-  total:number;
+  nombre:number;
   produit:Produit;
   panier:Panier;
 
-  constructor(id?: number, version?: number, total?: number,
+  constructor(id?: number, version?: number, nombre?: number,
               produit?: Produit, panier?: Panier) {
     this.id = id;
     this.version = version;
-    this.total = total;
+    this.nombre = nombre;
     this.produit = produit;
     this.panier = panier;
   }
