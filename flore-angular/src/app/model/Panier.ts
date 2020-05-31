@@ -1,5 +1,6 @@
 import {Commande} from "./Commande";
 import {Utilisateur} from "./Utilisateur";
+import {Selection} from './Selection';
 
 export class Panier {
   id:number;

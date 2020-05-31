@@ -1,4 +1,4 @@
-<div class="column ">
+<div>
   <div class="row justify-content-center align-items-center mt-4">
     <div class="column" style="width: 5%;"></div>
     <div class="column" style="width: 25%;">
@@ -11,4 +11,123 @@
     </div>
   </div>
 </div>
+<div class="mt-5 justify-content-center" style="width: 100%">
+  <div class="row justify-content-center">
+    <nav class="navbar navbar-expand-sm" id="navbarAchat">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link">1. Récapitulatif</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">2. Connexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">3. Mode de livraison</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">4. Paiement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">5. Confirmation</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="row justify-content-center mt-3" *ngIf="etapePanier==1">
+    <div class="column" style="width: 85%" id="panierGlobal">
+      <div class="row justify-content-center">
+        <div class="column" style="width: 5%"></div>
+        <p style="font-style: italic">Vos articles sont sauvegardés pendant 60 minutes</p></div>
+      <div *ngFor="let selec of selections" class="row justify-content-center align-items-center my-2">
+        <div class="column" *ngIf="selec.produit.faune" style="width: 10%">
+          <img src="{{filterCaracFaune(selec.produit.faune, 'Image')}}"
+               style="width: 50%; height: 45%"/>
+        </div>
+        <div class="column" *ngIf="selec.produit.flore" style="width: 10%">
+          <img src="{{filterCaracFlore(selec.produit.flore, 'Image')}}"
+               style="width: 50%; height: 45%"/>
+        </div>
+        <div class="column text-center align-items-center" *ngIf="selec.produit.faune" style="width: 15%">
+          {{selec.produit.faune.nomFaune}}
+        </div>
+        <div class="column text-center align-items-center" *ngIf="selec.produit.flore" style="width: 15%">
+          {{selec.produit.flore.nom}}
+        </div>
+        <div class="column text-center align-items-center" style="width: 15%">
+          {{selec.produit.fournisseur}}
+        </div>
+        <div class="column text-center align-items-center" style="width: 15%">
+          Quantité : <input type="number" [(ngModel)]="selec.nombre" style="width: 40%" (click)="calcul()"/>
+        </div>
+        <div class="column text-center align-items-center" style="width: 25%">
+          Prix total = {{(selec.produit.prix * selec.nombre).toFixed(2)}} €
+        </div>
+        <div class="column text-center align-items-center" style="width: 10%">
+          <a class="btn btn-danger" (click)="delete(selec.id)"><i class="fa fa-trash "></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3" *ngIf="etapePanier==2">
+    <div class="column" style="width: 85%" id="connexion">
+      <div class="row justify-content-center"> Vos coordonnées :</div>
+      <div class="row justify-content-center">Nom : {{panier.utilisateur.compteUtilisateur.nom}}</div>
+      <div class="row justify-content-center">Prénom : {{panier.utilisateur.compteUtilisateur.prenom}}</div>
+      <div class="row justify-content-center">Numéro et rue : {{panier.utilisateur.compteUtilisateur.rue}}</div>
+      <div class="row justify-content-center">Complément d'adresse
+        :{{panier.utilisateur.compteUtilisateur.complement}}</div>
+      <div class="row justify-content-center">Code postal : {{panier.utilisateur.compteUtilisateur.codePostal}}</div>
+      <div class="row justify-content-center">Ville : {{panier.utilisateur.compteUtilisateur.ville}}</div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3" *ngIf="etapePanier==3">
+    <div class="column" style="width: 85%" id="modeDeLivraison">
+      <div class=" justify-content-center">
+        <div class="column" style="width: 30%"><input type="radio" id="collissimo" name="modeDeLivraison" value="collissimo"><label
+          for="collissimo">Collissimo</label></div>
+        <div class="column"style="width: 30%">1-2 jours ouvrés</div>
+        <div class="column"style="width: 30%">2€ de livraison</div>
+      </div>
+      <div class=" justify-content-center">
+        <div class="column"><input type="radio" id="pointRelais" name="modeDeLivraison" value="pointRelais"> <label
+          for="pointRelais">Points relais </label></div>
+        <div class="column">3-4 jours ouvrés</div>
+        <div class="column">1€ de livraison</div>
+      </div>
+      <div class=" justify-content-center" style="width: 100%">
+        <div class="column"><input type="radio" id="clickAndCollect" name="modeDeLivraison"
+                                   value="clickAndCollect"><label for="clickAndCollect"> Click and Collect</label></div>
+        <div class="column">+2 heures</div>
+        <div class="column">Gratuit</div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="column justify-content-center text-center" style="width: 85%" id="basPanier">
+      <div class="row justify-content-center text-center ml-1" style="width: 100%">
+        <div class="column" style="width: 25%" *ngIf="etapePanier==1">
+          <button class="btn btn-outline-success" (click)="return()"> Continuer mes achats</button>
+        </div>
+        <div class="column" style="width: 25%" *ngIf="etapePanier!=1">
+          <button class="btn btn-outline-success" (click)="etapePrecedente()"> Etape précédente</button>
+        </div>
+        <div class="column" style="width: 15%"></div>
+        <div class="column" style="width: 20%">
+          Nombre d'articles : {{nombreArticle}}
+        </div>
+        <div class="column" style="width: 20%">
+          Prix total : {{total.toFixed(2)}} €
+        </div>
+        <div class="column" style="width: 20%" *ngIf="etapePanier !=5">
+          <button class="btn btn-outline-success" (click)="etapeSuivante()"> Etape suivante</button>
+        </div>
+        <div class="column" style="width: 20%" *ngIf="etapePanier ==5">
+          <button class="btn btn-outline-success" (click)="confirmerAchat()"> Confirmer l'achat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
