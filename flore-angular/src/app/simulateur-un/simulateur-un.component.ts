@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-simulateur-un',
@@ -13,7 +14,9 @@ export class SimulateurUnComponent implements OnInit {
   details:boolean=false;
 
 
-  constructor() { }
+  constructor(private titleService: Title) {
+    this.titleService.setTitle("Simulateur 1");
+  }
 
   ngOnInit(): void {
   }

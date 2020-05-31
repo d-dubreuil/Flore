@@ -5,6 +5,7 @@ import {FloreService} from '../services/flore.service';
 import {Flore} from '../model/Flore';
 import {Faune} from '../model/Faune';
 import {Caracteristique} from '../model/Caracteristique';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-compte-utilisateur',
@@ -18,7 +19,6 @@ export class CompteUtilisateurComponent implements OnInit {
   caracForm: Caracteristique = null;
 
   constructor(private floreService: FloreService, private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService) {
-
   }
 
   ngOnInit(): void {

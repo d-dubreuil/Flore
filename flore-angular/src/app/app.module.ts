@@ -28,33 +28,43 @@ import { FicheFauneComponent } from './fiche-faune/fiche-faune.component';
 import { SimulateurUnComponent } from './simulateur-un/simulateur-un.component';
 import { SimulateurDeuxComponent } from './simulateur-deux/simulateur-deux.component';
 import {filterByFirstLetterPipe} from '../filter-by-first-letter.pipe';
+import { EspaceClientComponent } from './espace-client/espace-client.component';
+import { InformationsPersonnellesComponent } from './informations-personnelles/informations-personnelles.component';
+import { HistoriqueComponent } from './historique/historique.component';
+import { FicheComponent } from './fiche/fiche.component';
+import { ContributionComponent } from './contribution/contribution.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        CaracteristiqueComponent,
-        CommandeComponent,
-        CompteUtilisateurComponent,
-        ConseilComponent,
-        FauneComponent,
-        FavorisComponent,
-        FloreComponent,
-        JardinComponent,
-        PaiementComponent,
-        PanierComponent,
-        ProduitComponent,
-        SelectionComponent,
-        UtilisateurComponent,
-        SynergieComponent,
-        ContactComponent,
-        QuiSommesNousComponent,
-        ConnexionComponent,
-        HomeComponent,
-        FicheFloreComponent,
-        FicheFauneComponent,
-        SimulateurUnComponent,
-        SimulateurDeuxComponent,
-        filterByFirstLetterPipe
+  declarations: [
+    AppComponent,
+    CaracteristiqueComponent,
+    CommandeComponent,
+    ConseilComponent,
+    CompteUtilisateurComponent,
+    FauneComponent,
+    FavorisComponent,
+    FloreComponent,
+    JardinComponent,
+    PaiementComponent,
+    PanierComponent,
+    ProduitComponent,
+    SelectionComponent,
+    UtilisateurComponent,
+    SynergieComponent,
+    ContactComponent,
+    QuiSommesNousComponent,
+    ConnexionComponent,
+    HomeComponent,
+    FicheFloreComponent,
+    FicheFauneComponent,
+    SimulateurUnComponent,
+    SimulateurDeuxComponent,
+    EspaceClientComponent,
+    InformationsPersonnellesComponent,
+    HistoriqueComponent,
+    FicheComponent,
+    ContributionComponent,
+    filterByFirstLetterPipe
     ],
   imports: [
     BrowserModule,
