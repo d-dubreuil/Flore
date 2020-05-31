@@ -5,7 +5,7 @@ import {Faune} from './app/model/Faune';
   name:'filterByFirstLetter'
 })
 export class filterByFirstLetterPipe implements PipeTransform {
-  transform(faune: Faune, nomCarac: string):string{
+  transform(faune: Faune, nomCarac: string):void{
 
   }
 }

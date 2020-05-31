@@ -64,6 +64,8 @@ public class FloreRepositoryImpl implements IFloreRepositoryCustom{
 		if (predicatesQueries.size() > 0) {
 			criteriaQuery.where(predicatesQueries.toArray(new Predicate[0]));
 		}
+		criteriaQuery.orderBy(criteriaBuilder.asc(floreFrom.get("nom")));
+
 		
 		
 		return em.createQuery(criteriaQuery).getResultList();

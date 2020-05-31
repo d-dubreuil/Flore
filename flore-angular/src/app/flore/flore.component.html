@@ -746,7 +746,7 @@
             <div *ngFor="let flore of list()">
               <div class=" m-3 " *ngIf="(filterCarac(flore,'NomLatin')!= 'non renseigné' && flore.nom.toUpperCase().includes(nomFlore.toUpperCase()))" >
                 <div class="m-2 align-items-center">
-                  <button [routerLink]="'/NPK/flore/fiche-flore'" id="btnResultat" style="width: 100%;height: 10%" (click)="redirectToFicheFlore(flore)">
+                  <button  id="btnResultat" style="width: 100%;height: 10%" (click)="redirectToFicheFlore(flore)">
                     <!-- BLOC Images  -->
                     <div class="row m-2 align-items-center">
                       <div class="column" style="width: 15%;">
@@ -769,3 +769,4 @@
     </div>
   </div>
 </div>
+
