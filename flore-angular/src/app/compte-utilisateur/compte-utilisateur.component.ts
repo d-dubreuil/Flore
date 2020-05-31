@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {CaracteristiqueService} from "../services/caracteristique.service";
-import {FauneService} from "../services/faune.service";
-import {FloreService} from "../services/flore.service";
-import {Flore} from "../model/Flore";
-import {Faune} from "../model/Faune";
+import {Component, OnInit} from '@angular/core';
+import {CaracteristiqueService} from '../services/caracteristique.service';
+import {FauneService} from '../services/faune.service';
+import {FloreService} from '../services/flore.service';
+import {Flore} from '../model/Flore';
+import {Faune} from '../model/Faune';
+import {Caracteristique} from '../model/Caracteristique';
 
 @Component({
   selector: 'app-compte-utilisateur',
@@ -14,6 +15,7 @@ export class CompteUtilisateurComponent implements OnInit {
 
   floreForm: Flore = null;
   fauneForm: Faune = null;
+  caracForm: Caracteristique = null;
 
   constructor(private floreService: FloreService, private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService) {
 
@@ -29,14 +31,14 @@ export class CompteUtilisateurComponent implements OnInit {
   }
 
   addFlore() {
-    this.floreForm = new Flore();
+    this.caracForm = new Caracteristique();
   }
 
   editFlore(id: number) {
     this.floreService.findById(id).subscribe(resp => {
-      this.floreForm = resp;
-    },
-      error => console.log(error))
+        this.floreForm = resp;
+      },
+      error => console.log(error));
   }
 
   deleteFlore(id: number) {
@@ -57,7 +59,7 @@ export class CompteUtilisateurComponent implements OnInit {
     this.fauneService.findById(id).subscribe(resp => {
         this.fauneForm = resp;
       },
-      error => console.log(error))
+      error => console.log(error));
   }
 
   deleteFaune(id: number) {
