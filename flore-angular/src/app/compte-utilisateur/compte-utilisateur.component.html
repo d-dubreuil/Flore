@@ -86,8 +86,8 @@
             <label for="nomCarac">Nom de la caractéristique:</label>
             <select class="form-control" id="nomCarac" name="nomCarac" [(ngModel)]="caracForm.nom">
               <option value="">Veuillez sélectionner un type de caractéristique</option>
-              <option *ngFor="let car of doublons()"
-                      [value]="car">{{car}}</option>
+              <option *ngFor="let nomCarac of doublons()"
+                      [value]="nomCarac">{{nomCarac}}</option>
             </select>
             <button (click)="loadNomCarac(caracForm.typeCarac, caracForm.nom)">Cliquer</button>
           </div>
