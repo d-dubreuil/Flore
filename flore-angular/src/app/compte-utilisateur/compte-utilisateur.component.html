@@ -53,10 +53,12 @@
               <td>{{flore.nom}}</td>
               <td>
                 <div class="btn-group btn-group-sm">
-                  <a id="btnGroup" class="btn btn-warning" (click)="editFlore(flore.id)">
+                  <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
+                     (click)="editFlore(flore.id)">
                     <i class="fa fa-edit"></i>
                   </a>
-                  <a id="btnGroup" class="btn btn-warning" (click)="deleteFlore(flore.id)"><i
+                  <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
+                     (click)="deleteFlore(flore.id)"><i
                     class="fa fa-trash"></i></a>
                 </div>
               </td>
@@ -66,7 +68,8 @@
         </div>
         <!--Footer-->
         <div class="card-footer m-5">
-          <a class="btn btn-success btn-lg" (click)="addFlore()"><i class="fa fa-plus"></i></a>
+          <a class="btn btn-lg" style="background-color :#8bc34a; color: black" (click)="addFlore()"><i
+            class="fa fa-plus"></i></a>
         </div>
 
         <!--FORMULAIRE CARACTERISTIQUES-->
@@ -88,10 +91,11 @@
                 <option value="">Condition climatique</option>
               </select>
             </div>
-            <!--            <select class="form-control" id="typeCarac" [(ngModel)]="caracForm.typeCarac">-->
-            <!--              <option value="">Choisir un type de caractéristique</option>-->
-            <!--              <option *ngFor="let carac of caracForm" value="{{carac}}">{{carac}}</option>-->
-            <!--            </select>-->
+<!--            &lt;!&ndash;Appel dynamique&ndash;&gt;-->
+<!--            <select class="form-control" id="typeCarac" [(ngModel)]="caracForm.typeCarac">-->
+<!--              <option value="">Choisir un type de caractéristique</option>-->
+<!--              <option *ngFor="let carac of caracForm" value="{{carac}}">{{carac}}</option>-->
+<!--            </select>-->
             <div class="form-group">
               <label for="nom">Nom de la caractéristique:</label>
               <select class="form-control" id="nom" [(ngModel)]="caracForm.nom">
@@ -110,16 +114,16 @@
             </div>
           </div>
           <!--Footer-->
-          <div class="card-footer">
-            <div class="btn-group btn-group-lg float-right">
-              <a class="btn btn-success" (click)="save()">
-                <i class="fa fa-check"></i>
-              </a>
-              <a class="btn btn-warning" (click)="cancel()">
-                <i class="fa fa-undo"></i>
-              </a>
-            </div>
-          </div>
+          <!--          <div class="card-footer">-->
+          <!--            <div class="btn-group btn-group-lg float-right">-->
+          <!--              <a class="btn" style="background-color :#8bc34a; color: black"(click)="save()">-->
+          <!--                <i class="fa fa-check"></i>-->
+          <!--              </a>-->
+          <!--              <a class="btn" style="background-color :#8bc34a; color: black"(click)="cancel()">-->
+          <!--                <i class="fa fa-undo"></i>-->
+          <!--              </a>-->
+          <!--            </div>-->
+          <!--          </div>-->
         </div>
       </div>
 
