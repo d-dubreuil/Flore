@@ -52,15 +52,15 @@ export class CompteUtilisateurComponent implements OnInit {
     for (let car2 of this.listNom) {
       console.log(car2);
       if (number == 0) {
-        number = number+1;
+        number = number + 1;
         this.nomCarac.push(car2);
         console.log(123);
       }
       for (let car3 of this.nomCarac) {
         console.log(car3);
-        if (car2 != car3) {
+        if (car2 !== car3) {
           this.nomCarac.push(car2);
-          console.log("##");
+          console.log('##');
         }
       }
     }
@@ -93,7 +93,6 @@ export class CompteUtilisateurComponent implements OnInit {
     this.floreForm.nom = this.nomFiche;
     this.floreService.create(this.floreForm).subscribe(resp => {
       this.floreForm = null;
-      this.nomFiche = '';
       this.floreService.load();
     }, error => console.log(error));
   }

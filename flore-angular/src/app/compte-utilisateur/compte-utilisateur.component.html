@@ -36,7 +36,7 @@
       <div class="card mt-3 m-5 bg-transparent">
         <!--Header-->
         <h2 class="my-3" style="text-align: center">
-          <p>Fiche : {{nomFiche}}</p></h2>
+          <p>{{nomFiche}}</p></h2>
         <!--Body-->
         <div class="card-body">
           <div class="form-group">
@@ -74,27 +74,40 @@
         <h2 class="my-3" style="text-align: center">Caractéristiques </h2>
         <!--Body-->
         <div class="card-body">
-          <div class="form-group">
-            <label for="typeCarac">Type de caractéristique:</label>
-            <select class="form-control" id="typeCarac" name="typeCarac" [(ngModel)]="caracForm.typeCarac">
-              <option value="">Veuillez sélectionner un type de caractéristique</option>
-              <option *ngFor="let typeCarac of typeCarac" [value]="typeCarac">{{typeCarac}}</option>
-            </select>
-            <button (click)="loadTypeCarac(caracForm.typeCarac)">Cliquer</button>
+          <div class="row form-group">
+            <div class="column  ml-3" style="width: 89%;">
+              <label for="typeCarac">Type de caractéristique:</label>
+              <select class="form-control" id="typeCarac" name="typeCarac" [(ngModel)]="caracForm.typeCarac">
+                <option value="">Veuillez sélectionner un type de caractéristique</option>
+                <option *ngFor="let typeCarac of typeCarac" [value]="typeCarac">{{typeCarac}}</option>
+              </select>
+            </div>
+            <div class="column mt-2 ">
+              <div><br></div>
+              <button class="btn" style="background-color :#8bc34a; color: black"
+                      (click)="loadTypeCarac(caracForm.typeCarac)">Valider
+              </button>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="nomCarac">Nom de la caractéristique:</label>
-            <select class="form-control" id="nomCarac" name="nomCarac" [(ngModel)]="caracForm.nom">
-              <option value="">Veuillez sélectionner un type de caractéristique</option>
-              <option *ngFor="let car of doublons()"
-                      [value]="car">{{car}}</option>
-            </select>
-            <button (click)="loadNomCarac(caracForm.typeCarac, caracForm.nom)">Cliquer</button>
+          <div class="row form-group">
+            <div class="column  ml-3" style="width: 89%;">
+              <label for="nomCarac">Nom de la caractéristique:</label>
+              <select class="form-control" id="nomCarac" name="nomCarac" [(ngModel)]="caracForm.nom">
+                <option value="">Veuillez sélectionner un type de caractéristique</option>
+                <option *ngFor="let car of doublons()"
+                        [value]="car">{{car}}</option>
+              </select>
+            </div>
+            <div class="column mt-2 ">
+              <div><br></div>
+              <button class="btn" style="background-color :#8bc34a; color: black"
+                      (click)="loadNomCarac(caracForm.typeCarac, caracForm.nom)">Valider
+              </button>
+            </div>
           </div>
           <div class="form-group">
             <label for="valeur">Valeur de la caractéristique:</label>
-            <select class="form-control" id="valeur" name="valeur" [(ngModel)]="caracForm.valeur"
-            >
+            <select class="form-control" id="valeur" name="valeur" [(ngModel)]="caracForm.valeur">
               <option value="">Veuillez sélectionner un type de caractéristique</option>
               <option *ngFor="let car of carac"
                       [value]="car.valeur">{{car.valeur}}</option>
