@@ -12,4 +12,5 @@ export class CommonService {
   findAllTypeCarac(): Observable<Array<string>> {
     return this.http.get<Array<string>>("http://localhost:8080/api/typeCarac");
   }
+
 }

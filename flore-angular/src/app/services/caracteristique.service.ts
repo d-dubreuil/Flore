@@ -35,8 +35,12 @@ export class CaracteristiqueService {
     return this.http.get<Array<Caracteristique>>('http://localhost:8080/api/caracteristique/by-type/' + typeCarac);
   }
 
+  findByTypeEtNom(typeCarac: string, nom: string): Observable<Array<Caracteristique>> {
+    return this.http.get<Array<Caracteristique>>('http://localhost:8080/api/caracteristique/by-type-nom/' + typeCarac + '|' + nom);
+  }
+
   findByFloreCarac(nomFlore: string, nomCarac: string): Observable<Array<Caracteristique>> {
-    return this.http.get<Array<Caracteristique>>("http://localhost:8080/api/caracteristique/by-flore-carac/"+nomFlore+"|"+nomCarac);
+    return this.http.get<Array<Caracteristique>>('http://localhost:8080/api/caracteristique/by-flore-carac/' + nomFlore + '|' + nomCarac);
   }
 
   findById(id: number): Observable<Caracteristique> {
