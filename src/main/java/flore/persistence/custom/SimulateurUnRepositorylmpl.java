@@ -1,29 +1,44 @@
-package Flore;
+package flore.persistence.custom;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Repository;
 
 import flore.model.Caracteristique;
 import flore.persistence.ICaracteristiqueRepository;
+import flore.persistence.ISimulateurUnRepositoryCustom;
+import flore.web.dto.Bonus;
 
-@SpringBootTest
-class FloreSynergiesTests {
+import flore.web.dto.Malus;
+import flore.web.dto.SimulateurUn;
+
+@Repository
+public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom{
+	
+
+	
+	
 	@Autowired
 	private ICaracteristiqueRepository caracRepo;
 
-	@Test
-	void contextLoads() {
-	}
-
-	@Test
-	void sontEllesAmies() {
-
-		String nomFlore1 = "Oignon";
-		String nomFlore2 = "Carotte";
+	@Override
+	public SimulateurUn synergieUn(String nomFlore1, String nomFlore2) {
+		SimulateurUn simu1 = new SimulateurUn();
+		
+		////////////On récupère les nom des deux plantes à comparer. ////////////
+		////////////On Récupère ensuite les caractéristiques qui leur sont associées et qui vont nous permettre de définir si il y a synergie ou non pour chaque caractéristique.////////////
+		///////////Pour chaque synergie bonus ou malus déterminée, on sauvegarde la caractéristique des plantes 1 et 2 ainsi qu'un message décrivant la synergie.////////////
+		///////////On affecte à un objet Bonus (de même pour Malus) la caractéristique 1 via son attribut codeUn, la caractéristique 2 via son attribut codeDeux et le message via son attribut message.////////////
+		///////////On affecte ensuite la liste des objets Bonus et la liste des objets Malus à un objet Simulateur1 qui sera renvoyé à la partie web.////////////
+		
+//		String nomFlore1 = "Oignon";
+//		String nomFlore2 = "Carotte";
 
 		/////////////////////////
 		// On appelle les caractéristiques des plantes 1 et 2 qui vont être comparées
@@ -92,11 +107,11 @@ class FloreSynergiesTests {
 				nbrstrat1.add(2);
 			}
 
-			else if (stratnb.getValeur() == "Herbacée Haute") {
+			else if (stratnb.getValeur() == "Grimpante") {
 				nbrstrat1.add(3);
 			}
 
-			else if (stratnb.getValeur() == "Grimpante") {
+			else if (stratnb.getValeur() == "Herbacée Haute") {
 				nbrstrat1.add(4);
 			}
 
@@ -129,11 +144,11 @@ class FloreSynergiesTests {
 				nbrstrat2.add(2);
 			}
 
-			else if (stratnb2.getValeur() == "Herbacée Haute") {
+			else if (stratnb2.getValeur() == "Grimpante") {
 				nbrstrat2.add(3);
 			}
 
-			else if (stratnb2.getValeur() == "Grimpante") {
+			else if (stratnb2.getValeur() == "Herbacée Haute") {
 				nbrstrat1.add(4);
 			}
 
@@ -152,18 +167,12 @@ class FloreSynergiesTests {
 		}
 
 		/////////////////////////
-		// On déclare les listes de caractéristiques que l'on récupéréra si synergie
-		///////////////////////// positive ou négative il y a
+		// On déclare la liste des objets bonus et malus.//
 		/////////////////////////
-
-		List<Caracteristique> caracBonusPositif = new ArrayList<Caracteristique>();
-		List<Caracteristique> caracBonusPositif2 = new ArrayList<Caracteristique>();
-		List<Caracteristique> caracBonusNegatif = new ArrayList<Caracteristique>();
-		List<Caracteristique> caracBonusNegatif2 = new ArrayList<Caracteristique>();
-		List<Caracteristique> caracMalusPositif = new ArrayList<Caracteristique>();
-		List<Caracteristique> caracMalusPositif2 = new ArrayList<Caracteristique>();
-		List<Caracteristique> caracMalusNegatif = new ArrayList<Caracteristique>();
-		List<Caracteristique> caracMalusNegatif2 = new ArrayList<Caracteristique>();
+		List<Bonus> bonusList = new ArrayList<Bonus>();
+		List<Malus> malusList = new ArrayList<Malus>();
+		
+		
 
 		//////////////////////////////////////////////////////
 		//// Synergies avec valeur similaire////
@@ -176,6 +185,9 @@ class FloreSynergiesTests {
 			if (!tempFlore1.isEmpty() && !tempFlore2.isEmpty()) {
 				Caracteristique carac = tempFlore1.get(0);
 				Caracteristique carac2 = tempFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 
 				System.out.println("########");
 
@@ -206,16 +218,22 @@ class FloreSynergiesTests {
 					// plantes sont similaires(+-5°C) ou si les plages se recouvrent
 					if ((temp1Min >= temp2Min && temp1Max <= temp2Max) || (temp1Min <= temp2Min && temp1Max >= temp2Max)
 							|| (diffMin <= 5 || diffMax <= 5)) {
-						caracBonusPositif.add(carac);
-						caracBonusPositif2.add(carac2);
-						System.out.println("La carac " + carac.getNom()
-								+ " est positive car les deux plantes ont une plage de température similaire");
-
+						
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message="Les deux plantes se développent de manière optimale sur une plage de température similaire.";
+						System.out.println(message);
+						bonus.setPoint(3);
+						bonus.setMessage(message);
+						bonusList.add(bonus);
 					} else {
-						caracBonusNegatif.add(carac);
-						caracBonusNegatif2.add(carac2);
-						System.out.println("La carac " + carac.getNom()
-								+ " est négative car les deux plantes ont des différences de températures optimales");
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="Pour se développer de manière optimale, les deux plantes nécessitent une plage de température assez différente.";
+						malus.setPoint(-3);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
 
 					}
 				} else {
@@ -235,17 +253,25 @@ class FloreSynergiesTests {
 
 				Caracteristique carac = ventFlore1.get(0);
 				Caracteristique carac2 = ventFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 
 				if (carac.getValeur().equals("Peu Résistant") || carac2.getValeur().equals("Peu Résistant")) {
-					System.out.println("########");
+
 					for (Caracteristique strat : stratFlore1) {
 						if ((strat.getValeur().equals("Canopée") || strat.getValeur().equals("Petits Arbres")
 								|| strat.getValeur().equals("Arbustive") || carac.getValeur().equals("Haie Brise-Vent"))
 								&& carac2.getValeur().equals("Peu Résistant")) {
-							caracBonusPositif.add(carac2);
+							
+							bonus.setCaracUn(carac);
+							bonus.setCaracDeux(carac2);
+							message="Il existe une synergie autour du "+ carac.getNom() + " car "+ nomFlore1 +" peut protéger " + nomFlore2 + " du vent.";
+							bonus.setMessage(message);
+							bonus.setPoint(1);
+							bonusList.add(bonus);	
+							System.out.println(message);
 
-							System.out.println("La carac " + carac.getNom() + " est positive car la plante 2 est "
-									+ carac2.getValeur() + " et la plante 1 est résistante au vent");
 						}
 					}
 					for (Caracteristique strat2 : stratFlore2) {
@@ -253,9 +279,15 @@ class FloreSynergiesTests {
 								|| strat2.getValeur().equals("Arbustive")
 								|| carac2.getValeur().equals("Haie Brise-Vent"))
 								&& carac.getValeur().equals("Peu Résistant")) {
-							caracBonusPositif.add(carac);
-							System.out.println("La carac " + carac.getNom() + " est positive car la plante 1 est "
-									+ carac.getValeur() + " et la plante 2 est résistante au vent");
+							
+							bonus.setCaracUn(carac);
+							bonus.setCaracDeux(carac2);
+							message="Il existe une synergie autour du "+ carac.getNom() + " car "+ nomFlore2 +" peut protéger " + nomFlore1 + " du vent.";
+							bonus.setMessage(message);
+							bonus.setPoint(1);
+							bonusList.add(bonus);	
+							System.out.println(message);
+
 						}
 					}
 
@@ -273,16 +305,24 @@ class FloreSynergiesTests {
 		int ensolCount = 0;
 		for (Caracteristique carac : ensolFlore1) {
 			for (Caracteristique carac2 : ensolFlore2) {
+				Bonus bonus = new Bonus();
+				String message;
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Ensoleillement")) {
 					System.out.println("########");
 					if (carac2.getValeur().equals(carac.getValeur())) {
 						ensolCount++;
-						caracBonusPositif.add(carac);
-						caracBonusPositif2.add(carac2);
-						System.out.println("La carac " + carac.getNom() + " est positive car les deux plantes sont : "
-								+ carac.getValeur());
+						
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message="Il existe une synergie positive autour de l'ensoleillement car " + nomFlore1 +" et " + nomFlore2 + " ont besoin de "+ carac.getValeur()+".";
+						bonus.setMessage(message);
+						bonus.setPoint(1);
+						bonusList.add(bonus);	
+						System.out.println(message);
+
+						
 					}
 				}
 
@@ -294,16 +334,26 @@ class FloreSynergiesTests {
 						for (Integer nb2 : nbrstrat2) {
 							if ((nb1 > nb2 && carac2.getValeur().equals("Mi Ombre"))) {
 								ensolCount++;
-								caracBonusPositif2.add(carac2);
-								System.out.println("########");
-								System.out.println("La carac " + carac.getNom()
-										+ " est positive car la plante 1 est plus haute que la plante 2 et aime le soleil et peut lui procurer du mi-ombre");
+								
+								bonus.setCaracUn(carac);
+								bonus.setCaracDeux(carac2);
+								message="Il existe une synergie positive autour de l'ensoleillement car " + nomFlore1 +" a besoin de "+carac.getValeur()+" et est plus haute que " + nomFlore2 + " qui, elle, a besoin de mi-ombre.";
+								bonus.setMessage(message);
+								bonus.setPoint(3);
+								bonusList.add(bonus);	
+								System.out.println(message);
+								
 							} else if (nb1 < nb2 && carac.getValeur().equals("Mi Ombre")) {
-								caracBonusPositif.add(carac);
 								ensolCount++;
-								System.out.println("########");
-								System.out.println("La carac " + carac.getNom()
-										+ " est positive car la plante 2 est plus haute que la plante 1 et aime le soleil et peut lui procurer du mi-ombre");
+								
+								bonus.setCaracUn(carac);
+								bonus.setCaracDeux(carac2);
+								message="Il existe une synergie positive autour de l'ensoleillement car " + nomFlore2 +" a besoin de "+carac2.getValeur()+" et est plus haute que " + nomFlore1 + " qui, elle, a besoin de mi-ombre.";
+								bonus.setMessage(message);
+								bonus.setPoint(3);
+								bonusList.add(bonus);	
+								System.out.println(message);
+
 							}
 						}
 					}
@@ -316,13 +366,18 @@ class FloreSynergiesTests {
 		if (ensolCount == 0 && !ensolFlore1.isEmpty() && !ensolFlore2.isEmpty()) {
 			for (Caracteristique carac : ensolFlore1) {
 				for (Caracteristique carac2 : ensolFlore2) {
+					Malus malus = new Malus();
+					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
-
-						caracBonusNegatif.add(carac);
-						caracBonusNegatif2.add(carac2);
-						System.out.println("########");
-						System.out.println("La carac " + carac.getNom()
-								+ " est négative car les deux plantes ont besoin d'ensoleillement différent.");
+						
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="Les deux plantes ont besoin d'ensoleillement différent.";
+						malus.setPoint(-1);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
+						
 					}
 				}
 			}
@@ -333,15 +388,21 @@ class FloreSynergiesTests {
 		int pHCount = 0;
 		for (Caracteristique carac : pHFlore1) {
 			for (Caracteristique carac2 : pHFlore2) {
-
+				Bonus bonus = new Bonus();
+				String message;
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("pH") && carac2.getValeur().equals(carac.getValeur())) {
 					pHCount++;
-					System.out.println("########");
-					caracBonusPositif.add(carac);
-					caracBonusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom() + " est positive car les deux plantes sont : "
-							+ carac.getValeur());
+					
+					bonus.setCaracUn(carac);
+					bonus.setCaracDeux(carac2);
+					message="Il existe une synergie positive car les deux plantes ont besoin d'un sol "+carac.getValeur()+".";
+					bonus.setMessage(message);
+					bonus.setPoint(3);
+					bonusList.add(bonus);
+					System.out.println(message);
+					
+					
 				}
 			}
 		}
@@ -349,13 +410,17 @@ class FloreSynergiesTests {
 		if (pHCount == 0 && !pHFlore1.isEmpty() && !pHFlore2.isEmpty()) {
 			for (Caracteristique carac : pHFlore1) {
 				for (Caracteristique carac2 : pHFlore2) {
+					Malus malus = new Malus();
+					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
-
-						caracBonusNegatif.add(carac);
-						caracBonusNegatif2.add(carac2);
-						System.out.println("########");
-						System.out.println("La carac " + carac.getNom()
-								+ " est négative car les deux plantes ont besoin de pH différents.");
+						
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="Les deux plantes ont besoin d'un sol au pH différent.";
+						malus.setPoint(-3);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
 					}
 				}
 			}
@@ -367,15 +432,20 @@ class FloreSynergiesTests {
 		int textCount = 0;
 		for (Caracteristique carac : textFlore1) {
 			for (Caracteristique carac2 : textFlore2) {
-
+				Bonus bonus = new Bonus();
+				String message;
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Texture") && carac2.getValeur().equals(carac.getValeur())) {
 					textCount++;
-					System.out.println("########");
-					caracBonusPositif.add(carac);
-					caracBonusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom() + " est positive car les deux plantes sont : "
-							+ carac.getValeur());
+					
+					bonus.setCaracUn(carac);
+					bonus.setCaracDeux(carac2);
+					message="Il existe une synergie positive car les deux plantes ont besoin d'un sol "+carac.getValeur()+".";
+					bonus.setMessage(message);
+					bonus.setPoint(5);
+					bonusList.add(bonus);	
+					System.out.println(message);
+
 				}
 			}
 		}
@@ -383,13 +453,18 @@ class FloreSynergiesTests {
 		if (textCount == 0 && !pHFlore1.isEmpty() && !pHFlore2.isEmpty()) {
 			for (Caracteristique carac : pHFlore1) {
 				for (Caracteristique carac2 : pHFlore2) {
+					Malus malus = new Malus();
+					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
 
-						caracBonusNegatif.add(carac);
-						caracBonusNegatif2.add(carac2);
-						System.out.println("########");
-						System.out.println("La carac " + carac.getNom()
-								+ " est négative car les deux plantes ont besoin de texture du sol différentes.");
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="Les deux plantes ont besoin d'un sol à la texture différente.";
+						malus.setPoint(-5);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
+
 					}
 				}
 			}
@@ -401,15 +476,20 @@ class FloreSynergiesTests {
 		int humCount = 0;
 		for (Caracteristique carac : humFlore1) {
 			for (Caracteristique carac2 : humFlore2) {
-
+				Bonus bonus = new Bonus();
+				String message;
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Humidité") && carac2.getValeur().equals(carac.getValeur())) {
 					humCount++;
-					System.out.println("########");
-					caracBonusPositif.add(carac);
-					caracBonusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom() + " est positive car les deux plantes sont : "
-							+ carac.getValeur());
+					
+					bonus.setCaracUn(carac);
+					bonus.setCaracDeux(carac2);
+					message="Il existe une synergie positive car les deux plantes ont besoin d'un sol "+carac.getValeur()+".";
+					bonus.setMessage(message);
+					bonus.setPoint(5);
+					bonusList.add(bonus);
+					System.out.println(message);
+					
 				}
 			}
 		}
@@ -417,13 +497,19 @@ class FloreSynergiesTests {
 		if (humCount == 0 && !humFlore1.isEmpty() && !humFlore2.isEmpty()) {
 			for (Caracteristique carac : humFlore1) {
 				for (Caracteristique carac2 : humFlore2) {
+					Malus malus = new Malus();
+					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
-						System.out.println("########");
-						caracBonusNegatif.add(carac);
-						caracBonusNegatif2.add(carac2);
+						
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="Les deux plantes ont besoin d'une humidité de sol distincte.";
+						malus.setPoint(-5);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
+						
 
-						System.out.println("La carac " + carac.getNom()
-								+ " est négative car les deux plantes ont besoin d'humidité du sol différentes.");
 					}
 				}
 			}
@@ -438,21 +524,31 @@ class FloreSynergiesTests {
 			if (!arroFlore1.isEmpty() && !arroFlore2.isEmpty()) {
 				Caracteristique carac = arroFlore1.get(0);
 				Caracteristique carac2 = arroFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Arrosage") && carac2.getValeur().equals(carac.getValeur())) {
-					System.out.println("########");
-					caracBonusPositif.add(carac);
-					caracBonusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom() + " est positive car les deux plantes sont : "
-							+ carac.getValeur());
+					
+					bonus.setCaracUn(carac);
+					bonus.setCaracDeux(carac2);
+					message="Il existe une synergie positive car les deux plantes ont besoin d'un arrosage "+carac.getValeur()+".";
+					bonus.setMessage(message);
+					bonus.setPoint(3);
+					bonusList.add(bonus);
+					System.out.println(message);
+
 				} else if (!carac2.getValeur().equals(carac.getValeur())) {
 
-					caracBonusNegatif.add(carac);
-					caracBonusNegatif2.add(carac2);
-					System.out.println("########");
-					System.out.println("La carac " + carac.getNom()
-							+ " est négative car les deux plantes ont besoin d'arrosage différent.");
+					malus.setCaracUn(carac);
+					malus.setCaracDeux(carac2);
+					message="Les deux plantes ont besoin d'un arrosage différent";
+					malus.setPoint(-3);
+					malus.setMessage(message);
+					malusList.add(malus);
+					System.out.println(message);
+					
 				}
 
 			}
@@ -473,21 +569,44 @@ class FloreSynergiesTests {
 			if (!stratFlore1.isEmpty() && !stratFlore2.isEmpty()) {
 				Caracteristique carac = stratFlore1.get(0);
 				Caracteristique carac2 = stratFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Strate") && !carac2.getValeur().equals(carac.getValeur())) {
-					System.out.println("########");
-					caracMalusPositif.add(carac);
-					caracMalusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom()
-							+ " est positive car les deux plantes ont une strate différente");
-				} else if (carac2.getValeur().equals(carac.getValeur())) {
+				
+					bonus.setCaracUn(carac);
+					bonus.setCaracDeux(carac2);
+					message="Il existe une synergie positive car les deux plantes ont une hauteur différente et peuvent donc se développer sans rentrer en compétition.";
+					bonus.setMessage(message);
+					bonus.setPoint(5);
+					bonusList.add(bonus);
+					System.out.println(message);
 
-					caracMalusNegatif.add(carac);
-					caracMalusNegatif2.add(carac2);
-					System.out.println("########");
-					System.out.println("La carac " + carac.getNom()
-							+ " est négative car les deux plantes ont la strate : " + carac.getValeur());
+				} else if (carac2.getValeur().equals(carac.getValeur())) {
+					
+					if((carac2.getValeur().equals("Grimpante")&& nbrstrat1.get(0)>nbrstrat2.get(0))||(carac.getValeur().equals("Grimpante")&& nbrstrat2.get(0)>nbrstrat1.get(0))) {
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message="Il existe une synergie positive car la plante grimpante peut se fixer sur la seconde.";
+						bonus.setMessage(message);
+						bonus.setPoint(5);
+						bonusList.add(bonus);
+						System.out.println(message);
+					}
+					else {
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="Les deux plantes ont une hauteur de développement similaire et rentrent donc en compétition.";
+						malus.setPoint(-5);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
+					}
+
+					
+
 				}
 
 			}
@@ -504,21 +623,31 @@ class FloreSynergiesTests {
 			if (!racFlore1.isEmpty() && !racFlore2.isEmpty()) {
 				Caracteristique carac = racFlore1.get(0);
 				Caracteristique carac2 = racFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Racines") && !carac2.getValeur().equals(carac.getValeur())) {
-					System.out.println("########");
-					caracMalusPositif.add(carac);
-					caracMalusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom()
-							+ " est positive car les deux plantes ont une profondeur de racine différente");
+					
+					bonus.setCaracUn(carac);
+					bonus.setCaracDeux(carac2);
+					message="Il existe une synergie positive car les deux plantes ont une profondeur de racine différente et sont, par conséquent, moins en concurrence pour se nourrir avec les nutriments du sol.";
+					bonus.setMessage(message);
+					bonus.setPoint(5);
+					bonusList.add(bonus);
+					System.out.println(message);
+
 				} else if (carac2.getValeur().equals(carac.getValeur())) {
 
-					caracMalusNegatif.add(carac);
-					caracMalusNegatif2.add(carac2);
-					System.out.println("########");
-					System.out.println("La carac " + carac.getNom()
-							+ " est négative car les deux plantes ont la même caractéristique : " + carac.getValeur());
+					malus.setCaracUn(carac);
+					malus.setCaracDeux(carac2);
+					message="Les deux plantes ont une profondeur de racine similaire et sont donc en compétition pour se nourrir.";
+					malus.setPoint(-5);
+					malus.setMessage(message);
+					malusList.add(malus);
+					System.out.println(message);
+					
 				}
 
 			}
@@ -546,36 +675,67 @@ class FloreSynergiesTests {
 
 		for (Caracteristique carac : azoFlore1) {
 			for (Caracteristique carac2 : azoFlore2) {
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 				if (azoCountInhi >= 1 && azoCountFixa >= 1) {
 					if (carac2.getValeur().equals("Inhibiteur") && carac.getValeur().equals("Fixateur")) {
-						caracMalusNegatif2.add(carac2);
-						System.out.println("########");
-						System.out.println("La carac " + carac.getNom()
-								+ " est négative car une des deux plantes est fixatrice d'azote et la seconde est un inhibiteur de croissance des bactéries fixatrices d'azote");
+						
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="La plante "+ nomFlore1 +" est fixatrice d'azote et la plante "+ nomFlore2 +" est un inhibiteur de croissance des bactéries fixatrices d'azote.";
+						malus.setPoint(-5);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
+						
 						break;
 					} else if (carac.getValeur().equals("Inhibiteur") && carac2.getValeur().equals("Fixateur")) {
-						caracMalusNegatif.add(carac);
-						System.out.println("########");
-						System.out.println("La carac " + carac.getNom()
-								+ " est négative car une des deux plantes est fixatrice d'azote et la seconde est un inhibiteur de croissance des bactéries fixatrices d'azote");
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message="La plante "+ nomFlore2 +" est fixatrice d'azote et la plante"+ nomFlore1 +" est un inhibiteur de croissance des bactéries fixatrices d'azote.";
+						malus.setPoint(-5);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
+						
 						break;
 					}
-				} else if ((!carac2.getValeur().equals("Inhibiteur") && !carac.getValeur().equals("Inhibiteur"))
-						&& !carac2.getValeur().equals(carac.getValeur()) && !azoFlore1.isEmpty()
-						&& !azoFlore2.isEmpty()) {
+				} else if (carac.getValeur().equals("Fixateur") && (carac2.getValeur().equals("Dévoreur")||carac2.getValeur().equals("Neutre"))||
+						carac2.getValeur().equals("Fixateur") && (carac.getValeur().equals("Dévoreur")||carac.getValeur().equals("Neutre"))) {
 
-					System.out.println("########");
-					caracMalusPositif.add(carac);
-					caracMalusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom()
-							+ " est positive car les deux plantes ont des demandes d'azote différentes");
-				} else if (carac2.getValeur().equals(carac.getValeur())) {
+					if(carac.getValeur().equals("Fixateur")) {
+						
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message="Il existe une synergie positive car la plante "+nomFlore1+" est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "+nomFlore2+".";
+						bonus.setMessage(message);
+						bonus.setPoint(5);
+						bonusList.add(bonus);
+						System.out.println(message);
+						
+					}
+					else {
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message="Il existe une synergie positive car la plante "+nomFlore2+" est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "+nomFlore1+".";
+						bonus.setMessage(message);
+						bonus.setPoint(5);
+						bonusList.add(bonus);
+						System.out.println(message);
+						
+					}
+				
+				} else if (carac2.getValeur().equals(carac.getValeur())&& carac.getValeur().equals("Dévoreur")) {
 
-					caracMalusNegatif.add(carac);
-					caracMalusNegatif2.add(carac2);
-					System.out.println("########");
-					System.out.println("La carac " + carac.getNom()
-							+ " est négative car les deux plantes ont la même caractéristique : " + carac.getValeur());
+					malus.setCaracUn(carac);
+					malus.setCaracDeux(carac2);
+					message="Les deux plantes ont un besoin en azote très important et sont donc en compétition.";
+					malus.setPoint(-5);
+					malus.setMessage(message);
+					malusList.add(malus);
+					System.out.println(message);
+					
 
 				}
 			}
@@ -590,22 +750,41 @@ class FloreSynergiesTests {
 			if (!nutriFlore1.isEmpty() && !nutriFlore2.isEmpty()) {
 				Caracteristique carac = nutriFlore1.get(0);
 				Caracteristique carac2 = nutriFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 
-				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
-						&& carac.getNom().equals("Nutriment") && !carac2.getValeur().equals(carac.getValeur())) {
-					System.out.println("########");
-					caracMalusPositif.add(carac);
-					caracMalusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom()
-							+ " est positive car les deux plantes ont des demandes de nutriments disctintes");
-				} else if (carac2.getValeur().equals(carac.getValeur())) {
+				if (carac.getValeur().equals("Fixateur") && (carac2.getValeur().equals("Dévoreur")||carac2.getValeur().equals("Neutre"))||
+						carac2.getValeur().equals("Fixateur") && (carac.getValeur().equals("Dévoreur")||carac.getValeur().equals("Neutre"))) {
+					if(carac.getValeur().equals("Fixateur")) {
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message="Il existe une synergie positive car la plante "+nomFlore1+" aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "+nomFlore2+".";
+						bonus.setMessage(message);
+						bonus.setPoint(5);
+						bonusList.add(bonus);
+						System.out.println(message);
+					}
+					
+					else {
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message="Il existe une synergie positive car la plante "+nomFlore2+" aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "+nomFlore1+".";
+						bonus.setMessage(message);
+						bonus.setPoint(5);
+						bonusList.add(bonus);
+						System.out.println(message);
+						
+					}
+				} else if (carac2.getValeur().equals(carac.getValeur())&&carac.getValeur().equals("Dévoreur")) {
 
-					caracMalusNegatif.add(carac);
-					caracMalusNegatif2.add(carac2);
-					System.out.println("########");
-					System.out.println("La carac " + carac.getNom()
-							+ " est négative car les deux plantes ont le même besoin en nutriment : "
-							+ carac.getValeur());
+					malus.setCaracUn(carac);
+					malus.setCaracDeux(carac2);
+					message="Les deux plantes ont un besoin en nutriment très important et sont donc en compétition.";
+					malus.setPoint(-5);
+					malus.setMessage(message);
+					malusList.add(malus);
+					System.out.println(message);
 				}
 
 			}
@@ -622,22 +801,30 @@ class FloreSynergiesTests {
 			if (!croiFlore1.isEmpty() && !croiFlore2.isEmpty()) {
 				Caracteristique carac = croiFlore1.get(0);
 				Caracteristique carac2 = croiFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Croissance") && !carac2.getValeur().equals(carac.getValeur())) {
-					System.out.println("########");
-					caracMalusPositif.add(carac);
-					caracMalusPositif2.add(carac2);
-					System.out.println("La carac " + carac.getNom()
-							+ " est positive car les deux plantes ont des croissances disctintes");
+					bonus.setCaracUn(carac);
+					bonus.setCaracDeux(carac2);
+					message="Il existe une synergie positive car les deux plantes ont des vitesses de croissance différentes.";
+					bonus.setMessage(message);
+					bonus.setPoint(3);
+					bonusList.add(bonus);
+					System.out.println(message);
+					
 				} else if (carac2.getValeur().equals(carac.getValeur())) {
 
-					caracMalusNegatif.add(carac);
-					caracMalusNegatif2.add(carac2);
-					System.out.println("########");
-					System.out.println("La carac " + carac.getNom()
-							+ " est négative car les deux plantes ont la même vitesse de croissance : "
-							+ carac.getValeur());
+					malus.setCaracUn(carac);
+					malus.setCaracDeux(carac2);
+					message="Les deux plantes ont une même vitesse de croissance.";
+					malus.setPoint(-5);
+					malus.setMessage(message);
+					malusList.add(malus);
+					System.out.println(message);
+					
 				}
 
 			}
@@ -652,19 +839,29 @@ class FloreSynergiesTests {
 			for (Caracteristique caracPreda2 : predaFlore2) {
 				for (Caracteristique caracRepuls : repulsFlore1) {
 					for (Caracteristique caracRepuls2 : repulsFlore2) {
+						Bonus bonus = new Bonus();
+						Malus malus = new Malus();
+						String message;
 						
 						if(caracPreda.getValeur().equals(caracRepuls2.getValeur())) {
-							caracBonusPositif.add(caracPreda);
-							caracBonusPositif2.add(caracRepuls2);
-							System.out.println("Il y a une synergie positive car l'animal " + caracPreda.getValeur()
-									+ " qui est un prédateur de la plante 1 est repoussé par la plante 2");
+							bonus.setCaracUn(caracPreda);
+							bonus.setCaracDeux(caracRepuls2);
+							message="Il existe une synergie positive car la plante "+ nomFlore2 +" repousse la faune "+caracPreda.getValeur()+" qui est un nuisible de la plante "+ nomFlore1 +".";
+							bonus.setMessage(message);
+							bonus.setPoint(5);
+							bonusList.add(bonus);
+							System.out.println(message);
+							
 						}
 						
 						else if(caracPreda2.getValeur().equals(caracRepuls.getValeur())) {
-							caracBonusPositif.add(caracRepuls);
-							caracBonusPositif2.add(caracPreda2);
-							System.out.println("Il y a une synergie positive car l'animal " + caracPreda2.getValeur()
-							+ " qui est un prédateur de la plante 2 est repoussé par la plante 1");
+							bonus.setCaracUn(caracRepuls);
+							bonus.setCaracDeux(caracPreda2);
+							message="Il existe une synergie positive car la plante "+ nomFlore1 +" repousse la faune "+caracPreda.getValeur()+" qui est un nuisible de la plante "+ nomFlore2 +".";
+							bonus.setMessage(message);
+							bonus.setPoint(5);
+							bonusList.add(bonus);
+							System.out.println(message);
 						}	
 						
 						
@@ -673,27 +870,11 @@ class FloreSynergiesTests {
 			}
 		}
 
-		
-		
+		simu1.setBonus(bonusList);
+		simu1.setMalus(malusList);
+		System.out.println(simu1.getBonus());
+		return simu1;
+	
 	}
-}
 
-//		for (Caracteristique carac : caracBonusPositif) {
-//			System.out.println(
-//					"La carac " + carac.getNom() + " est positive car les deux plantes sont : " + carac.getValeur());
-//		}
-//		System.out.println("########");
-//		for (Caracteristique carac : caracBonusNegatif) {
-//			System.out.println(
-//					"La carac " + carac.getNom() + " est negatif car la plante 2 n'est pas : " + carac.getValeur());
-//		}
-//		System.out.println("########");
-//		for (Caracteristique carac : caracMalusNegatif) {
-//			System.out.println(
-//					"La carac " + carac.getNom() + " est negatif car les deux plantes sont : " + carac.getValeur());
-//		}
-//		System.out.println("########");
-//		for (Caracteristique carac : caracMalusPositif) {
-//			System.out.println(
-//					"La carac " + carac.getNom() + " est positive car la plante 2 n'est pas : " + carac.getValeur());
-//		}
+}
