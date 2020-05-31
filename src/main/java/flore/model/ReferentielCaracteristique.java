@@ -20,7 +20,7 @@ public class ReferentielCaracteristique {
 	private int version;
 	@ManyToOne
 	@JoinColumn (name = "caracteristique_Id")
-	@JsonView({Views.ViewCaracteristiqueFlore.class,Views.ViewFloreWithRefCarac.class})
+	@JsonView({Views.ViewCaracteristiqueFlore.class,Views.ViewFloreWithRefCarac.class,Views.ViewPanier.class})
 	private Caracteristique caracteristique;
 	@ManyToOne
 	@JoinColumn (name = "flore_id")

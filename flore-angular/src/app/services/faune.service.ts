@@ -8,7 +8,8 @@ import {Observable} from 'rxjs';
 })
 export class FauneService {
 
-  private faunes: Array<Faune> = new Array<Faune>();
+  public faune:Faune;
+  public faunes: Array<Faune> = new Array<Faune>();
 
   constructor(private http:HttpClient) {
     this.load();

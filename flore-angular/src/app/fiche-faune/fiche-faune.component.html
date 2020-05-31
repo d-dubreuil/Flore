@@ -1,1 +1,252 @@
-<p>fiche-faune works!</p>
+<div class="row justify-content-center align-items-center mt-4">
+  <div class="column" style="width: 5%;"></div>
+  <div class="column" style="width: 25%;">
+    <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+         style="width: 70%;"/>
+  </div>
+  <div class="column " style="width: 60%; text-align: center; align: middle;">
+    <h1 class="mb-4 mt-2 ">{{fauneService.faune.nomFaune}}</h1>
+    <h2 class="hr ">{{filterCarac(fauneService.faune, 'NomLatin')}}</h2>
+  </div>
+</div>
+<div class="row m-5">
+  <div id="connexionFournisseur" class="column " style="width: 30%; height: 100%">
+    <!--BLOC CONNEXION-->
+    <div class="row p-4 ">
+      <div class="row ml-4 justify-content-center align-items-center" style="width:90%">
+        <h6 class="text-center" style="font-size: 18px">
+          Connectez-vous à votre <br> espace client pour accèder à :
+        </h6>
+      </div>
+      <div class="row justify-content-center align-items-center mt-3 p-1">
+        <button id="buttonFavoris" type="button"
+                class="btn border shadow-none justify-content-center align-items-center"
+                style="height: 40%; width: 70%;" disabled>
+          <div class="row justify-content-center align-items-center">
+            <div class="column align-middle" style="width:15%;">
+              <i class="fas fa-tag fa-2x" style="color: #8bc34a"></i>
+            </div>
+            <div class="column" style="width: 65%;">
+              <h6>Revenir plus tard</h6>
+            </div>
+          </div>
+        </button>
+        <button id="buttonMonPetitJardin" type="button"
+                class="btn border mb-4 mt-4 shadow-none justify-content-center align-items-center"
+                style="height: 40%; width: 70%;"
+                disabled>
+          <div class="row justify-content-center ">
+            <div class="column" style="width:15%;">
+              <div class="column align-middle" style="width:15%;">
+                <i class="fas fa-heart fa-2x" style="color: #8bc34a"></i>
+              </div>
+            </div>
+            <div class="column" style="width: 65%;">
+              <h6>Ajouter à MonPetitJardin</h6>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <!--BLOC FOURNISSEUR-->
+    <div id="fournisseur" class="row p-4 ">
+      <div class="row ml-4 justify-content-center align-items-center " style="width:90%">
+        <h6 style="font-size: 18px">
+          Achetez vos plants <br> chez nos partenaires :
+        </h6>
+      </div>
+      <div class="row justify-content-center align-items-center mt-3 p-1">
+        <button id="buttonAjoutPanier" type="button"
+                class="btn border shadow-none justify-content-center align-items-center"
+                style="height: 40%; width: 70%;" disabled>
+          <div class="row justify-content-center align-items-center">
+            <div class="column mr-2" style="width:15%;">
+              <div class="column align-middle" style="width:15%;">
+                <i class="fas fa-shopping-basket fa-2x" style="color: #8bc34a"></i>
+              </div>
+            </div>
+            <div class="column" style="width: 65%;">
+              <h5>Fournisseur 1</h5>
+              <h6>Produit - Variété</h6>
+              <h6 style="font-style: italic">(Nb +Stock)</h6>
+            </div>
+          </div>
+        </button>
+        <button id="buttonAjoutPanier" type="button"
+                class="btn border mb-4 mt-4 shadow-none justify-content-center align-items-center"
+                style="height: 40%; width: 70%;"
+                disabled>
+          <div class="row justify-content-center align-items-center">
+            <div class="column mr-2" style="width:15%;">
+              <div class="column align-middle" style="width:15%;">
+                <i class="fas fa-shopping-basket fa-2x" style="color: #8bc34a"></i>
+              </div>
+            </div>
+            <div class="column" style="width: 65%;">
+              <h5>Fournisseur 2</h5>
+              <h6>Produit - Variété</h6>
+              <h6 style="font-style: italic">(Nb +Stock)</h6>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- BLOC TEXTE/PHOTOS ET CARACTERISTIQUES -->
+  <div id="fiche" class="column ml-5  " style="width: 65% ; height: 100%">
+    <!-- BLOC TEXTE -->
+    <div class="row justify-content-center align-items-center ">
+      <div id="textePhoto" class="row justify-content-center align-items-center mx-3 p-3" style="height: 45%">
+        {{filterCarac(fauneService.faune, 'Descriptif')}}
+      </div>
+    </div>
+
+    <!-- BLOC PHOTOS -->
+    <div class="row justify-content-center align-items-center ">
+      <div id="textePhoto" class="row justify-content-center align-items-center" style="height: 45%">
+        <div class="border m-3" style="width: 28%; height: 150px">
+          <img src="{{filterCarac(fauneService.faune, 'Image')}}" style="width: 100%; height: 100%">
+        </div>
+        <div class="border m-3" style="width: 28%; height: 150px"
+             *ngIf="filterCarac(fauneService.faune, 'Image2')!= 'non renseigné'">
+          <img src="{{filterCarac(fauneService.faune, 'Image2')}}" style="width: 100%; height: 100%">
+        </div>
+        <div class="border m-3" style="width: 28%; height: 150px"
+             *ngIf="filterCarac(fauneService.faune, 'Image3')!= 'non renseigné'">
+          <img src="{{filterCarac(fauneService.faune, 'Image3')}}" style="width: 100%; height: 100%">
+        </div>
+      </div>
+    </div>
+    <!--    Bloc liens flaure-->
+    <div class="justify-content-center align-items-center mt-3" id="liensFlore">
+      <!--Nom-->
+      <div id="lienFlore" class="row justify-content-center p-2 mt-1">
+        <h6 class="text-center" style="font-size: 18px">Relation flore :</h6>
+      </div>
+      <!--Type de lien-->
+      <div class="row justify-content-center mb-3 text-center">
+        <div id="lienFlorePollinisée" class="column justify-content-center mr-5 ml-5 text-center">
+          <div class="row ">
+            <h6 class="text-center" style="font-size: 15px">Pollinise :</h6>
+          </div>
+          <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Pollinisateur').slice(0,3)"
+               class="row">
+            <button class="btn btn-outline-success"
+                    (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+          </div>
+          <button class="btn btn-success"
+                  *ngIf="!plusFlorePollenisant && tableauCarac(fauneService.faune,'FloreFaune','Pollinisateur').length>3"
+                  (click)="plusFlorePollenisant=true">Voir plus
+          </button>
+          <div *ngIf="plusFlorePollenisant">
+            <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Pollinisateur').slice(3)"
+                 class="row">
+              <button class="btn btn-outline-success"
+                      (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+            </div>
+            <button class="btn btn-success" (click)="plusFlorePollenisant=false">Voir moins</button>
+          </div>
+        </div>
+        <div id="lienFloreAttirant" class="column justify-content-center mr-5 ml-5 text-center">
+          <div class="row ">
+            <h6 class="text-center" style="font-size: 15px">Est attiré par :</h6>
+          </div>
+          <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Attraction').slice(0,3)"
+               class="row">
+            <button class="btn btn-outline-success"
+                    (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+          </div>
+          <button class="btn btn-success"
+                  *ngIf="!plusFloreAttirant && tableauCarac(fauneService.faune,'FloreFaune','Attraction').length>3"
+                  (click)="plusFloreAttirant=true">Voir plus
+          </button>
+          <div *ngIf="plusFloreAttirant">
+            <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Attraction').slice(3)"
+                 class="row">
+              <button class="btn btn-outline-success"
+                      (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+            </div>
+            <button class="btn btn-success" (click)="plusFloreAttirant=false">Voir moins</button>
+          </div>
+        </div>
+        <div id="lienFloreRepoussant" class="column justify-content-center mr-5 ml-5 text-center">
+          <div class="row ">
+            <h6 class="text-center" style="font-size: 15px">Est repoussé par :</h6>
+          </div>
+          <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Répulsion').slice(0,3)"
+               class="row">
+            <button class="btn btn-outline-success"
+                    (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+          </div>
+          <button class="btn btn-success"
+                  *ngIf="!plusFloreRepoussant && tableauCarac(fauneService.faune,'FloreFaune','Répulsion').length>3"
+                  (click)="plusFloreRepoussant=true">Voir plus
+          </button>
+          <div *ngIf="plusFloreRepoussant">
+            <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Répulsion').slice(3)"
+                 class="row">
+              <button class="btn btn-outline-success"
+                      (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+            </div>
+            <button class="btn btn-success" (click)="plusFloreRepoussant=false">Voir moins</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    Bloc liens faune-->
+    <div class="justify-content-center align-items-center mt-3" id="liensFaune">
+      <!--Nom-->
+      <div id="lienFaune" class="row justify-content-center p-2 mt-1">
+        <h6 class="text-center" style="font-size: 18px">Relation flore :</h6>
+      </div>
+      <!--Type de lien-->
+      <div class="row justify-content-center mb-3 text-center">
+        <div id="liensFaunePredateur" class="column justify-content-center mr-5 ml-5 text-center">
+          <div class="row ">
+            <h6 class="text-center" style="font-size: 15px">Prédateur :</h6>
+          </div>
+          <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Prédateur').slice(0,3)"
+               class="row">
+            <button class="btn btn-outline-success"
+                    (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+          </div>
+          <button class="btn btn-success"
+                  *ngIf="!plusFaunePredateur && tableauFaune(fauneService.faune, 'Prédateur').length>3"
+                  (click)="plusFaunePredateur=true">Voir plus
+          </button>
+          <div *ngIf="plusFaunePredateur">
+            <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Prédateur').slice(3)"
+                 class="row">
+              <button class="btn btn-outline-success"
+                      (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+            </div>
+            <button class="btn btn-success" (click)="plusFaunePredateur=false">Voir moins</button>
+          </div>
+        </div>
+        <div id="liensFauneProie" class="column justify-content-center mr-5 ml-5 text-center">
+          <div class="row ">
+            <h6 class="text-center" style="font-size: 15px">Proie :</h6>
+          </div>
+          <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Chassé').slice(0,3)"
+               class="row">
+            <button class="btn btn-outline-success"
+                    (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+          </div>
+          <button class="btn btn-success"
+                  *ngIf="!plusFauneProie && tableauFaune(fauneService.faune, 'Chassé').length>3"
+                  (click)="plusFauneProie=true">Voir plus
+          </button>
+          <div *ngIf="plusFauneProie">
+            <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Chassé').slice(3)"
+                 class="row">
+              <button class="btn btn-outline-success"
+                      (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+            </div>
+            <button class="btn btn-success" (click)="plusFauneProie=false">Voir moins</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

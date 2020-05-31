@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-simulateur-deux',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimulateurDeuxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) {
+    this.titleService.setTitle("Simulateur 2");
+  }
 
   ngOnInit(): void {
   }

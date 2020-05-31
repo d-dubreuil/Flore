@@ -4,6 +4,7 @@ import {FloreForm} from '../model/FloreForm';
 import {FloreService} from '../services/flore.service';
 import {CaracteristiqueService} from '../services/caracteristique.service';
 import {Title} from '@angular/platform-browser';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flore',
@@ -155,7 +156,7 @@ export class FloreComponent implements OnInit {
   resistanceVentBoolean:boolean=false;
 
 
-  constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService, private titleService: Title) {
+  constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
     this.titleService.setTitle("Flore")
     this.caracs.push(this.caracEspece);
     this.caracs.push(this.caracRecolte);
@@ -181,7 +182,9 @@ export class FloreComponent implements OnInit {
   }
 
   list(): Array<Flore> {
-    return this.floreService.findAll();
+    return this.floreService.findAll().sort(function(a,b) {
+      return a.nom.localeCompare(b.nom);
+    });;
   }
 
   search() {
@@ -740,6 +743,9 @@ export class FloreComponent implements OnInit {
 
   redirectToFicheFlore(flore:Flore){
     this.floreService.flore = flore;
+    this.router.navigateByUrl('NPK/flore/fiche-flore');
   }
+
+
 
 }

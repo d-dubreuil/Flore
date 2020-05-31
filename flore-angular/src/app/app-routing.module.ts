@@ -13,6 +13,15 @@ import {FicheFauneComponent} from "./fiche-faune/fiche-faune.component";
 import {FicheFloreComponent} from "./fiche-flore/fiche-flore.component";
 import {SimulateurUnComponent} from "./simulateur-un/simulateur-un.component";
 import {SimulateurDeuxComponent} from "./simulateur-deux/simulateur-deux.component";
+import {CompteUtilisateurComponent} from "./compte-utilisateur/compte-utilisateur.component";
+import {EspaceClientComponent} from "./espace-client/espace-client.component";
+import {InformationsPersonnellesComponent} from "./informations-personnelles/informations-personnelles.component";
+import {FavorisComponent} from "./favoris/favoris.component";
+import {HistoriqueComponent} from "./historique/historique.component";
+import {JardinComponent} from "./jardin/jardin.component";
+import {CommandeComponent} from "./commande/commande.component";
+import {FicheComponent} from "./fiche/fiche.component";
+import {ContributionComponent} from "./contribution/contribution.component";
 
 const routes: Routes = [
   {path: 'NPK/accueil', component: HomeComponent},
@@ -28,7 +37,17 @@ const routes: Routes = [
   {path: 'NPK/panier', component: PanierComponent},
   {path: 'NPK/connexion', component: ConnexionComponent},
   {path: 'NPK/synergie/simulateur-un', component: SimulateurUnComponent},
-  {path: 'NPK/synergie/simulateur-deux', component: SimulateurDeuxComponent}
+  {path: 'NPK/synergie/simulateur-deux', component: SimulateurDeuxComponent},
+  {path: 'NPK/compte-utilisateur', component: CompteUtilisateurComponent},
+  {path: 'NPK/espace-client', component: EspaceClientComponent},
+  {path: 'NPK/espace-client/informations-personnelles', component: InformationsPersonnellesComponent},
+  {path: 'NPK/espace-client/fiches', component: FicheComponent},
+  {path: 'NPK/espace-client/fiches/favoris', component: FavorisComponent},
+  {path: 'NPK/espace-client/fiches/contributions', component: ContributionComponent},
+  {path: 'NPK/espace-client/historique', component: HistoriqueComponent},
+  {path: 'NPK/espace-client/mon-petit-jardin', component: JardinComponent},
+  {path: 'NPK/espace-client/commandes', component: CommandeComponent},
+  {path: 'NPK/espace-client/contact', component: ContactComponent}
 ];
 
 @NgModule({

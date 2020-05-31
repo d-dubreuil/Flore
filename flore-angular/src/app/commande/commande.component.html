@@ -1,1 +1,64 @@
-<p>commande works!</p>
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Prenom</h1> <!--{{compteUtilisateurService.compteUtilisateur.prenom}}-->
+      <h2 class="hr ">Consulte tes commandes passées</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row " >
+  <div class="column mt-5" style="width: 100%">
+    <table class="table ml-5 pl-3" style="width: 90%">
+      <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row" >
+    <div class="column" style="width:5%"></div>
+    <div class="column mt-4"  >
+      <div class="form-inline mr-5">
+        <div class="column">
+          <button [routerLink]="'/NPK/espace-client'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
+            <i class="fas fa-angle-left mx-3"></i>Revenir à l'espace client
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

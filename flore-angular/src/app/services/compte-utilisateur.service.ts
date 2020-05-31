@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class CompteUtilisateurService {
 
+  compteUtilisateur : CompteUtilisateur;
   private comptesUtilisateurs:Array<CompteUtilisateur> = new Array<CompteUtilisateur>();
 
   constructor(private http:HttpClient) {

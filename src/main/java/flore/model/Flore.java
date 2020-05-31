@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -31,10 +33,13 @@ public class Flore {
 	@Column(unique = true)
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
-	@OneToMany (mappedBy = "flore",fetch = FetchType.EAGER)
-	@JsonView(Views.ViewFloreWithRefCarac.class)
+	@OneToMany (mappedBy = "flore")
+	@JsonView({Views.ViewFloreWithRefCarac.class,Views.ViewPanier.class})
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<ReferentielCaracteristique> referentielCaracteristiques = new ArrayList<ReferentielCaracteristique>();
 	@OneToMany (mappedBy = "flore")
+	@JsonView(Views.ViewFloreWithRefCarac.class)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
 	@ManyToMany(mappedBy = "flores")
 	private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();

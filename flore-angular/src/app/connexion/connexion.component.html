@@ -1,9 +1,9 @@
 <div>
   <div class="row justify-content-center align-items-center mt-4">
-    <div class="column" style="width: 5%;"></div>
-    <div class="column" style="width: 25%;">
+
+    <div class="column" style="width: 30%;">
       <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
-           style="width: 70%;"/>
+           style="width: 100%;"/>
     </div>
     <div class="column " style="width: 60%; text-align: center; align: middle;">
       <h1 class="mb-4 mt-2">Connectez-vous</h1>
@@ -12,39 +12,44 @@
   </div>
 </div>
 
-<div class="column mt-5 border">
-    <div class="form-inline mr-5">
-      <div class="column ml-2" style="width: 35%"></div>
-      <div class="column ml-2" style="width: 25%; font-size: 22px;">
-        <label for="identifiant">Identifiant :</label>
-      </div>
-      <div class="column " style="width: 35%;">
-        <input type="text" class="form-control ml-5" id="identifiant" name="identifiant" style="width: 80%">
-      </div>
-    </div>
-</div>
 
-<div class="column mt-5 border">
-    <div class="form-inline mr-5">
-      <div class="column ml-2" style="width: 35%"></div>
-      <div class="column ml-2" style="width: 25%; font-size: 22px;">
-        <label for="mdp">Mot de passe :</label>
+<div id="connect" class="column mt-5">
+  <div class="column mt-5">
+      <div class="form-inline mr-5">
+        <div class="column" style="width: 40%"></div>
+        <div class="column ml-5" style="width: 25%; font-size: 22px;">
+          <label for="identifiant">Identifiant :</label>
+        </div>
+        <div class="column " style="width: 25%;">
+          <input type="text" class="form-control ml-5" id="identifiant" name="identifiant" style="width: 80%">
+        </div>
       </div>
-      <div class="column " style="width: 35%;">
-        <input type="text" class="form-control ml-5" id="mdp" name="mdp" style="width: 80%">
-      </div>
-    </div>
-</div>
+  </div>
 
-<div class="column mt-5 border">
-  <div class="form-inline mr-5">
-    <div class="column ml-2" style="width: 35%"></div>
-    <div class="column ml-2" style="width: 25%; font-size: 22px;">
-      <input type="checkbox" id="mdpEnreg" name="mdpEnreg" value="mdpEnreg">
-      <label for="mdpEnreg">Se souvenir de moi ? </label>
-    </div>
-    <div class="column " style="width: 35%;">
-      <input type="text" class="form-control ml-5" id="mdp" name="mdp" style="width: 80%">
+  <div class="column mt-5">
+      <div class="form-inline mr-5">
+        <div class="column" style="width: 40%"></div>
+        <div class="column ml-5" style="width: 25%; font-size: 22px;">
+          <label for="mdp" >Mot de passe :</label>
+        </div>
+        <div class="column" style="width: 25%;">
+          <input type="text" class="form-control ml-5 pl-2" id="mdp" name="mdp" style="width: 80%">
+        </div>
+      </div>
+  </div>
+
+  <div class="column mt-5 mb-5">
+    <div class="form-inline mr-5">
+      <div class="column ml-5" style="width: 40%"></div>
+      <div class="column" style="width: 25%; font-size: 22px;">
+        <button type="submit" id="btnSubmit" class="btn mt-2" style=" width: 80%;">CRÉER UN COMPTE</button>
+      </div>
+      <div class="column" style="width: 25%;">
+        <button [routerLink]="'/NPK/compte-utilisateur'" type="submit" id="btnConnect" class="btn mt-2 ml-5" style=" width: 80%;">SE CONNECTER</button>
+      </div>
     </div>
   </div>
 </div>
+
+
+
