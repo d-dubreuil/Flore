@@ -157,7 +157,7 @@ export class FloreComponent implements OnInit {
 
 
   constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
-    this.titleService.setTitle("Flore")
+    this.titleService.setTitle("Flore");
     this.caracs.push(this.caracEspece);
     this.caracs.push(this.caracRecolte);
     this.caracs.push(this.caracPlanter);
