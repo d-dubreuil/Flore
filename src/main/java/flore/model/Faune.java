@@ -27,7 +27,7 @@ public class Faune {
 	@JsonView(Views.ViewCommon.class)
 	private String nomFaune;
 	@OneToMany(mappedBy = "faune", fetch = FetchType.EAGER)
-	@JsonView(Views.ViewFaune.class)
+	@JsonView({Views.ViewFaune.class,Views.ViewPanier.class})
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
 	
 	public Faune() {

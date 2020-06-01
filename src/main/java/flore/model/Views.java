@@ -11,6 +11,10 @@ public class Views {
 	
 	public static class ViewCompteUtilisateur extends ViewCommon {}
 	
+	public static class ViewCompteClient extends ViewCompteUtilisateur {}
+	
+	public static class ViewCompteFournisseur extends ViewCompteUtilisateur {}
+	
 	public static class ViewConseil extends ViewCommon {}
 	
 	public static class ViewFaune extends ViewCommon {}
@@ -40,4 +44,6 @@ public class Views {
 	public static class ViewSelection extends ViewCommon {}
 	
 	public static class ViewUtilisateur extends ViewCommon {}
+	
+	public static class ViewSynergie extends ViewCommon {}
 }

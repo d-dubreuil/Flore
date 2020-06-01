@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -30,10 +34,12 @@ public class Panier {
 	//@JsonView(Views.ViewPanier.class)
 	private Commande commande;
 	@OneToMany(mappedBy = "panier")
+	@JsonView(Views.ViewPanier.class)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Selection> selections= new ArrayList<Selection>();
 	@ManyToOne
 	@JoinColumn(name= "utilisateur_id")
-	//@JsonView(Views.ViewPanier.class)
+	@JsonView(Views.ViewPanier.class)
 	private Utilisateur utilisateur;
 	
 	

@@ -22,6 +22,8 @@ import {JardinComponent} from "./jardin/jardin.component";
 import {CommandeComponent} from "./commande/commande.component";
 import {FicheComponent} from "./fiche/fiche.component";
 import {ContributionComponent} from "./contribution/contribution.component";
+import {MessagerieComponent} from "./messagerie/messagerie.component";
+import {FormulairePropositionComponent} from "./formulaire-proposition/formulaire-proposition.component";
 
 const routes: Routes = [
   {path: 'NPK/accueil', component: HomeComponent},
@@ -47,7 +49,9 @@ const routes: Routes = [
   {path: 'NPK/espace-client/historique', component: HistoriqueComponent},
   {path: 'NPK/espace-client/mon-petit-jardin', component: JardinComponent},
   {path: 'NPK/espace-client/commandes', component: CommandeComponent},
-  {path: 'NPK/espace-client/contact', component: ContactComponent}
+  {path: 'NPK/espace-client/contact', component: ContactComponent},
+  {path: 'NPK/espace-client/contact/messagerie', component: MessagerieComponent},
+  {path: 'NPK/espace-client/contact/proposition-fiche', component: FormulairePropositionComponent}
 ];
 
 @NgModule({

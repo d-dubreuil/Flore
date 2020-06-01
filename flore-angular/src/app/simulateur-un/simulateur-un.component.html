@@ -13,47 +13,47 @@
 </div>
 
 <!-- bloc général-->
-<div class="row justify-content-center mt-5 border">
+<div class="row justify-content-center mt-5">
 
   <!-- Colonne 1-->
-  <div *ngIf="simu1Accueil" class="row border" style="width:100%;">
+  <div *ngIf="simu1Accueil" class="row" style="width:100%;">
     <!-- page 1-->
-  <div class="column border mr-5"  style="width:40%; text-align: center;">
+  <div class="column mr-5"  style="width:40%; text-align: center;">
     <h1 class="mt-2">Simultateur 1</h1>
     <p class="mt-4"> Ces deux plantes peuvent-elles s'associer?</p>
   </div>
     <!-- Colonne 2-->
-    <div  class="column  ml-5 border" style="width:40%;">
+    <div  class="column  ml-5" style="width:40%;">
         <!-- search plante 1-->
-        <div  class="row mt-3 justify-content-center border">
-          <div class="column border">
+        <div  class="row mt-3 justify-content-center">
+          <div class="column">
             <button  class="btn"
                      style="background-color: #8bc34a">
               <i class="fas fa-leaf" style="color: white"></i>
             </button>
           </div>
-          <div class="column border" style="width: 82%;">
+          <div class="column" style="width: 82%;">
             <input class="form-control"  type="text"
-                   placeholder="Entrer le nom de la plante 1">
+                   placeholder="Entrer le nom de la plante 1" [(ngModel)]="nomFlore1">
           </div>
 
         </div>
         <!-- search plante 2-->
-        <div  class="row mt-3 justify-content-center border">
-          <div class="column border">
+        <div  class="row mt-3 justify-content-center">
+          <div class="column">
             <button  class="btn"
                      style="background-color: #8bc34a">
               <i class="fas fa-leaf" style="color: white"></i>
             </button>
           </div>
-          <div class="column border" style="width: 82%;">
+          <div class="column" style="width: 82%;">
             <input class="form-control"  type="text"
-                   placeholder="Entrer le nom de la plante 2">
+                   placeholder="Entrer le nom de la plante 2" [(ngModel)]="nomFlore2">
           </div>
 
         </div>
         <!-- bouton kampagnonnage-->
-        <div class="row mt-3 justify-content-center border">
+        <div class="row mt-3 justify-content-center">
           <button (click)="synergie()" class="btn" style="width: 91%;background-color: #8bc34a" >
 
             Démarrer notre prédicteur de Kompagnonnage
@@ -65,96 +65,120 @@
   </div>
 
     <!-- page 2 komagnonnage-->
-    <div *ngIf="kompagnonnage" class="column border" style="width:100%;">
+    <div *ngIf="kompagnonnage" class="column" style="width:100%;">
       <!-- 1ère ligne - K1-->
-      <div class="row mt-3 justify-content-center border">
+      <div class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
         <!-- 1ère colonne - K2-->
-        <div class="column mr-3 border" style="width:65%;">
-          <div class="row justify-content-center border">
+        <div class="column mr-3" style="width:65%;">
+          <div class="row justify-content-center">
             <!-- 1ère colonne - K4-->
-          <div class="column mr-3 border" style="width:45%;">
-            <div class="row justify-content-center border">
+          <div class="column mr-3" style="width:45%;">
+            <div class="row justify-content-center">
               <!-- 1ère colonne - K5-->
-              <div class="column mr-5 border">
+              <div class="column mr-5">
                 image 1
               </div>
               <!-- 2ème colonne - K5-->
-              <div class="column ml-5 border">
-                Nom de la flore 1<br/> lien flore 1
+              <div class="column ml-5">
+                {{nomFlore1}}<br/> lien flore 1
               </div>
             </div>
           </div>
             <!-- 2ème colonne - K4-->
-          <div class="column ml-3 border" style="width:45%;">
-            <div class="row justify-content-center border">
+          <div class="column ml-3" style="width:45%;">
+            <div class="row justify-content-center">
               <!-- 1ère colonne - K5-->
-              <div class="column mr-5 border">
+              <div class="column mr-5">
                 image 2
               </div>
               <!-- 2ème colonne - K5-->
-              <div class="column ml-5 border">
-                Nom de la flore 2 <br/> lien flore 2
+              <div class="column ml-5">
+                {{nomFlore2}}<br/> lien flore 2
               </div>
             </div>
           </div>
         </div>
         </div>
         <!-- 2ème colonne - K2-->
-        <div class="column ml-3 border" style="width:25%;">
+        <div class="column ml-3" style="width:25%;">
           <button (click)="revenir()" class="btn" style="width: 91%;background-color: #8bc34a" >
             Revenir à ma recherche
           </button>
         </div>
       </div>
       <!-- 2ème ligne - K1-->
-      <div class="row mt-3 justify-content-center border">
+      <div class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
         <!-- 1ère colonne - K2-->
-        <div class="column mr-3 border" style="width:65%;">
-          <!-- 1ère ligne - K3-->
-          <div class="row justify-content-center border">
-            <h3> Association potentiellement favorable</h3>
+            <div class="column mr-3" style="width:65%;">
+            <h4 *ngIf="totalPoint>40"> Association très favorable (+{{totalPoint}})</h4>
+            <h4 *ngIf="totalPoint>20 && totalPoint<40"> Association potentiellement favorable (+{{totalPoint}})</h4>
+            <h4 *ngIf="totalPoint>10 && totalPoint<20"> Association neutre (+{{totalPoint}})</h4>
+            <h4 *ngIf="totalPoint<10 && totalPoint>0"> Association à éviter (+{{totalPoint}})</h4>
+            <h4 *ngIf="totalPoint<0"> Association non compatible ({{totalPoint}})</h4>
           </div>
-          <!-- 2ème ligne - K3-->
-          <div class="row justify-content-center border">
-            <p> list messages</p>
+            <!-- 2ème colonne - K2-->
+            <div class="column ml-3" style="width:25%;">
+              <button (click)="plusDeDetail()" class="btn" style="width: 91%;background-color: #8bc34a" >
+                Plus de détails
+              </button>
+            </div>
           </div>
-        </div>
-        <!-- 2ème colonne - K2-->
-        <div class="column ml-3 border" style="width:25%;">
-            <button (click)="plusDeDetail()" class="btn" style="width: 91%;background-color: #8bc34a" >
-              Plus de détails
-            </button>
-        </div>
-      </div>
       <!-- 3ème ligne - K1-->
-      <div *ngIf="details" class="row justify-content-center mt-3 border" >
-        <div class="column justify-content-center border" style="width:100%;">
-          <div class="row justify-content-center border">
-            <div class="column mr-2 border" style="width: 17%;">Index
+      <div  class="row ml-4 mr-4 justify-content-center mt-3 blocLigne" >
+        <div class="column justify-content-center" style="width:100%;">
+          <div class="row justify-content-center">
+            <div class="column mr-2" style="width: 17%;">Index
             </div>
-            <div class="column ml-2 mr-2 border" style="width: 17%;">Caractéristique
+            <div class="column ml-2 mr-2" style="width: 17%;">Caractéristique
             </div>
-            <div class="column ml-2 mr-2 border" style="width: 17%;">Association
+            <div class="column ml-2 mr-2" style="width: 17%;">Association
             </div>
-            <div class="column ml-2 mr-2 border" style="width: 17%;">Nom Flore 1
+            <div class="column ml-2 mr-2" style="width: 17%;">{{nomFlore1}}
             </div>
-            <div class="column ml-2 border" style="width: 17%;">Nom Flore 2
+            <div class="column ml-2" style="width: 17%;">{{nomFlore2}}
             </div>
           </div>
-          <div class="row justify-content-center border">
-            <div class="column mr-2 border" style="width: 17%;">1
+          <div *ngFor="let bon of bonusList" class="row justify-content-center">
+            <div class="column mr-2" style="width: 17%;">
+            </div>
+            <div class="column ml-2 mr-2" style="width: 17%;">{{bon.caracUn.nom}}
+            </div>
+            <div class="column ml-2 mr-2" style="width: 17%;">Complémentaire (+{{bon.point}})
+            </div>
+            <div class="column ml-2 mr-2" style="width: 17%;">{{bon.caracUn.valeur}}
+            </div>
+            <div class="column ml-2" style="width: 17%;">{{bon.caracDeux.valeur}}
+            </div>
           </div>
-            <div class="column ml-2 mr-2  border" style="width: 17%;">Azote
+          <div *ngFor="let mal of malusList" class="row justify-content-center">
+            <div class="column mr-2" style="width: 17%;">
             </div>
-            <div class="column ml-2 mr-2  border" style="width: 17%;">Complémentaire (+1)
+            <div class="column ml-2 mr-2" style="width: 17%;">{{mal.caracUn.nom}}
             </div>
-            <div class="column ml-2 mr-2  border" style="width: 17%;">Fixateur
+            <div class="column ml-2 mr-2" style="width: 17%;">Bloquante ({{mal.point}})
             </div>
-            <div class="column ml-2  border" style="width: 17%;">Azote
+            <div class="column ml-2 mr-2" style="width: 17%;">{{mal.caracUn.valeur}}
             </div>
+            <div class="column ml-2" style="width: 17%;">{{mal.caracDeux.valeur}}
+            </div>
+          </div>
         </div>
       </div>
+      <!-- 4ème ligne - K1-->
+      <div *ngIf="details" class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
+        <!-- 1ère colonne - K2-->
+        <div class="column justify-content-center">
+          <!-- 2ème ligne - K2-->
+          <div *ngFor="let bon of bonusList" class="row messageBonus ml-4 mr-4 -align-left">{{bon.message}}
+          </div>
+          <div *ngFor="let mal of malusList" class="row messageMalus ml-4 mr-4 -align-left">{{mal.message}}
+          </div>
+        </div>
+      </div>
+
+
     </div>
+</div>
 
 
 
@@ -192,15 +216,3 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
-
-
-
-
-
-
-
-
-
-
-
-
