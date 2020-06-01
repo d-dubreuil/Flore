@@ -89,21 +89,14 @@
               </button>
             </div>
           </div>
-          <div class="row form-group">
-            <div class="column  ml-3" style="width: 89%;">
-              <label for="nomCarac">Nom de la caractéristique:</label>
-              <select class="form-control" id="nomCarac" name="nomCarac" [(ngModel)]="caracForm.nom">
-                <option value="">Veuillez sélectionner un type de caractéristique</option>
-                <option *ngFor="let car of doublons()"
-                        [value]="car">{{car}}</option>
-              </select>
-            </div>
-            <div class="column mt-2 ">
-              <div><br></div>
-              <button class="btn" style="background-color :#8bc34a; color: black"
-                      (click)="loadNomCarac(caracForm.typeCarac, caracForm.nom)">Valider
-              </button>
-            </div>
+          <div class="form-group">
+            <label for="nomCarac">Nom de la caractéristique:</label>
+            <select class="form-control" id="nomCarac" name="nomCarac" [(ngModel)]="caracForm.nom">
+              <option value="">Veuillez sélectionner un type de caractéristique</option>
+              <option *ngFor="let nomCarac of doublons()"
+                      [value]="nomCarac">{{nomCarac}}</option>
+            </select>
+            <button (click)="loadNomCarac(caracForm.typeCarac, caracForm.nom)">Cliquer</button>
           </div>
           <div class="row form-group">
             <div class="column  ml-3" style="width: 89%;">

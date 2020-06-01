@@ -1,5 +1,7 @@
 package flore.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -7,7 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -28,6 +34,10 @@ public class Commande {
 	private TypeEnvoi typeEnvoi;
 	@JsonView(Views.ViewCommon.class)
 	private Float total;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonView(Views.ViewCommon.class)
+	private Date dtCommande;
 
 	@OneToOne
 	@JoinColumn(name = "paiement_id")

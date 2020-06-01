@@ -27,6 +27,8 @@ export class CompteUtilisateurComponent implements OnInit {
   carac: Array<Caracteristique> = new Array<Caracteristique>();
   fauneForm: Faune = null;
   conseilForm: Conseil = null;
+  listValue: Array<string> = new Array<string>();
+
 
   constructor(private floreService: FloreService, private fauneService: FauneService, private conseilService: ConseilService, private titleService: Title, private caracteristiqueService: CaracteristiqueService, private commonService: CommonService) {
     this.titleService.setTitle('CompteUtilisateur');
@@ -40,33 +42,28 @@ export class CompteUtilisateurComponent implements OnInit {
   loadTypeCarac(typeCarac: string) {
     this.caracteristiqueService.findByType(typeCarac).subscribe(resp => {
       this.carac = resp;
+      console.log(resp);
     }, error => console.log(error));
   }
 
   doublons() {
     let number = 0;
+    console.log("1" + this.listNom);
+    console.log("2" + this.listValue);
+
     for (let car of this.carac) {
       this.listNom.push(car.nom);
     }
-    console.log(this.listNom);
-    for (let car2 of this.listNom) {
-      console.log(car2);
-      if (number == 0) {
-        number = number + 1;
-        this.nomCarac.push(car2);
-        console.log(123);
-      }
-      for (let car3 of this.nomCarac) {
-        console.log(car3);
-        if (car2 !== car3) {
-          this.nomCarac.push(car2);
-          console.log('##');
-        }
+
+    for (let element of this.listNom) {
+      if (!this.listValue.includes(element)) {
+        this.listValue.push(element);
       }
     }
-    return this.nomCarac;
 
-
+    console.log("3" + this.listNom);
+    console.log("4" +this.listValue);
+    return this.listValue;
   }
 
   loadNomCarac(typeCarac: string, nom: string) {
