@@ -184,7 +184,7 @@ export class FloreComponent implements OnInit {
   list(): Array<Flore> {
     return this.floreService.findAll().sort(function(a,b) {
       return a.nom.localeCompare(b.nom);
-    });;
+    });
   }
 
   search() {

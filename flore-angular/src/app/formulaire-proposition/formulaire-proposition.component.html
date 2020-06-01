@@ -1,1 +1,905 @@
-<p>formulaire-proposition works!</p>
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Prénom</h1>
+      <h2 class="hr ">Merci pour ta proposition, <br>à très vite !</h2>
+    </div>
+  </div>
+</div>
+
+<!-- ADMINISTRATEUR -->
+<br><br>
+<div class="colum mt-5">
+  <div id="accordion">
+
+    <!--FLORE-->
+    <div>
+      <div class="mx-5 " id="sideBar" style="background-color:#8bc34a">
+        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
+          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
+                  data-toggle="collapse" data-target="#detailFlore" aria-expanded="true" aria-controls="detailFlore">1. PROPOSER UNE FICHE FLORE
+          </button>
+        </h5>
+      </div>
+      <div id="detailFlore" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >
+
+          <div class="row" >
+            <!--COLONNE GAUCHE -->
+            <div id="connect" class="column ml-5 pl-5" style="width: 45%;">
+              <h4 class="mt-3">1. Titre</h4>
+              <div class="column mt-3 ml-4">
+                <div class="form-inline mr-2">
+                  <div class="column" style="width: 31%; font-size: 22px;">
+                    <label for="nom" >Nom :</label>
+                  </div>
+                  <div class="column" style="width: 62%;">
+                    <input type="text" class="form-control ml-5 pl-2" id="nom" name="nom" style="width: 80%">
+                  </div>
+                </div>
+              </div>
+              </div>
+
+            <!--COLONNE DROITE -->
+            <div id="connect" class="column" style="width: 45%">
+              <h4 class="mt-3"><br></h4>
+              <div class="column mt-3">
+                <div class="form-inline mr-2">
+                  <div class="column" style="width: 31%; font-size: 22px;">
+                    <label for="latin">Nom latin :</label>
+                  </div>
+                  <div class="column " style="width: 62%;">
+                    <input type="text" class="form-control ml-5" id="latin" name="latin" style="width: 80%">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row" >
+            <!--COLONNE GAUCHE -->
+            <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+              <h4 class="mt-3">2. Flore</h4>
+              <div class="column mt-3 ml-4">
+                <div class="form-inline mr-2">
+                  <div class="column" style="width: 31%; font-size: 22px;">
+                    <label for="famille" >Famille :</label>
+                  </div>
+                  <div class="column" style="width: 62%;">
+                    <input type="text" class="form-control ml-5 pl-2" id="famille" name="famille" style="width: 80%">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--COLONNE DROITE -->
+            <div id="connect" class="column" style="width: 45%">
+              <h4 class="mt-3"><br></h4>
+              <div class="column mt-4 ml-2">
+                <div class="form-inline mr-2">
+                  <div class="column" style="width: 35%; font-size: 22px;">
+                    <label for="especes">Espèces :</label>
+                  </div>
+                  <div class="column ml-3 pl-2" style="width: 60%;">
+                    <select class="form-control" id="especes" style="width: 85%;">
+                      <option value=""></option>
+                      <option value="1">Fruits</option>
+                      <option value="2">Légumes</option>
+                      <option value="3">Aromatiques</option>
+                      <option value="4">Céréales</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+        <div class="row" >
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4" style="font-size: 22px;">
+              <h4>Caractéristiques</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="vege">Végétations :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="vege" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Annuelle</option>
+                    <option value="2">Bi-annuelle</option>
+                    <option value="3">Vivace</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 35%; font-size: 22px;">
+                  <label for="remontant">Remontant :</label>
+                </div>
+                <div class="column ml-3 pl-2" style="width: 60%;">
+                  <select class="form-control" id="remontant" style="width: 85%;">
+                    <option value=""></option>
+                    <option value="1">Oui</option>
+                    <option value="2">Non</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="vege">Croissance :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="vege" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Lente</option>
+                    <option value="2">Normale</option>
+                    <option value="3">Rapide</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column" style="width: 45%">
+            <div class="column mt-4 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="hauteur">Hauteur :</label>
+                </div>
+                <div class="column " style="width: 62%;">
+                  <input type="text" class="form-control ml-5" id="hauteur" name="hauteur" style="width: 80%" placeholder="Indiquez min/max (cm)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="strate">Strate :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="strate" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Canopée</option>
+                    <option value="2">Couvre sol</option>
+                    <option value="3">Herbacée Basse</option>
+                    <option value="4">Herbacée Haute</option>
+                    <option value="5">Grimpante</option>
+                    <option value="6">Petits Arbres</option>
+                    <option value="7">Rhizosphère</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column" style="width: 45%">
+            <div class="column mt-4 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="diam">Diamètre :</label>
+                </div>
+                <div class="column " style="width: 62%;">
+                  <input type="text" class="form-control ml-5" id="diam" name="diam" style="width: 80%" placeholder="Indiquez min/max (cm)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="racine">Racines :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="racine" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Canopée</option>
+                    <option value="2">Couvre sol</option>
+                    <option value="3">Herbacée Basse</option>
+                    <option value="4">Herbacée Haute</option>
+                    <option value="5">Grimpante</option>
+                    <option value="6">Petits Arbres</option>
+                    <option value="7">Rhizosphère</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="reprod">Reproduction :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="reprod" style="width: 85%;">
+                    <option value=""></option>
+                    <option value="1">AutoFertile</option>
+                    <option value="2">AutoSterile</option>
+                    <option value="3">Dioïque</option>
+                    <option value="4">Allogame</option>
+                    <option value="5">Hybride Stérile</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="azote">Azote :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="azote" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Fixateur</option>
+                    <option value="2">Dévoreur</option>
+                    <option value="3">Inhibiteur</option>
+                    <option value="4">Neutre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="nutri">Nutriment :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="nutri" style="width: 85%;">
+                    <option value=""></option>
+                    <option value="1">Fixateur</option>
+                    <option value="2">Dévoreur</option>
+                    <option value="3">Neutre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4" style="font-size: 22px;">
+              <h4>Période de plantation</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="dPlant">Début :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="dPlant" style="width: 89%;">
+                    <option value="">Sélectionnez un mois</option>
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="fPlant">Fin :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="fPlant" style="width: 85%;">
+                    <option value="">Sélectionnez un mois</option>
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4" style="font-size: 22px;">
+              <h4>Période de récolte</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="dReco">Début :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="dReco" style="width: 89%;">
+                    <option value="">Sélectionnez un mois</option>
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="fReco">Fin :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="fReco" style="width: 85%;">
+                    <option value="">Sélectionnez un mois</option>
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4" style="font-size: 22px;">
+              <h4>Sol</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="texture">Texture :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="texture" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Argileux</option>
+                    <option value="2">Limoneux</option>
+                    <option value="3">Sableux</option>
+                    <option value="4">Argileux Limoneux</option>
+                    <option value="5">Argileux Sableux</option>
+                    <option value="6">Limoneux Sableux</option>
+                    <option value="7">Argileux Limoneux Sableux</option>
+                    <option value="8">Humifère</option>
+                    <option value="9">Calcaire</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="ph">pH :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="ph" style="width: 85%;">
+                    <option value=""></option>
+                    <option value="1">Très acide </option>
+                    <option value="2">Acide</option>
+                    <option value="3">Neutre</option>
+                    <option value="4">Basique</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="humidite">Humidité :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="humidite" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Sec</option>
+                    <option value="2">Drainé</option>
+                    <option value="3">Humide</option>
+                    <option value="4">Très humide</option>
+                    <option value="5">Aquatique</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="arrosage">Arrosage :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="arrosage" style="width: 85%;">
+                    <option value=""></option>
+                    <option value="1">Faible</option>
+                    <option value="2">Modéré</option>
+                    <option value="3">Important</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4" style="font-size: 22px;">
+              <h4>Conditions</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="climat">Climat :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="climat" style="width: 89%;">
+                    <option value=""></option>
+                    <option value="1">Océanique</option>
+                    <option value="2">Semi-Océanique</option>
+                    <option value="3">Montagnard</option>
+                    <option value="4">Méditerranéen</option>
+                    <option value="5">Continental</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="soleil">Ensoleillement :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="soleil" style="width: 85%;">
+                    <option value=""></option>
+                    <option value="1">Plein soleil</option>
+                    <option value="2">Soleil</option>
+                    <option value="3">Mi ombre</option>
+                    <option value="4">Ombre</option>
+                    <option value="5">Plein ombre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="vent">Vent :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 60%;">
+                  <select class="form-control" id="vent" style="width: 89%;">
+                    <option value="">Résistance</option>
+                    <option value="1">Faible</option>
+                    <option value="2">Modérée</option>
+                    <option value="3">Importante</option>
+                    <option value="4">Brise-vent</option>
+                    <
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column mt-2" style="width: 45%">
+            <div class="column mt-3 ml-2">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 36%; font-size: 22px;">
+                  <label for="froid">Froid :</label>
+                </div>
+                <div class="column ml-3 pl-1" style="width: 60%;">
+                  <select class="form-control" id="froid" style="width: 85%;">
+                    <option value="">Résistance</option>
+                    <option value="1">Faible</option>
+                    <option value="2">Modérée</option>
+                    <option value="3">Importante</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4" style="font-size: 22px;">
+              <h4>Températures</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="tmin" >Minimale :</label>
+                </div>
+                <div class="column" style="width: 62%;">
+                  <input type="text" class="form-control ml-5 pl-2" id="tmin" name="tmin" style="width: 80%">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column" style="width: 45%">
+            <div class="column mt-3">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="tmax">Maximale :</label>
+                </div>
+                <div class="column " style="width: 62%;">
+                  <input type="text" class="form-control ml-5" id="tmax" name="tmax" style="width: 80%">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" >
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4" style="font-size: 22px;">
+              <h4>Affinités avec d'autres plantes</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 90%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 12%; font-size: 22px;">
+                  <label for="kompagnes">Kompagnes :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 86%;">
+                  <input type="text" class="form-control ml-5 pl-2" id="kompagnes" name="kompagnes" style="width: 90%" placeholder="Plante kompagne 1; Plante kompagne 2; ... ">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column mt-2 ml-5 pl-5" style="width: 90%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 12%; font-size: 22px;">
+                  <label for="ennemies">Ennemies :</label>
+                </div>
+                <div class="column ml-2 pl-3" style="width: 86%;">
+                  <input type="text" class="form-control ml-5 pl-2" id="ennemies" name="ennemies" style="width: 90%" placeholder="Plante ennemie 1; Plante ennemie 2; ... ">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column ml-5 pl-5" style="width: 45%;">
+            <h4 class="mt-3">3. Faune</h4>
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="attrac" >Attraction :</label>
+                </div>
+                <div class="column" style="width: 62%;">
+                  <input type="text" class="form-control ml-5 pl-2" id="attrac" name="attrac" style="width: 80%">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column" style="width: 45%">
+            <h4 class="mt-3"><br></h4>
+            <div class="column mt-3">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="repuls">Répulsion :</label>
+                </div>
+                <div class="column " style="width: 62%;">
+                  <input type="text" class="form-control ml-5" id="repuls" name="repuls" style="width: 80%">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <!--COLONNE GAUCHE -->
+          <div id="connect" class="column ml-5 pl-5" style="width: 45%;">
+            <div class="column mt-3 ml-4">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="polli" >Pollinisateurs :</label>
+                </div>
+                <div class="column" style="width: 62%;">
+                  <input type="text" class="form-control ml-5 pl-2" id="polli" name="polli" style="width: 80%">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--COLONNE DROITE -->
+          <div id="connect" class="column" style="width: 45%">
+            <div class="column mt-3">
+              <div class="form-inline mr-2">
+                <div class="column" style="width: 31%; font-size: 22px;">
+                  <label for="nuisible">Nuisibles :</label>
+                </div>
+                <div class="column " style="width: 62%;">
+                  <input type="text" class="form-control ml-5" id="nuisible" name="nuisible" style="width: 80%">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--FAUNE-->
+    <div>
+      <div class="mx-5 mt-5" id="sideBar" style="background-color:#8bc34a">
+        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
+          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
+                  data-toggle="collapse" data-target="#detailFaune" aria-expanded="true" aria-controls="detailFaune">2. PROPOSER UNE FICHE FAUNE
+          </button>
+
+        </h5>
+      </div>
+      <div id="detailFaune" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >
+        <div>
+          <div class="row" >
+            <!--COLONNE GAUCHE -->
+            <div id="connect" class="column ml-5 pl-5" style="width: 45%;">
+              <h4 class="mt-3">1. Titre</h4>
+              <div class="column mt-3 ml-4">
+                <div class="form-inline mr-2">
+                  <div class="column" style="width: 31%; font-size: 22px;">
+                    <label for="nom" >Nom :</label>
+                  </div>
+                  <div class="column" style="width: 62%;">
+                    <input type="text" class="form-control ml-5 pl-2" id="nom" name="nom" style="width: 80%">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--COLONNE DROITE -->
+            <div id="connect" class="column" style="width: 45%">
+              <h4 class="mt-3"><br></h4>
+              <div class="column mt-3">
+                <div class="form-inline mr-2">
+                  <div class="column" style="width: 31%; font-size: 22px;">
+                    <label for="latin">Nom latin :</label>
+                  </div>
+                  <div class="column " style="width: 62%;">
+                    <input type="text" class="form-control ml-5" id="latin" name="latin" style="width: 80%">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div>
+            <div class="row" >
+              <!--COLONNE GAUCHE -->
+              <div id="connect" class="column ml-5 pl-5" style="width: 45%;">
+                <h4 class="mt-3">2. Faune</h4>
+                <div class="column mt-3 ml-4">
+                  <div class="form-inline mr-2">
+                    <div class="column" style="width: 31%; font-size: 22px;">
+                      <label for="proie" >Proies :</label>
+                    </div>
+                    <div class="column" style="width: 62%;">
+                      <input type="text" class="form-control ml-5 pl-2" id="proie" name="proie" style="width: 80%">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--COLONNE DROITE -->
+              <div id="connect" class="column" style="width: 45%">
+                <h4 class="mt-3"><br></h4>
+                <div class="column mt-3">
+                  <div class="form-inline mr-2">
+                    <div class="column" style="width: 31%; font-size: 22px;">
+                      <label for="predat">Prédacteurs :</label>
+                    </div>
+                    <div class="column " style="width: 62%;">
+                      <input type="text" class="form-control ml-5" id="predat" name="predat" style="width: 80%">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row" >
+              <!--COLONNE GAUCHE -->
+              <div id="connect" class="column ml-5 pl-5" style="width: 45%;">
+                <h4 class="mt-3">3. Flore</h4>
+                <div class="column mt-3 ml-4">
+                  <div class="form-inline mr-2">
+                    <div class="column" style="width: 31%; font-size: 22px;">
+                      <label for="attire" >Attiré par :</label>
+                    </div>
+                    <div class="column" style="width: 62%;">
+                      <input type="text" class="form-control ml-5 pl-2" id="attire" name="attire" style="width: 80%">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--COLONNE DROITE -->
+              <div id="connect" class="column" style="width: 45%">
+                <h4 class="mt-3"><br></h4>
+                <div class="column mt-3">
+                  <div class="form-inline mr-2">
+                    <div class="column" style="width: 31%; font-size: 22px;">
+                      <label for="repousse">Repoussé par :</label>
+                    </div>
+                    <div class="column " style="width: 62%;">
+                      <input type="text" class="form-control ml-5" id="repousse" name="repousse" style="width: 80%">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="row" >
+    <div class="column" style="width:5%"></div>
+    <div class="column mt-4"  >
+      <div class="form-inline mr-5">
+        <div class="column">
+          <button [routerLink]="'/NPK/espace-client/contact'" type="submit" id="btnRetour" class="btn mt-2" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
+            <i class="fas fa-angle-left mx-3"></i>Revenir au menu Contact
+          </button>
+        </div>
+      </div>
+    </div>
+</div>

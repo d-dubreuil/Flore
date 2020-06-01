@@ -24,6 +24,10 @@ import {FicheComponent} from "./fiche/fiche.component";
 import {ContributionComponent} from "./contribution/contribution.component";
 import {MessagerieComponent} from "./messagerie/messagerie.component";
 import {FormulairePropositionComponent} from "./formulaire-proposition/formulaire-proposition.component";
+import {NouveauMessageComponent} from "./nouveau-message/nouveau-message.component";
+import {JardinFloreComponent} from "./jardin-flore/jardin-flore.component";
+import {JardinFauneComponent} from "./jardin-faune/jardin-faune.component";
+import {JardinEnvironnementComponent} from "./jardin-environnement/jardin-environnement.component";
 
 const routes: Routes = [
   {path: 'NPK/accueil', component: HomeComponent},
@@ -48,9 +52,13 @@ const routes: Routes = [
   {path: 'NPK/espace-client/fiches/contributions', component: ContributionComponent},
   {path: 'NPK/espace-client/historique', component: HistoriqueComponent},
   {path: 'NPK/espace-client/mon-petit-jardin', component: JardinComponent},
+  {path: '/NPK/espace-client/jardin/flore', component: JardinFloreComponent},
+  {path: '/NPK/espace-client/jardin/faune', component: JardinFauneComponent},
+  {path: '/NPK/espace-client/jardin/environnement', component: JardinEnvironnementComponent},
   {path: 'NPK/espace-client/commandes', component: CommandeComponent},
   {path: 'NPK/espace-client/contact', component: ContactComponent},
   {path: 'NPK/espace-client/contact/messagerie', component: MessagerieComponent},
+  {path: 'NPK/espace-client/contact/messagerie/nouveau-message', component: NouveauMessageComponent},
   {path: 'NPK/espace-client/contact/proposition-fiche', component: FormulairePropositionComponent}
 ];
 
