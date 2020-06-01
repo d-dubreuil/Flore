@@ -26,9 +26,7 @@ public class Utilisateur {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
-	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewCommon.class)
-	private TypeUtilisateur disc;
+	//Disc suppr
 	@OneToOne
 	@JoinColumn(name = "compteUtilisateurId")
 	@JsonView({Views.ViewUtilisateur.class,Views.ViewPanier.class})
@@ -46,11 +44,7 @@ public class Utilisateur {
 	public Utilisateur() {
 		super();
 	}
-	public Utilisateur(TypeUtilisateur disc) {
-		super();
-		this.disc = disc;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -58,14 +52,7 @@ public class Utilisateur {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public TypeUtilisateur getDisc() {
-		return disc;
-	}
 
-	public void setDisc(TypeUtilisateur disc) {
-		this.disc = disc;
-	}
 
 	public CompteUtilisateur getCompteUtilisateur() {
 		return compteUtilisateur;
@@ -133,7 +120,7 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [id=" + id + ", disc=" + disc + "]";
+		return "Utilisateur [id=" + id + "]";
 	}
 
 }

@@ -1915,3 +1915,6 @@ INSERT INTO flore (id, version, nom)
 	(188, 0,46,67,21),
 	(189, 0,46,93,21);
 	
+ALTER SEQUENCE hibernate_sequence START 2000;
+
+	
