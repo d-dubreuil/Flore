@@ -36,7 +36,6 @@ import { ContributionComponent } from './contribution/contribution.component';
 import { FormulairePropositionComponent } from './formulaire-proposition/formulaire-proposition.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { NouveauMessageComponent } from './nouveau-message/nouveau-message.component';
-import { JardinFlorComponent } from './jardin-flor/jardin-flor.component';
 import { JardinFloreComponent } from './jardin-flore/jardin-flore.component';
 import { JardinFauneComponent } from './jardin-faune/jardin-faune.component';
 import { JardinEnvironnementComponent } from './jardin-environnement/jardin-environnement.component';
@@ -75,7 +74,6 @@ import { JardinEnvironnementComponent } from './jardin-environnement/jardin-envi
     FormulairePropositionComponent,
     MessagerieComponent,
     NouveauMessageComponent,
-    JardinFlorComponent,
     JardinFloreComponent,
     JardinFauneComponent,
     JardinEnvironnementComponent
