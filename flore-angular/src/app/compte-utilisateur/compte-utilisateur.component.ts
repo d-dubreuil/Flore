@@ -52,6 +52,8 @@ export class CompteUtilisateurComponent implements OnInit {
   nomFloreBoolean: boolean = false;
   nomFauneBoolean: boolean = false;
   nomConseilBoolean: boolean = false;
+  listFloreVisible: boolean = false;
+  listFauneVisible: boolean = false;
 
 
   constructor(private floreService: FloreService, private fauneService: FauneService, private conseilService: ConseilService, private titleService: Title, private caracteristiqueService: CaracteristiqueService, private commonService: CommonService, private referentielCaracteristiqueService: ReferentielCaracteristiqueService) {
@@ -80,6 +82,16 @@ export class CompteUtilisateurComponent implements OnInit {
     this.floreService.findByNom(nom).subscribe(resp => {
       this.nomFloreSearch = resp;
     }, error => console.log('erreur nom flore'));
+  }
+
+  loadListFlore() {
+    this.listFloreVisible = true;
+    this.floreService.findAll();
+  }
+
+  loadListFaune() {
+    this.listFauneVisible = true;
+    this.fauneService.findAll();
   }
 
 //AUTRES METHODES

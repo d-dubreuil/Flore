@@ -348,19 +348,33 @@
           <i class="fa fa-undo"></i>
         </a>
       </div>
+
+      <div class="btn-group btn-group-lg float-left">
+        <!--Bouton FLORE-->
+        <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
+           (click)="loadListFlore()">
+          <i class="fas fa-seedling"></i>
+        </a>
+        <!--Bouton FAUNE-->
+        <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
+           (click)="loadListFaune()">
+          <i class="fas fa-bug"></i>
+        </a>
+      </div>
     </div>
 
   </div>
 
   <!--BLOC 4 : 4. Liste des flores-->
-  <div class="row card mt-3 m-5 bg-transparent align-items-center justify-content-center">
+  <div class="row border card mt-3 m-5 bg-transparent align-items-center justify-content-center">
     <!--4.1 Liste des flores-->
-    <div class="column card m-3 bg-transparent align-items-center justify-content-center" style="width: 35%">
+    <div class="column card mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 45%"
+         *ngIf="listFloreVisible">
       <!--Header-->
       <h2 class="my-3" style="text-align: center">
         <p>Liste des fiches flores</p></h2>
       <!--Body-->
-      <div class="card-body ml-3 mr-3 align-items-center justify-content-center" style="width: 100%">
+      <div class="card-body border" style="width: 100%">
         <table class="table border table-striped" style="width: 100%">
           <thead>
           <tr>
@@ -398,12 +412,12 @@
     </div>
 
     <!--4.2 Liste des faunes-->
-    <div class="column card m-3 bg-transparent align-items-center justify-content-center" style="width: 35%">
+    <div class="column card mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 45%" *ngIf="listFauneVisible">
       <!--Header-->
       <h2 class="my-3" style="text-align: center">
         <p>Liste des fiches faunes</p></h2>
       <!--Body-->
-      <div class="card-body ml-3 mr-3 align-items-center justify-content-center" style="width: 100%">
+      <div class="card-body border" style="width: 100%">
         <table class="table border table-striped" style="width: 100%">
           <thead>
           <tr>
@@ -414,22 +428,22 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let faune of listFaune()">
-            <td>{{faune.id}}</td>
-            <td>{{faune.version}}</td>
-            <td>{{faune.nomFaune}}</td>
-            <td>
-              <div class="btn-group btn-group-sm">
-                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
-                   (click)="editFlore(faune.id)">
-                  <i class="fa fa-edit"></i>
-                </a>
-                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
-                   (click)="deleteFlore(faune.id)"><i
-                  class="fa fa-trash"></i></a>
-              </div>
-            </td>
-          </tr>
+          <!--            <tr *ngFor="let faune of listFaune()">-->
+          <!--              <td>{{faune.id}}</td>-->
+          <!--              <td>{{faune.version}}</td>-->
+          <!--              <td>{{faune.nomFaune}}</td>-->
+          <!--              <td>-->
+          <!--                <div class="btn-group btn-group-sm">-->
+          <!--                  <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"-->
+          <!--                     (click)="editFlore(faune.id)">-->
+          <!--                    <i class="fa fa-edit"></i>-->
+          <!--                  </a>-->
+          <!--                  <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"-->
+          <!--                     (click)="deleteFlore(faune.id)"><i-->
+          <!--                    class="fa fa-trash"></i></a>-->
+          <!--                </div>-->
+          <!--              </td>-->
+          <!--            </tr>-->
           </tbody>
         </table>
       </div>
