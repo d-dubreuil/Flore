@@ -57,7 +57,7 @@
           {{selec.produit.fournisseur}}
         </div>
         <div class="column text-center align-items-center" style="width: 15%">
-          Quantité : <input type="number" [(ngModel)]="selec.nombre" style="width: 40%" (click)="calcul()"/>
+          Quantité : <input type="number" [(ngModel)]="selec.nombre" style="width: 40%" (change)="calcul()"/>
         </div>
         <div class="column text-center align-items-center" style="width: 25%">
           Prix total = {{(selec.produit.prix * selec.nombre).toFixed(2)}} €
@@ -81,24 +81,107 @@
     </div>
   </div>
   <div class="row justify-content-center mt-3" *ngIf="etapePanier==3">
-    <div class="column" style="width: 85%" id="modeDeLivraison">
-      <div class=" justify-content-center">
-        <div class="column" style="width: 30%"><input type="radio" id="collissimo" name="modeDeLivraison" value="collissimo"><label
+    <form class="column" style="width: 85%" id="modeDeLivraison" name="modeDeLivraison"
+         (change)="calcul()">
+      <div class="row justify-content-center">
+        <div class="column" style="width: 30%"><input type="radio" id="collissimo" name="modeDeLivraison"
+                                                      value="collissimo" (click)="fraisLivraison=2;typeEnvoi='Colissimo'"><label
           for="collissimo">Collissimo</label></div>
-        <div class="column"style="width: 30%">1-2 jours ouvrés</div>
-        <div class="column"style="width: 30%">2€ de livraison</div>
+        <div class="column" style="width: 30%">1-2 jours ouvrés</div>
+        <div class="column" style="width: 30%">2€ de livraison</div>
       </div>
-      <div class=" justify-content-center">
-        <div class="column"><input type="radio" id="pointRelais" name="modeDeLivraison" value="pointRelais"> <label
+      <div class="row justify-content-center">
+        <div class="column" style="width: 30%"><input type="radio" id="pointRelais" name="modeDeLivraison"
+                                                      value="pointRelais" (click)="fraisLivraison=1;typeEnvoi='Points relais'"> <label
           for="pointRelais">Points relais </label></div>
-        <div class="column">3-4 jours ouvrés</div>
-        <div class="column">1€ de livraison</div>
+        <div class="column" style="width: 30%">3-4 jours ouvrés</div>
+        <div class="column" style="width: 30%">1€ de livraison</div>
       </div>
-      <div class=" justify-content-center" style="width: 100%">
-        <div class="column"><input type="radio" id="clickAndCollect" name="modeDeLivraison"
-                                   value="clickAndCollect"><label for="clickAndCollect"> Click and Collect</label></div>
-        <div class="column">+2 heures</div>
-        <div class="column">Gratuit</div>
+      <div class="row justify-content-center">
+        <div class="column" style="width: 30%"><input type="radio" id="clickAndCollect" name="modeDeLivraison"
+                                                      value="clickAndCollect" (click)="fraisLivraison=0;typeEnvoi='Click and Collect'"><label
+          for="clickAndCollect"> Click and
+          Collect</label></div>
+        <div class="column" style="width: 30%">+2 heures</div>
+        <div class="column" style="width: 30%">Gratuit</div>
+      </div>
+    </form>
+  </div>
+  <div class="row justify-content-center mt-3" *ngIf="etapePanier==4">
+    <div class="column" style="width: 85%" id="paiement">
+      <div class="row justify-content-center">
+        <div class="column" style="width: 30%"><input type="radio" id="paypal" name="paiement"
+                                                      value="collissimo" (click)="suppressionForm();typeCarte='Paypal'"><label
+          for="paypal">Paypal</label></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="column" style="width: 30%"><input type="radio" id="virementBancaire" name="paiement"
+                                                      value="pointRelais" (click)="suppressionForm();typeCarte='Virement bancaire'"> <label
+          for="virementBancaire">Virement bancaire</label></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="column" style="width: 30%"><input type="radio" id="carteBleue" name="paiement"
+                                                      value="clickAndCollect" (click)="creationForm();typeCarte='Carte Bleue'"><label
+          for="carteBleue"> Carte Bleue</label></div>
+      </div>
+      <div class="row justify-content-center" *ngIf="formPaiement">
+        <div class="column justify-content-center px-5 py-3 mb-2" id="formPaiement">
+          <div class="row justify-content-center">Numéro de carte bancaire <input class="mx-2" type="text"
+                                                                                  [(ngModel)]="formPaiement.numeroCarte">
+          </div>
+          <div class="row justify-content-center">Date de validité <input class="mx-2" type="text"
+                                                                          [(ngModel)]="formPaiement.dtValidite"></div>
+          <div class="row justify-content-center">Cryptogramme<input class="mx-2" type="text"
+                                                                     [(ngModel)]="formPaiement.cryptogramme"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3" *ngIf="etapePanier==5">
+    <div class="column" style="width: 85%" id="resumeCommande">
+      <div class="row justify-content-center align-items-center my-2">
+        <div class="column">
+          Résumé de la commande
+        </div>
+        <div class="column">
+          Passée le :
+        </div>
+        <div class="column">
+
+        </div>
+      </div>
+      <div *ngFor="let selec of selections" class="row justify-content-center align-items-center my-2">
+        <div class="column" *ngIf="selec.produit.faune" style="width: 10%">
+          <img src="{{filterCaracFaune(selec.produit.faune, 'Image')}}"
+               style="width: 50%; height: 45%"/>
+        </div>
+        <div class="column" *ngIf="selec.produit.flore" style="width: 10%">
+          <img src="{{filterCaracFlore(selec.produit.flore, 'Image')}}"
+               style="width: 50%; height: 45%"/>
+        </div>
+        <div class="column text-center align-items-center" *ngIf="selec.produit.faune" style="width: 15%">
+          {{selec.produit.faune.nomFaune}}
+        </div>
+        <div class="column text-center align-items-center" *ngIf="selec.produit.flore" style="width: 15%">
+          {{selec.produit.flore.nom}}
+        </div>
+        <div class="column text-center align-items-center" style="width: 15%">
+          {{selec.produit.fournisseur}}
+        </div>
+        <div class="column text-center align-items-center" style="width: 15%">
+          Quantité : {{selec.nombre}}
+        </div>
+        <div class="column text-center align-items-center" style="width: 25%">
+          Prix total = {{(selec.produit.prix * selec.nombre).toFixed(2)}} €
+        </div>
+      </div>
+      <div class="row justify-content-center align-items-center my-2 mx-3">
+        <div class="column text-center" style="width: 50%">
+          Mode de paiement : {{typeCarte}}
+        </div>
+        <div class="column text-center" style="width: 50%">
+          Type de livraison : {{typeEnvoi}}
+        </div>
       </div>
     </div>
   </div>
