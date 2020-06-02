@@ -35,6 +35,11 @@ import { FicheComponent } from './fiche/fiche.component';
 import { ContributionComponent } from './contribution/contribution.component';
 import { FormulairePropositionComponent } from './formulaire-proposition/formulaire-proposition.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
+import { NouveauMessageComponent } from './nouveau-message/nouveau-message.component';
+import { JardinFloreComponent } from './jardin-flore/jardin-flore.component';
+import { JardinFauneComponent } from './jardin-faune/jardin-faune.component';
+import { JardinEnvironnementComponent } from './jardin-environnement/jardin-environnement.component';
+import {Ng2CompleterModule} from "ng2-completer";
 
 @NgModule({
   declarations: [
@@ -68,14 +73,19 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
     ContributionComponent,
     filterByFirstLetterPipe,
     FormulairePropositionComponent,
-    MessagerieComponent
+    MessagerieComponent,
+    NouveauMessageComponent,
+    JardinFloreComponent,
+    JardinFauneComponent,
+    JardinEnvironnementComponent
     ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2CompleterModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

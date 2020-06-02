@@ -7,6 +7,7 @@ import {Faune} from '../model/Faune';
 import {Flore} from '../model/Flore';
 import {SelectionService} from '../services/selection.service';
 import {Utilisateur} from '../model/Utilisateur';
+import {Paiement} from '../model/Paiement';
 
 @Component({
   selector: 'app-panier',
@@ -20,7 +21,10 @@ export class PanierComponent implements OnInit {
   total: number = 0;
   id: number = 1;
   etapePanier: number = 1;
-
+  fraisLivraison:number = 0;
+  formPaiement:Paiement;
+  typeEnvoi:string;
+  typeCarte:string;
 
   constructor(private titleService: Title, private panierService: PanierService, private selectionService: SelectionService) {
     this.titleService.setTitle('Panier');
@@ -72,10 +76,18 @@ export class PanierComponent implements OnInit {
 
   etapeSuivante(){
     this.etapePanier = this.etapePanier + 1 ;
+
   }
 
   etapePrecedente(){
     this.etapePanier = this.etapePanier -1;
+    if(this.etapePanier == 2){
+      this.fraisLivraison=0;
+      this.calcul();
+    }
+    if(this.etapePanier == 3){
+      this.formPaiement=null;
+    }
   }
 
   confirmerAchat(){
@@ -89,5 +101,16 @@ export class PanierComponent implements OnInit {
       this.nombreArticle = this.nombreArticle + sel.nombre;
       this.total = (this.total + (sel.produit.prix * sel.nombre));
     }
+    this.total = this.total + this.fraisLivraison;
   }
+
+  creationForm(){
+    this.formPaiement = new Paiement();
+    this.formPaiement.montant = this.total;
+  }
+
+  suppressionForm(){
+    this.formPaiement = null;
+  }
+
 }
