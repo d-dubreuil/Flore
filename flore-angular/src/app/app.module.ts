@@ -33,6 +33,7 @@ import { InformationsPersonnellesComponent } from './informations-personnelles/i
 import { HistoriqueComponent } from './historique/historique.component';
 import { FicheComponent } from './fiche/fiche.component';
 import { ContributionComponent } from './contribution/contribution.component';
+import {Ng2CompleterModule} from "ng2-completer";
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { ContributionComponent } from './contribution/contribution.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2CompleterModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
