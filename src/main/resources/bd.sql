@@ -680,8 +680,8 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
     (133, 0, 'HauteurAMaturite', 'Flore', '60/150'),
     (134, 0, 'HauteurAMaturite', 'Flore', '150'),
     (138, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Faible'),
-    (139, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Modéré'),
-    (140, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Important'),
+    (139, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Modérée'),
+    (140, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Importante'),
 	(141, 0, 'Commentaires', 'Utilisation', ''),
 	(142, 0, 'Famille', 'Flore', 'Poacées'),
 	(148, 0, 'Famille', 'Flore', 'Fabacées'),--éloignés du 150--fixateur d'azote
@@ -1914,4 +1914,7 @@ INSERT INTO flore (id, version, nom)
 	(187, 0,46,56,21),
 	(188, 0,46,67,21),
 	(189, 0,46,93,21);
+	
+ALTER SEQUENCE hibernate_sequence START 2000;
+
 	

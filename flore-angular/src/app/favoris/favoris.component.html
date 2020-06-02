@@ -14,7 +14,7 @@
 
 <div class="row">
 
-  <!-- PAS DE FICHES ENREGISTREES -->
+  <!-- SI PAS DE FICHES ENREGISTREES -->
   <div class="column mt-5 ml-5" style="width: 100%">
     <div class="row ml-5" style="width: 100%">
       <div class="column" style="width: 20%"></div>
@@ -29,43 +29,46 @@
   </div>
 
   <!-- SI FICHES ENREGISTREES -->
-  <div class="column mt-5" style="width: 100%">
-    <table class="table ml-5 pl-3" style="width: 90%">
-      <thead>
-      <tr>
-        <th>A</th>
-        <th>B</th>
-        <th>C</th>
-        <th>D</th>
-      </tr>
-      </thead>
-      <tbody>
+  <div class="column mt-5 ml-5" style="width: 100%">
+    <div class="row ml-5" style="width: 100%">
+      <table class="table " style="width: 89%">
+        <thead>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <th></th>
+          <th>Nom de la flore</th>
+          <th>Date d'enregistrement</th>
+          <th></th>
+          <th>Supprimer</th>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img src="" style="width: 85%; height: 80%"/>
+            </td>
+            <td>
+              Nom de la fiche
+            </td>
+            <td style="font-style: italic;">
+              Enregistrée le + date
+            </td>
+            <td>
+              <a class="nav-link" [routerLink]="'/NPK/flore'">Fiche de la Flore</a>
+            </td>
+            <td>
+              <div>
+                <a id="btnGroup" class="btn ml-3"><i class="fa fa-trash"></i></a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 </div>
 
 <div class="row" >
   <div class="column" style="width:5%"></div>
-  <div class="column mt-4"  >
+  <div class="column mt-4 ml-2"  >
     <div class="form-inline mr-5">
       <div class="column">
         <button [routerLink]="'/NPK/espace-client/fiches'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
