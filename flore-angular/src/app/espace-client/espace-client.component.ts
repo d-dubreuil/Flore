@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Title} from "@angular/platform-browser";
 
 @Component({
@@ -7,6 +7,8 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./espace-client.component.scss']
 })
 export class EspaceClientComponent implements OnInit {
+  @Input()
+  prenom:string;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle("Compte Client");
