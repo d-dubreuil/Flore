@@ -1,4 +1,4 @@
-<div>
+<div xmlns="http://www.w3.org/1999/html">
   <div class="row justify-content-center align-items-center mt-4">
     <div class="column" style="width: 5%;"></div>
     <div class="column" style="width: 25%;">
@@ -13,130 +13,433 @@
 </div>
 
 <!-- ADMINISTRATEUR -->
-<br><br>
-<div class="colum mt-5">
-  <div id="accordion">
 
-    <!--ACCORDION 1 : Edition d'une fiche à partir de caractéristiques stockées-->
-    <!--Bandeau1-->
-    <div class="mx-5 " id="sideBar" style="background-color:#8bc34a">
-      <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
-        <button class="btn shadow-none collapsed"
-                style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
-                data-toggle="collapse" data-target="#editionFiche" aria-expanded="true"
-                aria-controls="editionFiche">1.
-          EDITION D'UNE FICHE
-        </button>
-      </h5>
-    </div>
-    <!--Contenu-->
-    <div id="editionFiche" class="collapse" aria-labelledby="sideBar" data-parent="#accordion">
-      <!--Contenu 1.1 : nom de la nouvelle fiche -->
-      <!--Mise au format CARD-->
-      <div class="card mt-3 m-5 bg-transparent">
-        <!--Header-->
-        <h2 class="my-3" style="text-align: center">
-          <p>Fiche : {{nomFiche}}</p></h2>
-        <!--Body-->
-        <div class="card-body">
-          <div class="form-group">
-            <label for="nom">Nom:</label>
-            <input type="text" class="form-control" id="nom" name="nom" placeholder="Veuillez donner un nom à la fiche"
-                   [(ngModel)]="nomFiche">
-          </div>
+<div class="colum mt-5">
+
+  <!--BLOC 1 : 1. Création d'une fiche-->
+  <div class="card mt-3 m-5 bg-transparent align-items-center justify-content-center">
+    <!--Header-->
+    <h2 class="my-3" style="text-align: center">
+      <p>Nom de la fiche :{{nomFiche}}</p></h2>
+    <!--Body-->
+    <div class="card-body border ml-5 mr-5 align-items-center justify-content-center" style="width: 70%">
+      <!--Flore-->
+      <div class="row form-group ml-5 mr-5 align-items-center justify-content-center">
+        <div class="column " style="width: 15%; height: 20%"><label for="nomFlore"><h5>Flore:</h5></label></div>
+        <div class="column  align-items-center justify-content-center" style="width: 70%; height: 20%">
+          <input type="text" class="form-control" id="nomFlore" name="nomFlore"
+                 placeholder="Veuillez donner un nom à la fiche"
+                 [(ngModel)]="nomFiche">
         </div>
-        <!--Footer-->
-        <div class="card-footer">
-          <!--Bouton ADD-->
-          <div class="btn-group btn-group-lg float-left">
-            <a class="btn btn-lg" style="background-color :#8bc34a; color: black" (click)="addCarac()"><i>Ajouter une
-              caractéristique</i></a>
-          </div>
-          <!--Boutons SAVE et CANCEL-->
-          <div class="btn-group btn-group-lg float-right">
-            <!--Bouton SAVE-->
-            <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-               (click)="saveNomFlore()">
-              <i class="fa fa-check"></i>
-            </a>
-            <!--Bouton CANCEL-->
-            <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
-               (click)="cancelFlore()">
-              <i class="fa fa-undo"></i>
-            </a>
-          </div>
+        <div class="column  btn-group float-left" style="width: 10%;">
+          <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="saveNomFlore()">
+            <i class="fa fa-check"></i>
+          </a>
+          <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="cancelNomFlore()">
+            <i class="fa fa-undo"></i>
+          </a>
         </div>
       </div>
-      <!--Contenu 1.2 caractéristiques de la nouvelle fiche-->
-      <!--Mise au format CARD-->
-      <div class="card mt-3 m-5 bg-transparent" *ngIf="caracForm">
-        <!--Header-->
-        <h2 class="my-3" style="text-align: center">Caractéristiques </h2>
-        <!--Body-->
-        <div class="card-body">
-          <div class="form-group">
-            <label for="typeCarac">Type de caractéristique:</label>
-            <select class="form-control" id="typeCarac" name="typeCarac" [(ngModel)]="caracForm.typeCarac">
+      <!--Faune-->
+      <div class="row form-group ml-5 mr-5 align-items-center justify-content-center">
+        <div class="column " style="width: 15%; height: 20%"><label for="nomFaune"><h5>Faune:</h5></label></div>
+        <div class="column  align-items-center justify-content-center" style="width: 70%; height: 20%">
+          <input type="text" class="form-control" id="nomFaune" name="nomFaune"
+                 placeholder="Veuillez donner un nom à la fiche"
+                 [(ngModel)]="nomFiche">
+        </div>
+        <div class="column  btn-group float-left" style="width: 10%;">
+          <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="saveNomFaune()">
+            <i class="fa fa-check"></i>
+          </a>
+          <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="cancelNomFaune()">
+            <i class="fa fa-undo"></i>
+          </a>
+        </div>
+      </div>
+      <!--Conseil-->
+      <div class="row form-group ml-5 mr-5 align-items-center justify-content-center">
+        <div class="column " style="width: 15%; height: 20%"><label for="nomConseil"><h5>Conseil:</h5></label></div>
+        <div class="column  align-items-center justify-content-center" style="width: 70%; height: 20%">
+          <input type="text" class="form-control" id="nomConseil" name="nomConseil"
+                 placeholder="Veuillez donner un nom à la fiche"
+                 [(ngModel)]="nomFiche">
+        </div>
+        <div class="column  btn-group float-left" style="width: 10%;">
+          <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="saveNomConseil()">
+            <i class="fa fa-check"></i>
+          </a>
+          <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="cancelNomConseil()">
+            <i class="fa fa-undo"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--Footer-->
+    <div class="border card-footer ml-5 mr-5 mb-5 align-items-center justify-content-center" style="width: 70%">
+      <!--Bouton ADD-->
+      <a class="btn btn-lg float-left ml-5" style="background-color :#8bc34a; color: black"
+         (click)="addCaracNomLatin()" (click)="addCarac()" data-toggle="tooltip"
+         data-placement="top" title="Ajouter une caractéristique"><i class="fas fa-arrow-down"></i></a>
+    </div>
+  </div>
+
+  <!--BLOC 2 : Création caractéristique + ajout attribut-->
+  <div class="row border mt-3 m-5 bg-transparent align-items-center justify-content-center">
+    <!--2.1 Création du nom latin-->
+    <div class="column card mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 40%"
+         *ngIf="caracFormLatinVisible">
+      <!--Header-->
+      <h2 class="my-3" style="text-align: center">
+        <p>Nom latin :{{nomLatin}}</p></h2>
+      <!--Body-->
+      <div class="card-body">
+        <div class="row form-group">
+          <div class="column  ml-3" style="width: 75%;">
+            <label>Type de caractéristique:</label>
+            <select class="form-control" [(ngModel)]="caracFormNomLatin.typeCarac">
               <option value="">Veuillez sélectionner un type de caractéristique</option>
               <option *ngFor="let typeCarac of typeCarac" [value]="typeCarac">{{typeCarac}}</option>
             </select>
-            <button (click)="loadTypeCarac(caracForm.typeCarac)">Cliquer</button>
           </div>
-          <div class="form-group">
-            <label for="nomCarac">Nom de la caractéristique:</label>
-            <select class="form-control" id="nomCarac" name="nomCarac" [(ngModel)]="caracForm.nom">
-              <option value="">Veuillez sélectionner un type de caractéristique</option>
+          <div class="column mt-2 ">
+            <div><br></div>
+            <button class="btn" style="background-color :#8bc34a; color: black"
+                    (click)="loadTypeCarac(caracFormNomLatin.typeCarac)">Valider
+            </button>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="column  ml-3" style="width: 75%;">
+            <label>Nom de la caractéristique:</label>
+            <select class="form-control" name="nomCarac" [(ngModel)]="caracFormNomLatin.nom">
+              <option value="">Veuillez sélectionner le nom de la caractéristique</option>
               <option *ngFor="let nomCarac of doublons()"
                       [value]="nomCarac">{{nomCarac}}</option>
             </select>
-            <button (click)="loadNomCarac(caracForm.typeCarac, caracForm.nom)">Cliquer</button>
           </div>
-          <div class="form-group">
-            <label for="valeur">Valeur de la caractéristique:</label>
-            <select class="form-control" id="valeur" name="valeur" [(ngModel)]="caracForm.valeur"
-            >
-              <option value="">Veuillez sélectionner un type de caractéristique</option>
-              <option *ngFor="let car of carac"
-                      [value]="car.valeur">{{car.valeur}}</option>
-            </select>
+          <div class="column mt-2 ">
+            <div><br></div>
+            <button class="btn" style="background-color :#8bc34a; color: black"
+                    (click)="loadNomCarac(caracFormNomLatin.typeCarac, caracFormNomLatin.nom)">Valider
+            </button>
           </div>
         </div>
-        <!--Footer-->
-        <div class="card-footer">
-          <!--Boutons SAVE et CANCEL-->
-          <div class="btn-group btn-group-lg float-right">
+        <div class="row form-group">
+          <div class="column  ml-3" style="width: 73%;">
+            <label>Valeur de la caractéristique:</label>
+            <input type="text" class="form-control" name="valeur"
+                   placeholder="Veuillez indiquer la valeur" [(ngModel)]="caracFormNomLatin.valeur">
+          </div>
+          <div class="column btn-group mt-4">
             <!--Bouton SAVE-->
-            <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
+            <a class="btn mt-2" style="background-color :#8bc34a; color: black; border-right-color: black"
                (click)="saveCarac()">
               <i class="fa fa-check"></i>
             </a>
             <!--Bouton CANCEL-->
-            <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
-               (click)="cancelCarac()">
+            <a class="btn mt-2" style="background-color :#8bc34a; color: black; border-left-color: black"
+               (click)="cancelLatinCarac()">
               <i class="fa fa-undo"></i>
             </a>
           </div>
         </div>
       </div>
+      <!--Footer-->
+      <div class="column card-footer border" style="width: 100%">
+        <!--Boutons NEW et LIEN-->
+        <!--Bouton LIEN-->
+        <a class="btn btn-lg float-left" style="background-color :#8bc34a; color: black" (click)="addLink()"
+           data-toggle="tooltip"
+           data-placement="top" title="Lier les caractéristiques aux fiches"><i class="fas fa-link"></i></a>
+        <!--        &lt;!&ndash;Bouton NEW&ndash;&gt;-->
+        <!--        <a class="btn btn-lg float-right" style="background-color :#8bc34a; color: black" (click)="addCarac()"-->
+        <!--           data-toggle="tooltip"-->
+        <!--           data-placement="top" title="Créer une nouvelle caractéristique"><i class="fas fa-plus"></i></a>-->
+      </div>
     </div>
 
-    <!--ACCORDION 2 : Création d'une nouvelle caractéristique-->
-    <!--Bandeau2-->
-    <div class="mx-5 mt-5" id="sideBar" style="background-color:#8bc34a">
-      <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
-        <button class="btn shadow-none collapsed"
-                style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
-                data-toggle="collapse" data-target="#editionCaracteristique" aria-expanded="true"
-                aria-controls="editionCaracteristique">2.
-          EDITION D'UNE CARACTERISTIQUE
-        </button>
-      </h5>
-    </div>
-    <!--Contenu2-->
-    <div id="editionCaracteristique" class="collapse" aria-labelledby="sideBar" data-parent="#accordion">
+    <!--2.2 Création d'une nouvelle caractéristique-->
+    <div class="column border card mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 40%"
+         *ngIf="caracFormVisible">
+      <!--Header-->
+      <h2 class="my-3" style="text-align: center">
+        <p>Création de la caractéristique:</p></h2>
+      <!--Body-->
+      <div class="card-body" style="width: 100%;">
+        <div class="row form-group">
+          <div class="column  ml-3" style="width: 90%;">
+            <label>Type de caractéristique:</label>
+            <input type="text" class="form-control" name="valeur"
+                   placeholder="Veuillez indiquer le type de caractéristique" [(ngModel)]="caracForm.typeCarac">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="column  ml-3" style="width: 90%;">
+            <label>Nom de la caractéristique:</label>
+            <input type="text" class="form-control" name="valeur"
+                   placeholder="Veuillez indiquer le nom de la caractéristique" [(ngModel)]="caracForm.nom">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="column  ml-3" style="width: 90%;">
+            <label>Valeur de la caractéristique:</label>
+            <input type="text" class="form-control" name="valeur"
+                   placeholder="Veuillez indiquer la valeur" [(ngModel)]="caracForm.valeur">
+          </div>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="card-footer border" style="width: 100%">
+        <!--        &lt;!&ndash;Bouton LIEN&ndash;&gt;-->
+        <!--        <a class="btn btn-lg float-left" style="background-color :#8bc34a; color: black" (click)="addLink()"-->
+        <!--           data-toggle="tooltip"-->
+        <!--           data-placement="top" title="Lier les caractéristiques aux fiches"><i class="fas fa-link"></i></a>-->
+        <!--Boutons SAVE et CANCEL-->
+        <div class="btn-group btn-group-lg float-right">
+          <!--Bouton SAVE-->
+          <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="saveCarac()">
+            <i class="fa fa-check"></i>
+          </a>
+          <!--Bouton CANCEL-->
+          <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="cancelCaracForm()">
+            <i class="fa fa-undo"></i>
+          </a>
+        </div>
+      </div>
+
 
     </div>
-
-    <!--Fin de l'accordion-->
   </div>
+
+  <!--BLOC 3 : 3. Création des liens-->
+  <div class="card mt-3 m-5 bg-transparent align-items-center justify-content-center" *ngIf="caracFormLinkVisible">
+    <!--Header-->
+    <h2 class="my-3" style="text-align: center">
+      <p>Création du lien:</p></h2>
+    <!--Body-->
+    <div class="card-body border ml-5 mr-5 align-items-center justify-content-center" style="width: 70%">
+
+      <!--Checkbox fiche flore/faune/conseil -->
+      <div class="row form-group align-items-center justify-content-center">
+        <div class="column  ml-3 mr-3 align-items-center justify-content-center" style="width: 75%;">
+          <div class="mt-3 ml-5 mr-5 ">
+            <div class="form-check-inline ml-5 mr-5">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio" (click)="addNomFlore()"
+                >Flore
+              </label>
+            </div>
+            <div class="form-check-inline ml-5 mr-5">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio" (click)="addNomFaune()">Faune
+              </label>
+            </div>
+            <div class="form-check-inline ml-5 mr-5">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio" (click)="addNomConseil()">Conseil
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Search fiche flore/faune/conseil-->
+      <div class="row form-group align-items-center justify-content-center">
+        <div class="column ml-3 mr-3" style="width: 100%;">
+          <div class="column mt-3" style="width: 100%;">
+            <div class="column mt-2" *ngIf="nomFloreBoolean">
+              <!--              <select class="form-control" id="nomFlore" name="nomFlore">-->
+              <!--                <option value="">Veuillez sélectionner une flore</option>-->
+              <!--                <option *ngFor="let nom of nomFlore" [value]="nom">{{nom}}</option>-->
+              <!--              </select>-->
+              <input class="form-control" type="text" placeholder="Entrez le nom de la flore"
+                     style="text-align: center; font-style: italic">
+              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%"
+                      (click)="loadNomFlore(floreForm.nom)">
+                <i class="fas fa-leaf" style="color: white"></i>
+              </button>
+            </div>
+            <div class="column mt-2" *ngIf="nomFauneBoolean">
+              <input class="form-control" type="text" placeholder="Entrez le nom de la faune"
+                     style="text-align: center; font-style: italic">
+              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%">
+                <i class="fas fa-leaf" style="color: white"></i>
+              </button>
+            </div>
+            <div class="column mt-2" *ngIf="nomConseilBoolean">
+              <input class="form-control" type="text" placeholder="Entrez le nom de la fiche conseil"
+                     style="text-align: center; font-style: italic">
+              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%">
+                <i class="fas fa-leaf" style="color: white"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--Select type caractéristique-->
+      <div class="row mt-2 form-group align-items-center justify-content-center">
+        <div class="column  align-items-center justify-content-center" style="width: 86%; height: 20%">
+          <label for="typeCarac">Type de caractéristique:</label>
+          <select class="form-control" id="typeCarac" name="typeCarac" [(ngModel)]="caracForm.typeCarac">
+            <option value="">Veuillez sélectionner un type de caractéristique</option>
+            <option *ngFor="let typeCarac of typeCarac" [value]="typeCarac">{{typeCarac}}</option>
+          </select>
+        </div>
+        <div class="column mt-2 ">
+          <div><br></div>
+          <button class="btn" style="background-color :#8bc34a; color: black"
+                  (click)="loadTypeCarac(caracForm.typeCarac)">Valider
+          </button>
+        </div>
+      </div>
+      <!--Select nom caractéristique-->
+      <div class="row form-group align-items-center justify-content-center">
+        <div class="column  align-items-center justify-content-center" style="width: 86%; height: 20%">
+          <label for="nomCarac">Nom de la caractéristique:</label>
+          <select class="form-control" id="nomCarac" name="nomCarac" [(ngModel)]="caracForm.nom">
+            <option value="">Veuillez sélectionner le nom de la caractéristique</option>
+            <option *ngFor="let nomCarac of doublons()"
+                    [value]="nomCarac">{{nomCarac}}</option>
+          </select>
+        </div>
+        <div class="column mt-2 ">
+          <div><br></div>
+          <button class="btn" style="background-color :#8bc34a; color: black"
+                  (click)="loadNomCarac(caracForm.typeCarac, caracForm.nom)">Valider
+          </button>
+        </div>
+      </div>
+      <!--Select valeur caractéristique-->
+      <div class="row form-group align-items-center justify-content-center">
+        <div class="column  align-items-center justify-content-center" style="width: 95%; height: 20%">
+          <label for="valeur">Valeur de la caractéristique:</label>
+          <select class="form-control" id="valeur" name="valeur" [(ngModel)]="caracForm.valeur">
+            <option value="">Veuillez sélectionner une valeur</option>
+            <option *ngFor="let car of carac"
+                    [value]="car.valeur">{{car.valeur}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <div class="border card-footer ml-5 mr-5 mb-5 align-items-center justify-content-center" style="width: 70%">
+      <!--Boutons SAVE et CANCEL-->
+      <div class="btn-group btn-group-lg float-right">
+        <!--Bouton SAVE-->
+        <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
+           (click)="saveCaracWithFlore()">
+          <i class="fa fa-check"></i>
+        </a>
+        <!--Bouton CANCEL-->
+        <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
+           (click)="cancelCaracFormLink()">
+          <i class="fa fa-undo"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!--BLOC 4 : 4. Liste des flores-->
+  <div class="row card mt-3 m-5 bg-transparent align-items-center justify-content-center">
+    <!--4.1 Liste des flores-->
+    <div class="column card m-3 bg-transparent align-items-center justify-content-center" style="width: 35%">
+      <!--Header-->
+      <h2 class="my-3" style="text-align: center">
+        <p>Liste des fiches flores</p></h2>
+      <!--Body-->
+      <div class="card-body ml-3 mr-3 align-items-center justify-content-center" style="width: 100%">
+        <table class="table border table-striped" style="width: 100%">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Version</th>
+            <th>Nom</th>
+            <th>Options</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let flore of listFlore()">
+            <td>{{flore.id}}</td>
+            <td>{{flore.version}}</td>
+            <td>{{flore.nom}}</td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
+                   (click)="editFlore(flore.id)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
+                   (click)="deleteFlore(flore.id)"><i
+                  class="fa fa-trash"></i></a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Footer-->
+      <!--      <div class="card-footer m-5">-->
+      <!--        <a class="btn btn-lg" style="background-color :#8bc34a; color: black" (click)="addFlore()"><i-->
+      <!--          class="fa fa-plus"></i></a>-->
+      <!--      </div>-->
+    </div>
+
+    <!--4.2 Liste des faunes-->
+    <div class="column card m-3 bg-transparent align-items-center justify-content-center" style="width: 35%">
+      <!--Header-->
+      <h2 class="my-3" style="text-align: center">
+        <p>Liste des fiches faunes</p></h2>
+      <!--Body-->
+      <div class="card-body ml-3 mr-3 align-items-center justify-content-center" style="width: 100%">
+        <table class="table border table-striped" style="width: 100%">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Version</th>
+            <th>Nom</th>
+            <th>Options</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let faune of listFaune()">
+            <td>{{faune.id}}</td>
+            <td>{{faune.version}}</td>
+            <td>{{faune.nomFaune}}</td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
+                   (click)="editFlore(faune.id)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
+                   (click)="deleteFlore(faune.id)"><i
+                  class="fa fa-trash"></i></a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Footer-->
+      <!--      <div class="card-footer m-5">-->
+      <!--        <a class="btn btn-lg" style="background-color :#8bc34a; color: black" (click)="addFlore()"><i-->
+      <!--          class="fa fa-plus"></i></a>-->
+      <!--      </div>-->
+    </div>
+  </div>
+
+
 </div>
