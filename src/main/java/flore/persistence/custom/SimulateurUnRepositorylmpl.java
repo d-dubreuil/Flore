@@ -1,6 +1,5 @@
 package flore.persistence.custom;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,24 +18,29 @@ import flore.web.dto.Malus;
 import flore.web.dto.SimulateurUn;
 
 @Repository
-public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom{
-	
+public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom {
 
-	
-	
 	@Autowired
 	private ICaracteristiqueRepository caracRepo;
 
 	@Override
 	public SimulateurUn synergieUn(String nomFlore1, String nomFlore2) {
 		SimulateurUn simu1 = new SimulateurUn();
-		
-		////////////On récupère les nom des deux plantes à comparer. ////////////
-		////////////On Récupère ensuite les caractéristiques qui leur sont associées et qui vont nous permettre de définir si il y a synergie ou non pour chaque caractéristique.////////////
-		///////////Pour chaque synergie bonus ou malus déterminée, on sauvegarde la caractéristique des plantes 1 et 2 ainsi qu'un message décrivant la synergie.////////////
-		///////////On affecte à un objet Bonus (de même pour Malus) la caractéristique 1 via son attribut codeUn, la caractéristique 2 via son attribut codeDeux et le message via son attribut message.////////////
-		///////////On affecte ensuite la liste des objets Bonus et la liste des objets Malus à un objet Simulateur1 qui sera renvoyé à la partie web.////////////
-		
+
+		//////////// On récupère les nom des deux plantes à comparer. ////////////
+		//////////// On Récupère ensuite les caractéristiques qui leur sont associées et
+		//////////// qui vont nous permettre de définir si il y a synergie ou non pour
+		//////////// chaque caractéristique.////////////
+		/////////// Pour chaque synergie bonus ou malus déterminée, on sauvegarde la
+		//////////// caractéristique des plantes 1 et 2 ainsi qu'un message décrivant la
+		//////////// synergie.////////////
+		/////////// On affecte à un objet Bonus (de même pour Malus) la caractéristique
+		//////////// 1 via son attribut codeUn, la caractéristique 2 via son attribut
+		//////////// codeDeux et le message via son attribut message.////////////
+		/////////// On affecte ensuite la liste des objets Bonus et la liste des objets
+		//////////// Malus à un objet Simulateur1 qui sera renvoyé à la partie
+		//////////// web.////////////
+
 //		String nomFlore1 = "Oignon";
 //		String nomFlore2 = "Carotte";
 
@@ -87,6 +91,9 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		List<Caracteristique> repulsFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Répulsion");
 		List<Caracteristique> repulsFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Répulsion");
 
+		List<Caracteristique> famFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Famille");
+		List<Caracteristique> famFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Famille");
+
 		/////////////////////////
 		// On affecte une valeur pour chacune des strat récupérée pour pouvoir les
 		///////////////////////// comparer plus facilement par la suite
@@ -95,35 +102,37 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		ArrayList<Integer> nbrstrat1 = new ArrayList<>();
 
 		for (Caracteristique stratnb : stratFlore1) {
-			if (stratnb.getValeur() == "Rhizosphère") {
+			System.out.println("1");
+			System.out.println(stratnb.getValeur());
+			if (stratnb.getValeur().equals("Rhizosphère")) {
 				nbrstrat1.add(0);
 			}
 
-			else if (stratnb.getValeur() == "Couvre-Sol") {
+			else if (stratnb.getValeur().equals("Couvre-Sol")) {
 				nbrstrat1.add(1);
 			}
 
-			else if (stratnb.getValeur() == "Herbacée Basse") {
+			else if (stratnb.getValeur().equals("Herbacée Basse")) {
 				nbrstrat1.add(2);
 			}
 
-			else if (stratnb.getValeur() == "Grimpante") {
+			else if (stratnb.getValeur().equals("Grimpante")) {
 				nbrstrat1.add(3);
 			}
 
-			else if (stratnb.getValeur() == "Herbacée Haute") {
+			else if (stratnb.getValeur().equals("Herbacée Haute")) {
 				nbrstrat1.add(4);
 			}
 
-			else if (stratnb.getValeur() == "Arbustive") {
+			else if (stratnb.getValeur().equals("Arbustive")) {
 				nbrstrat1.add(5);
 			}
 
-			else if (stratnb.getValeur() == "Petits Arbres") {
+			else if (stratnb.getValeur().equals("Petits Arbres")) {
 				nbrstrat1.add(6);
 			}
 
-			else if (stratnb.getValeur() == "Canopée") {
+			else if (stratnb.getValeur().equals("Canopée")) {
 				nbrstrat1.add(7);
 			}
 
@@ -132,47 +141,50 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		ArrayList<Integer> nbrstrat2 = new ArrayList<>();
 
 		for (Caracteristique stratnb2 : stratFlore2) {
-			if (stratnb2.getValeur() == "Rhizosphère") {
+			System.out.println("2");
+			System.out.println(stratnb2.getValeur());
+			if (stratnb2.getValeur().equals("Rhizosphère")) {
 				nbrstrat2.add(0);
 			}
 
-			else if (stratnb2.getValeur() == "Couvre-Sol") {
+			else if (stratnb2.getValeur().equals("Couvre-Sol")) {
 				nbrstrat2.add(1);
 			}
 
-			else if (stratnb2.getValeur() == "Herbacée Basse") {
+			else if (stratnb2.getValeur().equals("Herbacée Basse")) {
 				nbrstrat2.add(2);
 			}
 
-			else if (stratnb2.getValeur() == "Grimpante") {
+			else if (stratnb2.getValeur().equals("Grimpante")) {
 				nbrstrat2.add(3);
 			}
 
-			else if (stratnb2.getValeur() == "Herbacée Haute") {
-				nbrstrat1.add(4);
+			else if (stratnb2.getValeur().equals("Herbacée Haute")) {
+				nbrstrat2.add(4);
 			}
 
-			else if (stratnb2.getValeur() == "Arbustive") {
+			else if (stratnb2.getValeur().equals("Arbustive")) {
 				nbrstrat2.add(5);
 			}
 
-			else if (stratnb2.getValeur() == "Petits Arbres") {
+			else if (stratnb2.getValeur().equals("Petits Arbres")) {
 				nbrstrat2.add(6);
 			}
 
-			else if (stratnb2.getValeur() == "Canopée") {
+			else if (stratnb2.getValeur().equals("Canopée")) {
 				nbrstrat2.add(7);
 			}
 
 		}
+		
+		System.out.println(nbrstrat1);
+		System.out.println(nbrstrat2);
 
 		/////////////////////////
 		// On déclare la liste des objets bonus et malus.//
 		/////////////////////////
 		List<Bonus> bonusList = new ArrayList<Bonus>();
 		List<Malus> malusList = new ArrayList<Malus>();
-		
-		
 
 		//////////////////////////////////////////////////////
 		//// Synergies avec valeur similaire////
@@ -218,10 +230,10 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 					// plantes sont similaires(+-5°C) ou si les plages se recouvrent
 					if ((temp1Min >= temp2Min && temp1Max <= temp2Max) || (temp1Min <= temp2Min && temp1Max >= temp2Max)
 							|| (diffMin <= 5 || diffMax <= 5)) {
-						
+
 						bonus.setCaracUn(carac);
 						bonus.setCaracDeux(carac2);
-						message="Les deux plantes se développent de manière optimale sur une plage de température similaire.";
+						message = "La plage de température des deux plantes est optimale pour favoriser leur croissance.";
 						System.out.println(message);
 						bonus.setPoint(3);
 						bonus.setMessage(message);
@@ -229,7 +241,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 					} else {
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="Pour se développer de manière optimale, les deux plantes nécessitent une plage de température assez différente.";
+						message = "Pour se développer de manière optimale, les deux plantes nécessitent une plage de température assez différente.";
 						malus.setPoint(-3);
 						malus.setMessage(message);
 						malusList.add(malus);
@@ -256,6 +268,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 				Bonus bonus = new Bonus();
 				Malus malus = new Malus();
 				String message;
+				
 
 				if (carac.getValeur().equals("Peu Résistant") || carac2.getValeur().equals("Peu Résistant")) {
 
@@ -263,13 +276,14 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 						if ((strat.getValeur().equals("Canopée") || strat.getValeur().equals("Petits Arbres")
 								|| strat.getValeur().equals("Arbustive") || carac.getValeur().equals("Haie Brise-Vent"))
 								&& carac2.getValeur().equals("Peu Résistant")) {
-							
+
 							bonus.setCaracUn(carac);
 							bonus.setCaracDeux(carac2);
-							message="Il existe une synergie autour du "+ carac.getNom() + " car "+ nomFlore1 +" peut protéger " + nomFlore2 + " du vent.";
+							message = "La plante " + nomFlore1 + " est résistante au vent et peut protéger la plante "
+									+ nomFlore2 + ".";
 							bonus.setMessage(message);
-							bonus.setPoint(1);
-							bonusList.add(bonus);	
+							bonus.setPoint(2);
+							bonusList.add(bonus);
 							System.out.println(message);
 
 						}
@@ -279,13 +293,14 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 								|| strat2.getValeur().equals("Arbustive")
 								|| carac2.getValeur().equals("Haie Brise-Vent"))
 								&& carac.getValeur().equals("Peu Résistant")) {
-							
+
 							bonus.setCaracUn(carac);
 							bonus.setCaracDeux(carac2);
-							message="Il existe une synergie autour du "+ carac.getNom() + " car "+ nomFlore2 +" peut protéger " + nomFlore1 + " du vent.";
+							message = "La plante " + nomFlore2 + " est résistante au vent et peut protéger la plante "
+									+ nomFlore1 + ".";
 							bonus.setMessage(message);
-							bonus.setPoint(1);
-							bonusList.add(bonus);	
+							bonus.setPoint(2);
+							bonusList.add(bonus);
 							System.out.println(message);
 
 						}
@@ -303,63 +318,127 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		//// Ensoleillement////
 		/////////////////////////
 		int ensolCount = 0;
+		int ensolDoublon = 0;
 		for (Caracteristique carac : ensolFlore1) {
 			for (Caracteristique carac2 : ensolFlore2) {
 				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
 				String message;
+				System.out.println("allo1");
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Ensoleillement")) {
 					System.out.println("########");
-					if (carac2.getValeur().equals(carac.getValeur())) {
-						ensolCount++;
-						
-						bonus.setCaracUn(carac);
-						bonus.setCaracDeux(carac2);
-						message="Il existe une synergie positive autour de l'ensoleillement car " + nomFlore1 +" et " + nomFlore2 + " ont besoin de "+ carac.getValeur()+".";
-						bonus.setMessage(message);
-						bonus.setPoint(1);
-						bonusList.add(bonus);	
-						System.out.println(message);
-
-						
-					}
-				}
-
-				else if ((carac2.getValeur().equals("Mi Ombre")
-						&& (carac.getValeur().equals("Plein Soleil") || carac.getValeur().equals("Soleil")))
-						|| (carac.getValeur().equals("Mi Ombre") && (carac2.getValeur().equals("Plein Soleil")
-								|| carac2.getValeur().equals("Soleil")))) {
+					System.out.println("allo2");
 					for (Integer nb1 : nbrstrat1) {
+						System.out.println("allo3");
 						for (Integer nb2 : nbrstrat2) {
-							if ((nb1 > nb2 && carac2.getValeur().equals("Mi Ombre"))) {
+							System.out.println("allo4");
+
+							if ((carac2.getValeur().equals("Mi Ombre")
+									&& (carac.getValeur().equals("Plein Soleil") || carac.getValeur().equals("Soleil")))
+									|| (carac.getValeur().equals("Mi Ombre")
+											&& (carac2.getValeur().equals("Plein Soleil")
+													|| carac2.getValeur().equals("Soleil")))) {
+								if (nb1 > nb2 && carac2.getValeur().equals("Mi Ombre")) {
+									ensolCount++;
+
+									bonus.setCaracUn(carac);
+									bonus.setCaracDeux(carac2);
+									if(ensolDoublon==0) {
+									message = "La plante " + nomFlore1 + " a besoin de " + carac.getValeur()
+											+ ", est plus haute que la plante " + nomFlore2
+											+ " et peut donc lui apporter du mi-ombre.";
+									bonus.setMessage(message);
+									bonus.setPoint(2);
+									System.out.println(message);
+									}
+									else {
+										bonus.setPoint(0);
+									}
+									ensolDoublon++;
+									bonusList.add(bonus);
+									
+
+								} else if (nb1 < nb2 && carac.getValeur().equals("Mi Ombre")) {
+									ensolCount++;
+
+									bonus.setCaracUn(carac);
+									bonus.setCaracDeux(carac2);
+									if(ensolDoublon==0) {
+									message = "La plante " + nomFlore2 + " a besoin de " + carac.getValeur()
+											+ ", est plus haute que la plante " + nomFlore1
+											+ " et peut donc lui apporter du mi-ombre.";
+									bonus.setMessage(message);
+									bonus.setPoint(2);
+									System.out.println(message);
+									}else {
+										bonus.setPoint(0);
+									}
+									bonusList.add(bonus);
+									ensolDoublon++;
+
+								}
+							}
+
+							else if (nb1 - nb2 >= 3 && (carac2.getValeur().equals("Plein Soleil")
+									|| carac2.getValeur().equals("Soleil"))) {
 								ensolCount++;
-								
-								bonus.setCaracUn(carac);
-								bonus.setCaracDeux(carac2);
-								message="Il existe une synergie positive autour de l'ensoleillement car " + nomFlore1 +" a besoin de "+carac.getValeur()+" et est plus haute que " + nomFlore2 + " qui, elle, a besoin de mi-ombre.";
-								bonus.setMessage(message);
-								bonus.setPoint(3);
-								bonusList.add(bonus);	
-								System.out.println(message);
-								
-							} else if (nb1 < nb2 && carac.getValeur().equals("Mi Ombre")) {
+								malus.setCaracUn(carac);
+								malus.setCaracDeux(carac2);
+								if (ensolDoublon == 0) {
+									message = "La plante " + nomFlore1 + " est plus haute que la plante " + nomFlore2
+											+ " et peut donc lui faire de l'ombre alors qu'elle a besoin de "
+											+ carac2.getValeur() + ".";
+									malus.setPoint(-3);
+									malus.setMessage(message);
+									System.out.println(message);
+								} else {
+									malus.setPoint(0);
+								}
+								ensolDoublon++;
+								malusList.add(malus);
+
+							} else if (nb2 - nb1 >= 3 && (carac.getValeur().equals("Plein Soleil")
+									|| carac.getValeur().equals("Soleil"))) {
 								ensolCount++;
-								
-								bonus.setCaracUn(carac);
-								bonus.setCaracDeux(carac2);
-								message="Il existe une synergie positive autour de l'ensoleillement car " + nomFlore2 +" a besoin de "+carac2.getValeur()+" et est plus haute que " + nomFlore1 + " qui, elle, a besoin de mi-ombre.";
-								bonus.setMessage(message);
-								bonus.setPoint(3);
-								bonusList.add(bonus);	
-								System.out.println(message);
+								malus.setCaracUn(carac);
+								malus.setCaracDeux(carac2);
+								if (ensolDoublon == 0) {
+
+									message = "La plante " + nomFlore2 + " est plus haute que la plante " + nomFlore1
+											+ " et peut donc lui faire de l'ombre alors qu'elle a besoin de "
+											+ carac.getValeur() + ".";
+									malus.setPoint(-3);
+									malus.setMessage(message);
+									System.out.println(message);
+								} else {
+									malus.setPoint(0);
+								}
+								malusList.add(malus);
+								ensolDoublon++;
 
 							}
-						}
-					}
 
+							else if (carac2.getValeur().equals(carac.getValeur())) {
+								ensolCount++;
+								System.out.println("allo5");
+
+								bonus.setCaracUn(carac);
+								bonus.setCaracDeux(carac2);
+								if (ensolDoublon == 0) {
+									message = "Les deux plantes ont besoin d'un même ensoleillement et peuvent donc être planter dans un secteur similaire";
+									bonus.setMessage(message);
+									bonus.setPoint(1);
+									System.out.println(message);
+								} else {
+									bonus.setPoint(0);
+								}
+								bonusList.add(bonus);
+								ensolDoublon++;
+							}
+						}}
 				}
-
 			}
 		}
 
@@ -369,15 +448,22 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 					Malus malus = new Malus();
 					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
-						
+
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="Les deux plantes ont besoin d'ensoleillement différent.";
+						if (ensolDoublon == 0) {
+						message = "Les deux plantes ont un besoin d'ensoleillement différent.";
 						malus.setPoint(-1);
 						malus.setMessage(message);
-						malusList.add(malus);
 						System.out.println(message);
+						}
+						else {
+							malus.setPoint(0);
+						}
+						ensolDoublon++;
+						malusList.add(malus);
 						
+
 					}
 				}
 			}
@@ -386,6 +472,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		//// pH////
 		/////////////////////////
 		int pHCount = 0;
+		int pHDoublon = 0;
 		for (Caracteristique carac : pHFlore1) {
 			for (Caracteristique carac2 : pHFlore2) {
 				Bonus bonus = new Bonus();
@@ -393,16 +480,22 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("pH") && carac2.getValeur().equals(carac.getValeur())) {
 					pHCount++;
-					
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message="Il existe une synergie positive car les deux plantes ont besoin d'un sol "+carac.getValeur()+".";
-					bonus.setMessage(message);
-					bonus.setPoint(3);
+					if (pHDoublon == 0) {
+						message = "Les deux plantes ont besoin d'un sol au pH similaire.";
+						bonus.setMessage(message);
+						bonus.setPoint(3);
+						System.out.println(message);
+					} else {
+						bonus.setPoint(0);
+					}
+
 					bonusList.add(bonus);
-					System.out.println(message);
+
 					
-					
+					pHDoublon++;
+
 				}
 			}
 		}
@@ -413,14 +506,21 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 					Malus malus = new Malus();
 					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
-						
+
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="Les deux plantes ont besoin d'un sol au pH différent.";
-						malus.setPoint(-3);
-						malus.setMessage(message);
+						if (pHDoublon == 0) {
+							message = "Les deux plantes ont besoin d'un sol au pH différent.";
+							malus.setPoint(-6);
+							malus.setMessage(message);
+							System.out.println(message);
+						} else {
+							malus.setPoint(0);
+						}
+
 						malusList.add(malus);
-						System.out.println(message);
+						pHDoublon++;
+
 					}
 				}
 			}
@@ -430,6 +530,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		//// Texture////
 		/////////////////////////
 		int textCount = 0;
+		int textDoublon = 0;
 		for (Caracteristique carac : textFlore1) {
 			for (Caracteristique carac2 : textFlore2) {
 				Bonus bonus = new Bonus();
@@ -437,33 +538,43 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Texture") && carac2.getValeur().equals(carac.getValeur())) {
 					textCount++;
-					
+
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message="Il existe une synergie positive car les deux plantes ont besoin d'un sol "+carac.getValeur()+".";
-					bonus.setMessage(message);
-					bonus.setPoint(5);
-					bonusList.add(bonus);	
-					System.out.println(message);
+					if (textDoublon == 0) {
+						message = "Les deux plantes ont besoin d'un sol à la texture similaire.";
+						bonus.setMessage(message);
+						bonus.setPoint(3);
+						System.out.println(message);
+					} else {
+						bonus.setPoint(0);
+					}
+					textDoublon++;
+					bonusList.add(bonus);
 
 				}
 			}
 		}
 
-		if (textCount == 0 && !pHFlore1.isEmpty() && !pHFlore2.isEmpty()) {
-			for (Caracteristique carac : pHFlore1) {
-				for (Caracteristique carac2 : pHFlore2) {
+		if (textCount == 0 && !textFlore1.isEmpty() && !textFlore2.isEmpty()) {
+			for (Caracteristique carac : textFlore1) {
+				for (Caracteristique carac2 : textFlore2) {
 					Malus malus = new Malus();
 					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
 
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="Les deux plantes ont besoin d'un sol à la texture différente.";
-						malus.setPoint(-5);
-						malus.setMessage(message);
+						if (textDoublon == 0) {
+							message = "Les deux plantes ont besoin d'un sol à la texture différente.";
+							malus.setPoint(-6);
+							malus.setMessage(message);
+							System.out.println(message);
+						} else {
+							malus.setPoint(0);
+						}
+						textDoublon++;
 						malusList.add(malus);
-						System.out.println(message);
 
 					}
 				}
@@ -474,6 +585,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		//// Humidité////
 		/////////////////////////
 		int humCount = 0;
+		int humDoublon = 0;
 		for (Caracteristique carac : humFlore1) {
 			for (Caracteristique carac2 : humFlore2) {
 				Bonus bonus = new Bonus();
@@ -481,15 +593,21 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Humidité") && carac2.getValeur().equals(carac.getValeur())) {
 					humCount++;
-					
+
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message="Il existe une synergie positive car les deux plantes ont besoin d'un sol "+carac.getValeur()+".";
-					bonus.setMessage(message);
-					bonus.setPoint(5);
+					if (humDoublon == 0) {
+						message = "Les deux plantes ont besoin d'une humidité de sol similaire.";
+						;
+						bonus.setMessage(message);
+						bonus.setPoint(3);
+						System.out.println(message);
+					} else {
+						bonus.setPoint(0);
+					}
+					humDoublon++;
 					bonusList.add(bonus);
-					System.out.println(message);
-					
+
 				}
 			}
 		}
@@ -500,15 +618,18 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 					Malus malus = new Malus();
 					String message;
 					if (!carac2.getValeur().equals(carac.getValeur())) {
-						
+
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="Les deux plantes ont besoin d'une humidité de sol distincte.";
-						malus.setPoint(-5);
-						malus.setMessage(message);
+						if (humDoublon == 0) {
+							message = "Les deux plantes ont besoin d'une humidité de sol distincte.";
+							malus.setPoint(-6);
+							malus.setMessage(message);
+							System.out.println(message);
+						} else {
+							malus.setPoint(0);
+						}
 						malusList.add(malus);
-						System.out.println(message);
-						
 
 					}
 				}
@@ -530,12 +651,13 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Arrosage") && carac2.getValeur().equals(carac.getValeur())) {
-					
+
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message="Il existe une synergie positive car les deux plantes ont besoin d'un arrosage "+carac.getValeur()+".";
+					message = "Les deux plantes ont besoin d'un arrosage " + carac.getValeur()
+							+ " et peuvent donc être arrosées simultanément.";
 					bonus.setMessage(message);
-					bonus.setPoint(3);
+					bonus.setPoint(2);
 					bonusList.add(bonus);
 					System.out.println(message);
 
@@ -543,12 +665,12 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 					malus.setCaracUn(carac);
 					malus.setCaracDeux(carac2);
-					message="Les deux plantes ont besoin d'un arrosage différent";
+					message = "Les deux plantes ont besoin d'un arrosage différent et peuvent donc difficilement être arrosées simultanément.";
 					malus.setPoint(-3);
 					malus.setMessage(message);
 					malusList.add(malus);
 					System.out.println(message);
-					
+
 				}
 
 			}
@@ -575,37 +697,35 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Strate") && !carac2.getValeur().equals(carac.getValeur())) {
-				
+
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message="Il existe une synergie positive car les deux plantes ont une hauteur différente et peuvent donc se développer sans rentrer en compétition.";
+					message = "Les deux plantes ont une hauteur différente et peuvent donc se développer sans rentrer en compétition.";
 					bonus.setMessage(message);
-					bonus.setPoint(5);
+					bonus.setPoint(3);
 					bonusList.add(bonus);
 					System.out.println(message);
 
 				} else if (carac2.getValeur().equals(carac.getValeur())) {
-					
-					if((carac2.getValeur().equals("Grimpante")&& nbrstrat1.get(0)>nbrstrat2.get(0))||(carac.getValeur().equals("Grimpante")&& nbrstrat2.get(0)>nbrstrat1.get(0))) {
+
+					if ((carac2.getValeur().equals("Grimpante") && nbrstrat1.get(0) > nbrstrat2.get(0))
+							|| (carac.getValeur().equals("Grimpante") && nbrstrat2.get(0) > nbrstrat1.get(0))) {
 						bonus.setCaracUn(carac);
 						bonus.setCaracDeux(carac2);
-						message="Il existe une synergie positive car la plante grimpante peut se fixer sur la seconde.";
+						message = "La plante grimpante peut se fixer sur la seconde.";
 						bonus.setMessage(message);
-						bonus.setPoint(5);
+						bonus.setPoint(3);
 						bonusList.add(bonus);
 						System.out.println(message);
-					}
-					else {
+					} else {
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="Les deux plantes ont une hauteur de développement similaire et rentrent donc en compétition.";
-						malus.setPoint(-5);
+						message = "Les deux plantes ont une hauteur de développement similaire et rentrent donc en compétition.";
+						malus.setPoint(-3);
 						malus.setMessage(message);
 						malusList.add(malus);
 						System.out.println(message);
 					}
-
-					
 
 				}
 
@@ -629,12 +749,12 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
 						&& carac.getNom().equals("Racines") && !carac2.getValeur().equals(carac.getValeur())) {
-					
+
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message="Il existe une synergie positive car les deux plantes ont une profondeur de racine différente et sont, par conséquent, moins en concurrence pour se nourrir avec les nutriments du sol.";
+					message = "Il existe une synergie positive car les deux plantes ont une profondeur de racine différente et sont, par conséquent, moins en concurrence pour se nourrir avec les nutriments du sol.";
 					bonus.setMessage(message);
-					bonus.setPoint(5);
+					bonus.setPoint(3);
 					bonusList.add(bonus);
 					System.out.println(message);
 
@@ -642,12 +762,12 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 					malus.setCaracUn(carac);
 					malus.setCaracDeux(carac2);
-					message="Les deux plantes ont une profondeur de racine similaire et sont donc en compétition pour se nourrir.";
-					malus.setPoint(-5);
+					message = "Les deux plantes ont une profondeur de racine similaire et sont donc en compétition pour s'alimenter.";
+					malus.setPoint(-3);
 					malus.setMessage(message);
 					malusList.add(malus);
 					System.out.println(message);
-					
+
 				}
 
 			}
@@ -680,63 +800,95 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 				String message;
 				if (azoCountInhi >= 1 && azoCountFixa >= 1) {
 					if (carac2.getValeur().equals("Inhibiteur") && carac.getValeur().equals("Fixateur")) {
-						
+
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="La plante "+ nomFlore1 +" est fixatrice d'azote et la plante "+ nomFlore2 +" est un inhibiteur de croissance des bactéries fixatrices d'azote.";
-						malus.setPoint(-5);
+						message = "La plante " + nomFlore1 + " est fixatrice d'azote et la plante " + nomFlore2
+								+ " est un inhibiteur de croissance des bactéries fixatrices d'azote.";
+						malus.setPoint(-6);
 						malus.setMessage(message);
 						malusList.add(malus);
 						System.out.println(message);
-						
+
 						break;
 					} else if (carac.getValeur().equals("Inhibiteur") && carac2.getValeur().equals("Fixateur")) {
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message="La plante "+ nomFlore2 +" est fixatrice d'azote et la plante"+ nomFlore1 +" est un inhibiteur de croissance des bactéries fixatrices d'azote.";
-						malus.setPoint(-5);
+						message = "La plante " + nomFlore2 + " est fixatrice d'azote et la plante" + nomFlore1
+								+ " est un inhibiteur de croissance des bactéries fixatrices d'azote.";
+						malus.setPoint(-6);
 						malus.setMessage(message);
 						malusList.add(malus);
 						System.out.println(message);
-						
+
 						break;
 					}
-				} else if (carac.getValeur().equals("Fixateur") && (carac2.getValeur().equals("Dévoreur")||carac2.getValeur().equals("Neutre"))||
-						carac2.getValeur().equals("Fixateur") && (carac.getValeur().equals("Dévoreur")||carac.getValeur().equals("Neutre"))) {
+				} else if ((carac.getValeur().equals("Fixateur") && carac2.getValeur().equals("Dévoreur"))
+						|| (carac2.getValeur().equals("Fixateur") && carac.getValeur().equals("Dévoreur"))) {
 
-					if(carac.getValeur().equals("Fixateur")) {
-						
+					if (carac.getValeur().equals("Fixateur")) {
+
 						bonus.setCaracUn(carac);
 						bonus.setCaracDeux(carac2);
-						message="Il existe une synergie positive car la plante "+nomFlore1+" est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "+nomFlore2+".";
+						message = "Il existe une synergie positive car la plante " + nomFlore1
+								+ " est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "
+								+ nomFlore2 + ".";
 						bonus.setMessage(message);
 						bonus.setPoint(5);
 						bonusList.add(bonus);
 						System.out.println(message);
-						
-					}
-					else {
+
+					} else {
 						bonus.setCaracUn(carac);
 						bonus.setCaracDeux(carac2);
-						message="Il existe une synergie positive car la plante "+nomFlore2+" est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "+nomFlore1+".";
+						message = "Il existe une synergie positive car la plante " + nomFlore2
+								+ " est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "
+								+ nomFlore1 + ".";
 						bonus.setMessage(message);
 						bonus.setPoint(5);
 						bonusList.add(bonus);
 						System.out.println(message);
-						
+
 					}
-				
-				} else if (carac2.getValeur().equals(carac.getValeur())&& carac.getValeur().equals("Dévoreur")) {
 
-					malus.setCaracUn(carac);
-					malus.setCaracDeux(carac2);
-					message="Les deux plantes ont un besoin en azote très important et sont donc en compétition.";
-					malus.setPoint(-5);
-					malus.setMessage(message);
-					malusList.add(malus);
-					System.out.println(message);
-					
+				} else if ((carac.getValeur().equals("Fixateur") && carac2.getValeur().equals("Neutre"))
+						|| (carac2.getValeur().equals("Fixateur") && carac.getValeur().equals("Neutre"))) {
+					if (carac.getValeur().equals("Fixateur")) {
 
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message = "Il existe une synergie positive car la plante " + nomFlore1
+								+ " est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "
+								+ nomFlore2 + ".";
+						bonus.setMessage(message);
+						bonus.setPoint(2);
+						bonusList.add(bonus);
+						System.out.println(message);
+
+					} else {
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message = "Il existe une synergie positive car la plante " + nomFlore2
+								+ " est fixatrice d'azote et peut potentiellement fournir de l'azote à la plante "
+								+ nomFlore1 + ".";
+						bonus.setMessage(message);
+						bonus.setPoint(2);
+						bonusList.add(bonus);
+						System.out.println(message);
+
+					}
+				} else {
+					if (carac2.getValeur().equals(carac.getValeur()) && carac.getValeur().equals("Dévoreur")) {
+
+						malus.setCaracUn(carac);
+						malus.setCaracDeux(carac2);
+						message = "Les deux plantes ont un besoin en azote très important et sont donc en compétition.";
+						malus.setPoint(-4);
+						malus.setMessage(message);
+						malusList.add(malus);
+						System.out.println(message);
+
+					}
 				}
 			}
 		}
@@ -754,34 +906,64 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 				Malus malus = new Malus();
 				String message;
 
-				if (carac.getValeur().equals("Fixateur") && (carac2.getValeur().equals("Dévoreur")||carac2.getValeur().equals("Neutre"))||
-						carac2.getValeur().equals("Fixateur") && (carac.getValeur().equals("Dévoreur")||carac.getValeur().equals("Neutre"))) {
-					if(carac.getValeur().equals("Fixateur")) {
+				if ((carac.getValeur().equals("Fixateur") && carac2.getValeur().equals("Dévoreur"))
+						|| (carac2.getValeur().equals("Fixateur") && carac.getValeur().equals("Dévoreur"))) {
+					if (carac.getValeur().equals("Fixateur")) {
 						bonus.setCaracUn(carac);
 						bonus.setCaracDeux(carac2);
-						message="Il existe une synergie positive car la plante "+nomFlore1+" aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "+nomFlore2+".";
+						message = "Il existe une synergie positive car la plante " + nomFlore1
+								+ " aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "
+								+ nomFlore2 + ".";
 						bonus.setMessage(message);
 						bonus.setPoint(5);
 						bonusList.add(bonus);
 						System.out.println(message);
 					}
-					
+
 					else {
 						bonus.setCaracUn(carac);
 						bonus.setCaracDeux(carac2);
-						message="Il existe une synergie positive car la plante "+nomFlore2+" aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "+nomFlore1+".";
+						message = "Il existe une synergie positive car la plante " + nomFlore2
+								+ " aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "
+								+ nomFlore1 + ".";
 						bonus.setMessage(message);
 						bonus.setPoint(5);
 						bonusList.add(bonus);
 						System.out.println(message);
-						
+
 					}
-				} else if (carac2.getValeur().equals(carac.getValeur())&&carac.getValeur().equals("Dévoreur")) {
+				} else if ((carac.getValeur().equals("Fixateur") && carac2.getValeur().equals("Neutre"))
+						|| (carac2.getValeur().equals("Fixateur") && carac.getValeur().equals("Neutre"))) {
+					if (carac.getValeur().equals("Fixateur")) {
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message = "Il existe une synergie positive car la plante " + nomFlore1
+								+ " aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "
+								+ nomFlore2 + ".";
+						bonus.setMessage(message);
+						bonus.setPoint(2);
+						bonusList.add(bonus);
+						System.out.println(message);
+					}
+
+					else {
+						bonus.setCaracUn(carac);
+						bonus.setCaracDeux(carac2);
+						message = "Il existe une synergie positive car la plante " + nomFlore2
+								+ " aide à enrichir le sol en nutriment et peut potentiellement en fournir à la plante "
+								+ nomFlore1 + ".";
+						bonus.setMessage(message);
+						bonus.setPoint(2);
+						bonusList.add(bonus);
+						System.out.println(message);
+
+					}
+				} else if (carac2.getValeur().equals(carac.getValeur()) && carac.getValeur().equals("Dévoreur")) {
 
 					malus.setCaracUn(carac);
 					malus.setCaracDeux(carac2);
-					message="Les deux plantes ont un besoin en nutriment très important et sont donc en compétition.";
-					malus.setPoint(-5);
+					message = "Les deux plantes ont un besoin en nutriment très important et sont donc en compétition.";
+					malus.setPoint(-4);
 					malus.setMessage(message);
 					malusList.add(malus);
 					System.out.println(message);
@@ -809,22 +991,22 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 						&& carac.getNom().equals("Croissance") && !carac2.getValeur().equals(carac.getValeur())) {
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message="Il existe une synergie positive car les deux plantes ont des vitesses de croissance différentes.";
+					message = "Les deux plantes ont une vitesse de croissance différente, elles peuvent alors être plantée simultanément et se développer sans trop se gêner.";
 					bonus.setMessage(message);
-					bonus.setPoint(3);
+					bonus.setPoint(1);
 					bonusList.add(bonus);
 					System.out.println(message);
-					
+
 				} else if (carac2.getValeur().equals(carac.getValeur())) {
 
 					malus.setCaracUn(carac);
 					malus.setCaracDeux(carac2);
-					message="Les deux plantes ont une même vitesse de croissance.";
-					malus.setPoint(-5);
+					message = "Les deux plantes ont une même vitesse de croissance, elles auront plus de difficultés à se développer si elles sont plantées simultanément.";
+					malus.setPoint(-1);
 					malus.setMessage(message);
 					malusList.add(malus);
 					System.out.println(message);
-					
+
 				}
 
 			}
@@ -835,6 +1017,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		/////////////////////////
 		//// Prédateur-Repulsif////
 		/////////////////////////
+		int predaDoublon=0;
 		for (Caracteristique caracPreda : predaFlore1) {
 			for (Caracteristique caracPreda2 : predaFlore2) {
 				for (Caracteristique caracRepuls : repulsFlore1) {
@@ -842,30 +1025,67 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 						Bonus bonus = new Bonus();
 						Malus malus = new Malus();
 						String message;
-						
-						if(caracPreda.getValeur().equals(caracRepuls2.getValeur())) {
+
+						if (caracPreda.getValeur().equals(caracRepuls2.getValeur())) {
 							bonus.setCaracUn(caracPreda);
 							bonus.setCaracDeux(caracRepuls2);
-							message="Il existe une synergie positive car la plante "+ nomFlore2 +" repousse la faune "+caracPreda.getValeur()+" qui est un nuisible de la plante "+ nomFlore1 +".";
+							if(predaDoublon==0) {
+							message = "La plante " + nomFlore2 + " repousse la faune nuisible de la plante " + nomFlore1 + ".";
 							bonus.setMessage(message);
 							bonus.setPoint(5);
-							bonusList.add(bonus);
 							System.out.println(message);
+							}
+							else {
+								bonus.setPoint(0);
+							}
+							predaDoublon++;
+							bonusList.add(bonus);
 							
+
 						}
-						
-						else if(caracPreda2.getValeur().equals(caracRepuls.getValeur())) {
+
+						else if (caracPreda2.getValeur().equals(caracRepuls.getValeur())) {
 							bonus.setCaracUn(caracRepuls);
 							bonus.setCaracDeux(caracPreda2);
-							message="Il existe une synergie positive car la plante "+ nomFlore1 +" repousse la faune "+caracPreda.getValeur()+" qui est un nuisible de la plante "+ nomFlore2 +".";
+							if(predaDoublon==0) {
+							message = "La plante " + nomFlore1 + " repousse la faune nuisible de la plante " + nomFlore2 + ".";
 							bonus.setMessage(message);
 							bonus.setPoint(5);
-							bonusList.add(bonus);
 							System.out.println(message);
-						}	
-						
-						
+							}
+							else {
+								bonus.setPoint(0);
+							}
+							bonusList.add(bonus);
+							predaDoublon++;
+							
+						}
+
 					}
+				}
+			}
+		}
+
+		/////////////////////////
+		//// Famille////
+		/////////////////////////
+
+		if (famFlore1.size() <= 1 && famFlore2.size() <= 1) {
+			if (!famFlore1.isEmpty() && !famFlore2.isEmpty()) {
+				Caracteristique carac = famFlore1.get(0);
+				Caracteristique carac2 = famFlore2.get(0);
+				Bonus bonus = new Bonus();
+				Malus malus = new Malus();
+				String message;
+				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
+						&& carac.getNom().equals("Famille") && carac2.getValeur().equals(carac.getValeur())) {
+					malus.setCaracUn(carac);
+					malus.setCaracDeux(carac2);
+					message = "Les deux plantes appartiennent à la même famille. Elles peuvent être vecteurs de maladies communes et sont potentiellement en compétition pour s'alimenter.";
+					malus.setPoint(-4);
+					malus.setMessage(message);
+					malusList.add(malus);
+					System.out.println(message);
 				}
 			}
 		}
@@ -874,7 +1094,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		simu1.setMalus(malusList);
 		System.out.println(simu1.getBonus());
 		return simu1;
-	
+
 	}
 
 }

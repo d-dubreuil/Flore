@@ -3,6 +3,10 @@ import {SynergieService} from "../services/synergie.service";
 import {SimulateurUn} from "../model/SimulateurUn";
 import {Bonus} from "../model/Bonus";
 import {Malus} from "../model/Malus";
+import {Flore} from "../model/Flore";
+import {FloreService} from "../services/flore.service";
+import {Router} from "@angular/router";
+import {newArray} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-simulateur-un',
@@ -16,6 +20,7 @@ export class SimulateurUnComponent implements OnInit {
   kompagnonnage: boolean = false;
   details:boolean=false;
 
+
   simu1:SimulateurUn = new SimulateurUn();
   bonusList: Array<Bonus>= new Array<Bonus>();
   malusList: Array<Malus>= new Array<Malus>();
@@ -25,12 +30,20 @@ export class SimulateurUnComponent implements OnInit {
   nomFlore1:string;
   nomFlore2:string;
 
+  floreList:Array<Flore>=new Array<Flore>();
+  nomFloreList:Array<String>=new Array<String>();
+
   typeCaracs: Array<String> = new Array<string>();
 
-  constructor(private synergieService: SynergieService) { }
+  constructor(private synergieService: SynergieService, private floreService: FloreService,private router:Router) { }
 
   ngOnInit(): void {
     this.synergieService.findAllTypeCaracs().subscribe(resp => this.typeCaracs = resp, err => console.log(err));
+    this.floreList=this.floreService.findAll();
+    for(let flore of this.floreList){
+      console.log(flore.nom);
+      this.nomFloreList.push(flore.nom);
+    }
   }
 
   revenir(){
@@ -50,6 +63,8 @@ export class SimulateurUnComponent implements OnInit {
     this.details=true;
 
   }
+
+
 
   synergie(){
     this.kompagnonnage=true;
@@ -75,5 +90,10 @@ export class SimulateurUnComponent implements OnInit {
         }
 
     }, error => console.log(error));
+  }
+
+  redirectToFicheFlore(flore:Flore){
+    this.floreService.flore = flore;
+    this.router.navigateByUrl('NPK/flore/fiche-flore');
   }
 }

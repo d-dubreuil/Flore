@@ -35,6 +35,7 @@
           <div class="column" style="width: 82%;">
             <input class="form-control"  type="text"
                    placeholder="Entrer le nom de la plante 1" [(ngModel)]="nomFlore1">
+            <ng2-completer [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore1"> </ng2-completer>
           </div>
 
         </div>
@@ -49,6 +50,7 @@
           <div class="column" style="width: 82%;">
             <input class="form-control"  type="text"
                    placeholder="Entrer le nom de la plante 2" [(ngModel)]="nomFlore2">
+            <ng2-completer [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore2"> </ng2-completer>
           </div>
 
         </div>
@@ -69,7 +71,7 @@
       <!-- 1ère ligne - K1-->
       <div class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
         <!-- 1ère colonne - K2-->
-        <div class="column mr-3" style="width:65%;">
+        <div class="column mr-3" style="width:75%;">
           <div class="row justify-content-center">
             <!-- 1ère colonne - K4-->
           <div class="column mr-3" style="width:45%;">
@@ -80,7 +82,8 @@
               </div>
               <!-- 2ème colonne - K5-->
               <div class="column ml-5">
-                {{nomFlore1}}<br/> lien flore 1
+                {{nomFlore1}}<br/>
+<!--                <a><button  style="width: 100%;height: 10%" (click)="redirectToFicheFlore(flore)"/>lien flore 1</a>-->
               </div>
             </div>
           </div>
@@ -89,7 +92,7 @@
             <div class="row justify-content-center">
               <!-- 1ère colonne - K5-->
               <div class="column mr-5">
-                image 2
+                image2
               </div>
               <!-- 2ème colonne - K5-->
               <div class="column ml-5">
@@ -100,7 +103,7 @@
         </div>
         </div>
         <!-- 2ème colonne - K2-->
-        <div class="column ml-3" style="width:25%;">
+        <div class="column ml-3" style="width:15%;">
           <button (click)="revenir()" class="btn" style="width: 91%;background-color: #8bc34a" >
             Revenir à ma recherche
           </button>
@@ -109,15 +112,17 @@
       <!-- 2ème ligne - K1-->
       <div class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
         <!-- 1ère colonne - K2-->
-            <div class="column mr-3" style="width:65%;">
-            <h4 *ngIf="totalPoint>40"> Association très favorable (+{{totalPoint}})</h4>
-            <h4 *ngIf="totalPoint>20 && totalPoint<40"> Association potentiellement favorable (+{{totalPoint}})</h4>
-            <h4 *ngIf="totalPoint>10 && totalPoint<20"> Association neutre (+{{totalPoint}})</h4>
-            <h4 *ngIf="totalPoint<10 && totalPoint>0"> Association à éviter (+{{totalPoint}})</h4>
-            <h4 *ngIf="totalPoint<0"> Association non compatible ({{totalPoint}})</h4>
+            <div class="column mr-3 pt-3" style="width:75%;">
+              <h3 class="pl-5 " *ngIf="totalPoint>30"> Best Kompagnes Ever! (+{{totalPoint}})</h3>
+            <h3 class="pl-5 " *ngIf="totalPoint>20 && totalPoint<=30"> Association très favorable (+{{totalPoint}})</h3>
+            <h3 class="pl-5 " *ngIf="totalPoint>15 && totalPoint<=20"> Association favorable (+{{totalPoint}})</h3>
+            <h3 class="pl-5 " *ngIf="totalPoint>10 && totalPoint<=15"> Association potentiellement favorable (+{{totalPoint}})</h3>
+            <h3 class="pl-5 " *ngIf="totalPoint<=10 && totalPoint>0"> Association passable (+{{totalPoint}})</h3>
+            <h3 class="pl-5 " *ngIf="totalPoint<=0 && totalPoint>-6"> Association à éviter ({{totalPoint}})</h3>
+              <h3 class="pl-5 " *ngIf="totalPoint<=-6"> Association non compatible ({{totalPoint}})</h3>
           </div>
             <!-- 2ème colonne - K2-->
-            <div class="column ml-3" style="width:25%;">
+            <div class="column ml-3" style="width:15%;">
               <button (click)="plusDeDetail()" class="btn" style="width: 91%;background-color: #8bc34a" >
                 Plus de détails
               </button>
@@ -126,52 +131,47 @@
       <!-- 3ème ligne - K1-->
       <div  class="row ml-4 mr-4 justify-content-center mt-3 blocLigne" >
         <div class="column justify-content-center" style="width:100%;">
-          <div class="row justify-content-center">
-            <div class="column mr-2" style="width: 17%;">Index
+          <div class="row ml-4 mr-4 justify-content-center">
+            <div class="column ml-2 mr-2" style="width: 21%;"><h5>Caractéristique</h5>
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">Caractéristique
+            <div class="column ml-2 mr-2" style="width: 21%;"><h5>Association</h5>
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">Association
+            <div class="column ml-2 mr-2" style="width: 21%;"><h5>{{nomFlore1}}</h5>
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">{{nomFlore1}}
-            </div>
-            <div class="column ml-2" style="width: 17%;">{{nomFlore2}}
+            <div class="column ml-2" style="width: 21%;"><h5>{{nomFlore2}}</h5>
             </div>
           </div>
-          <div *ngFor="let bon of bonusList" class="row justify-content-center">
-            <div class="column mr-2" style="width: 17%;">
+          <div *ngFor="let bon of bonusList" class="row ml-4 mr-4 messageBonus justify-content-center">
+            <div class="column ml-2 mr-2" style="width: 21%;">{{bon.caracUn.nom}}
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">{{bon.caracUn.nom}}
+            <div class="column ml-2 mr-2" style="width: 21%;">Complémentaire (+{{bon.point}})
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">Complémentaire (+{{bon.point}})
+            <div class="column ml-2 mr-2" style="width: 21%;">{{bon.caracUn.valeur}}
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">{{bon.caracUn.valeur}}
-            </div>
-            <div class="column ml-2" style="width: 17%;">{{bon.caracDeux.valeur}}
+            <div class="column ml-2" style="width: 21%;">{{bon.caracDeux.valeur}}
             </div>
           </div>
-          <div *ngFor="let mal of malusList" class="row justify-content-center">
-            <div class="column mr-2" style="width: 17%;">
+          <div *ngFor="let mal of malusList" class="row ml-4 mr-4 messageMalus justify-content-center">
+            <div class="column ml-2 mr-2" style="width: 21%;">{{mal.caracUn.nom}}
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">{{mal.caracUn.nom}}
+            <div class="column ml-2 mr-2" style="width: 21%;">Bloquante ({{mal.point}})
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">Bloquante ({{mal.point}})
+            <div class="column ml-2 mr-2" style="width: 21%;">{{mal.caracUn.valeur}}
             </div>
-            <div class="column ml-2 mr-2" style="width: 17%;">{{mal.caracUn.valeur}}
-            </div>
-            <div class="column ml-2" style="width: 17%;">{{mal.caracDeux.valeur}}
+            <div class="column ml-2" style="width: 21%;">{{mal.caracDeux.valeur}}
             </div>
           </div>
         </div>
       </div>
       <!-- 4ème ligne - K1-->
-      <div *ngIf="details" class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
+      <div *ngIf="details" class="row ml-4 mr-4 mt-3 justify-content-center blocLigne" >
         <!-- 1ère colonne - K2-->
-        <div class="column justify-content-center">
+        <div class="column" style="width: 100%;">
           <!-- 2ème ligne - K2-->
-          <div *ngFor="let bon of bonusList" class="row messageBonus ml-4 mr-4 -align-left">{{bon.message}}
+          <h5 class="row ml-4 mr-4 justify-content-center">Explication détaillé</h5>
+          <div *ngFor="let bon of bonusList" class="row messageBonus mr-4 ml-4 -align-left" >{{bon.message}}
           </div>
-          <div *ngFor="let mal of malusList" class="row messageMalus ml-4 mr-4 -align-left">{{mal.message}}
+          <div *ngFor="let mal of malusList" class="row messageMalus mr-4 ml-4 -align-left">{{mal.message}}
           </div>
         </div>
       </div>
