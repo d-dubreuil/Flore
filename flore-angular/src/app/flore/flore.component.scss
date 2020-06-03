@@ -56,3 +56,9 @@
   font-weight: bold;
   border-bottom-color: #8bc34a;
 }
+
+::ng-deep .completer-row{
+  text-align: center;
+  font-style: italic;
+}
+

@@ -32,7 +32,7 @@ export class PanierComponent implements OnInit {
 
   constructor(private titleService: Title, private panierService: PanierService, private selectionService: SelectionService, private commonService: CommonService) {
     this.titleService.setTitle('Panier');
-    this.load(this.id);
+    this.load(parseInt(sessionStorage.getItem('idPanierEnCours')));
     this.calcul();
     // this.commonService.findAllTypeCarte().subscribe(resp => {this.typeCartes = resp;console.log(this.typeCartes)}, err => console.log(err));
 
