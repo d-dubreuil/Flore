@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {CommonService} from './common.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,10 @@ import {Title} from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'flore-angular';
+  page:'string';
 
-  public constructor() {
+
+  public constructor(public commonService:CommonService) {
   }
 
 

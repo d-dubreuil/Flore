@@ -30,6 +30,7 @@ import {JardinFauneComponent} from './jardin-faune/jardin-faune.component';
 import {JardinEnvironnementComponent} from './jardin-environnement/jardin-environnement.component';
 import {CompteComponent} from './compte/compte.component';
 import {IsClientGuard} from './is-client.guard';
+import {IsAdminGuard} from './is-admin.guard';
 import {EspaceFournisseurComponent} from "./espace-fournisseur/espace-fournisseur.component";
 
 const routes: Routes = [
@@ -48,22 +49,6 @@ const routes: Routes = [
   {path: 'NPK/synergie/simulateur-un', component: SimulateurUnComponent},
   {path: 'NPK/synergie/simulateur-deux', component: SimulateurDeuxComponent},
   {path: 'NPK/compte', component: CompteComponent},
-  {path: 'NPK/compte-utilisateur', component: CompteUtilisateurComponent},
-  {path: 'NPK/espace-client', component: EspaceClientComponent},
-  {path: 'NPK/espace-client/informations-personnelles', component: InformationsPersonnellesComponent},
-  {path: 'NPK/espace-client/fiches', component: FicheComponent},
-  {path: 'NPK/espace-client/fiches/favoris', component: FavorisComponent},
-  {path: 'NPK/espace-client/fiches/contributions', component: ContributionComponent},
-  {path: 'NPK/espace-client/historique', component: HistoriqueComponent},
-  {path: 'NPK/espace-client/mon-petit-jardin', component: JardinComponent},
-  {path: 'NPK/espace-client/mon-petit-jardin/flore', component: JardinFloreComponent},
-  {path: 'NPK/espace-client/mon-petit-jardin/faune', component: JardinFauneComponent},
-  {path: 'NPK/espace-client/mon-petit-jardin/environnement', component: JardinEnvironnementComponent},
-  {path: 'NPK/espace-client/commandes', component: CommandeComponent},
-  {path: 'NPK/espace-client/contact', component: ContactComponent},
-  {path: 'NPK/espace-client/contact/messagerie', component: MessagerieComponent},
-  {path: 'NPK/espace-client/contact/messagerie/nouveau-message', component: NouveauMessageComponent},
-  {path: 'NPK/espace-client/contact/proposition-fiche', component: FormulairePropositionComponent},
   {path: 'NPK/espace-fournisseur', component: EspaceFournisseurComponent}
 ];
 
