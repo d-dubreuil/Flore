@@ -9,6 +9,7 @@ import {SelectionService} from '../services/selection.service';
 import {Utilisateur} from '../model/Utilisateur';
 import {Paiement} from '../model/Paiement';
 import {CommonService} from '../common.service';
+import {Commande} from '../model/Commande';
 
 @Component({
   selector: 'app-panier',
@@ -24,6 +25,7 @@ export class PanierComponent implements OnInit {
   etapePanier: number = 1;
   fraisLivraison: number = 0;
   formPaiement: Paiement;
+  commandeForm: Commande = new Commande();
   typeEnvoi: string;
   typeCarte: string;
   typePaiement: string;
