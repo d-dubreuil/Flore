@@ -10,7 +10,8 @@ import {CommonService} from "../common.service";
   styleUrls: ['./informations-personnelles.component.scss']
 })
 export class InformationsPersonnellesComponent implements OnInit {
-
+  id:number;
+  version:number;
   disc:string;
   civilite:string;
   nom:string;
@@ -22,7 +23,8 @@ export class InformationsPersonnellesComponent implements OnInit {
   telephone:string;
   complement:string;
   ville:string;
-  informationsForm : CompteUtilisateur;
+  informationsForm : CompteUtilisateur =new CompteUtilisateur();
+  modifierBoolean:boolean=false;
 
   civilites: Array<String> = new Array<string>();
 
@@ -33,6 +35,8 @@ export class InformationsPersonnellesComponent implements OnInit {
     this.titleService.setTitle("Informations Personnelles");
     this.disc=sessionStorage.getItem('typeCompte');
     this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp=>{
+      this.id=resp.id;
+      this.version=resp.version;
       this.civilite=resp.civilite;
       this.nom=resp.nom;
       this.prenom=resp.prenom;
@@ -44,6 +48,8 @@ export class InformationsPersonnellesComponent implements OnInit {
       this.motDePasse=resp.motDePasse;
       this.mail=resp.mail;
       this.telephone=resp.telephone;
+      this.informationsForm.id=resp.id;
+      this.informationsForm.version=resp.version;
 
     },error => console.log(error));
   }
@@ -52,8 +58,23 @@ export class InformationsPersonnellesComponent implements OnInit {
     this.commonService.findAllCivilites().subscribe(resp => this.civilites = resp, err => console.log(err));
   }
 
-  edit(id: number) {
-    this.compteUtilisateurService.findById(id).subscribe(resp => this.informationsForm = resp, error => console.log(error));
+  edit(){
+    this.modifierBoolean=true;
+    this.informationsForm.civilite=this.civilite;
+    this.informationsForm.nom=this.nom;
+    this.informationsForm.prenom=this.prenom;
+    this.informationsForm.rue=this.rue;
+    this.informationsForm.complement=this.complement;
+    this.informationsForm.codePostal=this.codePostal;
+    this.informationsForm.ville=this.ville;
+    this.informationsForm.identifiant=this.identifiant;
+    this.informationsForm.motDePasse=this.motDePasse;
+    this.informationsForm.telephone=this.telephone;
+    this.informationsForm.mail=this.mail;
+  }
+
+  save(compte:CompteUtilisateur) {
+    this.compteUtilisateurService.modify(compte).subscribe(resp => this.informationsForm = resp, error => console.log(error));
   }
 
 }

@@ -159,7 +159,7 @@
 
 
 <!-- Formulaire-->
-<div class="row">
+<div class="row" *ngIf="modifierBoolean">
 
   <div class="column" style="width:8%"></div>
   <div id="connect" class="column mt-5 ml-5 pl-2" style="width: 35%;">
@@ -169,7 +169,7 @@
           <label for="disc" >Type utilisateur :</label>
         </div>
         <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="disc" name="disc" style="width: 80%">
+          <div class="ml-5 pl-2" id="disc" name="disc" style="width: 80%">{{disc}}</div>
         </div>
       </div>
     </div>
@@ -313,7 +313,7 @@
   <div class="column mt-4" style="width:23%" >
     <div class="form-inline mr-5">
       <div class="column">
-        <button type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;" >
+        <button type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;" (click)="edit()">
           Modifier<i class="fas fa-angle-right mx-3"></i>
         </button>
       </div>
