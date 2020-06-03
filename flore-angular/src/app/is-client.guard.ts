@@ -12,7 +12,7 @@ export class IsClientGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    if (Boolean(localStorage.getItem('typeCompte') == 'Client') ){
+    if (Boolean(sessionStorage.getItem('typeCompte') == 'Client') ){
       return true;
     } else {
       this.router.navigateByUrl('NPK/connexion');

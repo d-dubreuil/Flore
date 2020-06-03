@@ -27,8 +27,8 @@ export class ConnexionComponent implements OnInit {
       if (resp[0] == 'nonOK') {
         this.authechecBoolean = true;
       } else if (resp[0] == 'OK') {
-        localStorage.setItem('idCompte', resp[1]);
-        localStorage.setItem('typeCompte', resp[2]);
+        sessionStorage.setItem('idCompte', resp[1]);
+        sessionStorage.setItem('typeCompte', resp[2]);
         this.router.navigateByUrl('NPK/compte');
       }
     });
@@ -43,8 +43,8 @@ export class ConnexionComponent implements OnInit {
       } else if (resp[0] == 'Vide'){
         this.creationVideBoolean=true;
       } else if (resp[0]=='OK'){
-        localStorage.setItem('idCompte', resp[1]);
-        localStorage.setItem('typeCompte', resp[2]);
+        sessionStorage.setItem('idCompte', resp[1]);
+        sessionStorage.setItem('typeCompte', resp[2]);
         this.router.navigateByUrl('NPK/compte');
       }
     })
