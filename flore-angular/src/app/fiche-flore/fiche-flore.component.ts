@@ -6,6 +6,12 @@ import {normalizeExtraEntryPoints} from '@angular-devkit/build-angular/src/angul
 import {FauneService} from '../services/faune.service';
 import {Router} from '@angular/router';
 import {CommonService} from '../common.service';
+import {Produit} from '../model/Produit';
+import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
+import {Panier} from '../model/Panier';
+import {Selection} from '../model/Selection';
+import {SelectionService} from '../services/selection.service';
+import {PanierService} from '../services/panier.service';
 
 @Component({
   selector: 'app-fiche-flore',
@@ -15,14 +21,15 @@ import {CommonService} from '../common.service';
 export class FicheFloreComponent implements OnInit {
   nomFlore: string;
   flore: Flore;
-  plusFauneAttire:boolean=false;
-  plusFauneRepoussee:boolean=false;
-  plusFloreKompagne:boolean=false;
-  plusFloreEnnemie:boolean=false;
+  plusFauneAttire: boolean = false;
+  plusFauneRepoussee: boolean = false;
+  plusFloreKompagne: boolean = false;
+  plusFloreEnnemie: boolean = false;
 
-  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router,private commonService:CommonService) {
+  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router, public commonService: CommonService, private compteUtilisateurService: CompteUtilisateurService, private selectionService: SelectionService, private panierService: PanierService) {
     this.titleService.setTitle('Fiche-Flore');
-    this.commonService.page="flore";
+    this.commonService.page = 'flore';
+    console.log(this.floreService.flore);
   }
 
   ngOnInit(): void {
@@ -100,4 +107,33 @@ export class FicheFloreComponent implements OnInit {
     return listeCarac;
   }
 
+  ajouterAuPanier(produit: Produit) {
+    let selec: Selection= new Selection();
+    selec.produit = produit;
+    this.panierService.findById(parseInt(sessionStorage.getItem('idPanierEnCours'))).subscribe(resp=>{
+      selec.nombre=1;
+      selec.panier=resp;
+      this.selectionService.create(selec).subscribe(resp2=>{
+        console.log("ok");
+      },error => console.log(error))
+    },error => console.log(error))
+    // this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp => {
+    //   console.log("respUtilisateur" +resp.utilisateur);
+    //   let selec: Selection= new Selection();
+    //   selec.produit = produit;
+    //   this.selectionService.create(selec).subscribe(resp2=>{
+    //     selec=resp2;
+    //     console.log("resp2" + resp2);
+    //     let panier:Panier =new Panier();
+    //     resp.utilisateur.paniers = new Array<Panier>();
+    //     panier.utilisateur=resp.utilisateur;
+    //     panier.selections = new Array<Selection>();
+    //     panier.selections.push(selec);
+    //     resp.utilisateur.paniers.push(panier);
+    //     this.panierService.create(resp.utilisateur.paniers[resp.utilisateur.paniers.length - 1]).subscribe(resp3=>{
+    //       console.log("ok")
+    //     },error => console.log(error))
+    //   },error => console.log(error))
+    // },error => console.log(error));
+  }
 }

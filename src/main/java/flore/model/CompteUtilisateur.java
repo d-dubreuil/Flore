@@ -74,6 +74,7 @@ public class CompteUtilisateur {
 	@OneToMany (mappedBy = "compte")
 	private List<Historique> historiques = new ArrayList<Historique>();
 	@OneToOne (mappedBy = "compteUtilisateur")
+	@JsonView(Views.ViewCompteUtilisateur.class)
 	private Utilisateur utilisateur;
 	@OneToMany (mappedBy = "compteUtilisateur")
 	private List <ReferentielUtilisateur> referentielUtiliseurs = new ArrayList<ReferentielUtilisateur>();
