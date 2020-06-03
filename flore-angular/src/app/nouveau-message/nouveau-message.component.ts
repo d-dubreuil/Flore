@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
 
 @Component({
   selector: 'app-nouveau-message',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nouveau-message.component.scss']
 })
 export class NouveauMessageComponent implements OnInit {
+  prenom:string;
 
-  constructor() { }
+  constructor(private compteUtilisateurService:CompteUtilisateurService) {
+    this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp=>{
+      this.prenom=resp.prenom;
+    },error => console.log(error))
+  }
 
   ngOnInit(): void {
   }

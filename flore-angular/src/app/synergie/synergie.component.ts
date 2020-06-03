@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-synergie',
@@ -8,8 +9,9 @@ import {Title} from "@angular/platform-browser";
 })
 export class SynergieComponent implements OnInit {
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private commonService:CommonService) {
     this.titleService.setTitle("Synergie");
+    this.commonService.page="synergie";
   }
 
   ngOnInit(): void {

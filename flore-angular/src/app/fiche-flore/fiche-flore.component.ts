@@ -5,6 +5,7 @@ import {Flore} from '../model/Flore';
 import {normalizeExtraEntryPoints} from '@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs';
 import {FauneService} from '../services/faune.service';
 import {Router} from '@angular/router';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-fiche-flore',
@@ -19,8 +20,9 @@ export class FicheFloreComponent implements OnInit {
   plusFloreKompagne:boolean=false;
   plusFloreEnnemie:boolean=false;
 
-  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router) {
+  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router,private commonService:CommonService) {
     this.titleService.setTitle('Fiche-Flore');
+    this.commonService.page="flore";
   }
 
   ngOnInit(): void {

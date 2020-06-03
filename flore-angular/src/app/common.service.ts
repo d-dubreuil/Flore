@@ -6,11 +6,13 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class CommonService {
-
+  page:string;
+  connecte:string=sessionStorage.getItem('typeCompte');
   constructor(private http: HttpClient) { }
 
   findAllTypeCarac(): Observable<Array<string>> {
     return this.http.get<Array<string>>("http://localhost:8080/api/typeCarac");
+
   }
 
 }

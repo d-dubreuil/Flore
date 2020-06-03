@@ -5,6 +5,7 @@ import {CaracteristiqueService} from '../services/caracteristique.service';
 import {Title} from '@angular/platform-browser';
 import {Flore} from '../model/Flore';
 import {Router} from '@angular/router';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-faune',
@@ -17,10 +18,11 @@ export class FauneComponent implements OnInit {
   nomFaune: string = '';
   abc:string=''
 
-  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
+  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router,private commonService:CommonService) {
     this.titleService.setTitle('Faune');
+    this.commonService.page="faune";
   }
-  
+
   ngOnInit(): void {
   }
 
