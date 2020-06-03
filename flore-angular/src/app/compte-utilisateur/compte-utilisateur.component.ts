@@ -21,7 +21,7 @@ import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
 })
 export class CompteUtilisateurComponent implements OnInit {
   @Input('prenom')
-  prenom:string;
+  prenom: string;
   nomFiche: string = '';
   nomLatin: string = '';
 
@@ -286,7 +286,7 @@ export class CompteUtilisateurComponent implements OnInit {
           this.refCaracACree.caracteristique = this.caracAModifier;
           this.refCaracACree.flore = this.floreAModifier[0];
           console.log(this.refCaracACree);
-          this.referentielCaracteristiqueService.create(this.refCaracACree).subscribe(resp => alert('création réussie' + this.floreAModifier.nom + 'a été modifiée'), error => console.log(error));
+          this.referentielCaracteristiqueService.create(this.refCaracACree).subscribe(resp => alert('création réussie'), error => console.log(error));
         }, error => console.log((error)));
       }, error => console.log(error)
     );
@@ -302,19 +302,19 @@ export class CompteUtilisateurComponent implements OnInit {
   }
 
   cancelCarac() {
-    this.caracForm = null;
+    this.caracForm = new Caracteristique();
   }
 
   cancelNomFlore() {
-    this.floreForm = null;
+    this.nomFlore = null;
   }
 
   cancelNomFaune() {
-    this.fauneForm = null;
+    this.nomFaune = null;
   }
 
   cancelNomConseil() {
-    this.conseilForm = null;
+    this.nomConseil = null;
   }
 
   cancelCaracForm() {
