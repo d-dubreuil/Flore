@@ -222,8 +222,8 @@
               style="width: 60%;"/></td>
             <td style="width: 15%"> {{selec.produit.faune.nomFaune}}</td>
             <td style="width: 15%">{{selec.produit.fournisseur}}</td>
-            <td style="width: 15%"><input type="number" [(ngModel)]="selec.nombre" style="width: 40%; height: 20%"
-                                          (change)="calcul()"/></td>
+            <td style="width: 15%"><input type="number" style="width: 40%; height: 20%"
+                                          (change)="calcul()"/>{{selec.nombre}}</td>
             <td style="width: 15%">{{(selec.produit.prix).toFixed(2)}} €</td>
             <td style="width: 15%">{{(selec.produit.prix * selec.nombre).toFixed(2)}} €</td>
           </tr>
@@ -233,8 +233,8 @@
               style="width: 60%;"/></td>
             <td style="width: 15%">{{selec.produit.flore.nom}}</td>
             <td style="width: 15%">{{selec.produit.fournisseur}}</td>
-            <td style="width: 15%"><input type="number" [(ngModel)]="selec.nombre" style="width: 40%; height: 20%"
-                                          (change)="calcul()"/></td>
+            <td style="width: 15%"><input type="number" style="width: 40%; height: 20%"
+                                          (change)="calcul()"/>{{selec.nombre}}</td>
             <td style="width: 15%">{{(selec.produit.prix).toFixed(2)}} €</td>
             <td style="width: 15%">{{(selec.produit.prix * selec.nombre).toFixed(2)}} €</td>
           </tr>
