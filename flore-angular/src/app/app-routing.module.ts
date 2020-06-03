@@ -30,6 +30,7 @@ import {JardinFauneComponent} from './jardin-faune/jardin-faune.component';
 import {JardinEnvironnementComponent} from './jardin-environnement/jardin-environnement.component';
 import {CompteComponent} from './compte/compte.component';
 import {IsClientGuard} from './is-client.guard';
+import {IsAdminGuard} from './is-admin.guard';
 import {EspaceFournisseurComponent} from "./espace-fournisseur/espace-fournisseur.component";
 
 const routes: Routes = [
