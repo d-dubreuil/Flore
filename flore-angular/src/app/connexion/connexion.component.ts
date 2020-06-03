@@ -3,6 +3,7 @@ import {Title} from '@angular/platform-browser';
 import {SessionService} from '../session.service';
 import {Session} from '../model/Session';
 import {Router} from '@angular/router';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-connexion',
@@ -15,7 +16,7 @@ export class ConnexionComponent implements OnInit {
   creationVideBoolean:boolean=false;
   creationEchecBoolean:boolean=false;
 
-  constructor(private titleService: Title, private sessionService: SessionService, private router: Router) {
+  constructor(private titleService: Title, private sessionService: SessionService, private router: Router,public commonService:CommonService) {
     this.titleService.setTitle('Connexion');
   }
 
@@ -27,8 +28,9 @@ export class ConnexionComponent implements OnInit {
       if (resp[0] == 'nonOK') {
         this.authechecBoolean = true;
       } else if (resp[0] == 'OK') {
-        localStorage.setItem('idCompte', resp[1]);
-        localStorage.setItem('typeCompte', resp[2]);
+        sessionStorage.setItem('idCompte', resp[1]);
+        sessionStorage.setItem('typeCompte', resp[2]);
+        this.commonService.connecte=sessionStorage.getItem('typeCompte');
         this.router.navigateByUrl('NPK/compte');
       }
     });
@@ -43,8 +45,9 @@ export class ConnexionComponent implements OnInit {
       } else if (resp[0] == 'Vide'){
         this.creationVideBoolean=true;
       } else if (resp[0]=='OK'){
-        localStorage.setItem('idCompte', resp[1]);
-        localStorage.setItem('typeCompte', resp[2]);
+        sessionStorage.setItem('idCompte', resp[1]);
+        sessionStorage.setItem('typeCompte', resp[2]);
+        this.commonService.connecte=sessionStorage.getItem('typeCompte');
         this.router.navigateByUrl('NPK/compte');
       }
     })

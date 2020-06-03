@@ -5,6 +5,7 @@ import {FloreService} from '../services/flore.service';
 import {CaracteristiqueService} from '../services/caracteristique.service';
 import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-flore',
@@ -156,7 +157,7 @@ export class FloreComponent implements OnInit {
   resistanceVentBoolean:boolean=false;
 
 
-  constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
+  constructor(private floreService: FloreService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router, private commonService:CommonService) {
     this.titleService.setTitle("Flore");
     this.caracs.push(this.caracEspece);
     this.caracs.push(this.caracRecolte);
@@ -176,6 +177,7 @@ export class FloreComponent implements OnInit {
     this.caracs.push(this.caracAzote);
     this.caracs.push(this.caracNutriment);
     this.caracs.push(this.caracStrate);
+    this.commonService.page ="flore";
   }
 
   ngOnInit(): void {

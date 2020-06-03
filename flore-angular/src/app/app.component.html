@@ -8,21 +8,22 @@
     </a>
     <div class="collapse navbar-collapse ">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a class="nav-link" [routerLink]="'/NPK/accueil'">Accueil<span
+        <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='accueil'}"><a class="nav-link" [routerLink]="'/NPK/accueil'">Accueil<span
           class="sr-only">(current)</span></a></li>
-        <li class="nav-item active"><a class="nav-link" [routerLink]="'/NPK/flore'">Flore</a></li>
-        <li class="nav-item active"><a class="nav-link" [routerLink]="'/NPK/faune'">Faune</a></li>
-        <li class="nav-item active"><a class="nav-link" [routerLink]="'/NPK/synergie'">Synergie</a></li>
-        <li class="nav-item active"><a class="nav-link" [routerLink]="'/NPK/conseils'">Conseils</a></li>
-        <li class="nav-item active"><a class="nav-link" [routerLink]="'/NPK/contact'">Contact</a></li>
-        <li class="nav-item active"><a class="nav-link" [routerLink]="'/NPK/qui-sommes-nous'">Qui sommes-nous ?</a></li>
+        <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='flore'}"><a class="nav-link" [routerLink]="'/NPK/flore'">Flore</a></li>
+        <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='faune'}"><a class="nav-link" [routerLink]="'/NPK/faune'">Faune</a></li>
+        <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='synergie'}"><a class="nav-link" [routerLink]="'/NPK/synergie'">Synergie</a></li>
+        <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='conseils'}"><a class="nav-link" [routerLink]="'/NPK/conseils'">Conseils</a></li>
+        <li class="nav-item disabled"><a class="nav-link">Fournisseur (prochainement)</a></li>
+        <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='quiSommesNous'}"><a class="nav-link" [routerLink]="'/NPK/qui-sommes-nous'">Qui sommes-nous ?</a></li>
       </ul>
     </div>
     <div id="navbarButtons" class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto ">
         <li class="nav-item active mr-4 ml-4"><a class="nav-link" [routerLink]="'/NPK/panier'">Panier <i
           class="fas fa-shopping-basket"></i></a></li>
-        <li class="nav-item active ml-4"><a class="nav-link" [routerLink]="'/NPK/connexion'" style="color: #8bc34a;">Connexion <i
+        <li class="nav-item active ml-4"><a class="nav-link" [routerLink]="'/NPK/connexion'" style="color: #8bc34a;" *ngIf="this.commonService.connecte == null">Connexion <i
+          class="fas fa-bug"></i></a><a class="nav-link" [routerLink]="'/NPK/compte'" style="color: #8bc34a;" *ngIf="this.commonService.connecte != null">Mon compte <i
           class="fas fa-bug"></i></a></li>
       </ul>
     </div>
@@ -39,6 +40,6 @@
 </div>
 
 <footer>
-  <h6 class="footer-copyright text-center py-3 bg-dark" style="color:white">© Copyright 2020 </h6>
+  <h6 class="footer-copyright text-center py-3 bg-dark" style="color:white"><a class="contact mr-3" [routerLink]="'/NPK/espace-client/contact/messagerie/nouveau-message'">contact-npk@gmail.com</a>© Copyright 2020 </h6>
 </footer>
 </body>

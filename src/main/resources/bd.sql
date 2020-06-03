@@ -98,6 +98,13 @@ CREATE TABLE compte_utilisateur
   rue character varying(255),
   telephone character varying(255),
   ville character varying(255),
+  disc character varying(255),
+  civilite character varying(255),
+  denomination character varying(255),
+  statut character varying(255),
+  SIRET_SIREN character varying(255),
+  RCS character varying(255),
+  TVA character varying(255),
   CONSTRAINT compte_utilisateur_pkey PRIMARY KEY (id)
 )
 WITH (
@@ -822,13 +829,13 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 
 
 
-INSERT INTO compte_utilisateur (id, version, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville) 
+INSERT INTO compte_utilisateur (id, version, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville, disc) 
 	VALUES 
-	(1,0, '33600', '', 'KevinBougis', 'Visa_Premier', 'kevin.bougis@gmail.com', 'cestmoilechef!', 'BOUGIS', 'Kévin','5 bis avenue Villemejan', '0625570704', 'PESSAC'), 
-	(2,0, '33127', 'Maison D10', 'ManonCharles', 'Mastercard', 'charles.manon@yahoo.com', 'vivelehtml', 'CHARLES', 'Manon', '21 avenue Colonel Pierre Bourgoin', '0635244332', 'MARTIGNAS'), 
-	(3,0, '33610', '', 'DamienDubreuil', 'Visa', 'dubreuil.damien@laposte.net', 'Admin_33!', 'DUBREUIL', 'Damien', '14 avenue du Parc', '0645872052', 'CANEJAN'), 
-	(4,0, '33400', 'Résidence Emile Zola', 'CecileLarrouy', 'Mastercard', 'cecile.larrouy@outlook.fr', 'Gestion_npk!', 'LARROUY', 'Cécile', '93 Boulevard George V', '0608050400', 'TALENCE'),	
-	(5,0, '33160', '', 'EricSultan', 'Visa_Premier', 'eric.sultan@gmail.com', 'aef52_Ui!', 'SULTAN', 'Eric', '4 rue de Corono', '0645104506', 'SAINT-MEDARD-EN-JALLES');
+	(1,0, '33600', '', 'KevinBougis', 'Visa_Premier', 'kevin.bougis@gmail.com', 'cestmoilechef!', 'BOUGIS', 'Kévin','5 bis avenue Villemejan', '0625570704', 'PESSAC','Client'), 
+	(2,0, '33127', 'Maison D10', 'ManonCharles', 'Mastercard', 'charles.manon@yahoo.com', 'vivelehtml', 'CHARLES', 'Manon', '21 avenue Colonel Pierre Bourgoin', '0635244332', 'MARTIGNAS','Fournisseur'), 
+	(3,0, '33610', '', 'DamienDubreuil', 'Visa', 'dubreuil.damien@laposte.net', 'Admin_33!', 'DUBREUIL', 'Damien', '14 avenue du Parc', '0645872052', 'CANEJAN','Administrateur'), 
+	(4,0, '33400', 'Résidence Emile Zola', 'CecileLarrouy', 'Mastercard', 'cecile.larrouy@outlook.fr', 'Gestion_npk!', 'LARROUY', 'Cécile', '93 Boulevard George V', '0608050400', 'TALENCE',null),	
+	(5,0, '33160', '', 'EricSultan', 'Visa_Premier', 'eric.sultan@gmail.com', 'aef52_Ui!', 'SULTAN', 'Eric', '4 rue de Corono', '0645104506', 'SAINT-MEDARD-EN-JALLES',null);
 	
 
 INSERT INTO commande (id, version, reference, total, type_envoi)
@@ -1914,7 +1921,8 @@ INSERT INTO flore (id, version, nom)
 	(187, 0,46,56,21),
 	(188, 0,46,67,21),
 	(189, 0,46,93,21);
-	
-ALTER SEQUENCE hibernate_sequence START 2000;
+
+CREATE SEQUENCE hibernate_sequence;
+ALTER SEQUENCE hibernate_sequence RESTART WITH 2000;
 
 	
