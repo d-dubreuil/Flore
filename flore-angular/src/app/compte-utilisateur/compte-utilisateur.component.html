@@ -308,27 +308,29 @@
       <div class="row form-group align-items-center justify-content-center">
         <div class="column ml-3 mr-3" style="width: 100%;">
           <div class="column mt-3" style="width: 100%;">
-            <div class="column mt-2" *ngIf="nomFloreBoolean">
-              <input class="form-control" type="text" placeholder="Entrez le nom de la flore"
-                     style="text-align: center; font-style: italic" [(ngModel)]="nomFlore">
+            <div class="column border mt-2" *ngIf="nomFloreBoolean">
+<!--              <input class="form-control" type="text" placeholder="Entrez le nom de la flore"-->
+<!--                     style="text-align: center; font-style: italic" [(ngModel)]="nomFlore">-->
+              <ng2-completer  [inputClass]="['form-control']" [placeholder]="'Entrez le nom de la flore'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore"> </ng2-completer>
               <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%"
                       (click)="loadNomFlore(nomFlore)">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
             <div class="column mt-2" *ngIf="nomFauneBoolean">
-              <input class="form-control" type="text" placeholder="Entrez le nom de la faune"
-                     style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">
+<!--              <input class="form-control" type="text" placeholder="Entrez le nom de la faune"-->
+<!--                     style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">-->
+              <ng2-completer  [inputClass]="['form-control']" [placeholder]="'Entrez le nom de la faune'" [datasource]="nomFauneList" [minSearchLength]="1" [(ngModel)]="nomFaune"> </ng2-completer>
               <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%"
                       (click)="loadNomFaune(nomFaune)">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
             <div class="column mt-2" *ngIf="nomConseilBoolean">
-              <input class="form-control" type="text" placeholder="Entrez le nom de la fiche conseil"
-                     style="text-align: center; font-style: italic" [(ngModel)]="nomConseil"
-                     (click)="loadNomConseil(nomConseil)">
-              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%">
+<!--              <input class="form-control" type="text" placeholder="Entrez le nom de la fiche conseil"-->
+<!--                     style="text-align: center; font-style: italic" [(ngModel)]="nomConseil">-->
+              <ng2-completer   [inputClass]="['form-control']" [placeholder]="'Entrez le nom de la fiche conseil'" [datasource]="nomConseilList" [minSearchLength]="1" [(ngModel)]="nomConseil"> </ng2-completer>
+              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%"  (click)="loadNomConseil(nomConseil)">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
