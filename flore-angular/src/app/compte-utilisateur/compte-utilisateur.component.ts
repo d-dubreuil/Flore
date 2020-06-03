@@ -21,11 +21,13 @@ import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
 })
 export class CompteUtilisateurComponent implements OnInit {
   @Input('prenom')
-  prenom:string;
+  prenom: string;
   nomFiche: string = '';
   nomLatin: string = '';
 
   nomFlore: string;
+  nomFaune: string;
+  nomConseil: string;
   nom: string;
   valeur: string;
 
@@ -86,6 +88,20 @@ export class CompteUtilisateurComponent implements OnInit {
       this.nomFloreSearch = resp[0];
       console.log(this.nomFloreSearch);
     }, error => console.log('erreur nom flore'));
+  }
+
+  loadNomFaune(nom: string) {
+    this.fauneService.findByNom(nom).subscribe(resp => {
+      this.nomFauneSearch = resp[0];
+      console.log(this.nomFauneSearch);
+    }, error => console.log('erreur nom faune'));
+  }
+
+  loadNomConseil(nom: string) {
+    this.conseilService.findByNom(nom).subscribe(resp => {
+      this.nomConseilSearch = resp[0];
+      console.log(this.nomConseilSearch);
+    }, error => console.log('erreur nom conseil'));
   }
 
   loadListFlore() {

@@ -298,14 +298,16 @@
             </div>
             <div class="column mt-2" *ngIf="nomFauneBoolean">
               <input class="form-control" type="text" placeholder="Entrez le nom de la faune"
-                     style="text-align: center; font-style: italic">
-              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%">
+                     style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">
+              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%"
+                      (click)="loadNomFaune(nomFaune)">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
             <div class="column mt-2" *ngIf="nomConseilBoolean">
               <input class="form-control" type="text" placeholder="Entrez le nom de la fiche conseil"
-                     style="text-align: center; font-style: italic">
+                     style="text-align: center; font-style: italic" [(ngModel)]="nomConseil"
+                     (click)="loadNomConseil(nomConseil)">
               <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
@@ -381,9 +383,9 @@
   </div>
 
   <!--BLOC 4 : 4. Bases de données-->
-  <div class="row card mt-3 m-5 bg-transparent align-items-center justify-content-center">
+  <div class="row mt-3 m-5 bg-transparent align-items-center justify-content-center">
     <!--4.1 Liste et formulaire des flores-->
-    <div class="row mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 45%"
+    <div class="row border mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 45%"
          *ngIf="listFloreVisible">
       <!--4.1.1 Liste des flores-->
       <!--Header-->
@@ -727,10 +729,10 @@
       </div>
 
     </div>
-    <!--4.3 Liste des caracs-->
-    <div class="row mt-3 bg-transparent align-items-center justify-content-center" style="width: 100%"
+    <!--4.3 Liste et formulaire des caracs-->
+    <div class="row border mt-3 bg-transparent align-items-center justify-content-center" style="width: 100%"
          *ngIf="listCaracVisible">
-      <!--4.1.1 Liste des flores-->
+      <!--4.1.1 Liste des caracs-->
       <!--Header-->
       <h2 class="my-3" style="text-align: center">
         <p>Liste des caractéristiques</p></h2>
@@ -775,15 +777,15 @@
         <div class="btn-group btn-group-lg float-right">
           <!--Bouton ADD détail-->
           <a class="btn btn-lg float-right"
-             style="background-color :#8bc34a; color: black; border-left-color: black"
+             style="background-color :#8bc34a; color: black; border-right-color: black"
              (click)="addCaracNomLatin()" data-toggle="modal"
              data-target="#addCaracNomLatinModal"><i class="fas fa-plus-square"></i></a>
           <!--Bouton ADD création-->
           <a class="btn btn-lg float-right"
-             style="background-color :#8bc34a; color: black; border-right-color: black"
+             style="background-color :#8bc34a; color: black; border-left-color: black"
              (click)="addCarac()" data-toggle="modal"
              data-target="#addCaracModal"><i class="fas fa-plus"></i></a>
-      
+
         </div>
       </div>
 
@@ -869,7 +871,7 @@
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Création d'une caractéristique</h4>
+              <h4 class="modal-title">Création d'une valeur</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -893,7 +895,7 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <div class="column  ml-3" style="width: 70%;">
+                    <div class="column  ml-3" style="width: 73%;">
                       <label>Type de caractéristique:</label>
                       <select class="form-control" [(ngModel)]="caracFormNomLatin.typeCarac">
                         <option value="">Veuillez sélectionner un type de caractéristique</option>
@@ -908,7 +910,7 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <div class="column  ml-3" style="width: 70%;">
+                    <div class="column  ml-3" style="width: 73%;">
                       <label>Nom de la caractéristique:</label>
                       <select class="form-control" name="nomCarac" [(ngModel)]="caracFormNomLatin.nom">
                         <option value="">Veuillez sélectionner le nom de la caractéristique</option>
@@ -987,7 +989,7 @@
                     </div>
                   </div>
                   <div class="row form-group">
-                    <div class="column  ml-3" style="width: 70%;">
+                    <div class="column  ml-3" style="width: 73%;">
                       <label>Type de caractéristique:</label>
                       <select class="form-control" [(ngModel)]="caracForm.typeCarac">
                         <option value="">Veuillez sélectionner un type de caractéristique</option>

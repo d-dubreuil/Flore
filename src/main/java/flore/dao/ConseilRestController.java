@@ -29,13 +29,13 @@ public class ConseilRestController {
 
 	@Autowired
 	private IConseilRepository conseilRepo;
-	
+
 	@GetMapping("")
 	@JsonView(Views.ViewConseil.class)
 	public List<Conseil> findAll() {
 		return conseilRepo.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewConseil.class)
 	public Conseil find(@PathVariable Long id) {
@@ -48,13 +48,19 @@ public class ConseilRestController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
-	
+
 	@GetMapping("/by-theme/{theme}")
 	@JsonView(Views.ViewConseil.class)
 	public List<Conseil> findByTheme(@PathVariable String theme) {
-		return conseilRepo.findByTheme(theme);	
+		return conseilRepo.findByTheme(theme);
 	}
-	
+
+	@GetMapping("/by-nom/{nom}")
+	@JsonView(Views.ViewConseil.class)
+	public List<Conseil> findByNom(@PathVariable String nom) {
+		return conseilRepo.findByNom(nom);
+	}
+
 	@PostMapping("")
 	@JsonView(Views.ViewConseil.class)
 	public Conseil create(@RequestBody Conseil conseil) {
@@ -74,10 +80,10 @@ public class ConseilRestController {
 
 		return conseil;
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		conseilRepo.deleteById(id);
 	}
-	
+
 }
