@@ -11,3 +11,13 @@
   border-width: 1px;
   border-color: #8bc34a;
 }
+
+::ng-deep .completer-row{
+  text-align: center;
+  font-style: italic;
+
+}
+.completer-row{
+  width: inherit;
+}
+
