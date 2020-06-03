@@ -8,6 +8,7 @@ import {Flore} from '../model/Flore';
 import {SelectionService} from '../services/selection.service';
 import {Utilisateur} from '../model/Utilisateur';
 import {Paiement} from '../model/Paiement';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-panier',
@@ -21,18 +22,28 @@ export class PanierComponent implements OnInit {
   total: number = 0;
   id: number = 1;
   etapePanier: number = 1;
-  fraisLivraison:number = 0;
-  formPaiement:Paiement;
-  typeEnvoi:string;
-  typeCarte:string;
+  fraisLivraison: number = 0;
+  formPaiement: Paiement;
+  typeEnvoi: string;
+  typeCarte: string;
+  typePaiement: string;
+  typeCartes: Array<string> = new Array<string>();
 
-  constructor(private titleService: Title, private panierService: PanierService, private selectionService: SelectionService) {
+
+  constructor(private titleService: Title, private panierService: PanierService, private selectionService: SelectionService, private commonService: CommonService) {
     this.titleService.setTitle('Panier');
     this.load(this.id);
     this.calcul();
+    // this.commonService.findAllTypeCarte().subscribe(resp => {this.typeCartes = resp;console.log(this.typeCartes)}, err => console.log(err));
+
   }
 
   ngOnInit(): void {
+    this.commonService.findAllTypeCarte().subscribe(resp => {
+      this.typeCartes = resp;
+      console.log(this.typeCartes);
+    }, error => console.log(error));
+
   }
 
   load(id: number) {
@@ -74,23 +85,23 @@ export class PanierComponent implements OnInit {
 
   }
 
-  etapeSuivante(){
-    this.etapePanier = this.etapePanier + 1 ;
+  etapeSuivante() {
+    this.etapePanier = this.etapePanier + 1;
 
   }
 
-  etapePrecedente(){
-    this.etapePanier = this.etapePanier -1;
-    if(this.etapePanier == 2){
-      this.fraisLivraison=0;
+  etapePrecedente() {
+    this.etapePanier = this.etapePanier - 1;
+    if (this.etapePanier == 2) {
+      this.fraisLivraison = 0;
       this.calcul();
     }
-    if(this.etapePanier == 3){
-      this.formPaiement=null;
+    if (this.etapePanier == 3) {
+      this.formPaiement = null;
     }
   }
 
-  confirmerAchat(){
+  confirmerAchat() {
 
   }
 
@@ -104,12 +115,12 @@ export class PanierComponent implements OnInit {
     this.total = this.total + this.fraisLivraison;
   }
 
-  creationForm(){
+  creationForm() {
     this.formPaiement = new Paiement();
     this.formPaiement.montant = this.total;
   }
 
-  suppressionForm(){
+  suppressionForm() {
     this.formPaiement = null;
   }
 

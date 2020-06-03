@@ -1921,6 +1921,18 @@ INSERT INTO flore (id, version, nom)
 	(187, 0,46,56,21),
 	(188, 0,46,67,21),
 	(189, 0,46,93,21);
+	
+	INSERT INTO utilisateur (id, version, compte_utilisateur_id)
+	VALUES
+	-- Utilisateur de base
+	(1, 0,1)
+
+	INSERT INTO panier (id, version, utilisateur_id)
+	VALUES
+	-- Panier de base
+	(1, 0,1)
+	
+	
 
 CREATE SEQUENCE hibernate_sequence;
 ALTER SEQUENCE hibernate_sequence RESTART WITH 2000;
