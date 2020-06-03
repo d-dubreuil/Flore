@@ -6,7 +6,7 @@
            style="width: 70%;"/>
     </div>
     <div class="column " style="width: 60%; text-align: center; align: middle;">
-      <h1 class="mb-4 mt-2 ">Prenom</h1> <!--{{compteUtilisateurService.compteUtilisateur.prenom}}-->
+      <h1 class="mb-4 mt-2 ">{{prenom}},</h1>
       <h2 class="hr ">Consulte les fiches<br> ajoutées à tes Favoris</h2>
     </div>
   </div>
@@ -41,19 +41,19 @@
           <th>Supprimer</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let fav of list()">
           <tr>
             <td>
               <img src="" style="width: 85%; height: 80%"/>
             </td>
             <td>
-              Nom de la fiche
+              Fiche {{fav.nom}}
             </td>
             <td style="font-style: italic;">
-              Enregistrée le + date
+              Enregistrée le ...
             </td>
             <td>
-              <a class="nav-link" [routerLink]="'/NPK/flore'">Fiche de la Flore</a>
+              <a class="nav-link" >Fiche de la Flore</a>
             </td>
             <td>
               <div>
