@@ -30,6 +30,7 @@ import {JardinFauneComponent} from './jardin-faune/jardin-faune.component';
 import {JardinEnvironnementComponent} from './jardin-environnement/jardin-environnement.component';
 import {CompteComponent} from './compte/compte.component';
 import {IsClientGuard} from './is-client.guard';
+import {EspaceFournisseurComponent} from "./espace-fournisseur/espace-fournisseur.component";
 
 const routes: Routes = [
   {path: 'NPK/accueil', component: HomeComponent},
@@ -62,7 +63,8 @@ const routes: Routes = [
   {path: 'NPK/espace-client/contact', component: ContactComponent},
   {path: 'NPK/espace-client/contact/messagerie', component: MessagerieComponent},
   {path: 'NPK/espace-client/contact/messagerie/nouveau-message', component: NouveauMessageComponent},
-  {path: 'NPK/espace-client/contact/proposition-fiche', component: FormulairePropositionComponent}
+  {path: 'NPK/espace-client/contact/proposition-fiche', component: FormulairePropositionComponent},
+  {path: 'NPK/espace-fournisseur', component: EspaceFournisseurComponent}
 ];
 
 @NgModule({
