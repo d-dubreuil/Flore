@@ -14,8 +14,8 @@ export class CompteComponent implements OnInit {
   constructor(private compteUtilisateurService:CompteUtilisateurService) { }
 
   ngOnInit(): void {
-    this.disc=localStorage.getItem('typeCompte');
-    this.compteUtilisateurService.findById(parseInt(localStorage.getItem('idCompte'))).subscribe(resp=>{
+    this.disc=sessionStorage.getItem('typeCompte');
+    this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp=>{
       this.prenom=resp.prenom;
     },error => console.log(error));
 

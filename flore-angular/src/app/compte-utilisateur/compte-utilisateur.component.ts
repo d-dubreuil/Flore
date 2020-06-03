@@ -24,37 +24,42 @@ export class CompteUtilisateurComponent implements OnInit {
   prenom:string;
   nomFiche: string = '';
   nomLatin: string = '';
-  nomFlore: string = '';
-  nomFaune: string = '';
-  nomConseil: string = '';
+
+  nomFlore: string;
+  nomFaune: string;
+  nomConseil: string;
+  nom: string;
+  valeur: string;
+
   floreForm: Flore = new Flore();
-  caracForm: Caracteristique = new Caracteristique();
-  caracFormNomLatin: Caracteristique = new Caracteristique();
-  caracFormLink: Caracteristique = new Caracteristique();
-  refCaracForm: ReferentielCaracteristique = new ReferentielCaracteristique();
-  typeCarac: Array<string> = new Array<string>();
-  nomCarac: Array<string> = new Array<string>();
+  fauneForm: Faune = new Faune();
+  conseilForm: Conseil = new Conseil();
   nomFloreSearch: Flore = new Flore();
   nomFauneSearch: Faune = new Faune();
   nomConseilSearch: Conseil = new Conseil();
-  nom: string;
-  valeur: string;
-  listNom: Array<string> = new Array<string>();
-  detailForm: Caracteristique = null;
-  carac: Array<Caracteristique> = new Array<Caracteristique>();
-  fauneForm: Faune = new Faune();
-  conseilForm: Conseil = new Conseil();
-  listValue: Array<string> = new Array<string>();
   floreAModifier: Flore = new Flore();
   caracAModifier: Caracteristique = new Caracteristique();
   refCaracACree: ReferentielCaracteristique = new ReferentielCaracteristique();
+  caracForm: Caracteristique = new Caracteristique();
+  caracFormNomLatin: Caracteristique = new Caracteristique();
+  caracFormLink: Caracteristique = new Caracteristique();
+
+  listValue: Array<string> = new Array<string>();
+  typeCarac: Array<string> = new Array<string>();
+  nomCarac: Array<string> = new Array<string>();
+  listNom: Array<string> = new Array<string>();
+
+  carac: Array<Caracteristique> = new Array<Caracteristique>();
+
   caracFormLatinVisible: boolean = false;
   caracFormVisible: boolean = false;
   caracFormLinkVisible: boolean = false;
   nomFloreBoolean: boolean = false;
   nomFauneBoolean: boolean = false;
   nomConseilBoolean: boolean = false;
-
+  listFloreVisible: boolean = false;
+  listFauneVisible: boolean = false;
+  listCaracVisible: boolean = false;
 
   constructor(private floreService: FloreService, private fauneService: FauneService, private conseilService: ConseilService, private titleService: Title, private caracteristiqueService: CaracteristiqueService, private commonService: CommonService, private referentielCaracteristiqueService: ReferentielCaracteristiqueService) {
     this.titleService.setTitle('CompteUtilisateur');
@@ -80,8 +85,44 @@ export class CompteUtilisateurComponent implements OnInit {
 
   loadNomFlore(nom: string) {
     this.floreService.findByNom(nom).subscribe(resp => {
-      this.nomFloreSearch = resp;
+      this.nomFloreSearch = resp[0];
+      console.log(this.nomFloreSearch);
     }, error => console.log('erreur nom flore'));
+  }
+
+  loadNomFaune(nom: string) {
+    this.fauneService.findByNom(nom).subscribe(resp => {
+      this.nomFauneSearch = resp[0];
+      console.log(this.nomFauneSearch);
+    }, error => console.log('erreur nom faune'));
+  }
+
+  loadNomConseil(nom: string) {
+    this.conseilService.findByNom(nom).subscribe(resp => {
+      this.nomConseilSearch = resp[0];
+      console.log(this.nomConseilSearch);
+    }, error => console.log('erreur nom conseil'));
+  }
+
+  loadListFlore() {
+    this.listFloreVisible = true;
+    this.listFauneVisible = false;
+    this.listCaracVisible = false;
+    this.floreService.findAll();
+  }
+
+  loadListFaune() {
+    this.listFloreVisible = false;
+    this.listFauneVisible = true;
+    this.listCaracVisible = false;
+    this.fauneService.findAll();
+  }
+
+  loadListCarac() {
+    this.listFloreVisible = false;
+    this.listFauneVisible = false;
+    this.listCaracVisible = true;
+    this.conseilService.findAll();
   }
 
 //AUTRES METHODES
@@ -98,16 +139,29 @@ export class CompteUtilisateurComponent implements OnInit {
   }
 
   listFlore(): Array<Flore> {
-    return this.floreService.findAll();
+    return this.floreService.findAll().sort(function(a, b) {
+      return a.nom.localeCompare(b.nom);
+    });
+  }
+
+  listCarac(): Array<Caracteristique> {
+    return this.caracteristiqueService.findAll();
   }
 
   listFaune(): Array<Faune> {
-    return this.fauneService.findAll();
+    return this.fauneService.findAll().sort(function(a, b) {
+      return a.nomFaune.localeCompare(b.nomFaune);
+    });
   }
+
 
 //METHODES ADD
   addFlore() {
     this.floreForm = new Flore();
+  }
+
+  addFaune() {
+    this.fauneForm = new Faune();
   }
 
   addCaracNomLatin() {
@@ -154,6 +208,20 @@ export class CompteUtilisateurComponent implements OnInit {
       error => console.log(error));
   }
 
+  editFaune(id: number) {
+    this.fauneService.findById(id).subscribe(resp => {
+        this.fauneForm = resp;
+      },
+      error => console.log(error));
+  }
+
+  editCarac(id: number) {
+    this.caracteristiqueService.findById(id).subscribe(resp => {
+        this.caracForm = resp;
+      },
+      error => console.log(error));
+  }
+
 //METHODES SAVE
   saveNomFlore() {
     this.floreForm.nom = this.nomFiche;
@@ -183,11 +251,34 @@ export class CompteUtilisateurComponent implements OnInit {
     this.caracteristiqueService.create(this.caracForm).subscribe(resp => {
       this.caracForm = new Caracteristique();
       this.caracteristiqueService.load();
+      this.caracFormVisible = false;
+      this.caracFormLatinVisible = false;
+    }, error => console.log(error));
+  }
+
+  saveCaracLatin() {
+    this.caracteristiqueService.create(this.caracFormNomLatin).subscribe(resp => {
+      this.caracFormNomLatin = new Caracteristique();
+      this.caracteristiqueService.load();
+    }, error => console.log(error));
+  }
+
+  saveFlore() {
+    this.floreService.create(this.floreForm).subscribe(resp => {
+      this.floreForm = new Flore();
+      this.floreService.load();
+    }, error => console.log(error));
+  }
+
+  saveFaune() {
+    this.fauneService.create(this.fauneForm).subscribe(resp => {
+      this.fauneForm = new Faune();
+      this.fauneService.load();
     }, error => console.log(error));
   }
 
   saveCaracWithFlore() {
-    this.floreService.findByNom(this.nomFiche).subscribe(
+    this.floreService.findByNom(this.nomFlore).subscribe(
       resp => {
         this.floreAModifier = resp;
         this.caracteristiqueService.findByAttribut(this.caracForm.typeCarac, this.caracForm.nom, this.caracForm.valeur).subscribe(resp => {
@@ -206,12 +297,16 @@ export class CompteUtilisateurComponent implements OnInit {
     this.floreForm = null;
   }
 
+  cancelFaune() {
+    this.floreForm = null;
+  }
+
   cancelCarac() {
     this.caracForm = null;
   }
 
   cancelNomFlore() {
-    this.floreForm = new Flore();
+    this.floreForm = null;
   }
 
   cancelNomFaune() {
@@ -222,13 +317,9 @@ export class CompteUtilisateurComponent implements OnInit {
     this.conseilForm = null;
   }
 
-  cancelLatinCarac() {
-    this.caracFormLatinVisible = false;
-    this.caracFormNomLatin = new Caracteristique();
-  }
-
   cancelCaracForm() {
     this.caracFormVisible = false;
+    this.caracFormLatinVisible = false;
     this.caracForm = new Caracteristique();
   }
 
@@ -240,5 +331,13 @@ export class CompteUtilisateurComponent implements OnInit {
   //METHODES DELETE
   deleteFlore(id: number) {
     this.floreService.deleteById(id);
+  }
+
+  deleteCarac(id: number) {
+    this.caracteristiqueService.deleteById(id);
+  }
+
+  deleteFaune(id: number) {
+    this.fauneService.deleteById(id);
   }
 }

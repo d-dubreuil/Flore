@@ -83,10 +83,42 @@
     </div>
     <!--Footer-->
     <div class="border card-footer ml-5 mr-5 mb-5 align-items-center justify-content-center" style="width: 70%">
-      <!--Bouton ADD-->
-      <a class="btn btn-lg float-left ml-5" style="background-color :#8bc34a; color: black"
-         (click)="addCaracNomLatin()" (click)="addCarac()" data-toggle="tooltip"
-         data-placement="top" title="Ajouter une caractéristique"><i class="fas fa-arrow-down"></i></a>
+      <div class="column ">
+        <div class="btn-group btn-group-lg float-left">
+          <!--Bouton ADD-->
+          <a class="btn btn-lg float-left ml-5"
+             style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="addCaracNomLatin()" (click)="addCarac()" data-toggle="tooltip"
+             data-placement="top" title="Ajouter une caractéristique"><i class="fas fa-arrow-down"></i></a>
+          <!--Bouton LINK-->
+          <a class="btn btn-lg float-left" style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="addLink()"
+             data-toggle="tooltip"
+             data-placement="top" title="Lier les caractéristiques aux fiches"><i class="fas fa-link"></i></a>
+        </div>
+        <div class="btn-group btn-group-lg float-right">
+          <!--Bouton FLORE-->
+          <a class="btn btn-lg float-right" style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="loadListFlore()" data-toggle="tooltip"
+             data-placement="top" title="Liste de flore">
+            <i class="fas fa-seedling"></i>
+          </a>
+          <!--Bouton FAUNE-->
+          <a class="btn btn-lg float-right"
+             style="background-color :#8bc34a; color: black; border-right-color: black; border-left-color: black"
+             (click)="loadListFaune()" data-toggle="tooltip"
+             data-placement="top" title="Liste de faune">
+            <i class="fas fa-bug"></i>
+          </a>
+          <!--Bouton CARAC-->
+          <a class="btn btn-lg float-right mr-5"
+             style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="loadListCarac()" data-toggle="tooltip"
+             data-placement="top" title="Liste de caractéristique">
+            <i class="fab fa-cuttlefish"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -132,36 +164,32 @@
           </div>
         </div>
         <div class="row form-group">
-          <div class="column  ml-3" style="width: 73%;">
+          <div class="column  ml-3" style="width: 91%;">
             <label>Valeur de la caractéristique:</label>
             <input type="text" class="form-control" name="valeur"
                    placeholder="Veuillez indiquer la valeur" [(ngModel)]="caracFormNomLatin.valeur">
           </div>
-          <div class="column btn-group mt-4">
-            <!--Bouton SAVE-->
-            <a class="btn mt-2" style="background-color :#8bc34a; color: black; border-right-color: black"
-               (click)="saveCarac()">
-              <i class="fa fa-check"></i>
-            </a>
-            <!--Bouton CANCEL-->
-            <a class="btn mt-2" style="background-color :#8bc34a; color: black; border-left-color: black"
-               (click)="cancelLatinCarac()">
-              <i class="fa fa-undo"></i>
-            </a>
-          </div>
+
         </div>
       </div>
       <!--Footer-->
-      <div class="column card-footer border" style="width: 100%">
-        <!--Boutons NEW et LIEN-->
-        <!--Bouton LIEN-->
-        <a class="btn btn-lg float-left" style="background-color :#8bc34a; color: black" (click)="addLink()"
-           data-toggle="tooltip"
-           data-placement="top" title="Lier les caractéristiques aux fiches"><i class="fas fa-link"></i></a>
-        <!--        &lt;!&ndash;Bouton NEW&ndash;&gt;-->
-        <!--        <a class="btn btn-lg float-right" style="background-color :#8bc34a; color: black" (click)="addCarac()"-->
-        <!--           data-toggle="tooltip"-->
-        <!--           data-placement="top" title="Créer une nouvelle caractéristique"><i class="fas fa-plus"></i></a>-->
+      <div class="card-footer border" style="width: 100%">
+        <div class="btn-group btn-group-lg float-right ">
+          <!--Bouton SAVE-->
+          <a class="btn btn-lg float-right mt-2"
+             style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="saveCaracLatin()" data-toggle="tooltip"
+             data-placement="top" title="Enregistrer la caractéristique">
+            <i class="fa fa-check"></i>
+          </a>
+          <!--Bouton CANCEL-->
+          <a class="btn btn-lg float-right mt-2"
+             style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="cancelCaracForm()" data-toggle="tooltip"
+             data-placement="top" title="Retour">
+            <i class="fa fa-undo"></i>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -172,23 +200,31 @@
       <h2 class="my-3" style="text-align: center">
         <p>Création de la caractéristique:</p></h2>
       <!--Body-->
-      <div class="card-body" style="width: 100%;">
+      <div class="card-body">
         <div class="row form-group">
-          <div class="column  ml-3" style="width: 90%;">
+          <div class="column  ml-3" style="width: 75%;">
             <label>Type de caractéristique:</label>
-            <input type="text" class="form-control" name="valeur"
-                   placeholder="Veuillez indiquer le type de caractéristique" [(ngModel)]="caracForm.typeCarac">
+            <select class="form-control" [(ngModel)]="caracForm.typeCarac">
+              <option value="">Veuillez sélectionner un type de caractéristique</option>
+              <option *ngFor="let typeCarac of typeCarac" [value]="typeCarac">{{typeCarac}}</option>
+            </select>
+          </div>
+          <div class="column mt-2 ">
+            <div><br></div>
+            <button class="btn" style="background-color :#8bc34a; color: black"
+                    (click)="loadTypeCarac(caracForm.typeCarac)">Valider
+            </button>
           </div>
         </div>
         <div class="row form-group">
-          <div class="column  ml-3" style="width: 90%;">
+          <div class="column  ml-3" style="width: 91%;">
             <label>Nom de la caractéristique:</label>
             <input type="text" class="form-control" name="valeur"
                    placeholder="Veuillez indiquer le nom de la caractéristique" [(ngModel)]="caracForm.nom">
           </div>
         </div>
         <div class="row form-group">
-          <div class="column  ml-3" style="width: 90%;">
+          <div class="column ml-3" style="width: 91%;">
             <label>Valeur de la caractéristique:</label>
             <input type="text" class="form-control" name="valeur"
                    placeholder="Veuillez indiquer la valeur" [(ngModel)]="caracForm.valeur">
@@ -198,25 +234,21 @@
 
       <!--Footer-->
       <div class="card-footer border" style="width: 100%">
-        <!--        &lt;!&ndash;Bouton LIEN&ndash;&gt;-->
-        <!--        <a class="btn btn-lg float-left" style="background-color :#8bc34a; color: black" (click)="addLink()"-->
-        <!--           data-toggle="tooltip"-->
-        <!--           data-placement="top" title="Lier les caractéristiques aux fiches"><i class="fas fa-link"></i></a>-->
-        <!--Boutons SAVE et CANCEL-->
         <div class="btn-group btn-group-lg float-right">
           <!--Bouton SAVE-->
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-             (click)="saveCarac()">
+             (click)="saveCarac()" data-toggle="tooltip"
+             data-placement="top" title="Enregistrer la caractéristique">
             <i class="fa fa-check"></i>
           </a>
           <!--Bouton CANCEL-->
           <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
-             (click)="cancelCaracForm()">
+             (click)="cancelCaracForm()" data-toggle="tooltip"
+             data-placement="top" title="Retour">
             <i class="fa fa-undo"></i>
           </a>
         </div>
       </div>
-
 
     </div>
   </div>
@@ -225,7 +257,7 @@
   <div class="card mt-3 m-5 bg-transparent align-items-center justify-content-center" *ngIf="caracFormLinkVisible">
     <!--Header-->
     <h2 class="my-3" style="text-align: center">
-      <p>Création du lien:</p></h2>
+      <p>Fiche: <a *ngIf="nomFloreBoolean">{{nomFlore}}</a></p></h2>
     <!--Body-->
     <div class="card-body border ml-5 mr-5 align-items-center justify-content-center" style="width: 70%">
 
@@ -252,39 +284,35 @@
           </div>
         </div>
       </div>
-
       <!--Search fiche flore/faune/conseil-->
       <div class="row form-group align-items-center justify-content-center">
         <div class="column ml-3 mr-3" style="width: 100%;">
           <div class="column mt-3" style="width: 100%;">
             <div class="column mt-2" *ngIf="nomFloreBoolean">
-              <!--              <select class="form-control" id="nomFlore" name="nomFlore">-->
-              <!--                <option value="">Veuillez sélectionner une flore</option>-->
-              <!--                <option *ngFor="let nom of nomFlore" [value]="nom">{{nom}}</option>-->
-              <!--              </select>-->
               <input class="form-control" type="text" placeholder="Entrez le nom de la flore"
-                     style="text-align: center; font-style: italic">
+                     style="text-align: center; font-style: italic" [(ngModel)]="nomFlore">
               <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%"
-                      (click)="loadNomFlore(floreForm.nom)">
+                      (click)="loadNomFlore(nomFlore)">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
             <div class="column mt-2" *ngIf="nomFauneBoolean">
               <input class="form-control" type="text" placeholder="Entrez le nom de la faune"
-                     style="text-align: center; font-style: italic">
-              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%">
+                     style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">
+              <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%"
+                      (click)="loadNomFaune(nomFaune)">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
             <div class="column mt-2" *ngIf="nomConseilBoolean">
               <input class="form-control" type="text" placeholder="Entrez le nom de la fiche conseil"
-                     style="text-align: center; font-style: italic">
+                     style="text-align: center; font-style: italic" [(ngModel)]="nomConseil"
+                     (click)="loadNomConseil(nomConseil)">
               <button id="btnSearch" class="btn float-right mt-2" style="background-color: #8bc34a; width: 100%">
                 <i class="fas fa-leaf" style="color: white"></i>
               </button>
             </div>
           </div>
-
         </div>
       </div>
       <!--Select type caractéristique-->
@@ -339,12 +367,14 @@
       <div class="btn-group btn-group-lg float-right">
         <!--Bouton SAVE-->
         <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-           (click)="saveCaracWithFlore()">
+           (click)="saveCaracWithFlore()" data-toggle="tooltip"
+           data-placement="top" title="Enregistrer la fiche">
           <i class="fa fa-check"></i>
         </a>
         <!--Bouton CANCEL-->
         <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
-           (click)="cancelCaracFormLink()">
+           (click)="cancelCaracFormLink()" data-toggle="tooltip"
+           data-placement="top" title="Retour">
           <i class="fa fa-undo"></i>
         </a>
       </div>
@@ -352,16 +382,18 @@
 
   </div>
 
-  <!--BLOC 4 : 4. Liste des flores-->
-  <div class="row card mt-3 m-5 bg-transparent align-items-center justify-content-center">
-    <!--4.1 Liste des flores-->
-    <div class="column card m-3 bg-transparent align-items-center justify-content-center" style="width: 35%">
+  <!--BLOC 4 : 4. Bases de données-->
+  <div class="row mt-3 m-5 bg-transparent align-items-center justify-content-center">
+    <!--4.1 Liste et formulaire des flores-->
+    <div class="row border mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 45%"
+         *ngIf="listFloreVisible">
+      <!--4.1.1 Liste des flores-->
       <!--Header-->
       <h2 class="my-3" style="text-align: center">
         <p>Liste des fiches flores</p></h2>
       <!--Body-->
-      <div class="card-body ml-3 mr-3 align-items-center justify-content-center" style="width: 100%">
-        <table class="table border table-striped" style="width: 100%">
+      <div class="card-body " style="width: 100%">
+        <table class="table table-striped table-responsive">
           <thead>
           <tr>
             <th>Id</th>
@@ -377,12 +409,13 @@
             <td>{{flore.nom}}</td>
             <td>
               <div class="btn-group btn-group-sm">
-                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
-                   (click)="editFlore(flore.id)">
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black" data-toggle="modal"
+                   data-target="#editFloreModal" (click)="editFlore(flore.id)">
                   <i class="fa fa-edit"></i>
                 </a>
                 <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
-                   (click)="deleteFlore(flore.id)"><i
+                   (click)="deleteFlore(flore.id)" data-toggle="tooltip"
+                   data-placement="top" title="Supprimer"><i
                   class="fa fa-trash"></i></a>
               </div>
             </td>
@@ -391,20 +424,149 @@
         </table>
       </div>
       <!--Footer-->
-      <!--      <div class="card-footer m-5">-->
-      <!--        <a class="btn btn-lg" style="background-color :#8bc34a; color: black" (click)="addFlore()"><i-->
-      <!--          class="fa fa-plus"></i></a>-->
-      <!--      </div>-->
-    </div>
+      <div class="border card-footer align-items-center justify-content-center" style="width: 100%">
+        <!--Bouton ADD-->
+        <a class="btn btn-lg float-right"
+           style="background-color :#8bc34a; color: black;"
+           (click)="addFlore()" data-toggle="modal"
+           data-target="#addFloreModal"><i class="fas fa-plus"></i></a>
+      </div>
 
-    <!--4.2 Liste des faunes-->
-    <div class="column card m-3 bg-transparent align-items-center justify-content-center" style="width: 35%">
+      <!--4.1.2 Formulaire edit des flores-->
+      <div id="editFloreModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edition d'une flore</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="column m-2 bg-transparent align-items-center justify-content-center">
+                <!--Body-->
+                <div class="card-body align-items-center justify-content-center" style="width: 100%">
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Identifiant:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Id généré automatiquement"
+                             [(ngModel)]="floreForm.id" disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Version:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Version générée automatiquement" [(ngModel)]="floreForm.version"
+                             disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Nom de la flore:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer le nom de la flore" [(ngModel)]="floreForm.nom">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group btn-group-lg float-right">
+                  <!--Bouton SAVE-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-right-color: black"
+                     (click)="saveFlore()" data-toggle="tooltip"
+                     data-placement="top" title="Enregister">
+                    <i class="fa fa-check"></i>
+                  </a>
+                  <!--Bouton CANCEL-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-left-color: black"
+                     data-toggle="tooltip"
+                     data-placement="top" title="Retour">
+                    <i class="fa fa-undo"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!--4.2.3 Formulaire add des flores-->
+      <div id="addFloreModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Création d'une flore</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="column m-2 bg-transparent align-items-center justify-content-center">
+                <!--Body-->
+                <div class="card-body align-items-center justify-content-center" style="width: 100%">
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Identifiant:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Id généré automatiquement"
+                             [(ngModel)]="floreForm.id" disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Version:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Version générée automatiquement" [(ngModel)]="floreForm.version"
+                             disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Nom de la faune:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer le nom de la flore" [(ngModel)]="floreForm.nom">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group btn-group-lg float-right">
+                  <!--Bouton SAVE-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-right-color: black"
+                     (click)="saveFlore()" data-toggle="tooltip"
+                     data-placement="top" title="Enregister">
+                    <i class="fa fa-check"></i>
+                  </a>
+                  <!--Bouton CANCEL-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-left-color: black" (click)="cancelFlore()"
+                     data-toggle="tooltip"
+                     data-placement="top" title="Retour">
+                    <i class="fa fa-undo"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!--4.2 Liste et formulaire des faunes-->
+    <div class="row border mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 40%"
+         *ngIf="listFauneVisible">
+      <!--4.2.1 Liste des faunes-->
       <!--Header-->
       <h2 class="my-3" style="text-align: center">
         <p>Liste des fiches faunes</p></h2>
       <!--Body-->
-      <div class="card-body ml-3 mr-3 align-items-center justify-content-center" style="width: 100%">
-        <table class="table border table-striped" style="width: 100%">
+      <div class="card-body " style="width: 100%">
+        <table class="table table-striped table-responsive">
           <thead>
           <tr>
             <th>Id</th>
@@ -420,12 +582,13 @@
             <td>{{faune.nomFaune}}</td>
             <td>
               <div class="btn-group btn-group-sm">
-                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
-                   (click)="editFlore(faune.id)">
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black" data-toggle="modal"
+                   data-target="#editFauneModal" (click)="editFaune(faune.id)">
                   <i class="fa fa-edit"></i>
                 </a>
                 <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
-                   (click)="deleteFlore(faune.id)"><i
+                   (click)="deleteFaune(faune.id)" data-toggle="tooltip"
+                   data-placement="top" title="Supprimer"><i
                   class="fa fa-trash"></i></a>
               </div>
             </td>
@@ -434,12 +597,452 @@
         </table>
       </div>
       <!--Footer-->
-      <!--      <div class="card-footer m-5">-->
-      <!--        <a class="btn btn-lg" style="background-color :#8bc34a; color: black" (click)="addFlore()"><i-->
-      <!--          class="fa fa-plus"></i></a>-->
-      <!--      </div>-->
+      <div class="border card-footer align-items-center justify-content-center" style="width: 100%">
+        <!--Bouton ADD-->
+        <a class="btn btn-lg float-right"
+           style="background-color :#8bc34a; color: black;"
+           (click)="addFaune()" data-toggle="modal"
+           data-target="#addFauneModal"><i class="fas fa-plus"></i></a>
+      </div>
+      <!--4.2.2 Formulaire edit des faunes-->
+      <div id="editFauneModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edition d'une faune</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="column m-2 bg-transparent align-items-center justify-content-center">
+                <!--Body-->
+                <div class="card-body align-items-center justify-content-center" style="width: 100%">
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Identifiant:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Id généré automatiquement"
+                             [(ngModel)]="fauneForm.id" disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Version:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Version générée automatiquement" [(ngModel)]="fauneForm.version"
+                             disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Nom de la faune:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer le nom de la faune" [(ngModel)]="fauneForm.nomFaune">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group btn-group-lg float-right">
+                  <!--Bouton SAVE-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-right-color: black"
+                     (click)="saveFaune()" data-toggle="tooltip"
+                     data-placement="top" title="Enregister">
+                    <i class="fa fa-check"></i>
+                  </a>
+                  <!--Bouton CANCEL-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-left-color: black"
+                     data-toggle="tooltip"
+                     data-placement="top" title="Retour">
+                    <i class="fa fa-undo"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!--4.2.3 Formulaire add des faunes-->
+      <div id="addFauneModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Création d'une faune</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="column m-2 bg-transparent align-items-center justify-content-center">
+                <!--Body-->
+                <div class="card-body align-items-center justify-content-center" style="width: 100%">
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Identifiant:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Id généré automatiquement"
+                             [(ngModel)]="fauneForm.id" disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Version:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Version générée automatiquement" [(ngModel)]="fauneForm.version"
+                             disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Nom de la faune:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer le nom de la faune" [(ngModel)]="fauneForm.nomFaune">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group btn-group-lg float-right">
+                  <!--Bouton SAVE-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-right-color: black"
+                     (click)="saveFaune()" data-toggle="tooltip"
+                     data-placement="top" title="Enregister">
+                    <i class="fa fa-check"></i>
+                  </a>
+                  <!--Bouton CANCEL-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-left-color: black" (click)="cancelFaune()"
+                     data-toggle="tooltip"
+                     data-placement="top" title="Retour">
+                    <i class="fa fa-undo"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!--4.3 Liste et formulaire des caracs-->
+    <div class="row border mt-3 bg-transparent align-items-center justify-content-center" style="width: 100%"
+         *ngIf="listCaracVisible">
+      <!--4.1.1 Liste des caracs-->
+      <!--Header-->
+      <h2 class="my-3" style="text-align: center">
+        <p>Liste des caractéristiques</p></h2>
+      <!--Body-->
+      <div class="card-body " style="width: 100%">
+        <table class="table table-striped table-responsive">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Version</th>
+            <th>Type</th>
+            <th>Nom</th>
+            <th>Valeur</th>
+            <th>Options</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let carac of listCarac()">
+            <td>{{carac.id}}</td>
+            <td>{{carac.version}}</td>
+            <td>{{carac.typeCarac}}</td>
+            <td>{{carac.nom}}</td>
+            <td>{{carac.valeur}}</td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black" data-toggle="modal"
+                   data-target="#editCaracModal" (click)="editCarac(carac.id)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a id="btnGroup" class="btn" style="background-color :#8bc34a; color: black"
+                   (click)="deleteCarac(carac.id)" data-toggle="tooltip"
+                   data-placement="top" title="Supprimer"><i
+                  class="fa fa-trash"></i></a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Footer-->
+      <div class="border card-footer align-items-center justify-content-center" style="width: 100%">
+        <div class="btn-group btn-group-lg float-right">
+          <!--Bouton ADD détail-->
+          <a class="btn btn-lg float-right"
+             style="background-color :#8bc34a; color: black; border-right-color: black"
+             (click)="addCaracNomLatin()" data-toggle="modal"
+             data-target="#addCaracNomLatinModal"><i class="fas fa-plus-square"></i></a>
+          <!--Bouton ADD création-->
+          <a class="btn btn-lg float-right"
+             style="background-color :#8bc34a; color: black; border-left-color: black"
+             (click)="addCarac()" data-toggle="modal"
+             data-target="#addCaracModal"><i class="fas fa-plus"></i></a>
+
+        </div>
+      </div>
+
+      <!--4.3.1 Formulaire edit des carac-->
+      <div id="editCaracModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edition d'une flore</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="column m-2 bg-transparent align-items-center justify-content-center">
+                <!--Body-->
+                <div class="card-body align-items-center justify-content-center" style="width: 100%">
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Identifiant:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Id généré automatiquement"
+                             [(ngModel)]="caracForm.id" disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Version:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Version générée automatiquement" [(ngModel)]="caracForm.version"
+                             disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Type de caractéristique:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer un type" [(ngModel)]="caracForm.typeCarac">
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Nom de la caractéristique:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer un nom" [(ngModel)]="caracForm.nom">
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Valeur de la caractéristique:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer une valeur" [(ngModel)]="caracForm.valeur">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group btn-group-lg float-right">
+                  <!--Bouton SAVE-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-right-color: black"
+                     (click)="saveCarac()" data-toggle="tooltip"
+                     data-placement="top" title="Enregister">
+                    <i class="fa fa-check"></i>
+                  </a>
+                  <!--Bouton CANCEL-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-left-color: black" (click)="cancelCarac()"
+                     data-toggle="tooltip"
+                     data-placement="top" title="Retour">
+                    <i class="fa fa-undo"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!--4.3.2 Formulaire add détail des flores-->
+      <div id="addCaracNomLatinModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Création d'une valeur</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="column m-2 bg-transparent align-items-center justify-content-center">
+                <!--Body-->
+                <div class="card-body align-items-center justify-content-center" style="width: 100%">
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Identifiant:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Id généré automatiquement"
+                             [(ngModel)]="caracFormNomLatin.id" disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Version:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Version générée automatiquement" [(ngModel)]="caracFormNomLatin.version"
+                             disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 73%;">
+                      <label>Type de caractéristique:</label>
+                      <select class="form-control" [(ngModel)]="caracFormNomLatin.typeCarac">
+                        <option value="">Veuillez sélectionner un type de caractéristique</option>
+                        <option *ngFor="let typeCarac of typeCarac" [value]="typeCarac">{{typeCarac}}</option>
+                      </select>
+                    </div>
+                    <div class="column mt-2 ">
+                      <div><br></div>
+                      <button class="btn" style="background-color :#8bc34a; color: black"
+                              (click)="loadTypeCarac(caracFormNomLatin.typeCarac)">Valider
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 73%;">
+                      <label>Nom de la caractéristique:</label>
+                      <select class="form-control" name="nomCarac" [(ngModel)]="caracFormNomLatin.nom">
+                        <option value="">Veuillez sélectionner le nom de la caractéristique</option>
+                        <option *ngFor="let nomCarac of doublons()"
+                                [value]="nomCarac">{{nomCarac}}</option>
+                      </select>
+                    </div>
+                    <div class="column mt-2 ">
+                      <div><br></div>
+                      <button class="btn" style="background-color :#8bc34a; color: black"
+                              (click)="loadNomCarac(caracFormNomLatin.typeCarac, caracFormNomLatin.nom)">Valider
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Nom de la faune:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer une valeur"
+                             [(ngModel)]="caracFormNomLatin.valeur">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group btn-group-lg float-right">
+                  <!--Bouton SAVE-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-right-color: black"
+                     (click)="saveCaracLatin()" data-toggle="tooltip"
+                     data-placement="top" title="Enregister">
+                    <i class="fa fa-check"></i>
+                  </a>
+                  <!--Bouton CANCEL-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-left-color: black" (click)="cancelCarac()"
+                     data-toggle="tooltip"
+                     data-placement="top" title="Retour">
+                    <i class="fa fa-undo"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!--4.3.3 Formulaire add création des flores-->
+      <div id="addCaracModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Création d'une caractéristique</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="column m-2 bg-transparent align-items-center justify-content-center">
+                <!--Body-->
+                <div class="card-body align-items-center justify-content-center" style="width: 100%">
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Identifiant:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Id généré automatiquement"
+                             [(ngModel)]="caracForm.id" disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Version:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Version générée automatiquement" [(ngModel)]="caracForm.version"
+                             disabled>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 73%;">
+                      <label>Type de caractéristique:</label>
+                      <select class="form-control" [(ngModel)]="caracForm.typeCarac">
+                        <option value="">Veuillez sélectionner un type de caractéristique</option>
+                        <option *ngFor="let typeCarac of typeCarac" [value]="typeCarac">{{typeCarac}}</option>
+                      </select>
+                    </div>
+                    <div class="column mt-2 ">
+                      <div><br></div>
+                      <button class="btn" style="background-color :#8bc34a; color: black"
+                              (click)="loadTypeCarac(caracForm.typeCarac)">Valider
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Nom de la caractéristique:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer un nom" [(ngModel)]="caracForm.nom">
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="column  ml-3" style="width: 90%;">
+                      <label>Valeur de la caractéristique:</label>
+                      <input type="text" class="form-control" name="valeur"
+                             placeholder="Veuillez indiquer une valeur" [(ngModel)]="caracForm.valeur">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group btn-group-lg float-right">
+                  <!--Bouton SAVE-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-right-color: black"
+                     (click)="saveCaracLatin()" data-toggle="tooltip"
+                     data-placement="top" title="Enregister">
+                    <i class="fa fa-check"></i>
+                  </a>
+                  <!--Bouton CANCEL-->
+                  <a class="btn" data-dismiss="modal"
+                     style="background-color :#8bc34a; color: black; border-left-color: black" (click)="cancelCarac()"
+                     data-toggle="tooltip"
+                     data-placement="top" title="Retour">
+                    <i class="fa fa-undo"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
-
-
 </div>
