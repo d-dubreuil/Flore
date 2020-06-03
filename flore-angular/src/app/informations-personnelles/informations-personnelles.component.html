@@ -157,147 +157,6 @@
   </div>
 </div>
 
-
-<!-- Formulaire-->
-<div class="row">
-
-  <div class="column" style="width:8%"></div>
-  <div id="connect" class="column mt-5 ml-5 pl-2" style="width: 35%;">
-    <div class="column mt-4">
-      <div class="form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="disc" >Type utilisateur :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="disc" name="disc" style="width: 80%">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4" >
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="civiliteForm">Civilité :</label>
-        </div>
-        <div class="column " style="width: 45%;">
-          <label for="civilite"></label>
-          <select class="form-control" id="civiliteForm" [(ngModel)]="informationsForm.civilite">
-            <option value="">Choisir une civilité</option>
-            <option *ngFor="let civ of civilites" value="{{civ}}">{{civ}}</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="nomForm" >Nom :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="nomForm" name="nomForm" style="width: 80%" [(ngModel)]="informationsForm.nom">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="prenomForm" >Prenom :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="prenomForm" name="prenomForm" style="width: 80%"  [(ngModel)]="informationsForm.prenom">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="rueForm" >Rue :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="rueForm" name="rueForm" style="width: 80%" [(ngModel)]="informationsForm.rue">
-        </div>
-      </div>
-    </div>
-
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="codePostalForm" >Code Postal :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="codePostalForm" name="codePostalForm" style="width: 80%" [(ngModel)]="informationsForm.codePostal">
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="column" style="width:8%"></div>
-  <div id="form" class="column mt-5" style="width: 35%">
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="identifiantForm">Identifiant :</label>
-        </div>
-        <div class="column " style="width: 45%;">
-          <input type="text" class="form-control ml-5" id="identifiantForm" name="identifiantForm" style="width: 80%" [(ngModel)]="informationsForm.identifiant">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="mdpForm" >Mot de passe :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="mdpForm" name="mdpForm" style="width: 80%" [(ngModel)]="informationsForm.motDePasse">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="mailForm">Email :</label>
-        </div>
-        <div class="column " style="width: 45%;">
-          <input type="text" class="form-control ml-5" id="mailForm" name="mailForm" style="width: 80%" [(ngModel)]="informationsForm.mail">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="telephoneForm">Téléphone :</label>
-        </div>
-        <div class="column " style="width: 45%;">
-          <input type="text" class="form-control ml-5" id="telephoneForm" name="telephoneForm" style="width: 80%" [(ngModel)]="informationsForm.telephone">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="complementForm" >Complément :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="complementForm" name="complementForm" style="width: 80%" [(ngModel)]="informationsForm.complement">
-        </div>
-      </div>
-    </div>
-    <div class="column mt-4">
-      <div class="form-group form-inline mr-2">
-        <div class="column" style="width: 40%; font-size: 22px;">
-          <label for="villeForm" >Ville :</label>
-        </div>
-        <div class="column" style="width: 45%;">
-          <input type="text" class="form-control ml-5 pl-2" id="villeForm" name="villeForm" style="width: 80%" [(ngModel)]="informationsForm.ville">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 <div class="row" >
   <div class="column" style="width:5%"></div>
   <div class="column mt-4" style="width:43%" >
@@ -313,11 +172,175 @@
   <div class="column mt-4" style="width:23%" >
     <div class="form-inline mr-5">
       <div class="column">
-        <button type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;" >
+        <button type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;" (click)="edit()">
           Modifier<i class="fas fa-angle-right mx-3"></i>
         </button>
       </div>
     </div>
-</div>
+  </div>
 
+
+<!-- Formulaire-->
+<div class="row" *ngIf="modifierBoolean">
+
+  <div class="column" style="width:8%"></div>
+  <div id="connect" class="column mt-5 ml-5 pl-2" style="width: 35%;">
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="disc" >Type utilisateur :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <div class="ml-5 pl-2" id="disc" name="disc" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a">{{disc}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4" >
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="civiliteForm">Civilité :</label>
+        </div>
+        <div class="column " style="width: 45%;">
+          <label for="civilite"></label>
+          <select class="form-control ml-5 pl-2" id="civiliteForm" [(ngModel)]="informationsForm.civilite" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a">
+            <option value="">Choisir une civilité</option>
+            <option *ngFor="let civ of civilites" value="{{civ}}">{{civ}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="nomForm" >Nom :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <input type="text" class="form-control ml-5 pl-2" id="nomForm" name="nomForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.nom">
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="prenomForm" >Prenom :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <input type="text" class="form-control ml-5 pl-2" id="prenomForm" name="prenomForm" style="width: 80%;font-style: italic; font-size: 18px; color:#8bc34a"  [(ngModel)]="informationsForm.prenom">
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="rueForm" >Rue :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <input type="text" class="form-control ml-5 pl-2" id="rueForm" name="rueForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.rue">
+        </div>
+      </div>
+    </div>
+
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="codePostalForm" >Code Postal :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <input type="text" class="form-control ml-5 pl-2" id="codePostalForm" name="codePostalForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.codePostal">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="column" style="width:8%"></div>
+  <div id="form" class="column mt-5" style="width: 35%">
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="identifiantForm">Identifiant :</label>
+        </div>
+        <div class="column " style="width: 45%;">
+          <input type="text" class="form-control ml-5" id="identifiantForm" name="identifiantForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.identifiant">
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="mdpForm" >Mot de passe :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <input type="text" class="form-control ml-5 pl-2" id="mdpForm" name="mdpForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.motDePasse">
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="mailForm">Email :</label>
+        </div>
+        <div class="column " style="width: 45%;">
+          <input type="text" class="form-control ml-5" id="mailForm" name="mailForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.mail">
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="telephoneForm">Téléphone :</label>
+        </div>
+        <div class="column " style="width: 45%;">
+          <input type="text" class="form-control ml-5" id="telephoneForm" name="telephoneForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.telephone">
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="complementForm" >Complément :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <input type="text" class="form-control ml-5 pl-2" id="complementForm" name="complementForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.complement">
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="form-group form-inline mr-2">
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="villeForm" >Ville :</label>
+        </div>
+        <div class="column" style="width: 45%;">
+          <input type="text" class="form-control ml-5 pl-2" id="villeForm" name="villeForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.ville">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row" style="width: 100%" >
+    <div class="column ml-5" style="width:3%"></div>
+    <div class="column mt-4" style="width:30%" >
+      <div class="form-inline mr-5">
+        <div class="column">
+          <button (click)="cancel()" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
+            <i class="fas fa-angle-left mx-3"></i>Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="column ml-5" style="width:22%"></div>
+    <div class="column mt-4 ml-5" style="width:30%" >
+      <div class="form-inline ml-5 pl-4">
+        <div class="column">
+          <button (click)="save(compteUtilisateur)" type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;" >
+            Sauvegarder<i class="fas fa-angle-right ml-3"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

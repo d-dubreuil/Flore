@@ -7,6 +7,7 @@ import {Flore} from "../model/Flore";
 import {FloreService} from "../services/flore.service";
 import {Router} from "@angular/router";
 import {newArray} from "@angular/compiler/src/util";
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-simulateur-un',
@@ -29,21 +30,27 @@ export class SimulateurUnComponent implements OnInit {
   totalPoint: number=0;
   nomFlore1:string;
   nomFlore2:string;
+  flore1:Flore=new Flore();
+  flore2:Flore=new Flore();
 
   floreList:Array<Flore>=new Array<Flore>();
   nomFloreList:Array<String>=new Array<String>();
 
   typeCaracs: Array<String> = new Array<string>();
 
-  constructor(private synergieService: SynergieService, private floreService: FloreService,private router:Router) { }
-
-  ngOnInit(): void {
+  constructor(private synergieService: SynergieService, private floreService: FloreService,private router:Router,private commonService:CommonService) {
     this.synergieService.findAllTypeCaracs().subscribe(resp => this.typeCaracs = resp, err => console.log(err));
     this.floreList=this.floreService.findAll();
+    this.commonService.page="synergie";
     for(let flore of this.floreList){
-      console.log(flore.nom);
-      this.nomFloreList.push(flore.nom);
+      if(this.filterCarac(flore,"NomLatin")!='non renseigné'){
+        this.nomFloreList.push(flore.nom);
+      }
     }
+  }
+
+  ngOnInit(): void {
+
   }
 
   revenir(){
@@ -74,26 +81,46 @@ export class SimulateurUnComponent implements OnInit {
     //Création de la query
     this.synergieService.synergieUn(this.nomFlore1,this.nomFlore2).subscribe(resp => {
       this.synergieService.simu1 = resp;
-      console.log( this.synergieService.simu1);
+
       for (let bonus of this.synergieService.simu1.bonus){
-        console.log(bonus);
+
         this.bonusList.push(bonus);
         this.bonusTotal=bonus;
-        this.totalPoint=this.totalPoint+this.bonusTotal.point;
-        console.log(this.totalPoint);}
+        this.totalPoint=this.totalPoint+this.bonusTotal.point;}
       for (let malus of this.synergieService.simu1.malus){
-        console.log(malus);
         this.malusList.push(malus);
         this.malusTotal=malus;
         this.totalPoint=this.totalPoint+this.malusTotal.point;
-        console.log(this.totalPoint);
+
         }
 
     }, error => console.log(error));
+
+    this.floreService.findByNom(this.nomFlore1).subscribe(resp =>{
+      this.flore1=resp[0];
+    },error => console.log(error));
+
+    this.floreService.findByNom(this.nomFlore2).subscribe(resp =>{
+      this.flore2=resp[0];
+    },error => console.log(error));
+
   }
 
   redirectToFicheFlore(flore:Flore){
-    this.floreService.flore = flore;
+    this.floreService.flore=flore;
     this.router.navigateByUrl('NPK/flore/fiche-flore');
+  }
+
+  filterCarac(flore: Flore, nomCarac: string): string {
+    if (flore.referentielCaracteristiques) {
+
+      for (let refCarac of flore.referentielCaracteristiques) {
+        if (refCarac.caracteristique.nom == nomCarac) {
+          return refCarac.caracteristique.valeur;
+        }
+      }
+    }
+
+    return 'non renseigné';
   }
 }

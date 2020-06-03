@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {Favoris} from "../model/Favoris";
+import {FavorisService} from "../services/favoris.service";
+import {Flore} from "../model/Flore";
 
 @Component({
   selector: 'app-favoris',
@@ -8,11 +11,21 @@ import {Title} from "@angular/platform-browser";
 })
 export class FavorisComponent implements OnInit {
 
-  constructor(private titleService: Title) {
+  flore: Flore;
+
+  @Input()
+  prenom: string;
+
+  constructor(private titleService: Title, private favorisService: FavorisService) {
     this.titleService.setTitle("Fiches");
   }
 
   ngOnInit(): void {
   }
+
+  list(): Array<Favoris> {
+    return this.favorisService.findAll();
+  }
+
 
 }

@@ -15,6 +15,8 @@ import {CommonService} from '../common.service';
 export class FloreComponent implements OnInit {
 
   nomFlore:string='';
+  floreList:Array<Flore>=new Array<Flore>();
+  nomFloreList:Array<String>=new Array<String>();
   floreformulaire: FloreForm = new FloreForm();
   caracteristiques: Array<string> = new Array<string>();
   caracs: Array<string> = new Array<string>();
@@ -178,6 +180,13 @@ export class FloreComponent implements OnInit {
     this.caracs.push(this.caracNutriment);
     this.caracs.push(this.caracStrate);
     this.commonService.page ="flore";
+
+    for(let flore of this.floreService.findAll()){
+      if(this.filterCarac(flore,"NomLatin")!='non renseigné'){
+        this.nomFloreList.push(flore.nom);
+        this.floreList.push(flore);
+      }
+    }
   }
 
   ngOnInit(): void {

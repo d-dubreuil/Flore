@@ -39,6 +39,8 @@ public class Flore {
 	@ManyToMany(mappedBy = "flores")
 	private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 	@OneToMany (mappedBy = "flore")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonView(Views.ViewFloreWithRefCarac.class)
 	private List<Produit> produits= new ArrayList<Produit>();
 	@ManyToMany (mappedBy = "flores")
 	private List<Favoris>favoris = new ArrayList<Favoris>();
