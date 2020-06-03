@@ -15,6 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -36,6 +39,8 @@ public class Utilisateur {
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Panier> paniers = new ArrayList<Panier>();
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonView(Views.ViewCompteUtilisateur.class)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Produit> produits = new ArrayList<Produit>();
 	@ManyToMany
 	@JoinTable(name = "recherches", joinColumns = @JoinColumn(name = "utilisateur_id"), inverseJoinColumns = @JoinColumn(name = "flore_id"))
