@@ -1,27 +1,10 @@
-.form-control {
-  box-shadow: none;
-  outline: none;
-}
-
-.form-control:hover {
-  transition-duration: 0.4s;
-  box-shadow: 2px 2px #8bc34a ;
-  outline: none;
-}
-
-.form-control:active, .form-control:focus {
-  box-shadow: none;
-  outline: none;
-  border-color: #8bc34a;
-}
-
 #btnSubmit, #btnConnect {
   background-color: #8bc34a;
 }
 
 #btnSubmit:hover, #btnConnect:hover {
   transition-duration: 0.4s;
-  box-shadow: 4px 4px #8bc34a ;
+  box-shadow: 4px 4px #8bc34a;
   outline: none;
   background-color: #292b2c;
   color: white;

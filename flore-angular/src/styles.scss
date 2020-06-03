@@ -68,7 +68,7 @@ h1 {
   font-family:Cambria;
 }
 
-h2 {
+h2, h4 {
   font-family:Cambria;
   font-style:italic;
   color: #8bc34a;
@@ -86,3 +86,42 @@ h2 {
   flex: 1;
   margin: 1em;
 }
+/*Boutons des formulaires*/
+.form-control {
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control:hover {
+  transition-duration: 0.4s;
+  box-shadow: 2px 2px #8bc34a ;
+  outline: none;
+}
+
+.form-control:active, .form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #8bc34a;
+}
+
+.form-control:after{
+  background-color: rgb(139, 195, 74,0.2);
+}
+
+/*Navbar en cours*/
+.enCours{
+  border-bottom-style: solid;
+  border-color: #8bc34a;
+}
+
+/*Disable*/
+.disabled:hover{
+  border-bottom-style: none;
+
+}
+
+/*contact*/
+.contact{
+  color:white;
+}
+

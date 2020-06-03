@@ -36,19 +36,20 @@ public class CaracteristiqueRestController {
 	public List<Caracteristique> findAll() {
 		return caracteristiqueRepo.findAll();
 	}
-	
+
 	@GetMapping("/bonus-flores/{nomFlore1}|{nomFlore2}")
 	@JsonView(Views.ViewCaracteristique.class)
 	public List<Caracteristique> findAllByBonusFl1Fl2(@PathVariable String nomFlore1, @PathVariable String nomFlore2) {
-		return caracteristiqueRepo.findAllByBonusFl1Fl2(nomFlore1,nomFlore2);
+		return caracteristiqueRepo.findAllByBonusFl1Fl2(nomFlore1, nomFlore2);
 	}
-	
+
 	@GetMapping("/by-attribut/{typeCarac}|{nom}|{valeur}")
 	@JsonView(Views.ViewCaracteristique.class)
-	public Caracteristique findByAttribut(@PathVariable TypeCarac typeCarac, @PathVariable String nom,@PathVariable String valeur) {
-		return caracteristiqueRepo.findByAttribut(typeCarac,nom,valeur);
+	public Caracteristique findByAttribut(@PathVariable TypeCarac typeCarac, @PathVariable String nom,
+			@PathVariable String valeur) {
+		return caracteristiqueRepo.findByAttribut(typeCarac, nom, valeur);
 	}
-	
+
 	@GetMapping("/by-flore/{nom}")
 	@JsonView(Views.ViewCaracteristique.class)
 	public List<Caracteristique> findByFlore(@PathVariable String nom) {
@@ -60,13 +61,19 @@ public class CaracteristiqueRestController {
 	public List<Caracteristique> findByType(@PathVariable TypeCarac typeCarac) {
 		return caracteristiqueRepo.findByType(typeCarac);
 	}
-	
+
+	@GetMapping("/by-type-nom/{typeCarac}|{nom}")
+	@JsonView(Views.ViewCaracteristique.class)
+	public List<Caracteristique> findByTypeEtNom(@PathVariable TypeCarac typeCarac, @PathVariable String nom) {
+		return caracteristiqueRepo.findByTypeEtNom(typeCarac, nom);
+	}
+
 	@GetMapping("/by-flore-carac/{nomFlore}|{nomCarac}")
 	@JsonView(Views.ViewCaracteristique.class)
 	public List<Caracteristique> findByFloreCarac(@PathVariable String nomFlore, @PathVariable String nomCarac) {
-		return caracteristiqueRepo.findByFloreCarac(nomFlore,nomCarac);
+		return caracteristiqueRepo.findByFloreCarac(nomFlore, nomCarac);
 	}
-	
+
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewCaracteristique.class)
 	public Caracteristique find(@PathVariable Long id) {

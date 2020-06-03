@@ -33,7 +33,15 @@ import { InformationsPersonnellesComponent } from './informations-personnelles/i
 import { HistoriqueComponent } from './historique/historique.component';
 import { FicheComponent } from './fiche/fiche.component';
 import { ContributionComponent } from './contribution/contribution.component';
+import { FormulairePropositionComponent } from './formulaire-proposition/formulaire-proposition.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
+import { NouveauMessageComponent } from './nouveau-message/nouveau-message.component';
+import { JardinFloreComponent } from './jardin-flore/jardin-flore.component';
+import { JardinFauneComponent } from './jardin-faune/jardin-faune.component';
+import { JardinEnvironnementComponent } from './jardin-environnement/jardin-environnement.component';
 import {Ng2CompleterModule} from "ng2-completer";
+import { CompteComponent } from './compte/compte.component';
+import { EspaceFournisseurComponent } from './espace-fournisseur/espace-fournisseur.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +73,15 @@ import {Ng2CompleterModule} from "ng2-completer";
     HistoriqueComponent,
     FicheComponent,
     ContributionComponent,
-    filterByFirstLetterPipe
+    filterByFirstLetterPipe,
+    FormulairePropositionComponent,
+    MessagerieComponent,
+    NouveauMessageComponent,
+    JardinFloreComponent,
+    JardinFauneComponent,
+    JardinEnvironnementComponent,
+    CompteComponent,
+    EspaceFournisseurComponent
     ],
   imports: [
     BrowserModule,

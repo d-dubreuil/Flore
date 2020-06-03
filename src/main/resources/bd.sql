@@ -98,6 +98,13 @@ CREATE TABLE compte_utilisateur
   rue character varying(255),
   telephone character varying(255),
   ville character varying(255),
+  disc character varying(255),
+  civilite character varying(255),
+  denomination character varying(255),
+  statut character varying(255),
+  SIRET_SIREN character varying(255),
+  RCS character varying(255),
+  TVA character varying(255),
   CONSTRAINT compte_utilisateur_pkey PRIMARY KEY (id)
 )
 WITH (
@@ -528,7 +535,7 @@ ALTER TABLE commande
 -- Table utilisateur : 1 (compte_utilisateur)
 
 ALTER TABLE utilisateur
-	ADD COLUMN compteUtilisateur_id integer;
+	ADD COLUMN compte_utilisateur_id integer;
 
 ALTER TABLE conseil
 	ADD CONSTRAINT fk_utilisateur_compteUtilisateur FOREIGN KEY (compteUtilisateur_id) REFERENCES compte_utilisateur (id);
@@ -680,8 +687,8 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
     (133, 0, 'HauteurAMaturite', 'Flore', '60/150'),
     (134, 0, 'HauteurAMaturite', 'Flore', '150'),
     (138, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Faible'),
-    (139, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Modéré'),
-    (140, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Important'),
+    (139, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Modérée'),
+    (140, 0, 'RésistanceAuFroid', 'Condition_Climatique', 'Importante'),
 	(141, 0, 'Commentaires', 'Utilisation', ''),
 	(142, 0, 'Famille', 'Flore', 'Poacées'),
 	(148, 0, 'Famille', 'Flore', 'Fabacées'),--éloignés du 150--fixateur d'azote
@@ -822,13 +829,13 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 
 
 
-INSERT INTO compte_utilisateur (id, version, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville) 
+INSERT INTO compte_utilisateur (id, version, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville, disc) 
 	VALUES 
-	(1,0, '33600', '', 'KevinBougis', 'Visa_Premier', 'kevin.bougis@gmail.com', 'cestmoilechef!', 'BOUGIS', 'Kévin','5 bis avenue Villemejan', '0625570704', 'PESSAC'), 
-	(2,0, '33127', 'Maison D10', 'ManonCharles', 'Mastercard', 'charles.manon@yahoo.com', 'vivelehtml', 'CHARLES', 'Manon', '21 avenue Colonel Pierre Bourgoin', '0635244332', 'MARTIGNAS'), 
-	(3,0, '33610', '', 'DamienDubreuil', 'Visa', 'dubreuil.damien@laposte.net', 'Admin_33!', 'DUBREUIL', 'Damien', '14 avenue du Parc', '0645872052', 'CANEJAN'), 
-	(4,0, '33400', 'Résidence Emile Zola', 'CecileLarrouy', 'Mastercard', 'cecile.larrouy@outlook.fr', 'Gestion_npk!', 'LARROUY', 'Cécile', '93 Boulevard George V', '0608050400', 'TALENCE'),	
-	(5,0, '33160', '', 'EricSultan', 'Visa_Premier', 'eric.sultan@gmail.com', 'aef52_Ui!', 'SULTAN', 'Eric', '4 rue de Corono', '0645104506', 'SAINT-MEDARD-EN-JALLES');
+	(1,0, '33600', '', 'KevinBougis', 'Visa_Premier', 'kevin.bougis@gmail.com', 'cestmoilechef!', 'BOUGIS', 'Kévin','5 bis avenue Villemejan', '0625570704', 'PESSAC','Client'), 
+	(2,0, '33127', 'Maison D10', 'ManonCharles', 'Mastercard', 'charles.manon@yahoo.com', 'vivelehtml', 'CHARLES', 'Manon', '21 avenue Colonel Pierre Bourgoin', '0635244332', 'MARTIGNAS','Fournisseur'), 
+	(3,0, '33610', '', 'DamienDubreuil', 'Visa', 'dubreuil.damien@laposte.net', 'Admin_33!', 'DUBREUIL', 'Damien', '14 avenue du Parc', '0645872052', 'CANEJAN','Administrateur'), 
+	(4,0, '33400', 'Résidence Emile Zola', 'CecileLarrouy', 'Mastercard', 'cecile.larrouy@outlook.fr', 'Gestion_npk!', 'LARROUY', 'Cécile', '93 Boulevard George V', '0608050400', 'TALENCE',null),	
+	(5,0, '33160', '', 'EricSultan', 'Visa_Premier', 'eric.sultan@gmail.com', 'aef52_Ui!', 'SULTAN', 'Eric', '4 rue de Corono', '0645104506', 'SAINT-MEDARD-EN-JALLES',null);
 	
 
 INSERT INTO commande (id, version, reference, total, type_envoi)
@@ -1027,7 +1034,7 @@ INSERT INTO flore (id, version, nom)
 	(79, 0, 'Romarin'),
 	(80, 0, 'Rose'),
 	(81, 0, 'Sarriette'),
-	(82, 0, 'Sarrrasin'),
+	(82, 0, 'Sarrasin'),
 	(83, 0, 'Sauge'),
 	(84, 0, 'Souci (Calendula)'),
 	(85, 0, 'Sureau'),
@@ -1914,4 +1921,20 @@ INSERT INTO flore (id, version, nom)
 	(187, 0,46,56,21),
 	(188, 0,46,67,21),
 	(189, 0,46,93,21);
+	
+	INSERT INTO utilisateur (id, version, compte_utilisateur_id)
+	VALUES
+	-- Utilisateur de base
+	(1, 0,1);
+
+	INSERT INTO panier (id, version, utilisateur_id)
+	VALUES
+	-- Panier de base
+	(1, 0,1);
+	
+	
+
+CREATE SEQUENCE hibernate_sequence;
+ALTER SEQUENCE hibernate_sequence RESTART WITH 2000;
+
 	

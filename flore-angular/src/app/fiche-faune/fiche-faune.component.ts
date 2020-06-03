@@ -5,6 +5,7 @@ import {FauneService} from '../services/faune.service';
 import {Router} from '@angular/router';
 import {Faune} from '../model/Faune';
 import {Flore} from '../model/Flore';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-fiche-faune',
@@ -19,8 +20,9 @@ export class FicheFauneComponent implements OnInit {
   plusFaunePredateur:boolean=false;
   plusFauneProie:boolean=false
 
-  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router) {
+  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router, private commonService:CommonService) {
     this.titleService.setTitle('Fiche-Faune');
+    this.commonService.page ="faune"
   }
 
   ngOnInit(): void {

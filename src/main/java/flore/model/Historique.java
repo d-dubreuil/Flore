@@ -1,11 +1,17 @@
 package flore.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -22,6 +28,11 @@ public class Historique {
 	private String recherche;
 	@JsonView(Views.ViewCommon.class)
 	private String nomRecherche;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonView(Views.ViewCommon.class)
+	private Date dtRecherche;
+	
 	@ManyToOne
 	@JoinColumn (name ="compteUtilisateurId")
 	//@JsonView(Views.ViewHistorique.class)

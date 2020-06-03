@@ -4,6 +4,7 @@ import {FauneService} from '../services/faune.service';
 import {CaracteristiqueService} from '../services/caracteristique.service';
 import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-faune',
@@ -18,8 +19,9 @@ export class FauneComponent implements OnInit {
   fauneList:Array<Faune>=new Array<Faune>();
   nomFauneList:Array<String>=new Array<String>();
 
-  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
+  constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router,private commonService:CommonService) {
     this.titleService.setTitle('Faune');
+    this.commonService.page="faune";
 
     for(let faune of this.fauneService.findAll()){
       if(this.filterCarac(faune,"NomLatin")!='non renseigné'){

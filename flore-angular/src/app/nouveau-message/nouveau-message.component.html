@@ -1,0 +1,74 @@
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Bonjour {{prenom}}</h1>
+      <h2 class="hr ">Merci pour ton message, <br> nous te répondrons au plus vite !</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row ml-5 mt-5">
+  <div class="column border ml-5" style="width: 88%;">
+    <div class="column mt-3 ml-3" style="width: 100%;">
+      <div class="column mt-4 ml-5 pl-2" style="width: 100%;">
+        <div class="form-inline mr-2">
+          <div class="column" style="width: 10%; font-size: 22px;">
+            <label for="to" >À :</label>
+          </div>
+          <div class="column" style="width: 85%;">
+            <input type="text" class="form-control ml-5 pl-2" id="to" name="to" placeholder="    contact-npk@gmail.com" style="width: 80%">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-3 ml-3" style="width: 100%;">
+      <div class="column mt-4 ml-5 pl-2" style="width: 100%;">
+        <div class="form-inline mr-2">
+          <div class="column" style="width: 10%; font-size: 22px;">
+            <label for="object" >Objet :</label>
+          </div>
+          <div class="column" style="width: 85%;">
+            <input type="text" class="form-control ml-5 pl-2" id="object" name="object" style="width: 80%">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-3 ml-3 mb-4" style="width: 100%;">
+      <div class="column mt-4 ml-5 pl-2" style="width: 100%;">
+        <div class="form-inline mr-2 ">
+          <div class="column" style="width: 95%;">
+            <textarea type="text" class="form-control" id="txt" name="txt" class="md-textarea form-control" rows="5" style="width: 88%;"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" >
+  <div class="column" style="width:5%"></div>
+  <div class="column mt-4" style="width:35%" >
+    <div class="form-inline mr-5">
+      <div class="column">
+        <button [routerLink]="'/NPK/espace-client/contact/messagerie'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
+          <i class="fas fa-angle-left mx-3"></i>Revenir à l'Espace Contact
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="column" style="width:31%"></div>
+  <div class="column mt-4" style="width:25%" >
+    <div class="form-inline mr-5">
+      <div class="column">
+        <button [routerLink]="'/NPK/espace-client/contact/messagerie'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;">
+          Envoyer le message<i class="fas fa-angle-right mx-3"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">Prenom</h1> <!--{{compteUtilisateurService.compteUtilisateur.prenom}}-->
+      <h2 class="hr ">Retrouve toutes les caractéristiques <br> de Ton Petit Jardin</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <!-- SI FICHES ENREGISTREES -->
+  <div class="column mt-5 ml-5" style="width: 100%">
+    <div class="row ml-5" style="width: 100%">
+      <table class="table " style="width: 89%">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Caractéristiques</th>
+          <th>Date d'enregistrement</th>
+          <th></th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <img src="" style="width: 85%; height: 80%"/>
+          </td>
+          <td>
+            Nom de la caractéristique
+          </td>
+          <td style="font-style: italic;">
+            Enregistrée le + date
+          </td>
+          <td>
+            <a class="nav-link" [routerLink]="'/NPK/flore'">Fiche de la Flore</a>
+          </td>
+          <td>
+            <div>
+              <a id="btnGroup" class="btn ml-3"><i class="fa fa-edit"></i></a>
+            </div>
+          </td>
+          <td>
+            <div>
+              <a id="btnGroup" class="btn ml-3"><i class="fa fa-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row" style="width:100%">
+    <div class="column" style="width:5%"></div>
+    <div class="column mt-4" style="width:45%" >
+      <div class="form-inline mr-5">
+        <div class="column">
+          <button [routerLink]="'/NPK/espace-client'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
+            <i class="fas fa-angle-left mx-3"></i>Revenir à l'Espace Client
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4 ml-5" style="width:45%" >
+      <div class="form-inline ml-5">
+        <div class="column ml-5">
+          <button [routerLink]="'/NPK/espace-client/mon-petit-jardin/environnement/ajout'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;">
+            Ajouter une nouvelle caractéristique<i class="fas fa-angle-right mx-3"></i>
+          </button>
+        </div>
+      </div>
+    </div>
