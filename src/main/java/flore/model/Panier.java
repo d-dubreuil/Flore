@@ -31,7 +31,7 @@ public class Panier {
 	@JsonView(Views.ViewCommon.class)
 	private Float total;
 	@OneToOne(mappedBy = "panier")
-	//@JsonView(Views.ViewPanier.class)
+	@JsonView(Views.ViewPanier.class)
 	private Commande commande;
 	@OneToMany(mappedBy = "panier")
 	@JsonView(Views.ViewPanier.class)

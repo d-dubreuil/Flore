@@ -22,8 +22,8 @@ class FloreSynergiesTests {
 	@Test
 	void sontEllesAmies() {
 
-		String nomFlore1 = "Tomate";
-		String nomFlore2 = "Haricot";
+		String nomFlore1 = "Oignon";
+		String nomFlore2 = "Carotte";
 
 		/////////////////////////
 		// On appelle les caractéristiques des plantes 1 et 2 qui vont être comparées
@@ -65,6 +65,12 @@ class FloreSynergiesTests {
 
 		List<Caracteristique> nutriFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Nutriment");
 		List<Caracteristique> nutriFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Nutriment");
+
+		List<Caracteristique> predaFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Attraction");
+		List<Caracteristique> predaFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Attraction");
+
+		List<Caracteristique> repulsFlore1 = caracRepo.findByFloreCarac(nomFlore1, "Répulsion");
+		List<Caracteristique> repulsFlore2 = caracRepo.findByFloreCarac(nomFlore2, "Répulsion");
 
 		/////////////////////////
 		// On affecte une valeur pour chacune des strat récupérée pour pouvoir les
@@ -257,7 +263,7 @@ class FloreSynergiesTests {
 			}
 		}
 
-		else if (!ventFlore1.isEmpty() && !ventFlore2.isEmpty()){
+		else if (!ventFlore1.isEmpty() && !ventFlore2.isEmpty()) {
 			System.out.println("Une même flore ne peut contenir 2 caractéristiques vent");
 		}
 
@@ -450,7 +456,7 @@ class FloreSynergiesTests {
 				}
 
 			}
-		} else if(!arroFlore1.isEmpty() && !arroFlore2.isEmpty()) {
+		} else if (!arroFlore1.isEmpty() && !arroFlore2.isEmpty()) {
 			System.out.println("Une même flore ne peut contenir 2 caractéristiques arrosage");
 		}
 
@@ -485,7 +491,7 @@ class FloreSynergiesTests {
 				}
 
 			}
-		} else if(!stratFlore1.isEmpty() && !stratFlore2.isEmpty()){
+		} else if (!stratFlore1.isEmpty() && !stratFlore2.isEmpty()) {
 			System.out.println("Une même flore ne peut contenir 2 caractéristiques strate");
 		}
 
@@ -603,7 +609,7 @@ class FloreSynergiesTests {
 				}
 
 			}
-		} else if (!nutriFlore1.isEmpty() && !nutriFlore2.isEmpty()){
+		} else if (!nutriFlore1.isEmpty() && !nutriFlore2.isEmpty()) {
 			System.out.println("Une même flore ne peut contenir 2 caractéristiques nutriment");
 		}
 
@@ -635,10 +641,40 @@ class FloreSynergiesTests {
 				}
 
 			}
-		} else if (!croiFlore1.isEmpty() && !croiFlore2.isEmpty()){
+		} else if (!croiFlore1.isEmpty() && !croiFlore2.isEmpty()) {
 			System.out.println("Une même flore ne peut contenir 2 caractéristiques croissance");
 		}
 
+		/////////////////////////
+		//// Prédateur-Repulsif////
+		/////////////////////////
+		for (Caracteristique caracPreda : predaFlore1) {
+			for (Caracteristique caracPreda2 : predaFlore2) {
+				for (Caracteristique caracRepuls : repulsFlore1) {
+					for (Caracteristique caracRepuls2 : repulsFlore2) {
+						
+						if(caracPreda.getValeur().equals(caracRepuls2.getValeur())) {
+							caracBonusPositif.add(caracPreda);
+							caracBonusPositif2.add(caracRepuls2);
+							System.out.println("Il y a une synergie positive car l'animal " + caracPreda.getValeur()
+									+ " qui est un prédateur de la plante 1 est repoussé par la plante 2");
+						}
+						
+						else if(caracPreda2.getValeur().equals(caracRepuls.getValeur())) {
+							caracBonusPositif.add(caracRepuls);
+							caracBonusPositif2.add(caracPreda2);
+							System.out.println("Il y a une synergie positive car l'animal " + caracPreda2.getValeur()
+							+ " qui est un prédateur de la plante 2 est repoussé par la plante 1");
+						}	
+						
+						
+					}
+				}
+			}
+		}
+
+		
+		
 	}
 }
 

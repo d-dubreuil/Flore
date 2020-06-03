@@ -39,6 +39,8 @@ import { NouveauMessageComponent } from './nouveau-message/nouveau-message.compo
 import { JardinFloreComponent } from './jardin-flore/jardin-flore.component';
 import { JardinFauneComponent } from './jardin-faune/jardin-faune.component';
 import { JardinEnvironnementComponent } from './jardin-environnement/jardin-environnement.component';
+import {Ng2CompleterModule} from "ng2-completer";
+import { CompteComponent } from './compte/compte.component';
 
 @NgModule({
   declarations: [
@@ -76,14 +78,16 @@ import { JardinEnvironnementComponent } from './jardin-environnement/jardin-envi
     NouveauMessageComponent,
     JardinFloreComponent,
     JardinFauneComponent,
-    JardinEnvironnementComponent
+    JardinEnvironnementComponent,
+    CompteComponent
     ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2CompleterModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
