@@ -8,6 +8,7 @@ import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
 })
 export class CompteComponent implements OnInit {
   disc:string;
+  nom:string;
   prenom:string;
   denomination:string;
 

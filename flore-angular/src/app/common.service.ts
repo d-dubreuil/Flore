@@ -13,4 +13,8 @@ export class CommonService {
     return this.http.get<Array<string>>("http://localhost:8080/api/typeCarac");
   }
 
+  findAllCivilites(): Observable<Array<string>> {
+    return this.http.get<Array<string>>("http://localhost:8080/api/civilites");
+  }
+
 }
