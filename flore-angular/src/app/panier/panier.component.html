@@ -16,19 +16,35 @@
     <nav class="navbar navbar-expand-sm" id="navbarAchat">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link">1. Récapitulatif</a>
+          <a class="nav-link" (click)="etapePanier=1" [ngClass]="{'enCours' : etapePanier==1}">1. Récapitulatif</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">2. Connexion</a>
+          <a class="nav-link active" *ngIf="etapePanier>=2" (click)="etapePanier=2"
+             [ngClass]="{'enCours' : etapePanier==2}">2. Connexion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">3. Mode de livraison</a>
+          <a class="nav-link disabled" *ngIf="etapePanier<2">2. Connexion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">4. Paiement</a>
+          <a class="nav-link active" *ngIf="etapePanier>=3" (click)="etapePanier=3"
+             [ngClass]="{'enCours' : etapePanier==3}">3. Mode de livraison</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">5. Confirmation</a>
+          <a class="nav-link disabled" *ngIf="etapePanier<3">3. Mode de livraison</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" *ngIf="etapePanier>=4" (click)="etapePanier=4"
+             [ngClass]="{'enCours' : etapePanier==4}">4. Paiement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" *ngIf="etapePanier<4">4. Paiement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" *ngIf="etapePanier==5" (click)="etapePanier=5"
+             [ngClass]="{'enCours' : etapePanier==5}">5. Confirmation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" *ngIf="etapePanier<5">5. Confirmation</a>
         </li>
       </ul>
     </nav>
@@ -59,7 +75,10 @@
         <div class="column text-center align-items-center" style="width: 15%">
           Quantité : <input type="number" [(ngModel)]="selec.nombre" style="width: 40%" (change)="calcul()"/>
         </div>
-        <div class="column text-center align-items-center" style="width: 25%">
+        <div class="column text-center align-items-center" style="width: 15%">
+          Prix unitaire = {{(selec.produit.prix).toFixed(2)}} €
+        </div>
+        <div class="column text-center align-items-center" style="width: 15%">
           Prix total = {{(selec.produit.prix * selec.nombre).toFixed(2)}} €
         </div>
         <div class="column text-center align-items-center" style="width: 10%">
@@ -82,24 +101,27 @@
   </div>
   <div class="row justify-content-center mt-3" *ngIf="etapePanier==3">
     <form class="column" style="width: 85%" id="modeDeLivraison" name="modeDeLivraison"
-         (change)="calcul()">
+          (change)="calcul()">
       <div class="row justify-content-center">
         <div class="column" style="width: 30%"><input type="radio" id="collissimo" name="modeDeLivraison"
-                                                      value="collissimo" (click)="fraisLivraison=2;typeEnvoi='Colissimo'"><label
+                                                      value="collissimo"
+                                                      (click)="fraisLivraison=2;typeEnvoi='Colissimo'"><label
           for="collissimo">Collissimo</label></div>
         <div class="column" style="width: 30%">1-2 jours ouvrés</div>
         <div class="column" style="width: 30%">2€ de livraison</div>
       </div>
       <div class="row justify-content-center">
         <div class="column" style="width: 30%"><input type="radio" id="pointRelais" name="modeDeLivraison"
-                                                      value="pointRelais" (click)="fraisLivraison=1;typeEnvoi='Points relais'"> <label
+                                                      value="pointRelais"
+                                                      (click)="fraisLivraison=1;typeEnvoi='Points relais'"> <label
           for="pointRelais">Points relais </label></div>
         <div class="column" style="width: 30%">3-4 jours ouvrés</div>
         <div class="column" style="width: 30%">1€ de livraison</div>
       </div>
       <div class="row justify-content-center">
         <div class="column" style="width: 30%"><input type="radio" id="clickAndCollect" name="modeDeLivraison"
-                                                      value="clickAndCollect" (click)="fraisLivraison=0;typeEnvoi='Click and Collect'"><label
+                                                      value="clickAndCollect"
+                                                      (click)="fraisLivraison=0;typeEnvoi='Click and Collect'"><label
           for="clickAndCollect"> Click and
           Collect</label></div>
         <div class="column" style="width: 30%">+2 heures</div>
@@ -111,21 +133,29 @@
     <div class="column" style="width: 85%" id="paiement">
       <div class="row justify-content-center">
         <div class="column" style="width: 30%"><input type="radio" id="paypal" name="paiement"
-                                                      value="collissimo" (click)="suppressionForm();typeCarte='Paypal'"><label
+                                                      value="collissimo"
+                                                      (click)="suppressionForm();typePaiement='Paypal'"><label
           for="paypal">Paypal</label></div>
       </div>
       <div class="row justify-content-center">
         <div class="column" style="width: 30%"><input type="radio" id="virementBancaire" name="paiement"
-                                                      value="pointRelais" (click)="suppressionForm();typeCarte='Virement bancaire'"> <label
-          for="virementBancaire">Virement bancaire</label></div>
+                                                      value="pointRelais"
+                                                      (click)="suppressionForm();typePaiement='Virement bancaire'">
+          <label
+            for="virementBancaire">Virement bancaire</label></div>
       </div>
       <div class="row justify-content-center">
         <div class="column" style="width: 30%"><input type="radio" id="carteBleue" name="paiement"
-                                                      value="clickAndCollect" (click)="creationForm();typeCarte='Carte Bleue'"><label
+                                                      value="clickAndCollect"
+                                                      (click)="creationForm();typePaiement='Carte Bleue'"><label
           for="carteBleue"> Carte Bleue</label></div>
       </div>
       <div class="row justify-content-center" *ngIf="formPaiement">
         <div class="column justify-content-center px-5 py-3 mb-2" id="formPaiement">
+          <div class="row justify-content-center">Type de carte bancaire <select class="mx-2" type="text"
+                                                                                 [(ngModel)]="formPaiement.typeCarte">
+            <option value="">Veuillez sélectionner un type de carte</option>
+            <option *ngFor="let type of typeCartes" [value]="type">{{type}}</option></select></div>
           <div class="row justify-content-center">Numéro de carte bancaire <input class="mx-2" type="text"
                                                                                   [(ngModel)]="formPaiement.numeroCarte">
           </div>
@@ -171,13 +201,16 @@
         <div class="column text-center align-items-center" style="width: 15%">
           Quantité : {{selec.nombre}}
         </div>
-        <div class="column text-center align-items-center" style="width: 25%">
+        <div class="column text-center align-items-center" style="width: 15%">
+          Prix unitaire = {{(selec.produit.prix).toFixed(2)}} €
+        </div>
+        <div class="column text-center align-items-center" style="width: 15%">
           Prix total = {{(selec.produit.prix * selec.nombre).toFixed(2)}} €
         </div>
       </div>
       <div class="row justify-content-center align-items-center my-2 mx-3">
         <div class="column text-center" style="width: 50%">
-          Mode de paiement : {{typeCarte}}
+          Mode de paiement : {{typePaiement}}
         </div>
         <div class="column text-center" style="width: 50%">
           Type de livraison : {{typeEnvoi}}

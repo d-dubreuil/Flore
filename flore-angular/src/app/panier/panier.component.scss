@@ -1,3 +1,7 @@
 #navbarAchat, #panierGlobal, #basPanier, #connexion,#modeDeLivraison,#paiement,#formPaiement,#resumeCommande{
   border:1px solid #8bc34a;
 }
+/*Disable*/
+.disabled:hover{
+  border-bottom: none;
+}
