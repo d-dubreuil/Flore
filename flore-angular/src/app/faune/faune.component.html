@@ -157,8 +157,9 @@
           </button>
         </div>
         <div class="column mt-3" style="width: 77%;">
-          <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une faune"
-                 style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">
+<!--          <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une faune"-->
+<!--                 style="text-align: center; font-style: italic" [(ngModel)]="nomFaune">-->
+          <ng2-completer  [inputClass]="['completer-row','form-control']" [placeholder]="'Entrez le nom d\'une faune'" [datasource]="nomFauneList" [minSearchLength]="1" [(ngModel)]="nomFaune"> </ng2-completer>
         </div>
       </div>
 

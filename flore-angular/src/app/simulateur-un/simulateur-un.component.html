@@ -16,41 +16,36 @@
 <div class="row justify-content-center mt-5">
 
   <!-- Colonne 1-->
-  <div *ngIf="simu1Accueil" class="row" style="width:100%;">
+  <div *ngIf="simu1Accueil" class="row justify-content-center" style="width:100%;">
     <!-- page 1-->
-  <div class="column mr-5"  style="width:40%; text-align: center;">
-    <h1 class="mt-2">Simultateur 1</h1>
-    <p class="mt-4"> Ces deux plantes peuvent-elles s'associer?</p>
+  <div class="column mr-5 blocLigne"  style="width:40%; text-align: center;">
+    <h1 class="mt-4">Simulateur : 1</h1>
+    <p class="mt-4" style="font-size: large">Ces deux plantes peuvent-elles s'associer?</p>
   </div>
     <!-- Colonne 2-->
     <div  class="column  ml-5" style="width:40%;">
         <!-- search plante 1-->
-        <div  class="row mt-3 justify-content-center">
+        <div  class="row mt-3 searchFlore justify-content-center">
           <div class="column">
-            <button  class="btn"
+            <button  class="btn btnSearch"
                      style="background-color: #8bc34a">
               <i class="fas fa-leaf" style="color: white"></i>
             </button>
           </div>
           <div class="column" style="width: 82%;">
-            <input class="form-control"  type="text"
-                   placeholder="Entrer le nom de la plante 1" [(ngModel)]="nomFlore1">
-            <ng2-completer [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore1"> </ng2-completer>
+            <ng2-completer [inputClass]="['myInput','form-control']" [placeholder]="'Entrez le nom de la plante 1'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore1"> </ng2-completer>
           </div>
-
         </div>
         <!-- search plante 2-->
-        <div  class="row mt-3 justify-content-center">
+        <div  class="row mt-3 searchFlore justify-content-center">
           <div class="column">
-            <button  class="btn"
+            <button  class="btn btnSearch"
                      style="background-color: #8bc34a">
               <i class="fas fa-leaf" style="color: white"></i>
             </button>
           </div>
           <div class="column" style="width: 82%;">
-            <input class="form-control"  type="text"
-                   placeholder="Entrer le nom de la plante 2" [(ngModel)]="nomFlore2">
-            <ng2-completer [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore2"> </ng2-completer>
+            <ng2-completer  [inputClass]="['myInput','form-control']" [placeholder]="'Entrez le nom de la plante 2'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore2"> </ng2-completer>
           </div>
 
         </div>
@@ -69,7 +64,7 @@
     <!-- page 2 komagnonnage-->
     <div *ngIf="kompagnonnage" class="column" style="width:100%;">
       <!-- 1ère ligne - K1-->
-      <div class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
+      <div class="row ml-5 mr-5 mt-3 justify-content-center blocLigne">
         <!-- 1ère colonne - K2-->
         <div class="column mr-3" style="width:75%;">
           <div class="row justify-content-center">
@@ -77,13 +72,14 @@
           <div class="column mr-3" style="width:45%;">
             <div class="row justify-content-center">
               <!-- 1ère colonne - K5-->
-              <div class="column mr-5">
-                image 1
+              <div class="column" style="width:45%;">
+                <img src="{{filterCarac( flore1, 'Image')}}"
+                     style="width: 100%; height: 100%"/>
               </div>
               <!-- 2ème colonne - K5-->
-              <div class="column ml-5">
-                {{nomFlore1}}<br/>
-<!--                <a><button  style="width: 100%;height: 10%" (click)="redirectToFicheFlore(flore)"/>lien flore 1</a>-->
+              <div class="column ml-2" style="width:45%;">
+                <p class="ml-5 mt-4 mr-3" style="font-size: x-large">{{nomFlore1}}</p>
+                <button class="ml-4 btn mb-3 mr-3 btnFiche" style="width: 60%;font-size: large;font-family: Cambria; font-style: italic; color:#8bc34a" (click)="redirectToFicheFlore(flore1)">Lien fiche</button>
               </div>
             </div>
           </div>
@@ -91,28 +87,30 @@
           <div class="column ml-3" style="width:45%;">
             <div class="row justify-content-center">
               <!-- 1ère colonne - K5-->
-              <div class="column mr-5">
-                image2
+              <div class="column mr-2 border" style="width:45%;">
+                <img src="{{filterCarac( flore2, 'Image')}}"
+                     style="width: 100%; height: 100%"/>
               </div>
               <!-- 2ème colonne - K5-->
-              <div class="column ml-5">
-                {{nomFlore2}}<br/> lien flore 2
+              <div class="column ml-2" style="width:45%;">
+                <p class="ml-5 mr-3 mt-4" style="font-size: x-large">{{nomFlore2}}</p>
+                <button class="ml-4 btn mr-3 mb-3  btnFiche" style="width: 60%;font-size: large;font-family: Cambria; font-style: italic; color:#8bc34a" (click)="redirectToFicheFlore(flore2)">Lien fiche</button>
               </div>
             </div>
           </div>
         </div>
         </div>
         <!-- 2ème colonne - K2-->
-        <div class="column ml-3" style="width:15%;">
-          <button (click)="revenir()" class="btn" style="width: 91%;background-color: #8bc34a" >
+        <div class="column ml-3" style="width:15%;margin-top: 3%">
+          <button (click)="revenir()" class="btn btnGreen" style="width: 91%;font-size: medium" >
             Revenir à ma recherche
           </button>
         </div>
       </div>
       <!-- 2ème ligne - K1-->
-      <div class="row ml-4 mr-4 mt-3 justify-content-center blocLigne">
+      <div class="row ml-5 mr-5 mt-3 justify-content-center blocLigne">
         <!-- 1ère colonne - K2-->
-            <div class="column mr-3 pt-3" style="width:75%;">
+            <div class="column mr-3 pt-2" style="width:75%;">
               <h3 class="pl-5 " *ngIf="totalPoint>30"> Best Kompagnes Ever! (+{{totalPoint}})</h3>
             <h3 class="pl-5 " *ngIf="totalPoint>20 && totalPoint<=30"> Association très favorable (+{{totalPoint}})</h3>
             <h3 class="pl-5 " *ngIf="totalPoint>15 && totalPoint<=20"> Association favorable (+{{totalPoint}})</h3>
@@ -122,14 +120,14 @@
               <h3 class="pl-5 " *ngIf="totalPoint<=-6"> Association non compatible ({{totalPoint}})</h3>
           </div>
             <!-- 2ème colonne - K2-->
-            <div class="column ml-3" style="width:15%;">
-              <button (click)="plusDeDetail()" class="btn" style="width: 91%;background-color: #8bc34a" >
+            <div class="column ml-3" style="width:15%;margin-top: 0.5%">
+              <button (click)="plusDeDetail()" class="btn  btnGreen" style="width: 91%;font-size: medium" >
                 Plus de détails
               </button>
             </div>
           </div>
       <!-- 3ème ligne - K1-->
-      <div  class="row ml-4 mr-4 justify-content-center mt-3 blocLigne" >
+      <div  class="row ml-5 mr-5 justify-content-center mt-3 blocLigne" >
         <div class="column justify-content-center" style="width:100%;">
           <div class="row ml-4 mr-4 justify-content-center">
             <div class="column ml-2 mr-2" style="width: 21%;"><h5>Caractéristique</h5>
@@ -164,7 +162,7 @@
         </div>
       </div>
       <!-- 4ème ligne - K1-->
-      <div *ngIf="details" class="row ml-4 mr-4 mt-3 justify-content-center blocLigne" >
+      <div *ngIf="details" class="row ml-5 mr-5 mt-3 justify-content-center blocLigne" >
         <!-- 1ère colonne - K2-->
         <div class="column" style="width: 100%;">
           <!-- 2ème ligne - K2-->
