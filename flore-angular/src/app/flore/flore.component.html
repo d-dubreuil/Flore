@@ -736,7 +736,8 @@
               </button>
             </div>
             <div class="column mt-3" style="width: 77%;">
-              <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une flore" style="text-align: center; font-style: italic" [(ngModel)]="nomFlore">
+<!--              <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une flore" style="text-align: center; font-style: italic" [(ngModel)]="nomFlore">-->
+              <ng2-completer  [inputClass]="['completer-row','form-control']" [placeholder]="'Entrez le nom d\'une flore'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore"> </ng2-completer>
             </div>
           </div>
 
@@ -744,7 +745,7 @@
             <!-- BLOC résultat  -->
           <div id="result" class="column" style="width: 100%; border: none">
             <div *ngFor="let flore of list()">
-              <div class=" m-3 " *ngIf="(filterCarac(flore,'NomLatin')!= 'non renseigné' && flore.nom.toUpperCase().includes(nomFlore.toUpperCase()))" >
+              <div class=" m-3 " *ngIf="filterCarac(flore,'NomLatin')!= 'non renseigné' && flore.nom.toUpperCase().includes(nomFlore.toUpperCase())">
                 <div class="m-2 align-items-center">
                   <button  id="btnResultat" style="width: 100%;height: 10%" (click)="redirectToFicheFlore(flore)">
                     <!-- BLOC Images  -->

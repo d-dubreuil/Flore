@@ -3,7 +3,6 @@ import {Faune} from '../model/Faune';
 import {FauneService} from '../services/faune.service';
 import {CaracteristiqueService} from '../services/caracteristique.service';
 import {Title} from '@angular/platform-browser';
-import {Flore} from '../model/Flore';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,11 +15,20 @@ export class FauneComponent implements OnInit {
 
   nomFaune: string = '';
   abc:string=''
+  fauneList:Array<Faune>=new Array<Faune>();
+  nomFauneList:Array<String>=new Array<String>();
 
   constructor(private fauneService: FauneService, private caracteristiqueService: CaracteristiqueService, private titleService: Title, private router:Router) {
     this.titleService.setTitle('Faune');
+
+    for(let faune of this.fauneService.findAll()){
+      if(this.filterCarac(faune,"NomLatin")!='non renseigné'){
+        this.nomFauneList.push(faune.nomFaune);
+        this.fauneList.push(faune);
+      }
+    }
   }
-  
+
   ngOnInit(): void {
   }
 

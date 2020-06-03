@@ -11,3 +11,57 @@
 .messageMalus {
   background-color: #efd5c6;
 }
+
+
+.btnGreen:hover{
+  transition-duration: 0.4s;
+  box-shadow: 4px 4px #8bc34a ;
+  outline: none;
+  background-color: #292b2c;
+  color: white;
+}
+.btnGreen{
+  background-color: #8bc34a;
+}
+
+.btnFiche:hover{
+  transition-duration: 0.4s;
+  box-shadow: 2px 2px #8bc34a ;
+  outline: none;
+  box-shadow: none;
+  font-weight: bold;
+}
+.btnFiche:focus{
+  box-shadow: none;
+  outline: none;
+  border-color: #8bc34a;
+}
+.searchFlore{
+  //width: 100%;
+  //height: 50px;
+  font-size: large;
+  color: #8bc34a;
+  font-style: italic;
+  font-weight: bold;
+  border-bottom-color: #8bc34a;
+}
+
+.btnSearch:hover,.btnSearch:active,.btnSearch:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+.myInput:hover,.myInput:active,.myInput:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+.myInput:active, .myInput:focus {
+  border-color: #8bc34a;
+
+}
+.myInput {
+  border-style: none;
+  width: 100%;
+
+}

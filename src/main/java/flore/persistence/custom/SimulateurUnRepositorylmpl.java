@@ -319,6 +319,42 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 		/////////////////////////
 		int ensolCount = 0;
 		int ensolDoublon = 0;
+		int ensolMiOmbre=0;
+		int ensolOmbre1=0;
+		int ensolOmbre2=0;
+		int ensolMiOmbreDoublon=0;
+		
+		for (Caracteristique carac : ensolFlore1) {
+			for (Caracteristique carac2 : ensolFlore2) {
+				if (carac2.getTypeCarac() == carac.getTypeCarac() && carac2.getNom().equals(carac.getNom())
+						&& carac.getNom().equals("Ensoleillement")) {
+					for (Integer nb1 : nbrstrat1) {
+						for (Integer nb2 : nbrstrat2) {
+							if ((carac2.getValeur().equals("Mi Ombre")
+									&& (carac.getValeur().equals("Plein Soleil") || carac.getValeur().equals("Soleil")))
+									|| (carac.getValeur().equals("Mi Ombre")
+											&& (carac2.getValeur().equals("Plein Soleil")
+													|| carac2.getValeur().equals("Soleil")))) {
+								if ((nb1 > nb2 && carac2.getValeur().equals("Mi Ombre"))||(nb1 < nb2 && carac.getValeur().equals("Mi Ombre"))) {
+									ensolMiOmbre++;
+									
+								}
+								
+							}
+						}
+					}
+				}
+				else if(carac.getValeur().equals("Mi Ombre")||carac.getValeur().equals("Ombre")) {
+					ensolOmbre1++;
+				}
+				else if(carac2.getValeur().equals("Mi Ombre")||carac2.getValeur().equals("Ombre")) {
+					ensolOmbre2++;
+				}
+			}
+			}
+		
+		
+		
 		for (Caracteristique carac : ensolFlore1) {
 			for (Caracteristique carac2 : ensolFlore2) {
 				Bonus bonus = new Bonus();
@@ -345,7 +381,8 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 									bonus.setCaracUn(carac);
 									bonus.setCaracDeux(carac2);
-									if(ensolDoublon==0) {
+									if((ensolDoublon==0||ensolMiOmbre!=0)&& ensolMiOmbreDoublon==0) {
+										ensolMiOmbreDoublon++;
 									message = "La plante " + nomFlore1 + " a besoin de " + carac.getValeur()
 											+ ", est plus haute que la plante " + nomFlore2
 											+ " et peut donc lui apporter du mi-ombre.";
@@ -365,7 +402,8 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 									bonus.setCaracUn(carac);
 									bonus.setCaracDeux(carac2);
-									if(ensolDoublon==0) {
+									if((ensolDoublon==0 ||ensolMiOmbre!=0)&& ensolMiOmbreDoublon==0) {
+										ensolMiOmbreDoublon++;
 									message = "La plante " + nomFlore2 + " a besoin de " + carac.getValeur()
 											+ ", est plus haute que la plante " + nomFlore1
 											+ " et peut donc lui apporter du mi-ombre.";
@@ -381,7 +419,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 								}
 							}
 
-							else if (nb1 - nb2 >= 3 && (carac2.getValeur().equals("Plein Soleil")
+							else if ((nb1 - nb2 >= 3) && ensolOmbre2==0 && (carac2.getValeur().equals("Plein Soleil")
 									|| carac2.getValeur().equals("Soleil"))) {
 								ensolCount++;
 								malus.setCaracUn(carac);
@@ -399,7 +437,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 								ensolDoublon++;
 								malusList.add(malus);
 
-							} else if (nb2 - nb1 >= 3 && (carac.getValeur().equals("Plein Soleil")
+							} else if ((nb2 - nb1 >= 3) && ensolOmbre1==0 &&(carac.getValeur().equals("Plein Soleil")
 									|| carac.getValeur().equals("Soleil"))) {
 								ensolCount++;
 								malus.setCaracUn(carac);
@@ -426,7 +464,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 
 								bonus.setCaracUn(carac);
 								bonus.setCaracDeux(carac2);
-								if (ensolDoublon == 0) {
+								if (ensolDoublon == 0 && ensolMiOmbre==0) {
 									message = "Les deux plantes ont besoin d'un même ensoleillement et peuvent donc être planter dans un secteur similaire";
 									bonus.setMessage(message);
 									bonus.setPoint(1);
