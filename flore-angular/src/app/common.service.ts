@@ -22,4 +22,8 @@ export class CommonService {
 
   }
 
+  findAllCivilites(): Observable<Array<string>> {
+    return this.http.get<Array<string>>("http://localhost:8080/api/civilites");
+  }
+
 }

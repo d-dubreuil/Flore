@@ -1034,7 +1034,7 @@ INSERT INTO flore (id, version, nom)
 	(79, 0, 'Romarin'),
 	(80, 0, 'Rose'),
 	(81, 0, 'Sarriette'),
-	(82, 0, 'Sarrrasin'),
+	(82, 0, 'Sarrasin'),
 	(83, 0, 'Sauge'),
 	(84, 0, 'Souci (Calendula)'),
 	(85, 0, 'Sureau'),
