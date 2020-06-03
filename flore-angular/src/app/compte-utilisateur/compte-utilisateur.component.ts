@@ -82,7 +82,7 @@ export class CompteUtilisateurComponent implements OnInit {
   loadNomFlore(nom: string) {
     this.floreService.findByNom(nom).subscribe(resp => {
       this.nomFloreSearch = resp[0];
-      console.log(this.nomFloreSearch)
+      console.log(this.nomFloreSearch);
     }, error => console.log('erreur nom flore'));
   }
 
@@ -121,19 +121,17 @@ export class CompteUtilisateurComponent implements OnInit {
   }
 
   listFlore(): Array<Flore> {
-    return this.floreService.findAll().sort(function(a,b) {
+    return this.floreService.findAll().sort(function(a, b) {
       return a.nom.localeCompare(b.nom);
     });
   }
 
   listCarac(): Array<Caracteristique> {
-    return this.caracteristiqueService.findAll().sort(function(a,b) {
-      return a.typeCarac.localeCompare(b.typeCarac);
-    });
+    return this.caracteristiqueService.findAll();
   }
 
   listFaune(): Array<Faune> {
-    return this.fauneService.findAll().sort(function(a,b){
+    return this.fauneService.findAll().sort(function(a, b) {
       return a.nomFaune.localeCompare(b.nomFaune);
     });
   }
@@ -142,6 +140,10 @@ export class CompteUtilisateurComponent implements OnInit {
 //METHODES ADD
   addFlore() {
     this.floreForm = new Flore();
+  }
+
+  addFaune() {
+    this.fauneForm = new Faune();
   }
 
   addCaracNomLatin() {
@@ -195,13 +197,12 @@ export class CompteUtilisateurComponent implements OnInit {
       error => console.log(error));
   }
 
-  editConseil(id: number) {
-    this.conseilService.findById(id).subscribe(resp => {
-        this.conseilForm = resp;
+  editCarac(id: number) {
+    this.caracteristiqueService.findById(id).subscribe(resp => {
+        this.caracForm = resp;
       },
       error => console.log(error));
   }
-
 
 //METHODES SAVE
   saveNomFlore() {
@@ -232,8 +233,8 @@ export class CompteUtilisateurComponent implements OnInit {
     this.caracteristiqueService.create(this.caracForm).subscribe(resp => {
       this.caracForm = new Caracteristique();
       this.caracteristiqueService.load();
-      this.caracFormVisible=false;
-      this.caracFormLatinVisible=false;
+      this.caracFormVisible = false;
+      this.caracFormLatinVisible = false;
     }, error => console.log(error));
   }
 
@@ -248,6 +249,13 @@ export class CompteUtilisateurComponent implements OnInit {
     this.floreService.create(this.floreForm).subscribe(resp => {
       this.floreForm = new Flore();
       this.floreService.load();
+    }, error => console.log(error));
+  }
+
+  saveFaune() {
+    this.fauneService.create(this.fauneForm).subscribe(resp => {
+      this.fauneForm = new Faune();
+      this.fauneService.load();
     }, error => console.log(error));
   }
 
@@ -268,6 +276,10 @@ export class CompteUtilisateurComponent implements OnInit {
 
 // METHODES CANCEL:
   cancelFlore() {
+    this.floreForm = null;
+  }
+
+  cancelFaune() {
     this.floreForm = null;
   }
 
