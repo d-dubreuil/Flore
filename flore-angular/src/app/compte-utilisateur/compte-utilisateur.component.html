@@ -14,22 +14,32 @@
 
 <!-- ADMINISTRATEUR -->
 
-<div class="colum mt-5">
+<div class="colum border m-5" id="formulaireAdmin">
 
   <!--BLOC 1 : 1. Création d'une fiche-->
-  <div class="card mt-3 m-5 bg-transparent align-items-center justify-content-center">
-    <!--Header-->
-    <h2 class="my-3" style="text-align: center">
-      <p>Nom de la fiche :{{nomFiche}}</p></h2>
-    <!--Body-->
+  <div class="card border-0 m-5 bg-transparent align-items-center justify-content-center">
     <div class="card-body border ml-5 mr-5 align-items-center justify-content-center" style="width: 70%">
+      <!--Header-->
+      <a *ngIf="nomFlore">
+        <h2 class="my-3" style="text-align: center">
+          <p>Nom de la fiche flore :{{nomFlore}}</p></h2>
+      </a>
+      <a *ngIf="nomFaune">
+        <h2 class="my-3" style="text-align: center">
+          <p>Nom de la fiche faune:{{nomFaune}}</p></h2>
+      </a>
+      <a *ngIf="nomConseil">
+        <h2 class="my-3" style="text-align: center">
+          <p>Nom de la fiche conseil :{{nomConseil}}</p></h2>
+      </a>
+      <!--Body-->
       <!--Flore-->
       <div class="row form-group ml-5 mr-5 align-items-center justify-content-center">
         <div class="column " style="width: 15%; height: 20%"><label for="nomFlore"><h5>Flore:</h5></label></div>
         <div class="column  align-items-center justify-content-center" style="width: 70%; height: 20%">
           <input type="text" class="form-control" id="nomFlore" name="nomFlore"
                  placeholder="Veuillez donner un nom à la fiche"
-                 [(ngModel)]="nomFiche">
+                 [(ngModel)]="nomFlore">
         </div>
         <div class="column  btn-group float-left" style="width: 10%;">
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
@@ -48,7 +58,7 @@
         <div class="column  align-items-center justify-content-center" style="width: 70%; height: 20%">
           <input type="text" class="form-control" id="nomFaune" name="nomFaune"
                  placeholder="Veuillez donner un nom à la fiche"
-                 [(ngModel)]="nomFiche">
+                 [(ngModel)]="nomFaune">
         </div>
         <div class="column  btn-group float-left" style="width: 10%;">
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
@@ -67,7 +77,7 @@
         <div class="column  align-items-center justify-content-center" style="width: 70%; height: 20%">
           <input type="text" class="form-control" id="nomConseil" name="nomConseil"
                  placeholder="Veuillez donner un nom à la fiche"
-                 [(ngModel)]="nomFiche">
+                 [(ngModel)]="nomConseil">
         </div>
         <div class="column  btn-group float-left" style="width: 10%;">
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
@@ -123,13 +133,13 @@
   </div>
 
   <!--BLOC 2 : Création caractéristique + ajout attribut-->
-  <div class="row border mt-3 m-5 bg-transparent align-items-center justify-content-center">
+  <div class="row border-0 ml-5 mr-5 mb-5 bg-transparent align-items-center justify-content-center">
     <!--2.1 Création du nom latin-->
-    <div class="column card mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 40%"
+    <div class="column card ml-5 mr-5 mb-5 bg-transparent align-items-center justify-content-center" style="width: 40%"
          *ngIf="caracFormLatinVisible">
       <!--Header-->
       <h2 class="my-3" style="text-align: center">
-        <p>Nom latin :{{nomLatin}}</p></h2>
+        <p>Editer une valeur{{nomLatin}}</p></h2>
       <!--Body-->
       <div class="card-body">
         <div class="row form-group">
@@ -194,11 +204,11 @@
     </div>
 
     <!--2.2 Création d'une nouvelle caractéristique-->
-    <div class="column border card mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 40%"
+    <div class="column card ml-5 mr-5 mb-5 bg-transparent align-items-center justify-content-center" style="width: 40%"
          *ngIf="caracFormVisible">
       <!--Header-->
       <h2 class="my-3" style="text-align: center">
-        <p>Création de la caractéristique:</p></h2>
+        <p>Création d'une caractéristique</p></h2>
       <!--Body-->
       <div class="card-body">
         <div class="row form-group">
@@ -254,16 +264,26 @@
   </div>
 
   <!--BLOC 3 : 3. Création des liens-->
-  <div class="card mt-3 m-5 bg-transparent align-items-center justify-content-center" *ngIf="caracFormLinkVisible">
-    <!--Header-->
-    <h2 class="my-3" style="text-align: center">
-      <p>Fiche: <a *ngIf="nomFloreBoolean">{{nomFlore}}</a></p></h2>
+  <div class="card border-0 ml-5 mr-5 mb-5 bg-transparent align-items-center justify-content-center"
+       *ngIf="caracFormLinkVisible">
     <!--Body-->
     <div class="card-body border ml-5 mr-5 align-items-center justify-content-center" style="width: 70%">
-
+      <!--Header-->
+      <a *ngIf="nomFloreBoolean">
+        <h2 class="my-3" style="text-align: center">
+          <p>Fiche: <a>{{nomFlore}}</a></p></h2>
+      </a>
+      <a *ngIf="nomFauneBoolean">
+        <h2 class="my-3" style="text-align: center">
+          <p>Fiche: <a>{{nomFaune}}</a></p></h2>
+      </a>
+      <a *ngIf="nomConseilBoolean">
+        <h2 class="my-3" style="text-align: center">
+          <p>Fiche: <a>{{nomConseil}}</a></p></h2>
+      </a>
       <!--Checkbox fiche flore/faune/conseil -->
       <div class="row form-group align-items-center justify-content-center">
-        <div class="column  ml-3 mr-3 align-items-center justify-content-center" style="width: 75%;">
+        <div class="column  ml-3 mr-3 align-items-center justify-content-center" style="width: 80%;">
           <div class="mt-3 ml-5 mr-5 ">
             <div class="form-check-inline ml-5 mr-5">
               <label class="form-check-label">
@@ -383,7 +403,7 @@
   </div>
 
   <!--BLOC 4 : 4. Bases de données-->
-  <div class="row mt-3 m-5 bg-transparent align-items-center justify-content-center">
+  <div class="card border-0 ml-5 mr-5 mb-5 bg-transparent align-items-center justify-content-center">
     <!--4.1 Liste et formulaire des flores-->
     <div class="row border mt-3 m-5 bg-transparent align-items-center justify-content-center" style="width: 45%"
          *ngIf="listFloreVisible">
@@ -1024,7 +1044,7 @@
                   <!--Bouton SAVE-->
                   <a class="btn" data-dismiss="modal"
                      style="background-color :#8bc34a; color: black; border-right-color: black"
-                     (click)="saveCaracLatin()" data-toggle="tooltip"
+                     (click)="saveCarac()" data-toggle="tooltip"
                      data-placement="top" title="Enregister">
                     <i class="fa fa-check"></i>
                   </a>

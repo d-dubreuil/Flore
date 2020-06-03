@@ -10,6 +10,7 @@
   </div>
 </div>
 <div class="row m-5">
+  <!--BLOC CONNEXION ET FOURNISSEUR-->
   <div id="connexionFournisseur" class="column " style="width: 30%; height: 100%">
     <!--BLOC CONNEXION-->
     <div class="row p-4 ">
@@ -92,6 +93,7 @@
       </div>
     </div>
   </div>
+
   <!-- BLOC TEXTE/PHOTOS ET CARACTERISTIQUES -->
   <div id="fiche" class="column ml-5  " style="width: 65% ; height: 100%">
     <!-- BLOC TEXTE -->
@@ -117,7 +119,8 @@
         </div>
       </div>
     </div>
-    <!--    Bloc liens flaure-->
+
+    <!--BLOC LIEN FLORE-->
     <div class="justify-content-center align-items-center mt-3" id="liensFlore">
       <!--Nom-->
       <div id="lienFlore" class="row justify-content-center p-2 mt-1">
@@ -125,125 +128,141 @@
       </div>
       <!--Type de lien-->
       <div class="row justify-content-center mb-3 text-center">
-        <div id="lienFlorePollinisée" class="column justify-content-center mr-5 ml-5 text-center">
-          <div class="row ">
-            <h6 class="text-center" style="font-size: 15px">Pollinise :</h6>
+        <!--Pollinisateur-->
+        <div id="lienFlorePollinisée" class="column justify-content-center mr-5 ml-5"
+             style="min-height: 50%; width:20%">
+          <div class="row justify-content-center">
+            <h6 class="column m-2 text-center" style="font-size: 15px, ; width: 65%">Pollinise :</h6>
+            <button class="column btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    *ngIf="!plusFlorePollenisant && tableauCarac(fauneService.faune,'FloreFaune','Pollinisateur').length>3"
+                    (click)="plusFlorePollenisant=true"><i class="fas fa-chevron-down"></i>
+            </button>
           </div>
           <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Pollinisateur').slice(0,3)"
-               class="row">
-            <button class="btn btn-outline-success"
-                    (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+               class="row justify-content">
+            <a class="btn " id="pollinisateur"
+               (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
           </div>
-          <button class="btn btn-success"
-                  *ngIf="!plusFlorePollenisant && tableauCarac(fauneService.faune,'FloreFaune','Pollinisateur').length>3"
-                  (click)="plusFlorePollenisant=true">Voir plus
-          </button>
           <div *ngIf="plusFlorePollenisant">
             <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Pollinisateur').slice(3)"
-                 class="row">
-              <button class="btn btn-outline-success"
-                      (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+                 class="row justify-content">
+              <a class="btn " id="pollinisateur"
+                 (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
             </div>
-            <button class="btn btn-success" (click)="plusFlorePollenisant=false">Voir moins</button>
+            <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    (click)="plusFlorePollenisant=false"><i class="fas fa-chevron-up"></i>
+            </button>
           </div>
         </div>
-        <div id="lienFloreAttirant" class="column justify-content-center mr-5 ml-5 text-center">
-          <div class="row ">
-            <h6 class="text-center" style="font-size: 15px">Est attiré par :</h6>
+        <!--Attraction-->
+        <div id="lienFloreAttirant" class="column justify-content-center mr-5 ml-5" style="min-height: 50%; width:20%">
+          <div class="row justify-content-center">
+            <h6 class="column m-2 text-center" style="font-size: 15px; width: 65%">Est attiré par :</h6>
+            <button class="column btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    *ngIf="!plusFloreAttirant && tableauCarac(fauneService.faune,'FloreFaune','Attraction').length>3"
+                    (click)="plusFloreAttirant=true"><i class="fas fa-chevron-down"></i>
+            </button>
           </div>
           <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Attraction').slice(0,3)"
-               class="row">
-            <button class="btn btn-outline-success"
-                    (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+               class="row justify-content-center">
+            <a class="btn" id="attractif"
+               (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
           </div>
-          <button class="btn btn-success"
-                  *ngIf="!plusFloreAttirant && tableauCarac(fauneService.faune,'FloreFaune','Attraction').length>3"
-                  (click)="plusFloreAttirant=true">Voir plus
-          </button>
           <div *ngIf="plusFloreAttirant">
             <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Attraction').slice(3)"
-                 class="row">
-              <button class="btn btn-outline-success"
-                      (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+                 class="row justify-content-center">
+              <a class="btn" id="attractif"
+                 (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
             </div>
-            <button class="btn btn-success" (click)="plusFloreAttirant=false">Voir moins</button>
+            <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    (click)="plusFloreAttirant=false"><i class="fas fa-chevron-up"></i></button>
           </div>
         </div>
-        <div id="lienFloreRepoussant" class="column justify-content-center mr-5 ml-5 text-center">
-          <div class="row ">
-            <h6 class="text-center" style="font-size: 15px">Est repoussé par :</h6>
+        <!--Répulsion-->
+        <div id="lienFloreRepoussant" class="column justify-content-center mr-5 ml-5"
+             style="min-height: 50%; width:20%">
+          <div class="row justify-content-center">
+            <h6 class="column m-2 text-center" style="font-size: 15px">Est repoussé par :</h6>
+            <button class="column btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    *ngIf="!plusFloreRepoussant && tableauCarac(fauneService.faune,'FloreFaune','Répulsion').length>3"
+                    (click)="plusFloreRepoussant=true"><i class="fas fa-chevron-down"></i>
+            </button>
           </div>
           <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Répulsion').slice(0,3)"
-               class="row">
-            <button class="btn btn-outline-success"
-                    (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+               class="row justify-content-center">
+            <a class="btn" id="repulsif"
+               (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
           </div>
-          <button class="btn btn-success"
-                  *ngIf="!plusFloreRepoussant && tableauCarac(fauneService.faune,'FloreFaune','Répulsion').length>3"
-                  (click)="plusFloreRepoussant=true">Voir plus
-          </button>
           <div *ngIf="plusFloreRepoussant">
             <div *ngFor="let caracValeur of tableauCarac(fauneService.faune, 'FloreFaune','Répulsion').slice(3)"
-                 class="row">
-              <button class="btn btn-outline-success"
-                      (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</button>
+                 class="row justify-content-center">
+              <a class="btn" id="repulsif"
+                 (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
             </div>
-            <button class="btn btn-success" (click)="plusFloreRepoussant=false">Voir moins</button>
-
+            <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    (click)="plusFloreRepoussant=false"><i class="fas fa-chevron-up"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <!--    Bloc liens faune-->
+
+    <!--BLOC LIEN FAUNE-->
     <div class="justify-content-center align-items-center mt-3" id="liensFaune">
       <!--Nom-->
       <div id="lienFaune" class="row justify-content-center p-2 mt-1">
-        <h6 class="text-center" style="font-size: 18px">Relation flore :</h6>
+        <h6 class="text-center" style="font-size: 18px">Relation faune :</h6>
       </div>
       <!--Type de lien-->
       <div class="row justify-content-center mb-3 text-center">
-        <div id="liensFaunePredateur" class="column justify-content-center mr-5 ml-5 text-center">
-          <div class="row ">
-            <h6 class="text-center" style="font-size: 15px">Prédateur :</h6>
+        <!--Prédateur-->
+        <div id="liensFaunePredateur" class="column justify-content-center mr-5 ml-5"
+             style="min-height: 50%; width:30%">
+          <div class="row justify-content-center">
+            <h6 class="column m-2 text-center" style="font-size: 15px">Prédateur :</h6>
+            <button class="column btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    *ngIf="!plusFaunePredateur && tableauFaune(fauneService.faune, 'Prédateur').length>3"
+                    (click)="plusFaunePredateur=true"><i class="fas fa-chevron-down"></i>
+            </button>
           </div>
           <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Prédateur').slice(0,3)"
-               class="row">
-            <button class="btn btn-outline-success"
-                    (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+               class="row justify-content-center">
+            <a class="btn" id="predateur"
+               (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</a>
           </div>
-          <button class="btn btn-success"
-                  *ngIf="!plusFaunePredateur && tableauFaune(fauneService.faune, 'Prédateur').length>3"
-                  (click)="plusFaunePredateur=true">Voir plus
-          </button>
           <div *ngIf="plusFaunePredateur">
             <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Prédateur').slice(3)"
-                 class="row">
-              <button class="btn btn-outline-success"
-                      (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+                 class="row justify-content-center">
+              <a class="btn" id="predateur"
+                 (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</a>
             </div>
-            <button class="btn btn-success" (click)="plusFaunePredateur=false">Voir moins</button>
+            <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    (click)="plusFaunePredateur=false"><i class="fas fa-chevron-up"></i>
+            </button>
           </div>
         </div>
-        <div id="liensFauneProie" class="column justify-content-center mr-5 ml-5 text-center">
-          <div class="row ">
-            <h6 class="text-center" style="font-size: 15px">Proie :</h6>
+        <!--Proie-->
+        <div id="liensFauneProie" class="column justify-content-center mr-5 ml-5" style="min-height: 50%; width:30%">
+          <div class="row justify-content-center">
+            <h6 class="column m-2 text-center" style="font-size: 15px">Proie :</h6>
+            <button class="column btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    *ngIf="!plusFauneProie && tableauFaune(fauneService.faune, 'Chassé').length>3"
+                    (click)="plusFauneProie=true"><i class="fas fa-chevron-down"></i>
+            </button>
           </div>
           <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Chassé').slice(0,3)"
-               class="row">
-            <button class="btn btn-outline-success"
-                    (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+               class="row justify-content-center">
+            <a class="btn" id="proie"
+               (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</a>
           </div>
-          <button class="btn btn-success"
-                  *ngIf="!plusFauneProie && tableauFaune(fauneService.faune, 'Chassé').length>3"
-                  (click)="plusFauneProie=true">Voir plus
-          </button>
           <div *ngIf="plusFauneProie">
             <div *ngFor="let caracValeur of tableauFaune(fauneService.faune, 'Chassé').slice(3)"
-                 class="row">
-              <button class="btn btn-outline-success"
-                      (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</button>
+                 class="row justify-content-center">
+              <a class="btn" id="proie"
+                 (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</a>
             </div>
-            <button class="btn btn-success" (click)="plusFauneProie=false">Voir moins</button>
+            <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
+                    (click)="plusFauneProie=false"><i class="fas fa-chevron-up"></i></button>
           </div>
         </div>
       </div>
