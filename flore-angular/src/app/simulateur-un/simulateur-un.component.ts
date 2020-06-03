@@ -7,6 +7,7 @@ import {Flore} from "../model/Flore";
 import {FloreService} from "../services/flore.service";
 import {Router} from "@angular/router";
 import {newArray} from "@angular/compiler/src/util";
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-simulateur-un',
@@ -37,9 +38,10 @@ export class SimulateurUnComponent implements OnInit {
 
   typeCaracs: Array<String> = new Array<string>();
 
-  constructor(private synergieService: SynergieService, private floreService: FloreService,private router:Router) {
+  constructor(private synergieService: SynergieService, private floreService: FloreService,private router:Router,private commonService:CommonService) {
     this.synergieService.findAllTypeCaracs().subscribe(resp => this.typeCaracs = resp, err => console.log(err));
     this.floreList=this.floreService.findAll();
+    this.commonService.page="synergie";
     for(let flore of this.floreList){
       if(this.filterCarac(flore,"NomLatin")!='non renseigné'){
         this.nomFloreList.push(flore.nom);

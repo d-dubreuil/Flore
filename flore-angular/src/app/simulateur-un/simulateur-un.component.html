@@ -18,57 +18,57 @@
   <!-- Colonne 1-->
   <div *ngIf="simu1Accueil" class="row justify-content-center" style="width:100%;">
     <!-- page 1-->
-  <div class="column mr-5 blocLigne"  style="width:40%; text-align: center;">
-    <h1 class="mt-4">Simulateur : 1</h1>
-    <p class="mt-4" style="font-size: large">Ces deux plantes peuvent-elles s'associer?</p>
-  </div>
+    <div class="column mr-5 blocLigne"  style="width:40%; text-align: center;">
+      <h1 class="mt-4">Simulateur : 1</h1>
+      <p class="mt-4" style="font-size: large">Ces deux plantes peuvent-elles s'associer?</p>
+    </div>
     <!-- Colonne 2-->
     <div  class="column  ml-5" style="width:40%;">
-        <!-- search plante 1-->
-        <div  class="row mt-3 searchFlore justify-content-center">
-          <div class="column">
-            <button  class="btn btnSearch"
-                     style="background-color: #8bc34a">
-              <i class="fas fa-leaf" style="color: white"></i>
-            </button>
-          </div>
-          <div class="column" style="width: 82%;">
-            <ng2-completer [inputClass]="['myInput','form-control']" [placeholder]="'Entrez le nom de la plante 1'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore1"> </ng2-completer>
-          </div>
-        </div>
-        <!-- search plante 2-->
-        <div  class="row mt-3 searchFlore justify-content-center">
-          <div class="column">
-            <button  class="btn btnSearch"
-                     style="background-color: #8bc34a">
-              <i class="fas fa-leaf" style="color: white"></i>
-            </button>
-          </div>
-          <div class="column" style="width: 82%;">
-            <ng2-completer  [inputClass]="['myInput','form-control']" [placeholder]="'Entrez le nom de la plante 2'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore2"> </ng2-completer>
-          </div>
-
-        </div>
-        <!-- bouton kampagnonnage-->
-        <div class="row mt-3 justify-content-center">
-          <button (click)="synergie()" class="btn" style="width: 91%;background-color: #8bc34a" >
-
-            Démarrer notre prédicteur de Kompagnonnage
-
+      <!-- search plante 1-->
+      <div  class="row mt-3 searchFlore justify-content-center">
+        <div class="column">
+          <button  class="btn btnSearch"
+                   style="background-color: #8bc34a">
+            <i class="fas fa-leaf" style="color: white"></i>
           </button>
         </div>
+        <div class="column" style="width: 82%;">
+          <ng2-completer [inputClass]="['myInput','form-control']" [placeholder]="'Entrez le nom de la plante 1'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore1"> </ng2-completer>
+        </div>
       </div>
+      <!-- search plante 2-->
+      <div  class="row mt-3 searchFlore justify-content-center">
+        <div class="column">
+          <button  class="btn btnSearch"
+                   style="background-color: #8bc34a">
+            <i class="fas fa-leaf" style="color: white"></i>
+          </button>
+        </div>
+        <div class="column" style="width: 82%;">
+          <ng2-completer  [inputClass]="['myInput','form-control']" [placeholder]="'Entrez le nom de la plante 2'" [datasource]="nomFloreList" [minSearchLength]="1" [(ngModel)]="nomFlore2"> </ng2-completer>
+        </div>
+
+      </div>
+      <!-- bouton kampagnonnage-->
+      <div class="row mt-3 justify-content-center">
+        <button (click)="synergie()" class="btn" style="width: 91%;background-color: #8bc34a" >
+
+          Démarrer notre prédicteur de Kompagnonnage
+
+        </button>
+      </div>
+    </div>
 
   </div>
 
-    <!-- page 2 komagnonnage-->
-    <div *ngIf="kompagnonnage" class="column" style="width:100%;">
-      <!-- 1ère ligne - K1-->
-      <div class="row ml-5 mr-5 mt-3 justify-content-center blocLigne">
-        <!-- 1ère colonne - K2-->
-        <div class="column mr-3" style="width:75%;">
-          <div class="row justify-content-center">
-            <!-- 1ère colonne - K4-->
+  <!-- page 2 komagnonnage-->
+  <div *ngIf="kompagnonnage" class="column" style="width:100%;">
+    <!-- 1ère ligne - K1-->
+    <div class="row ml-5 mr-5 mt-3 justify-content-center blocLigne">
+      <!-- 1ère colonne - K2-->
+      <div class="column mr-3" style="width:75%;">
+        <div class="row justify-content-center">
+          <!-- 1ère colonne - K4-->
           <div class="column mr-3" style="width:45%;">
             <div class="row justify-content-center">
               <!-- 1ère colonne - K5-->
@@ -83,7 +83,7 @@
               </div>
             </div>
           </div>
-            <!-- 2ème colonne - K4-->
+          <!-- 2ème colonne - K4-->
           <div class="column ml-3" style="width:45%;">
             <div class="row justify-content-center">
               <!-- 1ère colonne - K5-->
@@ -99,94 +99,94 @@
             </div>
           </div>
         </div>
-        </div>
-        <!-- 2ème colonne - K2-->
-        <div class="column ml-3" style="width:15%;margin-top: 3%">
-          <button (click)="revenir()" class="btn btnGreen" style="width: 91%;font-size: medium" >
-            Revenir à ma recherche
-          </button>
-        </div>
       </div>
-      <!-- 2ème ligne - K1-->
-      <div class="row ml-5 mr-5 mt-3 justify-content-center blocLigne">
-        <!-- 1ère colonne - K2-->
-            <div class="column mr-3 pt-2" style="width:75%;">
-              <h3 class="pl-5 " *ngIf="totalPoint>30"> Best Kompagnes Ever! (+{{totalPoint}})</h3>
-            <h3 class="pl-5 " *ngIf="totalPoint>20 && totalPoint<=30"> Association très favorable (+{{totalPoint}})</h3>
-            <h3 class="pl-5 " *ngIf="totalPoint>15 && totalPoint<=20"> Association favorable (+{{totalPoint}})</h3>
-            <h3 class="pl-5 " *ngIf="totalPoint>10 && totalPoint<=15"> Association potentiellement favorable (+{{totalPoint}})</h3>
-            <h3 class="pl-5 " *ngIf="totalPoint<=10 && totalPoint>0"> Association passable (+{{totalPoint}})</h3>
-            <h3 class="pl-5 " *ngIf="totalPoint<=0 && totalPoint>-6"> Association à éviter ({{totalPoint}})</h3>
-              <h3 class="pl-5 " *ngIf="totalPoint<=-6"> Association non compatible ({{totalPoint}})</h3>
-          </div>
-            <!-- 2ème colonne - K2-->
-            <div class="column ml-3" style="width:15%;margin-top: 0.5%">
-              <button (click)="plusDeDetail()" class="btn  btnGreen" style="width: 91%;font-size: medium" >
-                Plus de détails
-              </button>
-            </div>
-          </div>
-      <!-- 3ème ligne - K1-->
-      <div  class="row ml-5 mr-5 justify-content-center mt-3 blocLigne" >
-        <div class="column justify-content-center" style="width:100%;">
-          <div class="row ml-4 mr-4 justify-content-center">
-            <div class="column ml-2 mr-2" style="width: 21%;"><h5>Caractéristique</h5>
-            </div>
-            <div class="column ml-2 mr-2" style="width: 21%;"><h5>Association</h5>
-            </div>
-            <div class="column ml-2 mr-2" style="width: 21%;"><h5>{{nomFlore1}}</h5>
-            </div>
-            <div class="column ml-2" style="width: 21%;"><h5>{{nomFlore2}}</h5>
-            </div>
-          </div>
-          <div *ngFor="let bon of bonusList" class="row ml-4 mr-4 messageBonus justify-content-center">
-            <div class="column ml-2 mr-2" style="width: 21%;">{{bon.caracUn.nom}}
-            </div>
-            <div class="column ml-2 mr-2" style="width: 21%;">Complémentaire (+{{bon.point}})
-            </div>
-            <div class="column ml-2 mr-2" style="width: 21%;">{{bon.caracUn.valeur}}
-            </div>
-            <div class="column ml-2" style="width: 21%;">{{bon.caracDeux.valeur}}
-            </div>
-          </div>
-          <div *ngFor="let mal of malusList" class="row ml-4 mr-4 messageMalus justify-content-center">
-            <div class="column ml-2 mr-2" style="width: 21%;">{{mal.caracUn.nom}}
-            </div>
-            <div class="column ml-2 mr-2" style="width: 21%;">Bloquante ({{mal.point}})
-            </div>
-            <div class="column ml-2 mr-2" style="width: 21%;">{{mal.caracUn.valeur}}
-            </div>
-            <div class="column ml-2" style="width: 21%;">{{mal.caracDeux.valeur}}
-            </div>
-          </div>
-        </div>
+      <!-- 2ème colonne - K2-->
+      <div class="column ml-3" style="width:15%;margin-top: 3%">
+        <button (click)="revenir()" class="btn btnGreen" style="width: 91%;font-size: medium" >
+          Revenir à ma recherche
+        </button>
       </div>
-      <!-- 4ème ligne - K1-->
-      <div *ngIf="details" class="row ml-5 mr-5 mt-3 justify-content-center blocLigne" >
-        <!-- 1ère colonne - K2-->
-        <div class="column" style="width: 100%;">
-          <!-- 2ème ligne - K2-->
-          <h5 class="row ml-4 mr-4 justify-content-center">Explication détaillé</h5>
-          <div *ngFor="let bon of bonusList" class="row messageBonus mr-4 ml-4 -align-left" >{{bon.message}}
-          </div>
-          <div *ngFor="let mal of malusList" class="row messageMalus mr-4 ml-4 -align-left">{{mal.message}}
-          </div>
-        </div>
-      </div>
-
-
     </div>
+    <!-- 2ème ligne - K1-->
+    <div class="row ml-5 mr-5 mt-3 justify-content-center blocLigne">
+      <!-- 1ère colonne - K2-->
+      <div class="column mr-3 pt-2" style="width:75%;">
+        <h3 class="pl-5 " *ngIf="totalPoint>30"> Best Kompagnes Ever! (+{{totalPoint}})</h3>
+        <h3 class="pl-5 " *ngIf="totalPoint>20 && totalPoint<=30"> Association très favorable (+{{totalPoint}})</h3>
+        <h3 class="pl-5 " *ngIf="totalPoint>15 && totalPoint<=20"> Association favorable (+{{totalPoint}})</h3>
+        <h3 class="pl-5 " *ngIf="totalPoint>10 && totalPoint<=15"> Association potentiellement favorable (+{{totalPoint}})</h3>
+        <h3 class="pl-5 " *ngIf="totalPoint<=10 && totalPoint>0"> Association passable (+{{totalPoint}})</h3>
+        <h3 class="pl-5 " *ngIf="totalPoint<=0 && totalPoint>-6"> Association à éviter ({{totalPoint}})</h3>
+        <h3 class="pl-5 " *ngIf="totalPoint<=-6"> Association non compatible ({{totalPoint}})</h3>
+      </div>
+      <!-- 2ème colonne - K2-->
+      <div class="column ml-3" style="width:15%;margin-top: 0.5%">
+        <button (click)="plusDeDetail()" class="btn  btnGreen" style="width: 91%;font-size: medium" >
+          Plus de détails
+        </button>
+      </div>
+    </div>
+    <!-- 3ème ligne - K1-->
+    <div  class="row ml-5 mr-5 justify-content-center mt-3 blocLigne" >
+      <div class="column justify-content-center" style="width:100%;">
+        <div class="row ml-4 mr-4 justify-content-center">
+          <div class="column ml-2 mr-2" style="width: 21%;"><h5>Caractéristique</h5>
+          </div>
+          <div class="column ml-2 mr-2" style="width: 21%;"><h5>Association</h5>
+          </div>
+          <div class="column ml-2 mr-2" style="width: 21%;"><h5>{{nomFlore1}}</h5>
+          </div>
+          <div class="column ml-2" style="width: 21%;"><h5>{{nomFlore2}}</h5>
+          </div>
+        </div>
+        <div *ngFor="let bon of bonusList" class="row ml-4 mr-4 messageBonus justify-content-center">
+          <div class="column ml-2 mr-2" style="width: 21%;">{{bon.caracUn.nom}}
+          </div>
+          <div class="column ml-2 mr-2" style="width: 21%;">Complémentaire (+{{bon.point}})
+          </div>
+          <div class="column ml-2 mr-2" style="width: 21%;">{{bon.caracUn.valeur}}
+          </div>
+          <div class="column ml-2" style="width: 21%;">{{bon.caracDeux.valeur}}
+          </div>
+        </div>
+        <div *ngFor="let mal of malusList" class="row ml-4 mr-4 messageMalus justify-content-center">
+          <div class="column ml-2 mr-2" style="width: 21%;">{{mal.caracUn.nom}}
+          </div>
+          <div class="column ml-2 mr-2" style="width: 21%;">Bloquante ({{mal.point}})
+          </div>
+          <div class="column ml-2 mr-2" style="width: 21%;">{{mal.caracUn.valeur}}
+          </div>
+          <div class="column ml-2" style="width: 21%;">{{mal.caracDeux.valeur}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 4ème ligne - K1-->
+    <div *ngIf="details" class="row ml-5 mr-5 mt-3 justify-content-center blocLigne" >
+      <!-- 1ère colonne - K2-->
+      <div class="column" style="width: 100%;">
+        <!-- 2ème ligne - K2-->
+        <h5 class="row ml-4 mr-4 justify-content-center">Explication détaillé</h5>
+        <div *ngFor="let bon of bonusList" class="row messageBonus mr-4 ml-4 -align-left" >{{bon.message}}
+        </div>
+        <div *ngFor="let mal of malusList" class="row messageMalus mr-4 ml-4 -align-left">{{mal.message}}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
 </div>
 
 
 
 
 <!--      </div>-->
-      <!-- page 3 + de détails-->
+<!-- page 3 + de détails-->
 
 
 
-        <!-- BLOC Images  -->
+<!-- BLOC Images  -->
 <!--        <div class="row m-2 justify-content-center border">-->
 <!--          <div class="column" style="width: 15%;">-->
 <!--            <img src="{{filterCarac( flore, 'Image')}}"-->
@@ -198,7 +198,7 @@
 <!--            <h6 style="font-style: italic">{{filterCarac(flore, 'NomLatin')}}</h6>-->
 <!--          </div>-->
 <!--        </div>-->
-    <!-- page 2 kompagnonnage-->
+<!-- page 2 kompagnonnage-->
 <!--      <div class="row mt-3 border">-->
 <!--      <div class="column mt-2">-->
 <!--        <h1 class="mt-2">Association potentiellement favorable</h1>-->
