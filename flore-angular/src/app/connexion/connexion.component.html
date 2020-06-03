@@ -21,7 +21,7 @@
           <label for="identifiant">Identifiant :</label>
         </div>
         <div class="column " style="width: 25%;">
-          <input type="text" class="form-control ml-5" id="identifiant" name="identifiant" style="width: 80%">
+          <input type="text" class="form-control ml-5" id="identifiant" name="identifiant" style="width: 80%" [(ngModel)]="session.username">
         </div>
       </div>
   </div>
@@ -33,22 +33,28 @@
           <label for="mdp" >Mot de passe :</label>
         </div>
         <div class="column" style="width: 25%;">
-          <input type="text" class="form-control ml-5 pl-2" id="mdp" name="mdp" style="width: 80%">
+          <input type="text" class="form-control ml-5 pl-2" id="mdp" name="mdp" style="width: 80%" [(ngModel)]="session.password">
         </div>
       </div>
   </div>
+
+  <div class="column mt-5" style="width: 25%;" *ngIf="authechecBoolean">Identifiant et mot de passe non compatibles.</div>
+
 
   <div class="column mt-5 mb-5">
     <div class="form-inline mr-5">
       <div class="column ml-5" style="width: 40%"></div>
       <div class="column" style="width: 25%; font-size: 22px;">
-        <button type="submit" id="btnSubmit" class="btn mt-2" style=" width: 80%;">CRÉER UN COMPTE</button>
+        <button type="submit" id="btnSubmit" class="btn mt-2" style=" width: 80%;" (click)="creation()">CRÉER UN COMPTE</button>
       </div>
       <div class="column" style="width: 25%;">
-        <button [routerLink]="'/NPK/compte-utilisateur'" type="submit" id="btnConnect" class="btn mt-2 ml-5" style=" width: 80%;">SE CONNECTER</button>
+        <button type="submit" id="btnConnect" class="btn mt-2 ml-5" style=" width: 80%;" (click)="connexion()">SE CONNECTER</button>
       </div>
     </div>
   </div>
+  <div class="column mt-5" style="width: 25%;" *ngIf="creationEchecBoolean">Identifiant déjà utilisé</div>
+  <div class="column mt-5" style="width: 25%;" *ngIf="creationVideBoolean">Identifiant et mot de passe doivent être remplis.</div>
+
 </div>
 
 

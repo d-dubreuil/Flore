@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CaracteristiqueService} from '../services/caracteristique.service';
 import {FauneService} from '../services/faune.service';
 import {FloreService} from '../services/flore.service';
@@ -12,6 +12,7 @@ import {Caracteristique} from '../model/Caracteristique';
 import {count} from 'rxjs/operators';
 import {ReferentielCaracteristiqueService} from '../services/referentiel-caracteristique.service';
 import {ReferentielCaracteristique} from '../model/ReferentielCaracteristique';
+import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
 
 @Component({
   selector: 'app-compte-utilisateur',
@@ -19,7 +20,8 @@ import {ReferentielCaracteristique} from '../model/ReferentielCaracteristique';
   styleUrls: ['./compte-utilisateur.component.scss']
 })
 export class CompteUtilisateurComponent implements OnInit {
-
+  @Input('prenom')
+  prenom:string;
   nomFiche: string = '';
   nomLatin: string = '';
 

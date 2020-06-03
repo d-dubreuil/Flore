@@ -50,24 +50,24 @@ public class CompteUtilisateur {
 	
 	// Pour tous les clients (Disc = "Client")
 	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewCompteClient.class)
+	@JsonView(Views.ViewCommon.class)
 	private Civilite civilite;
-	@JsonView(Views.ViewCompteClient.class)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
-	@JsonView(Views.ViewCompteClient.class)
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
 	
 	// Pour tous les fournisseurs (Disc = "Fournisseur")
-	@JsonView(Views.ViewCompteFournisseur.class)
+	@JsonView(Views.ViewCommon.class)
 	private String denomination;
 	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewCompteFournisseur.class)
+	@JsonView(Views.ViewCommon.class)
 	private StatutJuridique statut;
-	@JsonView(Views.ViewCompteFournisseur.class)
+	@JsonView(Views.ViewCommon.class)
 	private String SIRET_SIREN;
-	@JsonView(Views.ViewCompteFournisseur.class)
+	@JsonView(Views.ViewCommon.class)
 	private String RCS;
-	@JsonView(Views.ViewCompteFournisseur.class)
+	@JsonView(Views.ViewCommon.class)
 	private String TVA;
 	
 	// Liens
