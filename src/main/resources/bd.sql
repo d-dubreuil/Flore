@@ -535,7 +535,7 @@ ALTER TABLE commande
 -- Table utilisateur : 1 (compte_utilisateur)
 
 ALTER TABLE utilisateur
-	ADD COLUMN compteUtilisateur_id integer;
+	ADD COLUMN compte_utilisateur_id integer;
 
 ALTER TABLE conseil
 	ADD CONSTRAINT fk_utilisateur_compteUtilisateur FOREIGN KEY (compteUtilisateur_id) REFERENCES compte_utilisateur (id);
@@ -1925,12 +1925,12 @@ INSERT INTO flore (id, version, nom)
 	INSERT INTO utilisateur (id, version, compte_utilisateur_id)
 	VALUES
 	-- Utilisateur de base
-	(1, 0,1)
+	(1, 0,1);
 
 	INSERT INTO panier (id, version, utilisateur_id)
 	VALUES
 	-- Panier de base
-	(1, 0,1)
+	(1, 0,1);
 	
 	
 
