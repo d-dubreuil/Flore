@@ -11,204 +11,238 @@
     </div>
   </div>
 </div>
-<div class="mt-5 justify-content-center" style="width: 100%">
-  <div class="row justify-content-center">
-    <nav class="navbar navbar-expand-sm" id="navbarAchat">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" (click)="etapePanier=1" [ngClass]="{'enCours' : etapePanier==1}">1. Récapitulatif</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" *ngIf="etapePanier>=2" (click)="etapePanier=2"
-             [ngClass]="{'enCours' : etapePanier==2}">2. Connexion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" *ngIf="etapePanier<2">2. Connexion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" *ngIf="etapePanier>=3" (click)="etapePanier=3"
-             [ngClass]="{'enCours' : etapePanier==3}">3. Mode de livraison</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" *ngIf="etapePanier<3">3. Mode de livraison</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" *ngIf="etapePanier>=4" (click)="etapePanier=4"
-             [ngClass]="{'enCours' : etapePanier==4}">4. Paiement</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" *ngIf="etapePanier<4">4. Paiement</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" *ngIf="etapePanier==5" (click)="etapePanier=5"
-             [ngClass]="{'enCours' : etapePanier==5}">5. Confirmation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" *ngIf="etapePanier<5">5. Confirmation</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="row justify-content-center mt-3" *ngIf="etapePanier==1">
-    <div class="column" style="width: 85%" id="panierGlobal">
-      <div class="row justify-content-center">
-        <div class="column" style="width: 5%"></div>
-        <p style="font-style: italic">Vos articles sont sauvegardés pendant 60 minutes</p></div>
-      <div *ngFor="let selec of selections" class="row justify-content-center align-items-center my-2">
-        <div class="column" *ngIf="selec.produit.faune" style="width: 10%">
-          <img src="{{filterCaracFaune(selec.produit.faune, 'Image')}}"
-               style="width: 50%; height: 45%"/>
-        </div>
-        <div class="column" *ngIf="selec.produit.flore" style="width: 10%">
-          <img src="{{filterCaracFlore(selec.produit.flore, 'Image')}}"
-               style="width: 50%; height: 45%"/>
-        </div>
-        <div class="column text-center align-items-center" *ngIf="selec.produit.faune" style="width: 15%">
-          {{selec.produit.faune.nomFaune}}
-        </div>
-        <div class="column text-center align-items-center" *ngIf="selec.produit.flore" style="width: 15%">
-          {{selec.produit.flore.nom}}
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          {{selec.produit.fournisseur}}
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          Quantité : <input type="number" [(ngModel)]="selec.nombre" style="width: 40%" (change)="calcul()"/>
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          Prix unitaire = {{(selec.produit.prix).toFixed(2)}} €
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          Prix total = {{(selec.produit.prix * selec.nombre).toFixed(2)}} €
-        </div>
-        <div class="column text-center align-items-center" style="width: 10%">
-          <a class="btn btn-danger" (click)="delete(selec.id)"><i class="fa fa-trash "></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row justify-content-center mt-3" *ngIf="etapePanier==2">
-    <div class="column" style="width: 85%" id="connexion">
-      <div class="row justify-content-center"> Vos coordonnées :</div>
-      <div class="row justify-content-center">Nom : {{panier.utilisateur.compteUtilisateur.nom}}</div>
-      <div class="row justify-content-center">Prénom : {{panier.utilisateur.compteUtilisateur.prenom}}</div>
-      <div class="row justify-content-center">Numéro et rue : {{panier.utilisateur.compteUtilisateur.rue}}</div>
-      <div class="row justify-content-center">Complément d'adresse
-        :{{panier.utilisateur.compteUtilisateur.complement}}</div>
-      <div class="row justify-content-center">Code postal : {{panier.utilisateur.compteUtilisateur.codePostal}}</div>
-      <div class="row justify-content-center">Ville : {{panier.utilisateur.compteUtilisateur.ville}}</div>
-    </div>
-  </div>
-  <div class="row justify-content-center mt-3" *ngIf="etapePanier==3">
-    <form class="column" style="width: 85%" id="modeDeLivraison" name="modeDeLivraison"
-          (change)="calcul()">
-      <div class="row justify-content-center">
-        <div class="column" style="width: 30%"><input type="radio" id="collissimo" name="modeDeLivraison"
-                                                      value="collissimo"
-                                                      (click)="fraisLivraison=2;typeEnvoi='Colissimo'"><label
-          for="collissimo">Collissimo</label></div>
-        <div class="column" style="width: 30%">1-2 jours ouvrés</div>
-        <div class="column" style="width: 30%">2€ de livraison</div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="column" style="width: 30%"><input type="radio" id="pointRelais" name="modeDeLivraison"
-                                                      value="pointRelais"
-                                                      (click)="fraisLivraison=1;typeEnvoi='Points relais'"> <label
-          for="pointRelais">Points relais </label></div>
-        <div class="column" style="width: 30%">3-4 jours ouvrés</div>
-        <div class="column" style="width: 30%">1€ de livraison</div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="column" style="width: 30%"><input type="radio" id="clickAndCollect" name="modeDeLivraison"
-                                                      value="clickAndCollect"
-                                                      (click)="fraisLivraison=0;typeEnvoi='Click and Collect'"><label
-          for="clickAndCollect"> Click and
-          Collect</label></div>
-        <div class="column" style="width: 30%">+2 heures</div>
-        <div class="column" style="width: 30%">Gratuit</div>
-      </div>
-    </form>
-  </div>
-  <div class="row justify-content-center mt-3" *ngIf="etapePanier==4">
-    <div class="column" style="width: 85%" id="paiement">
-      <div class="row justify-content-center">
-        <div class="column" style="width: 30%"><input type="radio" id="paypal" name="paiement"
-                                                      value="collissimo"
-                                                      (click)="suppressionForm();typePaiement='Paypal'"><label
-          for="paypal">Paypal</label></div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="column" style="width: 30%"><input type="radio" id="virementBancaire" name="paiement"
-                                                      value="pointRelais"
-                                                      (click)="suppressionForm();typePaiement='Virement bancaire'">
-          <label
-            for="virementBancaire">Virement bancaire</label></div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="column" style="width: 30%"><input type="radio" id="carteBleue" name="paiement"
-                                                      value="clickAndCollect"
-                                                      (click)="creationForm();typePaiement='Carte Bleue'"><label
-          for="carteBleue"> Carte Bleue</label></div>
-      </div>
-      <div class="row justify-content-center" *ngIf="formPaiement">
-        <div class="column justify-content-center px-5 py-3 mb-2" id="formPaiement">
-          <div class="row justify-content-center">Type de carte bancaire <select class="mx-2" type="text"
-                                                                                 [(ngModel)]="formPaiement.typeCarte">
-            <option value="">Veuillez sélectionner un type de carte</option>
-            <option *ngFor="let type of typeCartes" [value]="type">{{type}}</option></select></div>
-          <div class="row justify-content-center">Numéro de carte bancaire <input class="mx-2" type="text"
-                                                                                  [(ngModel)]="formPaiement.numeroCarte">
-          </div>
-          <div class="row justify-content-center">Date de validité <input class="mx-2" type="text"
-                                                                          [(ngModel)]="formPaiement.dtValidite"></div>
-          <div class="row justify-content-center">Cryptogramme<input class="mx-2" type="text"
-                                                                     [(ngModel)]="formPaiement.cryptogramme"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row justify-content-center mt-3" *ngIf="etapePanier==5">
-    <div class="column" style="width: 85%" id="resumeCommande">
-      <div class="row justify-content-center align-items-center my-2">
-        <div class="column">
-          Résumé de la commande
-        </div>
-        <div class="column">
-          Passée le :
-        </div>
-        <div class="column">
 
-        </div>
+<!--PANIER-->
+<div class="m-5 justify-content-center">
+  <!--BARRE D'AVANCEMENT-->
+  <nav class="navbar navbar-expand-sm justify-content-center mx-5" id="navbarAchat">
+    <ul class="navbar-nav">
+      <li class="nav-item active mx-2">
+        <a class="nav-link" (click)="etapePanier=1" [ngClass]="{'enCours' : etapePanier==1}">1. Récapitulatif</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link active" *ngIf="etapePanier>=2" (click)="etapePanier=2"
+           [ngClass]="{'enCours' : etapePanier==2}">2. Coordonnées</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link disabled" *ngIf="etapePanier<2">2. Coordonnées</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link active" *ngIf="etapePanier>=3" (click)="etapePanier=3"
+           [ngClass]="{'enCours' : etapePanier==3}">3. Mode de livraison</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link disabled" *ngIf="etapePanier<3">3. Mode de livraison</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link active" *ngIf="etapePanier>=4" (click)="etapePanier=4"
+           [ngClass]="{'enCours' : etapePanier==4}">4. Paiement</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link disabled" *ngIf="etapePanier<4">4. Paiement</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link active" *ngIf="etapePanier==5" (click)="etapePanier=5"
+           [ngClass]="{'enCours' : etapePanier==5}">5. Confirmation</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link disabled" *ngIf="etapePanier<5">5. Confirmation</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--Etape 1 : liste des produits-->
+  <div class="row mx-5 mt-3 justify-content-center text-center" id="panierGlobal" *ngIf="etapePanier==1">
+    <!--Vos articles sont sauvegardés pendant 1h-->
+    <div class="row justify-content-center mx-3 mt-2" id="textBefore">
+      <p style="font-style: italic">Vos articles sont sauvegardés pendant 60 minutes</p>
+    </div>
+    <!--Sélection-->
+    <div class="row align-items-center mx-4 mb-4">
+      <table class="table-responsive justify-content-center align-items-center">
+        <thead class="justify-content-center border-bottom border-top">
+        <tr style="height: 50px">
+          <th></th>
+          <th>Produit</th>
+          <th>Fournisseur</th>
+          <th>Quantité</th>
+          <th>Prix unitaire</th>
+          <th>Prix total</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody class="justify-content-center " *ngFor="let selec of selections">
+        <tr class="justify-content-center border-bottom" style="height: 100px" *ngIf="selec.produit.faune">
+          <td class="align-items-center" style="width: 20%"><img
+            src="{{filterCaracFaune(selec.produit.faune, 'Image')}}"
+            style="width: 60%;"/></td>
+          <td style="width: 15%"> {{selec.produit.faune.nomFaune}}</td>
+          <td style="width: 15%">{{selec.produit.fournisseur}}</td>
+          <td style="width: 15%"><input type="number" [(ngModel)]="selec.nombre" style="width: 40%; height: 20%"
+                                        (change)="calcul()"/></td>
+          <td style="width: 15%">{{(selec.produit.prix).toFixed(2)}} €</td>
+          <td style="width: 15%">{{(selec.produit.prix * selec.nombre).toFixed(2)}} €</td>
+          <td style="width: 15%"><a class="btn float-right mr-2" style="color:#8bc34a" (click)="delete(selec.id)"><i
+            class="fa fa-trash "></i></a>
+          </td>
+        </tr>
+        <tr class="justify-content-center border-bottom " style="height: 100px" *ngIf="selec.produit.flore">
+          <td class="align-items-center" style="width: 20%"><img
+            src="{{filterCaracFlore(selec.produit.flore, 'Image')}}"
+            style="width: 60%;"/></td>
+          <td style="width: 15%">{{selec.produit.flore.nom}}</td>
+          <td style="width: 15%">{{selec.produit.fournisseur}}</td>
+          <td style="width: 15%"><input type="number" [(ngModel)]="selec.nombre" style="width: 40%; height: 20%"
+                                        (change)="calcul()"/></td>
+          <td style="width: 15%">{{(selec.produit.prix).toFixed(2)}} €</td>
+          <td style="width: 15%">{{(selec.produit.prix * selec.nombre).toFixed(2)}} €</td>
+          <td style="width: 15%"><a class="btn float-right mr-2" style="color:#8bc34a" (click)="delete(selec.id)"><i
+            class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!--Etape 2 : coordonnées-->
+  <div class="row mx-5 mt-3 justify-content-center text-center" id="connexion" *ngIf="etapePanier==2">
+    <div class="column">
+      <div class="row justify-content-center my-2"> Vos coordonnées :</div>
+      <div class="row justify-content-center my-2 ">Nom : {{panier.utilisateur.compteUtilisateur.nom}}</div>
+      <div class="row justify-content-center my-2 ">Prénom : {{panier.utilisateur.compteUtilisateur.prenom}}</div>
+      <div class="row justify-content-center my-2 ">Rue : {{panier.utilisateur.compteUtilisateur.rue}}</div>
+      <div class="row justify-content-center my-2 ">Complément
+        : {{panier.utilisateur.compteUtilisateur.complement}}</div>
+      <div class="row justify-content-center my-2 ">Code postal
+        : {{panier.utilisateur.compteUtilisateur.codePostal}}</div>
+      <div class="row justify-content-center my-2 ">Ville : {{panier.utilisateur.compteUtilisateur.ville}}</div>
+    </div>
+  </div>
+
+  <!--Etape 3 : livraison-->
+  <div class="row mx-5 mt-3 justify-content-center text-center" id="modeDeLivraison" name="modeDeLivraison"
+       (change)="calcul()" *ngIf="etapePanier==3">
+    <!--Collissimo-->
+    <div class="column my-2 border-right" style="width: 30%">
+      <input type="radio" id="collissimo" name="modeDeLivraison" value="collissimo"
+             (click)="fraisLivraison=2;typeEnvoi='Colissimo'">
+      <label class="ml-2" for="collissimo">Collissimo</label>
+      <div class="row justify-content-center my-2">1-2 jours ouvrés</div>
+      <div class="row justify-content-center my-2">2€ de livraison</div>
+    </div>
+    <!--Point relais-->
+    <div class="column my-2 border-left border-right" style="width: 30%">
+      <input type="radio" id="pointRelais" name="modeDeLivraison" value="pointRelais"
+             (click)="fraisLivraison=1;typeEnvoi='Points relais'">
+      <label class="ml-2" for="pointRelais">Points relais </label>
+      <div class="row justify-content-center my-2">3-4 jours ouvrés</div>
+      <div class="row justify-content-center my-2">1€ de livraison</div>
+    </div>
+    <!--Click and collect-->
+    <div class="column my-2 border-left" style="width: 30%">
+      <input type="radio" id="clickAndCollect" name="modeDeLivraison" value="clickAndCollect"
+             (click)="fraisLivraison=0;typeEnvoi='Click and Collect'">
+      <label class="ml-2" for="clickAndCollect"> Click and Collect</label>
+      <div class="row justify-content-center my-2">+2 heures</div>
+      <div class="row justify-content-center my-2">Gratuit</div>
+    </div>
+  </div>
+
+  <!--Etape 4 : paiement-->
+  <div class="row mx-5 mt-3 justify-content-center text-center" id="paiement" *ngIf="etapePanier==4">
+    <!--Paypal-->
+    <div class="column my-2 border-right" style="width: 30%">
+      <input type="radio" id="paypal" name="paiement" value="paypal"
+             (click)="suppressionForm();typePaiement='Paypal'">
+      <label class="ml-2" for="paypal">Paypal</label>
+    </div>
+    <!--CB-->
+    <div class="column my-2 border-left border-right" style="width: 30%">
+      <input type="radio" id="carteBleue" name="paiement" value="carteBleue"
+             (click)="creationForm();typePaiement='Carte Bleue'">
+      <label class="ml-2" for="carteBleue"> Carte Bleue</label>
+    </div>
+    <!--Virement-->
+    <div class="column my-2  border-left" style="width: 30%">
+      <input type="radio" id="virementBancaire" name="paiement" value="virementBancaire"
+             (click)="suppressionForm();typePaiement='Virement bancaire'">
+      <label class="ml-2" for="virementBancaire">Virement bancaire</label>
+    </div>
+
+    <!--Formulaire CB-->
+    <div class="row border my-2 justify-content-center" style="width: 55%" id="formPaiement" *ngIf="formPaiement">
+      <div class="row m-2 mr-3">Type de carte :
+        <select class="ml-4" style="width:55%" type="text" [(ngModel)]="formPaiement.typeCarte">
+          <option value="">Veuillez sélectionner un type de carte</option>
+          <option *ngFor="let type of typeCartes" [value]="type">{{type}}</option>
+        </select>
       </div>
-      <div *ngFor="let selec of selections" class="row justify-content-center align-items-center my-2">
-        <div class="column" *ngIf="selec.produit.faune" style="width: 10%">
-          <img src="{{filterCaracFaune(selec.produit.faune, 'Image')}}"
-               style="width: 50%; height: 45%"/>
-        </div>
-        <div class="column" *ngIf="selec.produit.flore" style="width: 10%">
-          <img src="{{filterCaracFlore(selec.produit.flore, 'Image')}}"
-               style="width: 50%; height: 45%"/>
-        </div>
-        <div class="column text-center align-items-center" *ngIf="selec.produit.faune" style="width: 15%">
-          {{selec.produit.faune.nomFaune}}
-        </div>
-        <div class="column text-center align-items-center" *ngIf="selec.produit.flore" style="width: 15%">
-          {{selec.produit.flore.nom}}
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          {{selec.produit.fournisseur}}
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          Quantité : {{selec.nombre}}
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          Prix unitaire = {{(selec.produit.prix).toFixed(2)}} €
-        </div>
-        <div class="column text-center align-items-center" style="width: 15%">
-          Prix total = {{(selec.produit.prix * selec.nombre).toFixed(2)}} €
-        </div>
+      <div class="row m-2">Numéro de carte :
+        <input class="ml-3" style="width:50%" type="text" [(ngModel)]="formPaiement.numeroCarte">
       </div>
-      <div class="row justify-content-center align-items-center my-2 mx-3">
+      <div class="row m-2">Date de validité :
+        <input class="ml-3" style="width:50%" type="text" [(ngModel)]="formPaiement.dtValidite">
+      </div>
+      <div class="row my-2 ml-2">Cryptogramme :
+        <input class="ml-1" style="width:50%" type="text" [(ngModel)]="formPaiement.cryptogramme">
+      </div>
+    </div>
+  </div>
+
+  <!--Etape 5 : confirmation-->
+  <div class="row mx-5 mt-3 justify-content-center text-center" id="resumeCommande" *ngIf="etapePanier==5">
+    <div class="column">
+      <div class="row justify-content-center align-items-center my-2">
+        <div class="row justify-content-center mx-3 mt-2" id="textBefore">
+          <p style="font-style: italic"> Résumé de la commande</p>
+        </div>
+        <!--        <div class="column" [(ngModel)]="commandeForm.dtCommande">-->
+        <!--          Passée le :-->
+        <!--        </div>-->
+      </div>
+      <!--Sélection-->
+      <div class="row align-items-center mx-4 mb-4">
+        <table class="table-responsive justify-content-center align-items-center">
+          <thead class="justify-content-center border-bottom border-top">
+          <tr style="height: 50px">
+            <th></th>
+            <th>Produit</th>
+            <th>Fournisseur</th>
+            <th>Quantité</th>
+            <th>Prix unitaire</th>
+            <th>Prix total</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody class="justify-content-center " *ngFor="let selec of selections">
+          <tr class="justify-content-center border-bottom" style="height: 100px" *ngIf="selec.produit.faune">
+            <td class="align-items-center" style="width: 20%"><img
+              src="{{filterCaracFaune(selec.produit.faune, 'Image')}}"
+              style="width: 60%;"/></td>
+            <td style="width: 15%"> {{selec.produit.faune.nomFaune}}</td>
+            <td style="width: 15%">{{selec.produit.fournisseur}}</td>
+            <td style="width: 15%"><input type="number" [(ngModel)]="selec.nombre" style="width: 40%; height: 20%"
+                                          (change)="calcul()"/></td>
+            <td style="width: 15%">{{(selec.produit.prix).toFixed(2)}} €</td>
+            <td style="width: 15%">{{(selec.produit.prix * selec.nombre).toFixed(2)}} €</td>
+          </tr>
+          <tr class="justify-content-center border-bottom " style="height: 100px" *ngIf="selec.produit.flore">
+            <td class="align-items-center" style="width: 20%"><img
+              src="{{filterCaracFlore(selec.produit.flore, 'Image')}}"
+              style="width: 60%;"/></td>
+            <td style="width: 15%">{{selec.produit.flore.nom}}</td>
+            <td style="width: 15%">{{selec.produit.fournisseur}}</td>
+            <td style="width: 15%"><input type="number" [(ngModel)]="selec.nombre" style="width: 40%; height: 20%"
+                                          (change)="calcul()"/></td>
+            <td style="width: 15%">{{(selec.produit.prix).toFixed(2)}} €</td>
+            <td style="width: 15%">{{(selec.produit.prix * selec.nombre).toFixed(2)}} €</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row justify-content-center align-items-center my-4 mx-3">
         <div class="column text-center" style="width: 50%">
           Mode de paiement : {{typePaiement}}
         </div>
@@ -218,31 +252,37 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center mt-3">
-    <div class="column justify-content-center text-center" style="width: 85%" id="basPanier">
-      <div class="row justify-content-center text-center ml-1" style="width: 100%">
-        <div class="column" style="width: 25%" *ngIf="etapePanier==1">
-          <button class="btn btn-outline-success" (click)="return()"> Continuer mes achats</button>
-        </div>
-        <div class="column" style="width: 25%" *ngIf="etapePanier!=1">
-          <button class="btn btn-outline-success" (click)="etapePrecedente()"> Etape précédente</button>
-        </div>
-        <div class="column" style="width: 15%"></div>
-        <div class="column" style="width: 20%">
-          Nombre d'articles : {{nombreArticle}}
-        </div>
-        <div class="column" style="width: 20%">
-          Prix total : {{total.toFixed(2)}} €
-        </div>
-        <div class="column" style="width: 20%" *ngIf="etapePanier !=5">
-          <button class="btn btn-outline-success" (click)="etapeSuivante()"> Etape suivante</button>
-        </div>
-        <div class="column" style="width: 20%" *ngIf="etapePanier ==5">
-          <button class="btn btn-outline-success" (click)="confirmerAchat()"> Confirmer l'achat</button>
-        </div>
-      </div>
+
+  <!--BAS DU PANIER-->
+  <div class="row mx-5 mt-3 justify-content-center text-center" id="basPanier">
+    <!--Boutons de navigation-->
+    <div class="column" style="width: 25%" *ngIf="etapePanier==1">
+      <a class="btn" style="font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a"
+         (click)="return()">
+        Continuer mes achats</a>
+    </div>
+    <div class="column" style="width: 25%" *ngIf="etapePanier!=1">
+      <a class="btn" style="font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a"
+         (click)="etapePrecedente()"> Etape précédente</a>
+    </div>
+    <!--Rappel panier-->
+    <div class="column pt-2" style="width: 25%">
+      Nombre d'articles : {{nombreArticle}}
+    </div>
+    <div class="column pt-2" style="width: 25%">
+      Prix total : {{total.toFixed(2)}} €
+    </div>
+    <!--Boutons de navigation-->
+    <div class="column" style="width: 25%" *ngIf="etapePanier !=5">
+      <a class="btn" style="font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a"
+         (click)="etapeSuivante()"> Etape suivante</a>
+    </div>
+    <div class="column" style="width: 25%" *ngIf="etapePanier ==5">
+      <a class="btn" style="font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a"
+         (click)="confirmerAchat()"> Confirmer l'achat</a>
     </div>
   </div>
+
 </div>
 
 
