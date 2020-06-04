@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class CompteUtilisateurService {
 
+  denomination:string;
   compteUtilisateur : CompteUtilisateur;
   private comptesUtilisateurs:Array<CompteUtilisateur> = new Array<CompteUtilisateur>();
 

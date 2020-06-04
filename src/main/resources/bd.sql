@@ -826,8 +826,8 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 	(299, 0, 'Ennemie', 'Flore', 'Ciboulette'),
 	(300, 0, 'Ennemie', 'Flore', 'Asperge'),
 	(301, 0, 'Ennemie', 'Flore', 'Concombre'),
-	(302, 0, 'Descriptif', 'Web','Les pucerons sont de petits insectes de moins de 2 à 3 mm de long. Certains sont verts, d''autres jaunes, bleus, rouges ou noirs. Les pucerons ailés possèdent 4 ailes transparentes, posées en toit sur l''abdomen au repos, mais souvent les pucerons n''ont pas d’aile.'),
-	(303, 0, 'Descriptif', 'Web','La coccinelle ou communément appelé "Bête à bon Dieu", est un insecte, un coléoptère de la famille des coccinellidés. De forme ovale, elle mesure entre 3,5 et 5,5 millimètres selon l''espèce. Souvent très colorées les coccinelles ont les élytres rougeâtres à taches noires ou d''autres sont noires à taches jaunes.');
+	(302, 0, 'Descriptif', 'Web','Les pucerons sont de petits insectes de moins de 2 à 3 mm de long. Certains sont verts, d''autres jaunes, bleus, rouges ou noirs. Les pucerons ailés possèdent 4 ailes transparentes, mais souvent les pucerons n''ont pas d’aile.'),
+	(303, 0, 'Descriptif', 'Web','La coccinelle ou communément appelé "Bête à bon Dieu", est un insecte, un coléoptère de la famille des coccinellidés.  Souvent très colorées les coccinelles ont les élytres rougeâtres à taches noires ou d''autres sont noires à taches jaunes.');
 
 
 
@@ -1931,10 +1931,10 @@ INSERT INTO produit (id, version, fournisseur, stock, prix,faune_id,flore_id)
 	VALUES
 	--Quelques fraises
 	(1,0,'La pERICinière',5,2.99,null,38),
-	(1,0,'Les insectes de MAMA',10,3.50,null,38),
+	(2,0,'Les insectes de MAMA',10,3.50,null,38),
 	--Quelques pucerons
-	(1,0,'La pERICinière',200,0.99,30,null),
-	(1,0,'Les insectes de MAMA',50,0.89,30,null);
+	(3,0,'La pERICinière',200,0.99,30,null),
+	(4,0,'Les insectes de MAMA',50,0.89,30,null);
 	
 	
 

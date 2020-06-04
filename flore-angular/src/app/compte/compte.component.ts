@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-compte',
@@ -12,7 +13,10 @@ export class CompteComponent implements OnInit {
   prenom:string;
   denomination:string;
 
-  constructor(private compteUtilisateurService:CompteUtilisateurService) { }
+  constructor(private compteUtilisateurService:CompteUtilisateurService,private commonService:CommonService) {
+    this.commonService.page="monCompte";
+
+  }
 
   ngOnInit(): void {
     this.disc=sessionStorage.getItem('typeCompte');

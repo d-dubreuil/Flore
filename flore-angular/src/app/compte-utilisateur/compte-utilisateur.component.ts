@@ -84,6 +84,8 @@ export class CompteUtilisateurComponent implements OnInit {
       this.nomConseilList.push(conseil.nom);
 
     }
+    this.commonService.page="monCompte";
+
   }
 
   ngOnInit(): void {

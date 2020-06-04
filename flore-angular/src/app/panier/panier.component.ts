@@ -37,6 +37,7 @@ export class PanierComponent implements OnInit {
     this.titleService.setTitle('Panier');
     this.load(parseInt(sessionStorage.getItem('idPanierEnCours')));
     this.calcul();
+    this.commonService.page="panier";
 
   }
 
