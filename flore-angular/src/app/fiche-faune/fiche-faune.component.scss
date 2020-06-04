@@ -1,35 +1,46 @@
-#connexionFournisseur{
+#connexionFournisseur {
   border-style: solid;
   border-width: 1px;
   border-color: #8bc34a;
 }
 
-#fiche{
+#fiche {
   border-style: solid;
   border-width: 1px;
   border-color: #8bc34a;
 }
 
-#borderBottom{
+#borderBottom {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #8bc34a;
 }
-#buttonPlus:hover, #buttonPlus:active, #buttonPlus:focus{
+
+#buttonPlus:hover, #buttonPlus:active, #buttonPlus:focus {
   box-shadow: none;
   outline: none;
 }
 
-#tableauRecolteSemis>tr>td{
-  border:1px solid #8bc34a;
+#tableauRecolteSemis > tr > td {
+  border: 1px solid #8bc34a;
 }
 
-#liensFlore,#liensFaune {
-  border-top:1px solid #8bc34a;
+#liensFlore, #liensFaune {
+  border-top: 1px solid #8bc34a;
 }
 
 #pollinisateur:hover, #pollinisateur:active, #attractif:hover, #attractif:active, #repulsif:hover, #repulsif:active, #predateur:hover, #predateur:active, #proie:hover, #proie:active {
   color: #8bc34a;
+}
+
+#btnPoint:hover, #btnPoint:active, #btnPoint:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+#btnPoint {
+  border: none;
 }
 
 
