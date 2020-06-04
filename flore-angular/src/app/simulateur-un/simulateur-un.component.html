@@ -19,13 +19,13 @@
   <div *ngIf="simu1Accueil" class="row justify-content-center" style="width:100%;">
     <!-- page 1-->
     <div class="column mr-5 blocLigne"  style="width:40%; text-align: center;">
-      <h1 class="mt-4">Simulateur : 1</h1>
+      <h1 class="my-5">Simulateur : 1</h1>
       <p class="mt-4" style="font-size: large">Ces deux plantes peuvent-elles s'associer?</p>
     </div>
     <!-- Colonne 2-->
-    <div  class="column  ml-5" style="width:40%;">
+    <div  id="search" class="column  ml-5 " style="width:40%;">
       <!-- search plante 1-->
-      <div  class="row mt-3 searchFlore justify-content-center">
+      <div  class="row mt-3 mt-5 mb-4 searchFlore justify-content-center">
         <div class="column">
           <button  class="btn btnSearch"
                    style="background-color: #8bc34a">
@@ -49,9 +49,10 @@
         </div>
 
       </div>
+      <br>
       <!-- bouton kampagnonnage-->
-      <div class="row mt-3 justify-content-center">
-        <button (click)="synergie()" class="btn" style="width: 91%;background-color: #8bc34a" >
+      <div class="row mt-2 mb-5 justify-content-center">
+        <button id="btnDemarrer" (click)="synergie()" class="btn" style="width: 91%;" >
 
           Démarrer notre prédicteur de Kompagnonnage
 

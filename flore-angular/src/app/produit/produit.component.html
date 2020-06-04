@@ -13,8 +13,8 @@
 </div>
 
     <!--PRODUITS -->
-<div class="row align-items-center justify-content-center" id="borderDiv">
-    <div class= "column my-5 mx-5 align-items-center justify-content-center border" style="width: 95%; border-color: #8bc34a">
+<div class="row align-items-center justify-content-center" style="width: 100%;">
+    <div class= "column my-5 mx-5 align-items-center justify-content-center" id="borderDiv" style="width: 90%;">
           <table class="table ml-5 mt-5 pl-3" style="width: 92%">
             <thead>
             <tr>
@@ -71,7 +71,20 @@
           </table>
 
         <div class="card-footer ml-5 mb-5 pl-3 align-items-center justify-content-center" style="width: 92%">
-          <a class="btn" style="font-style: italic; font-size:18px; color: #8bc34a"><i class="fa fa-plus mr-5"></i>Ajouter un nouveau produit</a>
+          <a class="btn" style="font-style: italic; font-size:18px;"><i class="fa fa-plus mr-5"></i>Ajouter un nouveau produit</a>
         </div>
     </div>
+</div>
+
+<div class="row" >
+  <div class="column" style="width:5%"></div>
+  <div class="column mt-4" style="width:43%" >
+    <div class="form-inline mr-5">
+      <div class="column">
+        <button [routerLink]="'/NPK/espace-fournisseur'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
+          <i class="fas fa-angle-left mx-3"></i>Revenir à l'Espace Client
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
