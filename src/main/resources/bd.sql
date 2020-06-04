@@ -1925,11 +1925,11 @@ INSERT INTO flore (id, version, nom)
 INSERT INTO produit (id, version, fournisseur, stock, prix,faune_id,flore_id)
 	VALUES
 	--Quelques fraises
-	(1,0,'LeLann',5,2.99,null,38),
-	(1,0,'Mama',10,3.50,null,38),
+	(1,0,'La pERICinière',5,2.99,null,38),
+	(1,0,'Les insectes de MAMA',10,3.50,null,38),
 	--Quelques pucerons
-	(1,0,'Eric',200,0.99,30,null),
-	(1,0,'Mama',50,0.89,30,null);
+	(1,0,'La pERICinière',200,0.99,30,null),
+	(1,0,'Les insectes de MAMA',50,0.89,30,null);
 	
 	
 
