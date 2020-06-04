@@ -543,7 +543,7 @@ ALTER TABLE conseil
 
 -- 4. Ajout données
 
--- Caractéristique avec booléen (max 301)
+-- Caractéristique avec booléen (max 303)
 INSERT INTO caracteristique (id, version, nom, type_carac, valeur, bonus_malus)
     VALUES 
 	(1, 0, 'pH', 'Sol', 'Très Acide', 'TRUE'),
@@ -825,7 +825,9 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 	(298, 0, 'Ennemie', 'Flore', 'Poireau'),
 	(299, 0, 'Ennemie', 'Flore', 'Ciboulette'),
 	(300, 0, 'Ennemie', 'Flore', 'Asperge'),
-	(301, 0, 'Ennemie', 'Flore', 'Concombre');
+	(301, 0, 'Ennemie', 'Flore', 'Concombre'),
+	(302, 0, 'Descriptif', 'Web','Les pucerons sont de petits insectes de moins de 2 à 3 mm de long. Certains sont verts, d''autres jaunes, bleus, rouges ou noirs. Les pucerons ailés possèdent 4 ailes transparentes, posées en toit sur l''abdomen au repos, mais souvent les pucerons n''ont pas d’aile.'),
+	(303, 0, 'Descriptif', 'Web','La coccinelle ou communément appelé "Bête à bon Dieu", est un insecte, un coléoptère de la famille des coccinellidés. De forme ovale, elle mesure entre 3,5 et 5,5 millimètres selon l''espèce. Souvent très colorées les coccinelles ont les élytres rougeâtres à taches noires ou d''autres sont noires à taches jaunes.');
 
 
 
@@ -1604,7 +1606,7 @@ INSERT INTO flore (id, version, nom)
 	(538, 0, 280, 52),
 	(539, 0, 282, 52);
 	
-	--liens faune-faune----(max 226)--
+	--liens faune-faune----(max 228)--
 	INSERT INTO referentiel_faune (id, version, caracteristique_id,faune_id)
 	VALUES
 	--Coccinelle--predateur
@@ -1612,11 +1614,14 @@ INSERT INTO flore (id, version, nom)
 	(198, 0,190,10),
 	(207, 0, 245, 10),
 	(208, 0, 246, 10),
-	
+	--Coccinelle--
+	(228, 0, 302, 10),
 	--Puceron--chassé
 	(199, 0, 189, 30),
 	(217, 0, 255, 30),
 	(218, 0, 256, 30),
+	--Puceron--
+	(227, 0, 301, 30),
 	
 	--Tetranychus urticae--chassé
 	(200, 0, 189, 45),
