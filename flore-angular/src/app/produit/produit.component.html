@@ -1,1 +1,77 @@
-<p>produit works!</p>
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">{{denomination}},</h1>
+      <h2 class="hr ">Voici la liste de vos produits en vente</h2>
+    </div>
+  </div>
+</div>
+
+    <!--PRODUITS -->
+<div class="row align-items-center justify-content-center">
+    <div class= "column my-5 mx-5 align-items-center justify-content-center border" style="width: 95%; border-color: #8bc34a">
+          <table class="table table-striped ml-5 mt-5 pl-3" style="width: 92%">
+            <thead>
+            <tr>
+              <th>Nom du produit</th>
+              <th>Référence</th>
+              <th>Stock</th>
+              <th>Prix unitaire</th>
+              <th>Modifier</th>
+              <th>Supprimer</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let produit of list()">
+              <td>{{produit.flore.nom}}</td>
+              <td>{{produit.refProduit}}</td>
+              <td>{{produit.stock}}</td>
+              <td>{{produit.prix}}</td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                 <a id="btnGroup" class="btn">
+                    <i class="fa fa-edit ml-3"></i>
+                  </a>
+                </div>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <a id="btnGroup" class="btn">
+                    <i class="fa fa-trash ml-3"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr *ngFor="let produit of list()">
+              <td>{{produit.faune.nomFaune}}</td>
+              <td>{{produit.refProduit}}</td>
+              <td>{{produit.stock}}</td>
+              <td>{{produit.prix}}</td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <a id="btnGroup" class="btn">
+                    <i class="fa fa-edit ml-3"></i>
+                  </a>
+                </div>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <a id="btnGroup" class="btn">
+                    <i class="fa fa-trash ml-3"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        <div class="card-footer ml-5 mb-5 pl-3 align-items-center justify-content-center" style="width: 92%">
+          <a class="btn" style="font-style: italic; font-size:18px; color: #8bc34a"><i class="fa fa-plus mr-5"></i>Ajouter un nouveau produit</a>
+        </div>
+    </div>
+</div>
