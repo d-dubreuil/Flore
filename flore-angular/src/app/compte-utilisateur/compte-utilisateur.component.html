@@ -43,7 +43,8 @@
         </div>
         <div class="column  btn-group float-left" style="width: 10%;">
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-             (click)="saveNomFlore()">
+             (click)="saveNomFlore()" data-toggle="modal"
+             data-target="#saveNomFlore">
             <i class="fa fa-check"></i>
           </a>
           <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
@@ -52,6 +53,19 @@
           </a>
         </div>
       </div>
+      <!--Confirmation ajout flore -->
+      <div id="saveNomFlore" class="modal fade" role="dialog" style="height: 100px">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content justify-content-center align-items-center" style="border-radius: 1px">
+            <div class="modal-header justify-content-center align-items-center">
+              <h3 class="modal-title justify-content-center align-items-center">La flore {{nomFlore}} a été créée !</h3>
+              <button type="button" class="close align-items-center" data-dismiss="modal">&times;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!--Faune-->
       <div class="row form-group ml-5 mr-5 align-items-center justify-content-center">
         <div class="column " style="width: 15%; height: 20%"><label for="nomFaune"><h5>Faune:</h5></label></div>
@@ -62,7 +76,8 @@
         </div>
         <div class="column  btn-group float-left" style="width: 10%;">
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-             (click)="saveNomFaune()">
+             (click)="saveNomFaune()" data-toggle="modal"
+             data-target="#saveNomFaune">
             <i class="fa fa-check"></i>
           </a>
           <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
@@ -71,6 +86,19 @@
           </a>
         </div>
       </div>
+      <!--Confirmation ajout faune -->
+      <div id="saveNomFaune" class="modal fade" role="dialog" style="height: 100px">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content justify-content-center align-items-center" style="border-radius: 1px">
+            <div class="modal-header justify-content-center align-items-center">
+              <h3 class="modal-title justify-content-center align-items-center">La faune {{nomFaune}} a été créée !</h3>
+              <button type="button" class="close align-items-center" data-dismiss="modal">&times;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!--Conseil-->
       <div class="row form-group ml-5 mr-5 align-items-center justify-content-center">
         <div class="column " style="width: 15%; height: 20%"><label for="nomConseil"><h5>Conseil:</h5></label></div>
@@ -81,13 +109,27 @@
         </div>
         <div class="column  btn-group float-left" style="width: 10%;">
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-             (click)="saveNomConseil()">
+             (click)="saveNomConseil()" data-toggle="modal"
+             data-target="#saveNomConseil">
             <i class="fa fa-check"></i>
           </a>
           <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
              (click)="cancelNomConseil()">
             <i class="fa fa-undo"></i>
           </a>
+        </div>
+      </div>
+      <!--Confirmation ajout conseil -->
+      <div id="saveNomConseil" class="modal fade" role="dialog" style="height: 100px">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content justify-content-center align-items-center" style="border-radius: 1px">
+            <div class="modal-header justify-content-center align-items-center">
+              <h3 class="modal-title justify-content-center align-items-center">Le conseil {{nomConseil}} a été créé
+                !</h3>
+              <button type="button" class="close align-items-center" data-dismiss="modal">&times;</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -188,10 +230,25 @@
           <!--Bouton SAVE-->
           <a class="btn btn-lg float-right mt-2"
              style="background-color :#8bc34a; color: black; border-right-color: black"
-             (click)="saveCaracLatin()" data-toggle="tooltip"
-             data-placement="top" title="Enregistrer la caractéristique">
+             (click)="saveCaracLatin()" data-toggle="modal"
+             data-target="#saveCaracLatin">
             <i class="fa fa-check"></i>
           </a>
+          <!--Confirmation ajout attribut-->
+          <div id="saveCaracLatin" class="modal fade" role="dialog" style="height: 100px">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content justify-content-center align-items-center" style="border-radius: 1px">
+                <div class="modal-header justify-content-center align-items-center">
+                  <h3 class="modal-title justify-content-center align-items-center">
+                    L'attribut a été créé !</h3>
+                  <button type="button" class="close justify-content-center align-items-center" data-dismiss="modal">
+                    &times;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <!--Bouton CANCEL-->
           <a class="btn btn-lg float-right mt-2"
              style="background-color :#8bc34a; color: black; border-left-color: black"
@@ -247,10 +304,25 @@
         <div class="btn-group btn-group-lg float-right">
           <!--Bouton SAVE-->
           <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-             (click)="saveCarac()" data-toggle="tooltip"
-             data-placement="top" title="Enregistrer la caractéristique">
+             (click)="saveCarac()" data-toggle="modal"
+             data-target="#saveCaracNew">
             <i class="fa fa-check"></i>
           </a>
+<!--          &lt;!&ndash;Confirmation ajout carac&ndash;&gt;-->
+<!--          <div id="saveCaracNew" class="modal fade" role="dialog" style="height: 100px">-->
+<!--            <div class="modal-dialog">-->
+<!--              &lt;!&ndash; Modal content&ndash;&gt;-->
+<!--              <div class="modal-content justify-content-center align-items-center" style="border-radius: 1px">-->
+<!--                <div class="modal-header justify-content-center align-items-center">-->
+<!--                  <h3 class="modal-title justify-content-center align-items-center">-->
+<!--                    La caractéristique a été créée !</h3>-->
+<!--                  <button type="button" class="close justify-content-center align-items-center" data-dismiss="modal">-->
+<!--                    &times;-->
+<!--                  </button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
           <!--Bouton CANCEL-->
           <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
              (click)="cancelCaracForm()" data-toggle="tooltip"
@@ -394,10 +466,25 @@
       <div class="btn-group btn-group-lg float-right">
         <!--Bouton SAVE-->
         <a class="btn" style="background-color :#8bc34a; color: black; border-right-color: black"
-           (click)="saveCaracWithFlore()" data-toggle="tooltip"
-           data-placement="top" title="Enregistrer la fiche">
+           (click)="saveCaracWithFlore()" data-toggle="modal"
+           data-target="#saveCaracLien">
           <i class="fa fa-check"></i>
         </a>
+        <!--Confirmation ajout lien-->
+        <div id="saveCaracLien" class="modal fade" role="dialog" style="height: 100px">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content justify-content-center align-items-center" style="border-radius: 1px">
+              <div class="modal-header justify-content-center align-items-center">
+                <h3 class="modal-title justify-content-center align-items-center">
+                  La fiche a été créée !</h3>
+                <button type="button" class="close justify-content-center align-items-center" data-dismiss="modal">
+                  &times;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <!--Bouton CANCEL-->
         <a class="btn" style="background-color :#8bc34a; color: black; border-left-color: black"
            (click)="cancelCaracFormLink()" data-toggle="tooltip"

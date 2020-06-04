@@ -251,7 +251,7 @@ export class CompteUtilisateurComponent implements OnInit {
     this.floreService.create(this.floreForm).subscribe(resp => {
       this.floreForm = new Flore();
       this.floreService.load();
-      alert("La flore "+this.nomFlore+" a été créée.")
+      console.log("La flore "+this.nomFlore+" a été créée.")
     }, error => console.log(error));
   }
 
@@ -260,8 +260,7 @@ export class CompteUtilisateurComponent implements OnInit {
     this.fauneService.create(this.fauneForm).subscribe(resp => {
       this.fauneForm = new Faune();
       this.fauneService.load();
-      alert("La faune "+this.nomFaune+" a été créée.")
-
+      console.log("La faune "+this.nomFaune+" a été créée.");
     }, error => console.log(error));
   }
 
@@ -270,7 +269,7 @@ export class CompteUtilisateurComponent implements OnInit {
     this.conseilService.create(this.conseilForm).subscribe(resp => {
       this.conseilForm = new Conseil();
       this.conseilService.load();
-      alert("Le conseil "+this.nomConseil+" a été créé.")
+      console.log("Le conseil "+this.nomConseil+" a été créé.");
     }, error => console.log(error));
   }
 
@@ -286,7 +285,7 @@ export class CompteUtilisateurComponent implements OnInit {
 
   saveCaracLatin() {
     this.caracteristiqueService.create(this.caracFormNomLatin).subscribe(resp => {
-      alert("La valeur de la caractéristique "+this.caracFormNomLatin.valeur+" a été créée.")
+      // alert("La valeur de la caractéristique "+this.caracFormNomLatin.valeur+" a été créée.")
       this.caracFormNomLatin = new Caracteristique();
       this.caracteristiqueService.load();
     }, error => console.log(error));
@@ -315,7 +314,7 @@ export class CompteUtilisateurComponent implements OnInit {
           this.refCaracACree.caracteristique = this.caracAModifier;
           this.refCaracACree.flore = this.floreAModifier[0];
           console.log(this.refCaracACree);
-          this.referentielCaracteristiqueService.create(this.refCaracACree).subscribe(resp => alert('création réussie'), error => console.log(error));
+          this.referentielCaracteristiqueService.create(this.refCaracACree).subscribe(error => console.log(error));
         }, error => console.log((error)));
       }, error => console.log(error)
     );
