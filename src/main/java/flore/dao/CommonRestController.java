@@ -28,4 +28,9 @@ public class CommonRestController {
 	public Civilite[] getCivilites() {
 		return Civilite.values();
 	}
+	
+	@GetMapping("/statuts")
+	public Civilite[] getStatuts() {
+		return Civilite.values();
+	}
 }

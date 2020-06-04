@@ -1,0 +1,359 @@
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/images/logosansfondblanc.png" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2 ">{{denomination}},</h1>
+      <h2 class="hr ">Vérifiez et modifiez vos <br> informations</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row" >
+
+  <div class="column" style="width:8%"></div>
+  <div id="connect" class="column mt-5 ml-5 pl-2" style="width: 35%;">
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="disc">Type utilisateur :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px; background-color: rgb(102, 180, 71, 0.05);">
+          <div class="ml-5 pl-2" id="disc" name="disc" style="width: 80%">{{disc}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4" >
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="denom">Denomination :</label>
+        </div>
+        <div class="column " style="width: 45%;; font-size: 22px;">
+          <div class="ml-5 pl-2" id="denom" name="denom" style="width: 80%">{{denomination}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="statut" >Statut :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="statut" name="statut" style="width: 80%">{{statut}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="siret" >SIRET / SIREN :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="siret" name="siret" style="width: 80%">{{SIRET_SIREN}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="rcs" >RCS :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="rcs" name="rcs" style="width: 80%">{{RCS}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="rue" >Rue :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="rue" name="rue" style="width: 80%">{{rue}}</div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="column" style="width:8%"></div>
+  <div id="connect" class="column mt-5" style="width: 35%">
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="identifiant">Identifiant :</label>
+        </div>
+        <div class="column " style="width: 45%; font-size: 22px; background-color: rgb(102, 180, 71, 0.05);">
+          <div class="ml-5 pl-2"  id="identifiant" name="identifiant" style="width: 80%">{{identifiant}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="mdp" >Mot de passe :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="mdp" name="mdp" style="width: 80%">********</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="mail">Email :</label>
+        </div>
+        <div class="column " style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="mail" name="mail" style="width: 80%">{{mail}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="telephone">Téléphone :</label>
+        </div>
+        <div class="column " style="width: 45%;font-size: 22px;">
+          <div class="ml-5 pl-2" id="telephone" name="telephone" style="width: 80%">{{telephone}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="tva" >TVA :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="tva" name="tva" style="width: 80%">{{TVA}}</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="codePostal" >Code Postal :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2"  id="codePostal" name="codePostal" style="width: 80%">{{codePostal}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="column mt-4">
+      <div class="row mr-2">
+        <div style="width:3%"></div>
+        <div class="column" style="width: 40%; font-size: 22px;">
+          <label for="ville" >Ville :</label>
+        </div>
+        <div class="column" style="width: 45%; font-size: 22px;">
+          <div class="ml-5 pl-2" id="ville" name="ville" style="width: 80%">{{ville}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" >
+  <div class="column" style="width:5%"></div>
+  <div class="column mt-4" style="width:43%" >
+    <div class="form-inline mr-5">
+      <div class="column">
+        <button [routerLink]="'/NPK/espace-client'" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">
+          <i class="fas fa-angle-left mx-3"></i>Revenir à l'Espace Client
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="column" style="width:26%"></div>
+  <div class="column mt-4" style="width:23%" >
+    <div class="form-inline mr-5">
+      <div class="column">
+        <button type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;" (click)="edit()">
+          Modifier<i class="fas fa-angle-right mx-3"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+<!--  &lt;!&ndash; Formulaire&ndash;&gt;-->
+<!--  <div class="row" *ngIf="modifierBoolean">-->
+
+<!--    <div class="column" style="width:8%"></div>-->
+<!--    <div id="connect" class="column mt-5 ml-5 pl-2" style="width: 35%;">-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="row mr-2">-->
+<!--          <div style="width:3%"></div>-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="disc" >Type utilisateur :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <div class="ml-5 pl-2" id="disc" name="disc" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a">{{disc}}</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4" >-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="civiliteForm">Civilité :</label>-->
+<!--          </div>-->
+<!--          <div class="column " style="width: 45%;">-->
+<!--            <label for="civilite"></label>-->
+<!--            <select class="form-control ml-5 pl-2" id="civiliteForm" [(ngModel)]="informationsForm.civilite" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a">-->
+<!--              <option value="">Choisir une civilité</option>-->
+<!--              <option *ngFor="let civ of civilites" value="{{civ}}">{{civ}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="nomForm" >Nom :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5 pl-2" id="nomForm" name="nomForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.nom">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="prenomForm" >Prenom :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5 pl-2" id="prenomForm" name="prenomForm" style="width: 80%;font-style: italic; font-size: 18px; color:#8bc34a"  [(ngModel)]="informationsForm.prenom">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="rueForm" >Rue :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5 pl-2" id="rueForm" name="rueForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.rue">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="codePostalForm" >Code Postal :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5 pl-2" id="codePostalForm" name="codePostalForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.codePostal">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+<!--    <div class="column" style="width:8%"></div>-->
+<!--    <div id="form" class="column mt-5" style="width: 35%">-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="identifiantForm">Identifiant :</label>-->
+<!--          </div>-->
+<!--          <div class="column " style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5" id="identifiantForm" name="identifiantForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.identifiant">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="mdpForm" >Mot de passe :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5 pl-2" id="mdpForm" name="mdpForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.motDePasse">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="mailForm">Email :</label>-->
+<!--          </div>-->
+<!--          <div class="column " style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5" id="mailForm" name="mailForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.mail">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="telephoneForm">Téléphone :</label>-->
+<!--          </div>-->
+<!--          <div class="column " style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5" id="telephoneForm" name="telephoneForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.telephone">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="complementForm" >Complément :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5 pl-2" id="complementForm" name="complementForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.complement">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column mt-4">-->
+<!--        <div class="form-group form-inline mr-2">-->
+<!--          <div class="column" style="width: 40%; font-size: 22px;">-->
+<!--            <label for="villeForm" >Ville :</label>-->
+<!--          </div>-->
+<!--          <div class="column" style="width: 45%;">-->
+<!--            <input type="text" class="form-control ml-5 pl-2" id="villeForm" name="villeForm" style="width: 80%; font-style: italic; font-size: 18px; color:#8bc34a" [(ngModel)]="informationsForm.ville">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+
+
+<!--    <div class="row" style="width: 100%" >-->
+<!--      <div class="column ml-5" style="width:3%"></div>-->
+<!--      <div class="column mt-4" style="width:30%" >-->
+<!--        <div class="form-inline mr-5">-->
+<!--          <div class="column">-->
+<!--            <button (click)="cancel()" type="submit" id="btnRetour" class="btn mt-2 ml-4" style=" width: 100%; font-family: Cambria; font-size:22px; font-style: italic; color:#8bc34a">-->
+<!--              <i class="fas fa-angle-left mx-3"></i>Annuler-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column ml-5" style="width:22%"></div>-->
+<!--      <div class="column mt-4 ml-5" style="width:30%" >-->
+<!--        <div class="form-inline ml-5 pl-4">-->
+<!--          <div class="column">-->
+<!--            <button (click)="save(compteUtilisateur)" type="submit" id="btnRetour" class="btn mt-2 ml-4" style="width: 100%; font-family: Cambria; font-size:22px; font-style: italic;" >-->
+<!--              Sauvegarder<i class="fas fa-angle-right ml-3"></i>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->

@@ -42,6 +42,7 @@ import { JardinEnvironnementComponent } from './jardin-environnement/jardin-envi
 import {Ng2CompleterModule} from "ng2-completer";
 import { CompteComponent } from './compte/compte.component';
 import { EspaceFournisseurComponent } from './espace-fournisseur/espace-fournisseur.component';
+import { InformationsFournisseurComponent } from './informations-fournisseur/informations-fournisseur.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { EspaceFournisseurComponent } from './espace-fournisseur/espace-fourniss
     JardinFauneComponent,
     JardinEnvironnementComponent,
     CompteComponent,
-    EspaceFournisseurComponent
+    EspaceFournisseurComponent,
+    InformationsFournisseurComponent
     ],
   imports: [
     BrowserModule,
