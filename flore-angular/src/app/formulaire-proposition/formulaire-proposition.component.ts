@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-formulaire-proposition',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormulairePropositionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private commonService:CommonService) {
+    this.commonService.page="monCompte";
+
+  }
 
   ngOnInit(): void {
   }

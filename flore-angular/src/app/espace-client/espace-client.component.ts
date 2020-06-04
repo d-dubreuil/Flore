@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-espace-client',
@@ -10,8 +11,10 @@ export class EspaceClientComponent implements OnInit {
   @Input()
   prenom:string;
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title,private commonService:CommonService) {
     this.titleService.setTitle("Compte Client");
+    this.commonService.page="monCompte";
+
   }
 
   ngOnInit(): void {

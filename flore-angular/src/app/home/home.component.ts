@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   constructor(private titleService: Title,private commonService: CommonService) {
     this.titleService.setTitle("Accueil");
     this.commonService.page="accueil";
-    console.log(this.commonService.connecte);
   }
 
   ngOnInit(): void {

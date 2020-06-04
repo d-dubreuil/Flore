@@ -49,7 +49,6 @@ const routes: Routes = [
   {path: 'NPK/panier', component: PanierComponent,canActivate:[IsClientGuard]},
   {path: 'NPK/connexion', component: ConnexionComponent},
   {path: 'NPK/synergie/simulateur-un', component: SimulateurUnComponent},
-  {path: 'NPK/synergie/simulateur-deux', component: SimulateurDeuxComponent},
   {path: 'NPK/compte', component: CompteComponent},
   {path: 'NPK/compte-utilisateur', component: CompteUtilisateurComponent,canActivate:[IsAdminGuard]},
   {path: 'NPK/espace-client', component: EspaceClientComponent,canActivate:[IsClientGuard]},

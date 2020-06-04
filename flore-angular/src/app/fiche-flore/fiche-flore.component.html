@@ -14,7 +14,7 @@
   <div class="row m-5">
     <!-- BLOC CONNEXION ET FOURNISSEUR -->
     <div id="connexionFournisseur" class="column " style="width: 30%; height: 100%"
-         *ngIf="commonService.connecte==null">
+         *ngIf="commonService.connecte==null" (click)="connexion()">
       <!--BLOC CONNEXION-->
       <div class="row p-4 ">
         <div class="row ml-4 justify-content-center align-items-center" style="width:90%">
@@ -156,9 +156,9 @@
                   </div>
                 </div>
                 <div class="column" style="width: 65%;">
-                  <h5>{{prod.fournisseur}}</h5>
-                  <h6>{{prod.refProduit}}</h6>
-                  <h6 style="font-style: italic">{{prod.stock}}</h6>
+                  <h5>Fournisseur : {{prod.fournisseur}}</h5>
+                  <h6>Prix : {{prod.prix}} €</h6>
+                  <h6 style="font-style: italic">Stocks : {{prod.stock}}</h6>
                 </div>
               </div>
             </button>
@@ -200,163 +200,174 @@
         <div id="caract" class="row mt-2 justify-content-center p-2" style="height: 45%">
           <h6 class="text-center" style="font-size: 18px">Caractéristiques :</h6>
         </div>
-        <!--Ligne 1 carac-->
+
+        <!--Ligne 1 carac : longueur, hauteur, ensoleillement-->
         <div class="row justify-content-center">
           <!--Longueur-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column ml-5 mr-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Diamètre').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
-              <a data-toggle="tooltip" data-placement="top" title="Longueur (cm)">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
+              <a data-toggle="tooltip" data-placement="top" title="Diamètre (min/max en cm)">
                 <i class="fas fa-circle fa-stack-2x" style="color: #03a9f4; opacity: 0.2"></i>
                 <i id="longueur" class="fas fa-arrows-alt-h fa-stack-1x" style="color: #03a9f4"></i>
               </a>
             </div>
             <div id="resultLongueur" class="column align-middle mt-2 "
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Diamètre')">{{caracValeur}}</div>
             </div>
           </div>
           <!--Hauteur-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Hauteur').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
-              <a data-toggle="tooltip" data-placement="top" title="Hauteur (cm)">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
+              <a data-toggle="tooltip" data-placement="top" title="Hauteur (min/max en cm)">
                 <i class="fas fa-circle fa-stack-2x" style="color: #00bcd4; opacity: 0.2"></i>
                 <i id="hauteur" class="fas fa-arrows-alt-v fa-stack-1x" style="color: #00bcd4"></i>
               </a>
             </div>
             <div id="resultLargeur" class="column align-middle mt-2"
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Hauteur')">{{caracValeur}}</div>
             </div>
           </div>
           <!--Ensoleillement-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Ensoleillement').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Ensoleillement">
                 <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
                 <i id="ensoleillement" class="fas fa-sun fa-stack-1x" style="color: #ffeb3b"></i>
               </a>
             </div>
             <div id="resultEnsoleillement" class="column align-middle mt-2"
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Ensoleillement')">{{caracValeur}}</div>
             </div>
           </div>
+
+        </div>
+
+        <!--Ligne 2 carac : sol, arrosage, résistance au froid-->
+        <div class="row justify-content-center mt-5 mb-5">
           <!--Sol-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Texture').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Sol">
                 <i class="fas fa-circle fa-stack-2x" style="color: #33691e; opacity: 0.2"></i>
                 <i id="sol" class="fas fa-globe fa-stack-1x" style="color: #33691e"></i>
               </a>
             </div>
-            <div id="resultSol" class="column mt-2 align-middle" style="vertical-align: middle; font-size: xx-small;">
+            <div id="resultSol" class="column mt-2 justify-content-center"
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Texture')">{{caracValeur}}</div>
             </div>
           </div>
           <!--Arrosage-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Arrosage').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Arrosage">
                 <i class="fas fa-circle fa-stack-2x" style="color: #0d47a1; opacity: 0.2"></i>
                 <i id="arrosage" class="fas fa-tint fa-stack-1x" style="color: #0d47a1"></i>
               </a>
             </div>
-            <div id="resultArrosage" class="column mt-2 align-middle"
-                 style="vertical-align: middle; font-size: xx-small;">
+            <div id="resultArrosage" class="column mt-2 align-items-center justify-content-center"
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Arrosage')">{{caracValeur}}</div>
             </div>
           </div>
           <!--Résistance au froid-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'RésistanceAuFroid').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Résistance au froid">
                 <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
                 <i id="froid" class="far fa-snowflake fa-stack-1x" style="color: #f44336"></i>
               </a>
             </div>
-            <div id="resultFroid" class="align-middle column mt-2"
-                 style="vertical-align: middle; font-size: xx-small;">
+            <div id="resultFroid" class="justify-content-center column mt-2"
+                 style="vertical-align: middle; horiz-align: center; font-size: medium;">
               <div
                 *ngFor="let caracValeur of tableauCarac(floreService.flore, 'RésistanceAuFroid')">{{caracValeur}}</div>
             </div>
           </div>
         </div>
 
-        <!--Ligne 2 carac-->
-        <div class="row justify-content-center mt-3 mb-3">
+        <!--Ligne 3 carac : température, vent, pH-->
+        <div class="row justify-content-center mt-5 mb-5">
           <!--Température-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Température').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Température (°C)">
                 <i class="fas fa-circle fa-stack-2x" style="color: #9e9e9e; opacity: 0.2"></i>
                 <i id="temperature" class="fas fa-thermometer-half fa-stack-1x" style="color: #9e9e9e"></i>
               </a>
             </div>
             <div id="resultTemperature" class="column align-middle mt-2"
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Température')">{{caracValeur}}</div>
             </div>
           </div>
           <!--Vent-->
-          <div class="column mr-5 align-items-center justify-content-center "
+          <div class="column mr-5 ml-5 align-items-center justify-content-center "
                *ngIf="tableauCarac(floreService.flore,'Vent').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Vent">
                 <i class="fas fa-circle fa-stack-2x" style="color: #ff9800; opacity: 0.2"></i>
                 <i id="vent" class="fab fa-mixcloud fa-stack-1x" style="color: #ff9800"></i>
               </a>
             </div>
             <div id="resultVent" class="column align-middle mt-2"
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Vent')">{{caracValeur}}</div>
             </div>
           </div>
           <!--pH-->
-          <div class="column mr-5 align-items-center justify-content-center "
+          <div class="column mr-5 ml-5 align-items-center justify-content-center "
                *ngIf="tableauCarac(floreService.flore,'pH').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="pH">
                 <i class="fas fa-circle fa-stack-2x" style="color: #f8bbd0; opacity: 0.2"></i>
                 <i id="ph" class="fa-stack-1x" style="color: #f8bbd0">pH</i>
               </a>
             </div>
             <div id="resultPh" class="column mt-2 align-middle"
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'pH')">{{caracValeur}}</div>
             </div>
           </div>
+        </div>
+
+        <!--Ligne 4 carac : remontant, floraison-->
+        <div class="row justify-content-center mt-5 mb-5">
           <!--Remontant-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Remontant').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Remontant">
                 <i class="fas fa-circle fa-stack-2x" style="color: #9c27b0; opacity: 0.2"></i>
                 <i id="remontant" class="far fa-calendar-plus fa-stack-1x" style="color: #9c27b0"></i>
               </a>
             </div>
             <div id="resultRemontant" class="column align-middle mt-2"
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Remontant')">{{caracValeur}}</div>
             </div>
           </div>
           <!--Floraison-->
-          <div class="column mr-5 align-items-center justify-content-center"
+          <div class="column mr-5 ml-5 align-items-center justify-content-center"
                *ngIf="tableauCarac(floreService.flore,'Végétation').length!=0">
-            <div class="fa-stack fa-1x align-items-center justify-content-center">
+            <div class="fa-stack fa-2x align-items-center justify-content-center">
               <a data-toggle="tooltip" data-placement="top" title="Vivace">
                 <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
                 <i id="vivace" class="fas fa-infinity fa-stack-1x" style="color: #f44336"></i>
               </a>
             </div>
             <div id="resultFloraison" class="column align-middle mt-2"
-                 style="vertical-align: middle; font-size: xx-small;">
+                 style="vertical-align: middle; font-size: medium;">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Végétation')">{{caracValeur}}</div>
             </div>
           </div>
@@ -472,18 +483,20 @@
           <div id="lienFloreCompagnes" class="column justify-content-center mr-5 ml-5 "
                style="min-height: 50%; width:30%">
             <div class="row justify-content-center">
-              <h6 class="column m-2 text-center" style="font-size: 15px; width: 65%">Compagnes :</h6>
-              <button class="column btn float-right" style="background-color :transparent; color: #8bc34a;"
-                      *ngIf="!plusFloreKompagne && tableauCarac(floreService.flore, 'Kompagne').length>3"
-                      (click)="plusFloreKompagne=true"><i class="fas fa-chevron-down"></i>
-              </button>
+              <h6 class="m-2 text-center" style="font-size: 15px; width: 65%">Compagnes :</h6>
             </div>
             <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Kompagne').slice(0,3)"
                  class="row justify-content-center">
               <a class="btn" id="compagne"
                  (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
             </div>
-
+            <div class="row align-items-center mx-5 px-5">
+              <button id="btnPoint" class="btn-lg align-items-center"
+                      style="background-color :transparent; color: #8bc34a;"
+                      *ngIf="!plusFloreKompagne && tableauCarac(floreService.flore, 'Kompagne').length>3"
+                      (click)="plusFloreKompagne=true">...
+              </button>
+            </div>
             <div *ngIf="plusFloreKompagne">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Kompagne').slice(3)"
                    class="row justify-content-center">
@@ -492,7 +505,7 @@
               </div>
               <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
                       (click)="plusFloreKompagne=false">
-                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-minus"></i>
               </button>
             </div>
           </div>
@@ -500,16 +513,18 @@
           <div id="lienFloreEnnemies" class="column justify-content-center mr-5 ml-5 "
                style="min-height: 50%; width:30%">
             <div class="row justify-content-center">
-              <h6 class="column m-2 text-center" style="font-size: 15px; width: 65%">Ennemies :</h6>
-              <button class="column btn float-right" style="background-color :transparent; color: #8bc34a;"
-                      *ngIf="!plusFloreEnnemie && tableauCarac(floreService.flore, 'Ennemie').length>3"
-                      (click)="plusFloreEnnemie=true"><i class="fas fa-chevron-down"></i>
-              </button>
+              <h6 class="m-2 text-center" style="font-size: 15px; width: 65%">Ennemies :</h6>
             </div>
             <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Ennemie').slice(0,3)"
                  class="row justify-content-center">
               <a class="btn  " id="ennemie"
                  (click)="redirectToFicheFlore(caracValeur)">{{caracValeur}}</a>
+            </div>
+            <div class="row lign-items-center mx-5 px-5">
+              <button id="btnPoint" class="btn-lg" style="background-color :transparent; color: #8bc34a;"
+                      *ngIf="!plusFloreEnnemie && tableauCarac(floreService.flore, 'Ennemie').length>3"
+                      (click)="plusFloreEnnemie=true">...
+              </button>
             </div>
             <div *ngIf="plusFloreEnnemie">
               <div *ngFor="let caracValeur of tableauCarac(floreService.flore, 'Ennemie').slice(3)"
@@ -519,7 +534,7 @@
               </div>
               <button class="btn float-right" style="background-color :#8bc34a; color: black;"
                       style="background-color :transparent; color: #8bc34a;" (click)="plusFloreEnnemie=false">
-                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-minus"></i>
               </button>
             </div>
           </div>
@@ -534,21 +549,23 @@
           <h6 class="text-center" style="font-size: 18px">Relation faune :</h6>
         </div>
         <!--Type de lien-->
-        <div class="row justify-content-center align-items-center mb-3">
+        <div class="row justify-content-center text-center mb-3">
           <!--Répulsif-->
           <div id="lienFaunePred" class="column  justify-content-center mr-5 ml-5"
-               style=" width:17%">
-            <div class="row justify-content-center" style="min-height: 100%;">
-              <h6 class="column m-2" style="font-size: 15px; width: 45%">Répulsifs :</h6>
-              <button class="column btn float-right " style="background-color :transparent; color: #8bc34a;"
-                      *ngIf="!plusFauneRepoussee && tableauCaracFauneFlore(floreService.flore, 'Répulsion').length>3"
-                      (click)="plusFauneRepoussee=true"><i class="fas fa-chevron-down"></i>
-              </button>
+               style="min-height: 50%; width:30%">
+            <div class="row justify-content-center">
+              <h6 class="m-2 text-center" style="font-size: 15px; width: 65%">Répulsifs :</h6>
             </div>
             <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Répulsion').slice(0,3)"
                  class="row justify-content-center">
               <a class="btn " id="repulsif"
                  (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</a>
+            </div>
+            <div class="row align-items-center justify-content-center ">
+              <button id="btnPoint" class="btn-lg mx-5 " style="background-color :transparent; color: #8bc34a;"
+                      *ngIf="!plusFauneRepoussee && tableauCaracFauneFlore(floreService.flore, 'Répulsion').length>3"
+                      (click)="plusFauneRepoussee=true">...
+              </button>
             </div>
             <div *ngIf="plusFauneRepoussee">
               <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Répulsion').slice(3)"
@@ -558,25 +575,26 @@
               </div>
               <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
                       (click)="plusFauneRepoussee=false">
-                <i class="fas fa-chevron-up"></i>
+                <i class="fas fa-minus"></i>
               </button>
-
             </div>
           </div>
           <!--Pollinisateurs/Attractifs-->
           <div id="lienFaunePoll" class="column justify-content-center mr-5 ml-5"
                style="min-height: 50%; width:30%">
             <div class="row justify-content-center">
-              <h6 class="column m-2" style="font-size: 15px; width: 65%">Pollinisateurs/Attractifs :</h6>
-              <button class="column btn float-right " style="background-color :transparent; color: #8bc34a;"
-                      *ngIf="!plusFauneAttire && tableauCaracFauneFlore(floreService.flore, 'Attraction').length>3"
-                      (click)="plusFauneAttire=true"><i class="fas fa-chevron-down"></i>
-              </button>
+              <h6 class="m-2 text-center" style="font-size: 15px; width: 65%">Nuisibles :</h6>
             </div>
             <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Attraction').slice(0,3)"
                  class="row justify-content-center">
               <a class="btn " id="attractif"
                  (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</a>
+            </div>
+            <div class="align-items-center mx-5 px-5">
+              <button id="btnPoint" class="btn-lg " style="background-color :transparent; color: #8bc34a;"
+                      *ngIf="!plusFauneAttire && tableauCaracFauneFlore(floreService.flore, 'Attraction').length>3"
+                      (click)="plusFauneAttire=true">...
+              </button>
             </div>
             <div *ngIf="plusFauneAttire">
               <div *ngFor="let caracValeur of tableauCaracFauneFlore(floreService.flore, 'Attraction').slice(3)"
@@ -585,7 +603,7 @@
                    (click)="redirectToFicheFaune(caracValeur)">{{caracValeur}}</a>
               </div>
               <button class="btn float-right" style="background-color :transparent; color: #8bc34a;"
-                      (click)="plusFauneAttire=false"><i class="fas fa-chevron-up"></i>
+                      (click)="plusFauneAttire=false"><i class="fas fa-minus"></i>
               </button>
             </div>
           </div>

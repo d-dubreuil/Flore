@@ -852,7 +852,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 					} else if (carac.getValeur().equals("Inhibiteur") && carac2.getValeur().equals("Fixateur")) {
 						malus.setCaracUn(carac);
 						malus.setCaracDeux(carac2);
-						message = "La plante " + nomFlore2 + " est fixatrice d'azote et la plante" + nomFlore1
+						message = "La plante " + nomFlore2 + " est fixatrice d'azote et la plante " + nomFlore1
 								+ " est un inhibiteur de croissance des bactéries fixatrices d'azote.";
 						malus.setPoint(-6);
 						malus.setMessage(message);
@@ -1029,7 +1029,7 @@ public class SimulateurUnRepositorylmpl implements ISimulateurUnRepositoryCustom
 						&& carac.getNom().equals("Croissance") && !carac2.getValeur().equals(carac.getValeur())) {
 					bonus.setCaracUn(carac);
 					bonus.setCaracDeux(carac2);
-					message = "Les deux plantes ont une vitesse de croissance différente, elles peuvent alors être plantée simultanément et se développer sans trop se gêner.";
+					message = "Les deux plantes ont une vitesse de croissance différente, elles peuvent alors être plantées simultanément et se développer sans trop se gêner.";
 					bonus.setMessage(message);
 					bonus.setPoint(1);
 					bonusList.add(bonus);

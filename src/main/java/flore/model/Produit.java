@@ -32,11 +32,11 @@ public class Produit {
 	private Integer stock;
 	@ManyToOne
 	@JoinColumn(name = "faune_id")
-	@JsonView(Views.ViewPanier.class)
+	@JsonView({Views.ViewPanier.class,Views.ViewProduit.class})
 	private Faune faune;
 	@ManyToOne
 	@JoinColumn(name = "flore_id")
-	@JsonView(Views.ViewPanier.class)
+	@JsonView({Views.ViewPanier.class,Views.ViewProduit.class})
 	private Flore flore;
 	@OneToMany(mappedBy = "produit")
 	private List<Selection> selections = new ArrayList<Selection>();

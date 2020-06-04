@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,8 +9,10 @@ import {Title} from "@angular/platform-browser";
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private commonService:CommonService) {
     this.titleService.setTitle("Contacts");
+    this.commonService.page="monCompte";
+
   }
 
   ngOnInit(): void {

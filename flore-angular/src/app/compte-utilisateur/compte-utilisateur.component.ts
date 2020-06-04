@@ -61,29 +61,31 @@ export class CompteUtilisateurComponent implements OnInit {
   listFauneVisible: boolean = false;
   listCaracVisible: boolean = false;
 
-  nomFloreList:Array<String>=new Array<String>();
-  nomFauneList:Array<String>=new Array<String>();
-  nomConseilList:Array<String>=new Array<String>();
+  nomFloreList: Array<String> = new Array<String>();
+  nomFauneList: Array<String> = new Array<String>();
+  nomConseilList: Array<String> = new Array<String>();
 
   constructor(private floreService: FloreService, private fauneService: FauneService, private conseilService: ConseilService, private titleService: Title, private caracteristiqueService: CaracteristiqueService, private commonService: CommonService, private referentielCaracteristiqueService: ReferentielCaracteristiqueService) {
     this.titleService.setTitle('CompteUtilisateur');
 
-    for(let flore of this.floreService.findAll()){
+    for (let flore of this.floreService.findAll()) {
       console.log(flore.nom);
-        this.nomFloreList.push(flore.nom);
+      this.nomFloreList.push(flore.nom);
 
 
     }
 
-    for(let faune of this.fauneService.findAll()){
+    for (let faune of this.fauneService.findAll()) {
       this.nomFauneList.push(faune.nomFaune);
 
     }
 
-    for(let conseil of this.conseilService.findAll()){
+    for (let conseil of this.conseilService.findAll()) {
       this.nomConseilList.push(conseil.nom);
 
     }
+    this.commonService.page="monCompte";
+
   }
 
   ngOnInit(): void {
@@ -245,31 +247,36 @@ export class CompteUtilisateurComponent implements OnInit {
 
 //METHODES SAVE
   saveNomFlore() {
-    this.floreForm.nom = this.nomFiche;
+    this.floreForm.nom = this.nomFlore;
     this.floreService.create(this.floreForm).subscribe(resp => {
       this.floreForm = new Flore();
       this.floreService.load();
+      alert("La flore "+this.nomFlore+" a été créée.")
     }, error => console.log(error));
   }
 
   saveNomFaune() {
-    this.fauneForm.nomFaune = this.nomFiche;
+    this.fauneForm.nomFaune = this.nomFaune;
     this.fauneService.create(this.fauneForm).subscribe(resp => {
       this.fauneForm = new Faune();
       this.fauneService.load();
+      alert("La faune "+this.nomFaune+" a été créée.")
+
     }, error => console.log(error));
   }
 
   saveNomConseil() {
-    this.conseilForm.nom = this.nomFiche;
+    this.conseilForm.nom = this.nomConseil;
     this.conseilService.create(this.conseilForm).subscribe(resp => {
       this.conseilForm = new Conseil();
       this.conseilService.load();
+      alert("Le conseil "+this.nomConseil+" a été créé.")
     }, error => console.log(error));
   }
 
   saveCarac() {
     this.caracteristiqueService.create(this.caracForm).subscribe(resp => {
+      alert("La caractéristique "+this.caracForm.nom+" a été créée.")
       this.caracForm = new Caracteristique();
       this.caracteristiqueService.load();
       this.caracFormVisible = false;
@@ -279,6 +286,7 @@ export class CompteUtilisateurComponent implements OnInit {
 
   saveCaracLatin() {
     this.caracteristiqueService.create(this.caracFormNomLatin).subscribe(resp => {
+      alert("La valeur de la caractéristique "+this.caracFormNomLatin.valeur+" a été créée.")
       this.caracFormNomLatin = new Caracteristique();
       this.caracteristiqueService.load();
     }, error => console.log(error));
