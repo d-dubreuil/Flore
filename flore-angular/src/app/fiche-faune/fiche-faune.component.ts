@@ -6,6 +6,10 @@ import {Router} from '@angular/router';
 import {Faune} from '../model/Faune';
 import {Flore} from '../model/Flore';
 import {CommonService} from '../common.service';
+import {Produit} from '../model/Produit';
+import {Selection} from '../model/Selection';
+import {PanierService} from '../services/panier.service';
+import {SelectionService} from '../services/selection.service';
 
 @Component({
   selector: 'app-fiche-faune',
@@ -20,9 +24,11 @@ export class FicheFauneComponent implements OnInit {
   plusFaunePredateur:boolean=false;
   plusFauneProie:boolean=false
 
-  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router, private commonService:CommonService) {
+  constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router, public commonService:CommonService,private panierService:PanierService,private selectionService:SelectionService) {
     this.titleService.setTitle('Fiche-Faune');
-    this.commonService.page ="faune"
+    this.commonService.page ="faune";
+    console.log(fauneService.faune);
+    console.log(fauneService.faune.produits);
   }
 
   ngOnInit(): void {
@@ -82,6 +88,22 @@ export class FicheFauneComponent implements OnInit {
       this.router.navigateByUrl('NPK/faune/fiche-faune');
     }, error => console.log(error));
     ;
+  }
+
+  connexion(){
+    this.router.navigateByUrl("NPK/connexion")
+  }
+
+  ajouterAuPanier(produit: Produit) {
+    let selec: Selection = new Selection();
+    selec.produit = produit;
+    this.panierService.findById(parseInt(sessionStorage.getItem('idPanierEnCours'))).subscribe(resp => {
+      selec.nombre = 1;
+      selec.panier = resp;
+      this.selectionService.create(selec).subscribe(resp2 => {
+        selec = resp2
+      }, error => console.log(error))
+    }, error => console.log(error))
   }
 
 }

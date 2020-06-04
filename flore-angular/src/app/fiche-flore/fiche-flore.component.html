@@ -14,7 +14,7 @@
   <div class="row m-5">
     <!-- BLOC CONNEXION ET FOURNISSEUR -->
     <div id="connexionFournisseur" class="column " style="width: 30%; height: 100%"
-         *ngIf="commonService.connecte==null">
+         *ngIf="commonService.connecte==null" (click)="connexion()">
       <!--BLOC CONNEXION-->
       <div class="row p-4 ">
         <div class="row ml-4 justify-content-center align-items-center" style="width:90%">
@@ -156,9 +156,9 @@
                   </div>
                 </div>
                 <div class="column" style="width: 65%;">
-                  <h5>{{prod.fournisseur}}</h5>
-                  <h6>{{prod.refProduit}}</h6>
-                  <h6 style="font-style: italic">{{prod.stock}}</h6>
+                  <h5>Fournisseur : {{prod.fournisseur}}</h5>
+                  <h6>Prix : {{prod.prix}}</h6>
+                  <h6 style="font-style: italic">Stocks : {{prod.stock}}</h6>
                 </div>
               </div>
             </button>

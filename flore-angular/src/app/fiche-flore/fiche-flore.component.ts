@@ -134,4 +134,8 @@ export class FicheFloreComponent implements OnInit {
     //   },error => console.log(error))
     // },error => console.log(error));
   }
+
+  connexion(){
+    this.router.navigateByUrl("NPK/connexion")
+  }
 }
