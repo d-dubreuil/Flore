@@ -13,7 +13,7 @@
         <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='flore'}"><a class="nav-link" [routerLink]="'/NPK/flore'">Flore</a></li>
         <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='faune'}"><a class="nav-link" [routerLink]="'/NPK/faune'">Faune</a></li>
         <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='synergie'}"><a class="nav-link" [routerLink]="'/NPK/synergie'">Synergie</a></li>
-        <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='conseils'}"><a class="nav-link" [routerLink]="'/NPK/conseils'">Conseils</a></li>
+        <li class="nav-item disabled"><a class="nav-link">Conseils (prochainement)</a></li>
         <li class="nav-item disabled"><a class="nav-link">Fournisseur (prochainement)</a></li>
         <li class="nav-item active" [ngClass]="{'enCours' : this.commonService.page=='quiSommesNous'}"><a class="nav-link" [routerLink]="'/NPK/qui-sommes-nous'">Qui sommes-nous ?</a></li>
       </ul>
@@ -25,6 +25,8 @@
         <li class="nav-item active ml-4"><a class="nav-link" [routerLink]="'/NPK/connexion'" style="color: #8bc34a;" *ngIf="this.commonService.connecte == null">Connexion <i
           class="fas fa-bug"></i></a><a class="nav-link" [routerLink]="'/NPK/compte'" style="color: #8bc34a;" *ngIf="this.commonService.connecte != null">Mon compte <i
           class="fas fa-bug"></i></a></li>
+        <li class="nav-item active mr-4 ml-4"><a class="nav-link" [routerLink]="'/NPK/accueil'" *ngIf="this.commonService.connecte!=null && this.commonService.connecte != ''" (click)="deconnexion()">Se déconnecter <i
+          class="fas fa-power-off"></i></a></li>
       </ul>
     </div>
 
@@ -32,14 +34,49 @@
 </header>
 <br><br><br>
 
-<div id="container" class="container-fluid border-success justify-content-center align-items-center mt-5 mb-2">
-  <div id="card" class="container-fluid bg mx-auto my-5 py-4 justify-content-center align-items-center"
+<div id="container" class="container-fluid border-success justify-content-center align-items-center mt-5 ">
+  <div id="card" class="container-fluid bg mx-auto my-5 py-3 justify-content-center align-items-center"
        style="background-color: rgb(255,255,255,0.5); width:68%; height: 85%; border:solid; border-width:1px; border-color: #8bc34a;">
     <router-outlet></router-outlet>
   </div>
 </div>
 
-<footer>
-  <h6 class="footer-copyright text-center py-3 bg-dark" style="color:white"><a class="contact mr-3" [routerLink]="'/NPK/espace-client/contact/messagerie/nouveau-message'">contact-npk@gmail.com</a>© Copyright 2020 </h6>
+
+
+<footer class="page-footer text-center pt-3 bg-dark" style="color:white">
+
+  <div class="container-fluid text-center">
+
+    <div class="row">
+      <div class="col-md-2 mt-md-0 mt-3"></div>
+      <div class="col-md-3 mt-md-0 mt-3">
+        <h4 style="font-size:22px">La Perma Kompanie</h4>
+        <p><i class="fas fa-home mr-2"></i>86 avenue JF Kennedy,</p>
+        <p>33700 MERIGNAC</p>
+      </div>
+
+      <div class="col-md-2 mb-md-0 mb-3">
+        <h4 style="font-size:22px">Vous avez une question ? </h4>
+        <p><i class="fas fa-phone mr-4"></i>05 35 54 73 70</p>
+        <p><i class="fas fa-envelope mr-4"></i><a class="contact" [routerLink]="'/NPK/espace-client/contact/messagerie/nouveau-message'">contact-npk@gmail.com</a></p>
+      </div>
+
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h4 style="font-size:22px">N'hésitez pas à nous suivre ! </h4>
+        <p><a><i class="fab fa-linkedin-in mr-2"></i>LinkedIn</a><a class="ml-3"></a>      |      <a><i class="fab fa-twitter mr-2 ml-3"></i>Twitter</a></p>
+        <p><a><i class="fab fa-instagram mr-2"></i>Instagram</a><a class="ml-3"></a>      |     <a><i class="fab fa-facebook-f mr-2 ml-3"></i>Facebook</a></p>
+      </div>
+
+      <div class="col-md-2 mt-md-0 mt-3"></div>
+
+    </div>
+  </div>
+
+  <div class="footer-copyright text-center py-3">
+    <p class="mb-3">________________________________________________________________</p>
+    <h5 style="font-size:16px">© 2020 Copyright: NPK.com, votre application de jardinage | Tous droits réservés | <a>Mentions légales</a></h5>
+  </div>
+
 </footer>
+
 </body>

@@ -32,6 +32,7 @@ import {CompteComponent} from './compte/compte.component';
 import {IsClientGuard} from './is-client.guard';
 import {IsAdminGuard} from './is-admin.guard';
 import {EspaceFournisseurComponent} from "./espace-fournisseur/espace-fournisseur.component";
+import {InformationsFournisseurComponent} from "./informations-fournisseur/informations-fournisseur.component";
 
 const routes: Routes = [
   {path: 'NPK/accueil', component: HomeComponent},
@@ -65,7 +66,8 @@ const routes: Routes = [
   {path: 'NPK/espace-client/contact/messagerie', component: MessagerieComponent,canActivate:[IsClientGuard]},
   {path: 'NPK/espace-client/contact/messagerie/nouveau-message', component: NouveauMessageComponent,canActivate:[IsClientGuard]},
   {path: 'NPK/espace-client/contact/proposition-fiche', component: FormulairePropositionComponent,canActivate:[IsClientGuard]},
-  {path: 'NPK/espace-fournisseur', component: EspaceFournisseurComponent}
+  {path: 'NPK/espace-fournisseur', component: EspaceFournisseurComponent},
+  {path: 'NPK/espace-fournisseur/informations-fournisseur', component: InformationsFournisseurComponent}
 ];
 
 @NgModule({

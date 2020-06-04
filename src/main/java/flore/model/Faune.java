@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -29,6 +32,10 @@ public class Faune {
 	@OneToMany(mappedBy = "faune", fetch = FetchType.EAGER)
 	@JsonView({Views.ViewFaune.class,Views.ViewPanier.class})
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
+	@OneToMany (mappedBy = "faune")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonView(Views.ViewFaune.class)
+	private List<Produit> produits= new ArrayList<Produit>();
 	
 	public Faune() {
 		super();

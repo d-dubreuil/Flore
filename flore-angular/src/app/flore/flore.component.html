@@ -24,7 +24,7 @@
         <div class="column" style="width: 2%"></div>
         <div id="formulaire" class="column mr-5" style="width: 28%">
           <div id="btnSubmit" class="btn bg-white"
-               style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; font-style: italic">
+               style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; font-style: italic;">
             Sélectionnez vos filtres
           </div>
 
@@ -715,12 +715,14 @@
 
           <!--BOUTON SUBMIT-->
           <div>
-            <!--            <button id="btnSubmit" class="btn float-right mt-2"-->
-            <!--                    style="background-color: #8bc34a">-->
-            <!--              <i class="fas fa-check" style="color: white"></i>-->
-            <!--            </button>-->
-            <button type="submit" id="btnSubmit" class="btn mt-2 bg-white"
+            <button type="submit" id="btnLancement" class="btn mt-2" *ngIf="searchBoolean"
                     style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; " (click)="search()">Validez et à vos potagers !
+            </button>
+          </div>
+
+          <div>
+            <button type="submit" id="btnRetour" class="btn mt-2" *ngIf="resetBoolean"
+                    style=" width: 100%; height: 50px; font-size: large; color :#8bc34a; font-style: italic; font-weight: bold; " (click)="reload()">Rechargez la liste complète !
             </button>
           </div>
 

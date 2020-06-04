@@ -15,5 +15,9 @@ export class AppComponent {
   public constructor(public commonService:CommonService) {
   }
 
+  deconnexion(){
+    sessionStorage.clear();
+    this.commonService.connecte=null;
+  }
 
 }

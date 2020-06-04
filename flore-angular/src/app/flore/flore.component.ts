@@ -20,6 +20,10 @@ export class FloreComponent implements OnInit {
   floreformulaire: FloreForm = new FloreForm();
   caracteristiques: Array<string> = new Array<string>();
   caracs: Array<string> = new Array<string>();
+
+  resetBoolean: boolean=false;
+  searchBoolean: boolean=true;
+
   caracEspece: string = 'Espece';
   caracRecolte: string = 'Récolte';
   caracPlanter: string = 'Plantation';
@@ -239,6 +243,9 @@ export class FloreComponent implements OnInit {
     this.recolteBoolean=false;
     this.plantationBoolean=false;
     this.resistanceVentBoolean=false;
+
+    this.resetBoolean=true;
+    this.searchBoolean=false;
 
 
     //Création de la string sur la carac espèce pour la future requete (si nécessaire)
@@ -757,6 +764,57 @@ export class FloreComponent implements OnInit {
     this.router.navigateByUrl('NPK/flore/fiche-flore');
   }
 
+  reload() {
+    //Remise à zéro des carac, du tableau et des boolean.
+    this.caracteristiques = new Array<string>();
+    this.caracEspece = 'Espece';
+    this.caracRecolte = 'Récolte';
+    this.caracPlanter = 'Plantation';
+    this.caracRemontant = 'Remontant';
+    this.caracPH = 'pH';
+    this.caracHumidite = 'Humidité';
+    this.caracTexture = 'Texture';
+    this.caracArrosage = 'Arrosage';
+    this.caracClimat = 'Climat';
+    this.caracResistanceFroid = 'RésistanceAuFroid';
+    this.caracResistanceVent='Vent';
+    this.caracEnsoleillement = 'Ensoleillement';
+    this.caracFloraison = 'Végétation';
+    this.caracHauteur = 'HauteurAMaturite';
+    this.caracRacine = 'Racines';
+    this.caracCroissance = 'Croissance';
+    this.caracAzote = 'Azote';
+    this.caracNutriment = 'Nutriment';
+    this.caracStrate = 'Strate';
+    this.especeBoolean = false;
+    this.remontantBoolean = false;
+    this.phBoolean = false;
+    this.humiditeBoolean = false;
+    this.textureBoolean = false;
+    this.arrosageBoolean=false;
+    this.climatBoolean=false;
+    this.resistanceFroidBoolean=false;
+    this.ensoleillementBoolean=false;
+    this.floraisonBoolean=false;
+    this.hauteurAMaturiteBoolean=false;
+    this.racinesBoolean=false;
+    this.croissanceBoolean=false;
+    this.azoteBoolean=false;
+    this.nutrimentBoolean=false;
+    this.strateBoolean=false;
+    this.recolteBoolean=false;
+    this.plantationBoolean=false;
+    this.resistanceVentBoolean=false;
+
+    this.resetBoolean=false;
+    this.searchBoolean=true;
+
+    //Création de la query
+    this.floreformulaire.caracteristiques = this.caracteristiques;
+    this.floreService.findByFormulaire(this.floreformulaire).subscribe(resp => {
+      this.floreService.flores = resp;
+    }, error => console.log(error));
+  }
 
 
 }

@@ -21,10 +21,6 @@ export class CompteUtilisateurService {
     }, error => console.log(error))
   }
 
-
-
-
-
   findAll(): Array<CompteUtilisateur> {
     return this.comptesUtilisateurs;
   }

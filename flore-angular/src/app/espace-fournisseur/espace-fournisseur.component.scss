@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+/* Boutons */
+
+h6 {
+  font-weight : normal;
+  font-style: italic;
+}
+
+.btn {
+  transition: 600ms;
+}
+
+#buttonFlore:hover, #buttonFlore:active, #buttonFlore:focus {
+  background-color: #fffde7;
+}
+
+#buttonFaune:hover, #buttonFaune:active, #buttonFaune:focus {
+  background-color: #f1f8e9;
+}
+
+#buttonLien:hover, #buttonLien:active, #buttonLien:focus {
+  background-color: #fff8e1;
+}
+
+#buttonCompte:hover, #buttonCompte:active, #buttonCompte:focus {
+  background-color: #e1f5fe;
+}
+
+#buttonConseil:hover, #buttonConseil:active, #buttonConseil:focus {
+  background-color: #ffebee;
+}
+
+#buttonContact:hover, #buttonContact:active, #buttonContact:focus {
+  background-color: #fce4ec;
+}

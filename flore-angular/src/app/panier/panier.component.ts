@@ -37,14 +37,12 @@ export class PanierComponent implements OnInit {
     this.titleService.setTitle('Panier');
     this.load(parseInt(sessionStorage.getItem('idPanierEnCours')));
     this.calcul();
-    // this.commonService.findAllTypeCarte().subscribe(resp => {this.typeCartes = resp;console.log(this.typeCartes)}, err => console.log(err));
 
   }
 
   ngOnInit(): void {
     this.commonService.findAllTypeCarte().subscribe(resp => {
       this.typeCartes = resp;
-      console.log(this.typeCartes);
     }, error => console.log(error));
 
   }
@@ -82,6 +80,7 @@ export class PanierComponent implements OnInit {
 
   delete(id: number) {
     this.selectionService.deleteById(id);
+    this.load(parseInt(sessionStorage.getItem('idPanierEnCours')));
   }
 
   return() {
