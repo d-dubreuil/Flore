@@ -35,7 +35,25 @@
             <div class="column mr-5 " style="width: 15%;">
               <div class="fa-stack fa-2x mr-5">
                 <i class="fas fa-circle fa-stack-2x" style="color: #ffab00; opacity: 0.2"></i>
-                <i class="fas fa-link fa-stack-1x" style="color: #ffab00"></i>
+                <i class="fas fa-bug fa-stack-1x" style="color: #ffab00"></i>
+              </div>
+            </div>
+            <div class="column" style="width: 230px;">
+              <h5>Rechercher une Faune</h5>
+              <h6>Protéger ses plantes, Acheter des pollinisateurs, ...</h6><br>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    <div class="column m-3 box" style="width: 378px;">
+        <button id="buttonConseil" type="button" class="btn shadow-none justify-content-center align-items-center"
+                style="height: 140px; width: 376px;" >
+          <div class="row justify-content-center align-items-center">
+            <div class="column mr-5 " style="width: 15%;">
+              <div class="fa-stack fa-2x mr-5">
+                <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
+                <i class="fas fas fa-link fa-stack-1x" style="color: #f44336"></i>
               </div>
             </div>
             <div class="column" style="width: 230px;">
@@ -44,49 +62,36 @@
             </div>
           </div>
         </button>
-      </div>
-
-    <div class="column m-3 box" style="width: 378px;">
-        <button [routerLink]="'/NPK/conseils'" id="buttonConseil" type="button" class="btn shadow-none justify-content-center align-items-center"
-                style="height: 140px; width: 376px;">
-          <div class="row justify-content-center align-items-center">
-            <div class="column mr-5 " style="width: 15%;">
-              <div class="fa-stack fa-2x mr-5">
-                <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
-                <i class="fas fa-toolbox fa-stack-1x" style="color: #f44336"></i>
-              </div>
-            </div>
-            <div class="column" style="width: 230px;">
-              <h5>Rechercher des Conseils</h5>
-              <h6>Parcourir les recommandations de lecture, Trouver des informations sur la permaculture,...</h6>
-            </div>
-          </div>
-        </button>
     </div>
   </div>
 
   <div class="row justify-content-center align-items-center  mt-2">
     <div class="column m-3 box" style="width: 378px;">
-        <button [routerLink]="'/NPK/faune'" id="buttonFaune" type="button" class="btn shadow-none justify-content-center align-items-center"
-                style="height: 140px; width: 376px;">
+        <button id="buttonFaune" type="button" class="btn shadow-none justify-content-center align-items-center"
+                style="height: 140px; width: 376px;" disabled>
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
               <div class="fa-stack fa-2x mr-5">
                 <i class="fas fa-circle fa-stack-2x" style="color: #8bc34a; opacity: 0.2"></i>
-                <i class="fas fa-bug fa-stack-1x" style="color: #8bc34a"></i>
+                <i class="fas fa-toolbox fa-stack-1x" style="color: #8bc34a"></i>
               </div>
             </div>
             <div class="column" style="width: 230px;">
-              <h5>Rechercher une Faune</h5>
-              <h6>Protéger ses plantes, Acheter des pollinisateurs, ...</h6>
+              <h5>Rechercher des Conseils</h5>
+              <br>
+              <h6>Bientôt disponible</h6>
+              <br>
+              <!--
+              <h6>Parcourir les recommandations de lecture, Trouver des informations sur la permaculture,...</h6>
+              -->
             </div>
           </div>
         </button>
     </div>
 
     <div class="column m-3 box" style="width: 378px;">
-        <button [routerLink]="'/NPK/connexion'" id="buttonCompte" type="button" class="btn shadow-none justify-content-center align-items-center"
-                style="height: 140px; width: 376px;">
+        <button id="buttonCompte" type="button" class="btn shadow-none justify-content-center align-items-center"
+                style="height: 140px; width: 376px;" disabled>
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
               <div class="fa-stack fa-2x mr-5">
@@ -95,15 +100,20 @@
               </div>
             </div>
             <div class="column" style="width: 230px;">
-              <h5>Se connecter à son Espace</h5>
-              <h6>Configurer MonPetitJardin, Suivre ses commandes, ....</h6>
+              <h5>E-shop des Fournisseurs</h5>
+              <br>
+              <h6>Bientôt disponible</h6>
+              <br>
+              <!--
+              <h6>Consulter les produits disponibles à la ventes, Accèder aux coordonnées des partenaires....</h6>
+              -->
             </div>
           </div>
         </button>
     </div>
 
     <div class="column m-3 box" style="width: 378px;">
-        <button [routerLink]="'/NPK/contact'" id="buttonContact" type="button" class="btn shadow-none justify-content-center align-items-center"
+        <button [routerLink]="'/NPK/qui-sommes-nous'" id="buttonContact" type="button" class="btn shadow-none justify-content-center align-items-center"
                 style="height: 140px; width: 376px;">
           <div class="row justify-content-center align-items-center">
             <div class="column mr-5 " style="width: 50px;">
@@ -113,8 +123,8 @@
               </div>
             </div>
             <div class="column" style="width: 230px;">
-              <h5>Nous contacter</h5>
-              <h6>Poser des questions, Comprendre le fonctionnement du site, Connaître l'origne du projet, ...</h6>
+              <h5>Qui sommes-nous ?</h5>
+              <h6>Découvrir l'équipe, Découvrir l'origine et l'objectif du site, ...</h6>
             </div>
           </div>
         </button>

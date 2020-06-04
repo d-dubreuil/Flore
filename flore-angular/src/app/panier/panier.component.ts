@@ -10,6 +10,7 @@ import {Utilisateur} from '../model/Utilisateur';
 import {Paiement} from '../model/Paiement';
 import {CommonService} from '../common.service';
 import {Commande} from '../model/Commande';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -32,18 +33,16 @@ export class PanierComponent implements OnInit {
   typeCartes: Array<string> = new Array<string>();
 
 
-  constructor(private titleService: Title, private panierService: PanierService, private selectionService: SelectionService, private commonService: CommonService) {
+  constructor(private titleService: Title, private panierService: PanierService, private router: Router, private selectionService: SelectionService, private commonService: CommonService) {
     this.titleService.setTitle('Panier');
     this.load(parseInt(sessionStorage.getItem('idPanierEnCours')));
     this.calcul();
-    // this.commonService.findAllTypeCarte().subscribe(resp => {this.typeCartes = resp;console.log(this.typeCartes)}, err => console.log(err));
 
   }
 
   ngOnInit(): void {
     this.commonService.findAllTypeCarte().subscribe(resp => {
       this.typeCartes = resp;
-      console.log(this.typeCartes);
     }, error => console.log(error));
 
   }
@@ -81,6 +80,7 @@ export class PanierComponent implements OnInit {
 
   delete(id: number) {
     this.selectionService.deleteById(id);
+    this.load(parseInt(sessionStorage.getItem('idPanierEnCours')));
   }
 
   return() {
@@ -105,6 +105,10 @@ export class PanierComponent implements OnInit {
 
   confirmerAchat() {
 
+  }
+
+  redirectToAccueil() {
+    this.router.navigateByUrl('NPK/accueil');
   }
 
   calcul() {

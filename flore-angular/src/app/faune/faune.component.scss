@@ -12,6 +12,26 @@
   outline: none;
 }
 
+#btnRetour:hover {
+  transition-duration: 0.4s;
+  box-shadow: 4px 4px #8bc34a;
+  outline: none;
+  background-color: #292b2c;
+  color: white;
+}
+
+#btnRetour:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #8bc34a;
+}
+
+#btnRetour:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #8bc34a;
+}
+
 #myInput:hover, #myInput:active, #myInput:focus {
   box-shadow: none;
   outline: none;

@@ -829,13 +829,13 @@ INSERT INTO caracteristique (id, version, nom,type_carac, valeur )
 
 
 
-INSERT INTO compte_utilisateur (id, version, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville, disc) 
+INSERT INTO compte_utilisateur (id, version, civilite, code_postal, complement, identifiant, informations_bancaires, mail, mot_de_passe, nom, prenom, rue, telephone, ville, disc, denomination, statut, SIRET_SIREN, RCS, TVA) 
 	VALUES 
-	(1,0, '33600', '', 'KevinBougis', 'Visa_Premier', 'kevin.bougis@gmail.com', 'cestmoilechef!', 'BOUGIS', 'Kévin','5 bis avenue Villemejan', '0625570704', 'PESSAC','Client'), 
-	(2,0, '33127', 'Maison D10', 'ManonCharles', 'Mastercard', 'charles.manon@yahoo.com', 'vivelehtml', 'CHARLES', 'Manon', '21 avenue Colonel Pierre Bourgoin', '0635244332', 'MARTIGNAS','Fournisseur'), 
-	(3,0, '33610', '', 'DamienDubreuil', 'Visa', 'dubreuil.damien@laposte.net', 'Admin_33!', 'DUBREUIL', 'Damien', '14 avenue du Parc', '0645872052', 'CANEJAN','Administrateur'), 
-	(4,0, '33400', 'Résidence Emile Zola', 'CecileLarrouy', 'Mastercard', 'cecile.larrouy@outlook.fr', 'Gestion_npk!', 'LARROUY', 'Cécile', '93 Boulevard George V', '0608050400', 'TALENCE',null),	
-	(5,0, '33160', '', 'EricSultan', 'Visa_Premier', 'eric.sultan@gmail.com', 'aef52_Ui!', 'SULTAN', 'Eric', '4 rue de Corono', '0645104506', 'SAINT-MEDARD-EN-JALLES',null);
+	(1,0, 'M','33600', '','KevinBougis', 'Visa_Premier', 'kevin.bougis@gmail.com', 'cestmoilechef!', 'BOUGIS', 'Kévin','5 bis avenue Villemejan', '0625570704', 'PESSAC','Client', '', null, '', '', ''), 
+	(2,0, 'MME','33127', 'Maison D10', 'ManonCharles', 'FR14 3000 1019 0100 0076 7067032', 'charles.manon@yahoo.com', 'vivelehtml', 'CHARLES', 'Manon', '21 avenue Colonel Pierre Bourgoin', '0635244332', 'MARTIGNAS','Fournisseur', 'Les insectes de MAMA', 'GAEC','10235849632047', 'Immatriculé le 17/05/2017', 'FR 12 819325397'), 
+	(3,0, 'M','33610', '', 'DamienDubreuil', 'Visa', 'dubreuil.damien@laposte.net', 'Admin_33!', 'DUBREUIL', 'Damien', '14 avenue du Parc', '0645872052', 'CANEJAN','Administrateur', '', null, '', '', ''), 
+	(4,0, 'MLLE','33400', 'Résidence Emile Zola', 'CecileLarrouy', 'Mastercard', 'cecile.larrouy@outlook.fr', 'Gestion_npk!', 'LARROUY', 'Cécile', '93 Boulevard George V', '0608050400', 'TALENCE','Client', '', null, '', '', ''),	
+	(5,0, 'M','33160', '', 'EricSultan', 'FR89 3000 3050 8563 1234 9234567', 'eric.sultan@gmail.com', 'aef52_Ui!', 'SULTAN', 'Eric', '4 rue de Corono', '0645104506', 'SAINT-MEDARD-EN-JALLES','Fournisseur', 'La pERICinière', 'SA', '17853668954125', 'Immatriculé le 09/03/2020', 'FR 70 508922031');
 	
 
 INSERT INTO commande (id, version, reference, total, type_envoi)
@@ -1922,15 +1922,14 @@ INSERT INTO flore (id, version, nom)
 	(188, 0,46,67,21),
 	(189, 0,46,93,21);
 	
-	INSERT INTO utilisateur (id, version, compte_utilisateur_id)
+INSERT INTO produit (id, version, fournisseur, stock, prix,faune_id,flore_id)
 	VALUES
-	-- Utilisateur de base
-	(1, 0,1);
-
-	INSERT INTO panier (id, version, utilisateur_id)
-	VALUES
-	-- Panier de base
-	(1, 0,1);
+	--Quelques fraises
+	(1,0,'LeLann',5,2.99,null,38),
+	(1,0,'Mama',10,3.50,null,38),
+	--Quelques pucerons
+	(1,0,'Eric',200,0.99,30,null),
+	(1,0,'Mama',50,0.89,30,null);
 	
 	
 
