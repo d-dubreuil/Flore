@@ -1,20 +1,19 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CompteUtilisateur} from "../model/CompteUtilisateur";
 import {CompteUtilisateurService} from "../services/compte-utilisateur.service";
 import {Title} from "@angular/platform-browser";
-import {CompteUtilisateur} from "../model/CompteUtilisateur";
 import {CommonService} from "../common.service";
 
 @Component({
-  selector: 'app-informations-personnelles',
-  templateUrl: './informations-personnelles.component.html',
-  styleUrls: ['./informations-personnelles.component.scss']
+  selector: 'app-informations-fournisseur',
+  templateUrl: './informations-fournisseur.component.html',
+  styleUrls: ['./informations-fournisseur.component.scss']
 })
-export class InformationsPersonnellesComponent implements OnInit {
+export class InformationsFournisseurComponent implements OnInit {
+
   id: number;
   version: number;
   disc: string;
-  civilite: string;
-  nom: string;
   rue: string;
   codePostal: string;
   identifiant: string;
@@ -23,24 +22,26 @@ export class InformationsPersonnellesComponent implements OnInit {
   telephone: string;
   complement: string;
   ville: string;
+  statut: string;
+  SIRET_SIREN: string;
+  RCS: string;
+  TVA: string;
   informationsForm: CompteUtilisateur = new CompteUtilisateur();
   compteUtilisateur: CompteUtilisateur = new CompteUtilisateur();
   modifierBoolean: boolean = false;
 
-  civilites: Array<String> = new Array<string>();
+  statuts: Array<String> = new Array<string>();
 
   @Input()
-  prenom: string;
+  denomination: string;
 
   constructor(private compteUtilisateurService: CompteUtilisateurService, private titleService: Title, private commonService: CommonService) {
-    this.titleService.setTitle("Informations Personnelles");
+    this.titleService.setTitle("Informations Fournisseur");
     this.disc = sessionStorage.getItem('typeCompte');
     this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp => {
       this.id = resp.id;
       this.version = resp.version;
-      this.civilite = resp.civilite;
-      this.nom = resp.nom;
-      this.prenom = resp.prenom;
+      this.denomination = resp.denomination;
       this.rue = resp.rue;
       this.complement = resp.complement;
       this.codePostal = resp.codePostal;
@@ -49,6 +50,10 @@ export class InformationsPersonnellesComponent implements OnInit {
       this.motDePasse = resp.motDePasse;
       this.mail = resp.mail;
       this.telephone = resp.telephone;
+      this.statut = resp.statut;
+      this.SIRET_SIREN = resp.SIRET_SIREN;
+      this.RCS = resp.RCS;
+      this.TVA = resp.TVA;
       this.informationsForm.id = resp.id;
       this.informationsForm.version = resp.version;
       this.compteUtilisateur.id = resp.id;
@@ -59,14 +64,11 @@ export class InformationsPersonnellesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.commonService.findAllCivilites().subscribe(resp => this.civilites = resp, err => console.log(err));
+    this.commonService.findAllStatuts().subscribe(resp => this.statuts = resp, err => console.log(err));
   }
 
   edit() {
     this.modifierBoolean = true;
-    this.informationsForm.civilite = this.civilite;
-    this.informationsForm.nom = this.nom;
-    this.informationsForm.prenom = this.prenom;
     this.informationsForm.rue = this.rue;
     this.informationsForm.complement = this.complement;
     this.informationsForm.codePostal = this.codePostal;
@@ -75,13 +77,15 @@ export class InformationsPersonnellesComponent implements OnInit {
     this.informationsForm.motDePasse = this.motDePasse;
     this.informationsForm.telephone = this.telephone;
     this.informationsForm.mail = this.mail;
+    this.informationsForm.denomination = this.denomination;
+    this.informationsForm.statut = this.statut;
+    this.informationsForm.SIRET_SIREN = this.SIRET_SIREN;
+    this.informationsForm.RCS = this.RCS;
+    this.informationsForm.TVA = this.TVA;
   }
 
   save(compteUtilisateur: CompteUtilisateur) {
     this.compteUtilisateurService.modify(this.informationsForm).subscribe(resp => {
-      this.informationsForm.civilite = this.civilite;
-      this.informationsForm.nom = this.nom;
-      this.informationsForm.prenom = this.prenom;
       this.informationsForm.rue = this.rue;
       this.informationsForm.complement = this.complement;
       this.informationsForm.codePostal = this.codePostal;
@@ -90,6 +94,11 @@ export class InformationsPersonnellesComponent implements OnInit {
       this.informationsForm.motDePasse = this.motDePasse;
       this.informationsForm.telephone = this.telephone;
       this.informationsForm.mail = this.mail;
+      this.informationsForm.denomination = this.denomination;
+      this.informationsForm.statut = this.statut;
+      this.informationsForm.SIRET_SIREN = this.SIRET_SIREN;
+      this.informationsForm.RCS = this.RCS;
+      this.informationsForm.TVA = this.TVA;
       this.modifierBoolean = false;
       this.reload();
 
@@ -105,9 +114,7 @@ export class InformationsPersonnellesComponent implements OnInit {
     this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp => {
       this.id = resp.id;
       this.version = resp.version;
-      this.civilite = resp.civilite;
-      this.nom = resp.nom;
-      this.prenom = resp.prenom;
+      this.denomination = resp.denomination;
       this.rue = resp.rue;
       this.complement = resp.complement;
       this.codePostal = resp.codePostal;
@@ -116,12 +123,13 @@ export class InformationsPersonnellesComponent implements OnInit {
       this.motDePasse = resp.motDePasse;
       this.mail = resp.mail;
       this.telephone = resp.telephone;
-      this.informationsForm.id = resp.id;
-      this.informationsForm.version = resp.version;
-      this.compteUtilisateur.id = resp.id;
-      this.compteUtilisateur.version = resp.version;
+      this.statut = resp.statut;
+      this.SIRET_SIREN = resp.SIRET_SIREN;
+      this.RCS = resp.RCS;
+      this.TVA = resp.TVA;;
 
     }, error => console.log(error));
   }
 
 }
+
