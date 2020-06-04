@@ -11,6 +11,8 @@ import {Paiement} from '../model/Paiement';
 import {CommonService} from '../common.service';
 import {Commande} from '../model/Commande';
 import {Router} from '@angular/router';
+import {CompteUtilisateur} from '../model/CompteUtilisateur';
+import {CompteUtilisateurService} from '../services/compte-utilisateur.service';
 
 @Component({
   selector: 'app-panier',
@@ -31,14 +33,14 @@ export class PanierComponent implements OnInit {
   typeCarte: string;
   typePaiement: string;
   typeCartes: Array<string> = new Array<string>();
+  compteUtilisateur:CompteUtilisateur;
 
-
-  constructor(private titleService: Title, private panierService: PanierService, private router: Router, private selectionService: SelectionService, private commonService: CommonService) {
+  constructor(private titleService: Title, private panierService: PanierService, private router: Router, private selectionService: SelectionService, private commonService: CommonService,private compteUtilisateurService:CompteUtilisateurService) {
     this.titleService.setTitle('Panier');
     this.load(parseInt(sessionStorage.getItem('idPanierEnCours')));
     this.calcul();
     this.commonService.page="panier";
-
+    this.loadCompte(parseInt(sessionStorage.getItem('idCompte')))
   }
 
   ngOnInit(): void {
@@ -53,6 +55,12 @@ export class PanierComponent implements OnInit {
       this.panier = resp;
       this.selections = resp.selections;
     }, error => console.log(error));
+  }
+
+  loadCompte(id:number){
+    this.compteUtilisateurService.findById(id).subscribe(resp=>{
+      this.compteUtilisateur = resp
+    },error => console.log(error))
   }
 
   filterCaracFaune(faune: Faune, nomCarac: string): string {
