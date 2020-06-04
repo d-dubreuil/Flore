@@ -29,7 +29,6 @@ export class FicheFloreComponent implements OnInit {
   constructor(public floreService: FloreService, private titleService: Title, public fauneService: FauneService, private router: Router, public commonService: CommonService, private compteUtilisateurService: CompteUtilisateurService, private selectionService: SelectionService, private panierService: PanierService) {
     this.titleService.setTitle('Fiche-Flore');
     this.commonService.page = 'flore';
-    console.log(this.floreService.flore);
   }
 
   ngOnInit(): void {
@@ -113,8 +112,7 @@ export class FicheFloreComponent implements OnInit {
     this.panierService.findById(parseInt(sessionStorage.getItem('idPanierEnCours'))).subscribe(resp=>{
       selec.nombre=1;
       selec.panier=resp;
-      this.selectionService.create(selec).subscribe(resp2=>{
-        console.log("ok");
+      this.selectionService.create(selec).subscribe(resp2=>{selec=resp2
       },error => console.log(error))
     },error => console.log(error))
     // this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp => {

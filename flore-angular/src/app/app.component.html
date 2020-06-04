@@ -25,7 +25,7 @@
         <li class="nav-item active ml-4"><a class="nav-link" [routerLink]="'/NPK/connexion'" style="color: #8bc34a;" *ngIf="this.commonService.connecte == null">Connexion <i
           class="fas fa-bug"></i></a><a class="nav-link" [routerLink]="'/NPK/compte'" style="color: #8bc34a;" *ngIf="this.commonService.connecte != null">Mon compte <i
           class="fas fa-bug"></i></a></li>
-        <li class="nav-item active mr-4 ml-4"><a class="nav-link" [routerLink]="'/NPK/connexion'">Se déconnecter <i
+        <li class="nav-item active mr-4 ml-4"><a class="nav-link" [routerLink]="'/NPK/accueil'" *ngIf="this.commonService.connecte!=null && this.commonService.connecte != ''" (click)="deconnexion()">Se déconnecter <i
           class="fas fa-power-off"></i></a></li>
       </ul>
     </div>
