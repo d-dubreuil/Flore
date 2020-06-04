@@ -32,3 +32,13 @@
 #ennemie:hover, #ennemie:active {
   color: red;
 }
+
+#btnPoint:hover, #btnPoint:active, #btnPoint:focus{
+  box-shadow: none;
+  outline: none;
+  border : none;
+}
+
+#btnPoint{
+  border:none;
+}
