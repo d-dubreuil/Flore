@@ -83,6 +83,8 @@ export class FicheFloreComponent implements OnInit {
   redirectToFicheFlore(nomFlore: string) {
     this.floreService.findByNom(nomFlore).subscribe(resp => {
       this.floreService.flore = resp[0];
+      this.plusFloreKompagne = false;
+      this.plusFloreEnnemie = false;
     }, error => console.log(error));
   }
 

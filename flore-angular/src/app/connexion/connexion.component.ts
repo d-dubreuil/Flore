@@ -22,6 +22,8 @@ export class ConnexionComponent implements OnInit {
 
   constructor(private titleService: Title, private sessionService: SessionService, private router: Router,public commonService:CommonService, private panierService:PanierService,private compteUtilisateurService:CompteUtilisateurService) {
     this.titleService.setTitle('Connexion');
+    this.commonService.page="connexion";
+
   }
 
   ngOnInit(): void {

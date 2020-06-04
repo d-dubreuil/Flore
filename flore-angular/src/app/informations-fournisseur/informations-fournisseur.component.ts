@@ -38,6 +38,7 @@ export class InformationsFournisseurComponent implements OnInit {
   constructor(private compteUtilisateurService: CompteUtilisateurService, private titleService: Title, private commonService: CommonService) {
     this.titleService.setTitle("Informations Fournisseur");
     this.disc = sessionStorage.getItem('typeCompte');
+    this.commonService.page="monCompte";
     this.compteUtilisateurService.findById(parseInt(sessionStorage.getItem('idCompte'))).subscribe(resp => {
       this.id = resp.id;
       this.version = resp.version;

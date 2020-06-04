@@ -20,9 +20,9 @@
     </div>
     <div id="navbarButtons" class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto ">
-        <li class="nav-item active mr-4 ml-4"><a class="nav-link" [routerLink]="'/NPK/panier'">Panier <i
+        <li class="nav-item active mr-4 ml-4"[ngClass]="{'enCours' : this.commonService.page=='panier'}"><a class="nav-link" [routerLink]="'/NPK/panier'">Panier <i
           class="fas fa-shopping-basket"></i></a></li>
-        <li class="nav-item active ml-4"><a class="nav-link" [routerLink]="'/NPK/connexion'" style="color: #8bc34a;" *ngIf="this.commonService.connecte == null">Connexion <i
+        <li class="nav-item active ml-4"[ngClass]="{'enCours' : this.commonService.page=='connexion'||this.commonService.page=='monCompte'}"><a class="nav-link" [routerLink]="'/NPK/connexion'" style="color: #8bc34a;" *ngIf="this.commonService.connecte == null">Connexion <i
           class="fas fa-bug"></i></a><a class="nav-link" [routerLink]="'/NPK/compte'" style="color: #8bc34a;" *ngIf="this.commonService.connecte != null">Mon compte <i
           class="fas fa-bug"></i></a></li>
         <li class="nav-item active mr-4 ml-4"><a class="nav-link" [routerLink]="'/NPK/accueil'" *ngIf="this.commonService.connecte!=null && this.commonService.connecte != ''" (click)="deconnexion()">Se déconnecter <i
@@ -51,7 +51,7 @@
       <div class="col-md-2 mt-md-0 mt-3"></div>
       <div class="col-md-3 mt-md-0 mt-3">
         <h4 style="font-size:22px">La Perma Kompanie</h4>
-        <p><i class="fas fa-home mr-2"></i>86 avenue JF Kennedy,</p>
+        <p><i class="fas fa-home mr-2"></i>86 avenue JF Kennedy</p>
         <p>33700 MERIGNAC</p>
       </div>
 
