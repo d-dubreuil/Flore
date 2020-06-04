@@ -11,82 +11,201 @@
   </div>
 </div>
 
-<!-- ADMINISTRATEUR -->
-<br><br>
-<div class="colum mt-5">
-  <div id="accordion">
+<!-- FOURNISSEUR -->
+<div class="row justify-content-center mt-5">
 
-    <!--INFORMATIONS-->
-    <div>
-      <div class="mx-5 " id="sideBar" style="background-color:#8bc34a">
-        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
-          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
-                  data-toggle="collapse" data-target="#detailInfo" aria-expanded="true" aria-controls="detailInfo">1. MODIFIER MES INFORMATIONS DE FACTURATION
-          </button>
-
-        </h5>
-      </div>
-      <div id="detailInfo" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >
-        <div>
-
+  <!-- INFORMATIONS PERSONNELLES -->
+  <div class="column m-3 box" style="width: 378px;">
+    <button [routerLink]="'/NPK/espace-fournisseur/informations-personnelles'" id="buttonFlore" type="button"
+            class="btn shadow-none justify-content-center align-items-center" style="height: 140px; width: 376px;">
+      <div class="row justify-content-center align-items-center">
+        <div class="column mr-5" style="width:15%;">
+          <div class="fa-stack fa-2x mr-5">
+            <i class="fas fa-circle fa-stack-2x" style="color: #ffeb3b; opacity: 0.2"></i>
+            <i class="fas fa-address-card fa-stack-1x" style="color: #ffeb3b"></i>
+          </div>
         </div>
-        <div>
-
-      </div>
-    </div>
-
-
-    <!--PRODUITS -->
-    <div>
-      <div class="mx-5 mt-5" id="sideBar" style="background-color:#8bc34a">
-        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">
-          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"
-                  data-toggle="collapse" data-target="#detailFaune" aria-expanded="true" aria-controls="detailFaune">2. ACCÈDER À MES PRODUITS
-          </button>
-
-        </h5>
-      </div>
-      <div id="detailFaune" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >
-        <div>
-          <h2 class="my-3" style="text-align: center">Mes ventes en cours</h2>
-        </div>
-        <div>
-          <table class="table table-striped ml-5 pl-3" style="width: 92%">
-            <thead>
-            <tr>
-              <th>Nom de la flore</th>
-              <th>Variété</th>
-              <th>Stock</th>
-              <th>Vente active</th>
-              <th>Options</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><div class="btn-group btn-group-sm">
-                <a id="btnGroup" class="btn">
-                  <i class="fa fa-edit"></i>
-                </a>
-                <a id="btnGroup" class="btn"><i class="fa fa-trash"></i></a>
-              </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="card-footer ml-5 pl-3" style="width: 92%">
-          <a class="btn"><i class="fa fa-plus"></i></a>
+        <div class="column" style="width: 230px;">
+          <h5>Accéder / Modifier <br> mes Informations </h5>
         </div>
       </div>
-    </div>
+    </button>
+  </div>
 
+  <!-- PRODUITS -->
+  <div class="column m-3 box" style="width: 378px;">
+    <button id="buttonLien" type="button" class="btn shadow-none justify-content-center align-items-center"style="height: 140px; width: 376px;" disabled>
+      <div class="row justify-content-center align-items-center">
+        <div class="column mr-5 " style="width: 15%;">
+          <div class="fa-stack fa-2x mr-5">
+            <i class="fas fa-circle fa-stack-2x" style="color: #ffab00; opacity: 0.2"></i>
+            <i class="fas fa-tag fa-stack-1x" style="color: #ffab00"></i>
+          </div>
+        </div>
+        <div class="column" style="width: 230px;">
+          <h5>Accéder / Modifier <br> ma liste de Produits
+          </h5>
+        </div>
+      </div>
+    </button>
+  </div>
 
-
-    <br><br><br><br><br>
-
+  <!-- VENTES -->
+  <div class="column m-3 box" style="width: 378px;">
+    <button id="buttonConseil" type="button" class="btn shadow-none justify-content-center align-items-center"
+            style="height: 140px; width: 376px;" disabled>
+      <div class="row justify-content-center align-items-center">
+        <div class="column mr-5 " style="width: 15%;">
+          <div class="fa-stack fa-2x mr-5">
+            <i class="fas fa-circle fa-stack-2x" style="color: #f44336; opacity: 0.2"></i>
+            <i class="fas fa-barcode fa-stack-1x" style="color: #f44336"></i>
+          </div>
+        </div>
+        <div class="column" style="width: 230px;">
+          <h5>Accéder à l'historique <br> de mes Ventes
+          </h5>
+        </div>
+      </div>
+    </button>
   </div>
 </div>
+
+<div class="row justify-content-center align-items-center  mt-2">
+
+  <!-- FACTURES -->
+  <div class="column m-3 box" style="width: 378px;">
+    <button id="buttonFaune" type="button" class="btn shadow-none justify-content-center align-items-center"
+            style="height: 140px; width: 376px;" disabled>
+      <div class="row justify-content-center align-items-center">
+        <div class="column mr-5 " style="width: 50px;">
+          <div class="fa-stack fa-2x mr-5">
+            <i class="fas fa-circle fa-stack-2x" style="color: #8bc34a; opacity: 0.2"></i>
+            <i class="fab fa-envira fa-stack-1x" style="color: #8bc34a"></i>
+          </div>
+        </div>
+        <div class="column" style="width: 230px;">
+          <h5>Accéder à mon <br> espace de Facturation</h5>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <!-- COMMANDES -->
+  <div class="column m-3 box" style="width: 378px;">
+    <button [routerLink]="'/NPK/espace-client/commandes'" id="buttonCompte" type="button" class="btn shadow-none justify-content-center align-items-center"
+            style="height: 140px; width: 376px;" disabled>
+      <div class="row justify-content-center align-items-center">
+        <div class="column mr-5 " style="width: 50px;">
+          <div class="fa-stack fa-2x mr-5">
+            <i class="fas fa-circle fa-stack-2x" style="color: #03a9f4; opacity: 0.2"></i>
+            <i class="fas fa-map fa-stack-1x" style="color: #03a9f4"></i>
+          </div>
+        </div>
+        <div class="column" style="width: 230px;">
+          <h5>Trouver des Fournisseurs <br> à proximité
+          </h5>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="column m-3 box" style="width: 378px;">
+    <button [routerLink]="'/NPK/espace-client/contact'" id="buttonContact" type="button" class="btn shadow-none justify-content-center align-items-center"
+            style="height: 140px; width: 376px;" disabled>
+      <div class="row justify-content-center align-items-center">
+        <div class="column mr-5 " style="width: 50px;">
+          <div class="fa-stack fa-2x mr-5">
+            <i class="fas fa-circle fa-stack-2x" style="color: #d81b60; opacity: 0.2"></i>
+            <i class="fas fa-envelope fa-stack-1x" style="color: #d81b60"></i>
+          </div>
+        </div>
+        <div class="column" style="width: 230px;">
+          <h5>Des questions ? <br> Contactez nous !
+          </h5>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+
+
+<!--&lt;!&ndash; ADMINISTRATEUR  &ndash;&gt;-->
+<!--<br><br>-->
+<!--<div class="colum mt-5">-->
+<!--  <div id="accordion">-->
+
+<!--    &lt;!&ndash;INFORMATIONS&ndash;&gt;-->
+<!--    <div>-->
+<!--      <div class="mx-5 " id="sideBar" style="background-color:#8bc34a">-->
+<!--        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">-->
+<!--          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"-->
+<!--                  data-toggle="collapse" data-target="#detailInfo" aria-expanded="true" aria-controls="detailInfo">1. MODIFIER MES INFORMATIONS DE FACTURATION-->
+<!--          </button>-->
+
+<!--        </h5>-->
+<!--      </div>-->
+<!--      <div id="detailInfo" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >-->
+<!--        <div>-->
+
+<!--        </div>-->
+<!--        <div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--    &lt;!&ndash;PRODUITS &ndash;&gt;-->
+<!--    <div>-->
+<!--      <div class="mx-5 mt-5" id="sideBar" style="background-color:#8bc34a">-->
+<!--        <h5 class="mb-0 ml-5 pl-3" style="font-size: large; font-weight: bold">-->
+<!--          <button class="btn shadow-none collapsed" style="width: 100%; text-align: left; font-size: 18px; font-weight: bold"-->
+<!--                  data-toggle="collapse" data-target="#detailFaune" aria-expanded="true" aria-controls="detailFaune">2. ACCÈDER À MES PRODUITS-->
+<!--          </button>-->
+
+<!--        </h5>-->
+<!--      </div>-->
+<!--      <div id="detailFaune" class="collapse" aria-labelledby="sideBar" data-parent="#accordion" >-->
+<!--        <div>-->
+<!--          <h2 class="my-3" style="text-align: center">Mes ventes en cours</h2>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <table class="table table-striped ml-5 pl-3" style="width: 92%">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--              <th>Nom de la flore</th>-->
+<!--              <th>Variété</th>-->
+<!--              <th>Stock</th>-->
+<!--              <th>Vente active</th>-->
+<!--              <th>Options</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--              <td></td>-->
+<!--              <td></td>-->
+<!--              <td></td>-->
+<!--              <td></td>-->
+<!--              <td><div class="btn-group btn-group-sm">-->
+<!--                <a id="btnGroup" class="btn">-->
+<!--                  <i class="fa fa-edit"></i>-->
+<!--                </a>-->
+<!--                <a id="btnGroup" class="btn"><i class="fa fa-trash"></i></a>-->
+<!--              </div>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--          </table>-->
+<!--        </div>-->
+<!--        <div class="card-footer ml-5 pl-3" style="width: 92%">-->
+<!--          <a class="btn"><i class="fa fa-plus"></i></a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+
+<!--    <br><br><br><br><br> -->
+
+<!--  </div>-->
+<!--</div>-->
