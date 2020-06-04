@@ -85,6 +85,8 @@ export class FicheFauneComponent implements OnInit {
   redirectToFicheFaune(nomFaune: string) {
     this.fauneService.findByNom(nomFaune).subscribe(resp => {
       this.fauneService.faune = resp[0];
+      this.plusFaunePredateur=false;
+      this.plusFauneProie=false
       this.router.navigateByUrl('NPK/faune/fiche-faune');
     }, error => console.log(error));
     ;
