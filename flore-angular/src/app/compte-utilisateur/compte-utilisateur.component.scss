@@ -6,12 +6,6 @@
   font-size: xx-small;
 }
 
-#formulaireAdmin{
-  border-style: solid;
-  border-width: 1px;
-  border-color: #8bc34a;
-}
-
 ::ng-deep .completer-row{
   text-align: center;
   font-style: italic;
@@ -21,3 +15,6 @@
   width: inherit;
 }
 
+#formulaireAdmin {
+  border: 1px solid #8bc34a;
+}
