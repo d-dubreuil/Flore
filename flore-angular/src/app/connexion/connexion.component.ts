@@ -30,7 +30,7 @@ export class ConnexionComponent implements OnInit {
   connexion() {
     this.sessionService.connexion(this.session).subscribe(resp => {
       if (resp[0] == 'nonOK') {
-        this.authechecBoolean = true;
+        alert("Erreur d'authentification.")
       } else if (resp[0] == 'OK') {
         sessionStorage.setItem('idCompte', resp[1]);
         sessionStorage.setItem('typeCompte', resp[2]);
@@ -52,9 +52,9 @@ export class ConnexionComponent implements OnInit {
     this.creationEchecBoolean=false;
     this.sessionService.creation(this.session).subscribe(resp=>{
       if (resp[0] == 'nonOK'){
-        this.creationEchecBoolean=true;
+        alert("Identifiant déjà utilisé")
       } else if (resp[0] == 'Vide'){
-        this.creationVideBoolean=true;
+        alert("Le mot de passe et l'identifiant doivent être renseignés.");
       } else if (resp[0]=='OK'){
         sessionStorage.setItem('idCompte', resp[1]);
         sessionStorage.setItem('typeCompte', resp[2]);

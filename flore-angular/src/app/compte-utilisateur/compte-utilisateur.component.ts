@@ -249,6 +249,7 @@ export class CompteUtilisateurComponent implements OnInit {
     this.floreService.create(this.floreForm).subscribe(resp => {
       this.floreForm = new Flore();
       this.floreService.load();
+      alert("La flore "+this.nomFlore+" a été créée.")
     }, error => console.log(error));
   }
 
@@ -257,6 +258,8 @@ export class CompteUtilisateurComponent implements OnInit {
     this.fauneService.create(this.fauneForm).subscribe(resp => {
       this.fauneForm = new Faune();
       this.fauneService.load();
+      alert("La faune "+this.nomFaune+" a été créée.")
+
     }, error => console.log(error));
   }
 
@@ -265,11 +268,13 @@ export class CompteUtilisateurComponent implements OnInit {
     this.conseilService.create(this.conseilForm).subscribe(resp => {
       this.conseilForm = new Conseil();
       this.conseilService.load();
+      alert("Le conseil "+this.nomConseil+" a été créé.")
     }, error => console.log(error));
   }
 
   saveCarac() {
     this.caracteristiqueService.create(this.caracForm).subscribe(resp => {
+      alert("La caractéristique "+this.caracForm.nom+" a été créée.")
       this.caracForm = new Caracteristique();
       this.caracteristiqueService.load();
       this.caracFormVisible = false;
@@ -279,6 +284,7 @@ export class CompteUtilisateurComponent implements OnInit {
 
   saveCaracLatin() {
     this.caracteristiqueService.create(this.caracFormNomLatin).subscribe(resp => {
+      alert("La valeur de la caractéristique "+this.caracFormNomLatin.valeur+" a été créée.")
       this.caracFormNomLatin = new Caracteristique();
       this.caracteristiqueService.load();
     }, error => console.log(error));
