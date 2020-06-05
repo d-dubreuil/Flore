@@ -23,7 +23,8 @@ import flore.model.ReferentielFaune;
 import flore.model.ReferentielUtilisateur;
 import flore.model.Selection;
 import flore.model.TypeCarac;
-import flore.model.TypeUtilisateur;
+import flore.model.TypeCarte;
+import flore.model.TypeEnvoi;
 import flore.model.Utilisateur;
 import flore.persistence.ICaracteristiqueRepository;
 import flore.persistence.ICommandeRepository;
@@ -102,7 +103,7 @@ public class Test_vide {
 
 		historique1 = historiqueDao.save(historique1);
 
-		CompteUtilisateur compte1 = new CompteUtilisateur("charles", "manon","mdp", "charles.manon@yahoo.com", "Charles",
+		CompteUtilisateur compte1 = new CompteUtilisateur("charles","manon", "mdp", null, "charles.manon@yahoo.com", "Charles",
 				"21 avenue Colonel Pierre Bourgoin", "Maison D10", "33127", "Martignas sur Jalle", "06.35.24.43.32");
 
 		compte1 = compteUtilisateurDao.save(compte1);
@@ -110,7 +111,7 @@ public class Test_vide {
 		historique1.setCompte(compte1);
 		historique1 = historiqueDao.save(historique1);
 
-		Utilisateur contrib1 = new Utilisateur(TypeUtilisateur.Contributeur);
+		Utilisateur contrib1 = new Utilisateur();
 
 		contrib1 = utilisateurDao.save(contrib1);
 
@@ -127,8 +128,8 @@ public class Test_vide {
 		Caracteristique recolte1 = creationUnique("Récolte", "mi-juin à fin juillet", TypeCarac.Flore);
 		Caracteristique usage1 = creationUnique("Usage", "comestible", TypeCarac.Utilisation);
 		Caracteristique predateur1 = creationUnique("Prédateurs", "limaces", TypeCarac.Faune);
-		Caracteristique ensoleillement1 = creationUnique("Ensoleillement", "plein soleil", TypeCarac.Meteo);
-		Caracteristique temperature1 = creationUnique("Température idéale", "entre 10 et 25°C", TypeCarac.Meteo);
+		Caracteristique ensoleillement1 = creationUnique("Ensoleillement", "plein soleil", TypeCarac.ConditionsClimatiques);
+		Caracteristique temperature1 = creationUnique("Température idéale", "entre 10 et 25°C", TypeCarac.ConditionsClimatiques);
 		Caracteristique texture1 = creationUnique("Type de sol", "sol humifère meuble et sableux", TypeCarac.Sol);
 		Caracteristique pH1 = creationUnique("pH du sol", "5,5 à 7,5 : acide à neutre", TypeCarac.Sol);
 		Caracteristique arrosage1 = creationUnique("Arrosage", "arrosage sans excès", TypeCarac.Sol);
@@ -193,10 +194,10 @@ public class Test_vide {
 		s1.setPanier(panier1);
 		panier1.setUtilisateur(contrib1);
 		panier1 = panierDao.save(panier1);
-		Commande com1 = new Commande(4561, "postal", 29.99f);
+		Commande com1 = new Commande(456, TypeEnvoi.Colissimo, 29.99f);
 		com1 = commandeDao.save(com1);
 		com1.setPanier(panier1);
-		Paiement pai1 = new Paiement("1234 1234 1234 1234", "04/22", "913", 29.99f);
+		Paiement pai1 = new Paiement(TypeCarte.Visa_Master_Card, "1234 1234 1234 1234", "04/22", "913", 29.99f);
 		pai1 = paiementDao.save(pai1);
 		com1.setPaiement(pai1);
 		panier1 = panierDao.save(panier1);
@@ -227,8 +228,8 @@ public class Test_vide {
 		Caracteristique finRecolteSeptembre = creationUnique("finRecolte", "septembre", TypeCarac.Flore);
 		Caracteristique usageComestible = creationUnique("usage", "comestible", TypeCarac.Utilisation);
 		Caracteristique predateurPuceron = creationUnique("predateurs", "puceron", TypeCarac.Faune);
-		Caracteristique ensoleillementPleinSoleil = creationUnique("ensoleillement", "soleil", TypeCarac.Meteo);
-		Caracteristique resistanceAuFroidFragile = creationUnique("resistanceAuFroid", "fragile", TypeCarac.Meteo);
+		Caracteristique ensoleillementPleinSoleil = creationUnique("ensoleillement", "soleil", TypeCarac.ConditionsClimatiques);
+		Caracteristique resistanceAuFroidFragile = creationUnique("resistanceAuFroid", "fragile", TypeCarac.ConditionsClimatiques);
 		Caracteristique typeDeSolSableux = creationUnique("typeDeSol", "sableux", TypeCarac.Sol);
 		Caracteristique phNeutre = creationUnique("ph", "neutre", TypeCarac.Sol);
 		Caracteristique arrosageMoyen = creationUnique("arrosage", "moyen", TypeCarac.Sol);
